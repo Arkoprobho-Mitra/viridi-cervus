@@ -1,38 +1,128 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Navbar{
   display: flex;
-  flex-direction: column;
+  background-color: wheat;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+  padding: 10px;
+
+}
+
+.logo-container {
+  display: inline;
+  margin-left: 20px;
+  width: 50px;
+  height: 50px;
+  justify-self: start;
+  margin-right: 50px;
+} 
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+} 
+.categories {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: .2;
+  color: black;
+  font-size: 18px;
+  align-content: center;
+  align-self: auto;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.item-containers {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: .2;
+  color: black;
+  font-size: 18px;
+  align-content: center;
+  font-weight: bold;
+  justify-self: end;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+.search{
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-grow: 1;
 }
 
-.App-link {
-  color: #61dafb;
+.search-box {
+  width: 400px;
+  height: 30px;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 50px;
+  padding: 5px;
+  background-color: #f9f9f9;
+  margin-left: auto;
+  margin-right: 20px;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-input {
+  padding: 5px;
+  border: none;
+  border-radius: 5px; 
+  margin-right: 10px;
+}
+.men:hover {
+  background-color: #555;
+  border-radius: 5px;     
+}
+.women:hover {
+  background-color: #555;
+  border-radius: 5px;     
+}
+.beauty:hover {
+  background-color: #555;
+  border-radius: 5px; 
+}
+.kids:hover {
+  background-color: #555;
+  border-radius: 5px;     
+}
+.accessories:hover {
+  background-color: #555;
+  border-radius: 5px;     
+}
+.delivery-address:hover {
+  background-color: #555;
+  border-radius: 5px;     
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.search-input {
+  padding: 5px;
+  border: none;
+  border-radius: 5px; 
+  margin-right: 10px;
+}
+.search-button {
+  padding: 5px 10px;
+  background-color: #555;
+  color: white;   
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer;
+}
+.search-button:hover {
+  background-color: #777;
 }
