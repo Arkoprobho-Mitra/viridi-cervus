@@ -1,34 +1,23 @@
-import React from 'react';
+import './Header.Slideshow.container/Header.Slideshow.jsx';
+import Navbar from './Navbar.container/Navbar.components.jsx';  
 import './App.css';
+import SlidingWindow from './Header.Slideshow.container/Header.Slideshow.jsx';
+
+
 
 function App() {
+  const items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+    'Item 6'
+  ];
   return (
-    <div className='Navbar'>
-      
-      <div className='logo-container'>
-        <img src="/image.container/logo.png" className='logo' alt='logo' />
-      </div>
-      <div className='nav-links'>
-        <div className='categories'>
-          <div className='men'  >Men</div>
-          <div className='women'  >Women</div>
-          <div className='kids'  >Kids</div>
-          <div className='beauty'  >Beauty</div>
-          <div className='accessories'  >Accessories</div>
-          <div className='delivery-address'  >Delivery Address</div>
-        </div>
-        <div className='search'>
-          <input type='text' className='search-box' placeholder='Search...' />
-        </div>
-        <div className='item-containers'>
-          <div className='account'>Account</div>
-          <div className='orders'>Orders</div>
-          <div className='wishlist'>Wishlist</div>
-          <div className='cart'>Cart</div>
-        </div>
-
-      </div>
-
+    <div className="App">
+      <Navbar />
+      <SlidingWindow items={items} windowSize={3} />
     </div>
   );
 }
