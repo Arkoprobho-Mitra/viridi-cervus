@@ -1,52 +1,123 @@
 .slider-container {
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 800px;
-  margin: 40px auto;
-  gap: 10px;
+  height: 720px;
+  width: 90%;
+  max-width: 100%;
+  margin: 20px auto;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 4px;
+  overflow: visible;
+  /* Allow content to be seen in the translucent mask area if needed, but usually hidden + mask is safer */
 }
 
-.slider-btn {
-  background-color: #4a90e2;
-  color: white;
-  border: none;
-  padding: 12px 16px;
-  border-radius: 6px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.slider-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
+/* The window that hides the overflow */
 .slider-window {
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  /* Create a translucent fade effect on the left and right edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
 }
 
 .slider-track {
   display: flex;
-  transition: transform 0.4s ease-in-out;
   width: 100%;
+  height: 100%;
+  /* Transform is handled in JS */
 }
 
 .slider-item {
-  flex: 0 0 calc(100% / 3); /* adjust for windowSize */
-  margin: 0 5px;
-  background-color: #e6f7ff;
-  border-radius: 10px;
-  padding: 40px;
-  text-align: center;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* width is set via inline style for responsiveness */
+  flex-shrink: 0;
+  box-sizing: border-box;
+  background-color: #f5f5f6;
+  /* Myntra's subtle background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 720px;
+  width: 100%;
+  /* Example height */
+  color: #333;
+  font-size: 2rem;
+  font-weight: bold;
 }
-    .slider-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    }
+
+.slider-item img {
+  width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Buttons */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  /* Transparent white */
+  color: #333;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 1.5rem;
+  transition: background 0.3s, color 0.3s;
+  display: none;
+  /* Hidden by default, show on hover */
+}
+
+.slider-container:hover .slider-btn {
+  display: block;
+}
+
+.slider-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.slider-btn.left {
+  left: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.slider-btn.right {
+  right: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+/* Dots */
+.slider-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.slider-dot.active {
+  background-color: wheat;
+  /* Myntra Pink */
+  transform: scale(1.2);
+}
