@@ -1,0 +1,49 @@
+.history-banner-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    padding: 16px 0;
+    position: relative;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.history-banner-track {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    animation: banner-scroll 30s linear infinite;
+    width: max-content;
+}
+
+.history-banner-text {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #222;
+    padding: 0 40px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+}
+
+/* Optional separator styling if we use a span for it, keeping it subtle */
+.history-banner-separator {
+    color: #bbb;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 1.5rem;
+    /* Slightly larger for dot */
+    line-height: 0;
+}
+
+@keyframes banner-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

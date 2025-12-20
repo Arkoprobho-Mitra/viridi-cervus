@@ -8,6 +8,8 @@ import img5 from './item.history.container/pexels-okiki-onipede-1803710719-32759
 import img6 from './item.history.container/pexels-olly-3755706.jpg';
 import img7 from './item.history.container/pexels-willoworld-3768005.jpg';
 
+import HistoryBanner from './History.Banner.jsx';
+
 const ItemHistory = () => {
     const items = [
         {
@@ -41,7 +43,11 @@ const ItemHistory = () => {
     ];
 
     return (
-        <HistorySlidingWindow items={items} windowSize={4} />
+        <div>
+            <HistoryBanner />
+            <HistorySlidingWindow items={items} windowSize={4} />
+            <HistoryBanner />
+        </div>
     );
 };
 
