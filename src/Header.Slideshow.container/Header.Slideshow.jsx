@@ -86,14 +86,14 @@ const SlidingWindow = ({ items, windowSize = 1 }) => {
   const itemWidth = 100 / windowSize;
 
   return (
-    <div className="slider-container" onMouseEnter={stopAutoPlay} onMouseLeave={startAutoPlay}>
-      <button onClick={() => { prevSlide(); stopAutoPlay(); }} className="slider-btn left">
+    <div className="header-slider-container" onMouseEnter={stopAutoPlay} onMouseLeave={startAutoPlay}>
+      <button onClick={() => { prevSlide(); stopAutoPlay(); }} className="header-slider-btn left">
         ◀
       </button>
 
-      <div className="slider-window">
+      <div className="header-slider-window">
         <div
-          className="slider-track"
+          className="header-slider-track"
           ref={trackRef}
           onTransitionEnd={handleTransitionEnd}
           style={{
@@ -103,7 +103,7 @@ const SlidingWindow = ({ items, windowSize = 1 }) => {
         >
           {extendedItems.map((item, i) => (
             <div
-              className="slider-item"
+              className="header-slider-item"
               key={i}
               style={{ width: `${itemWidth}%` }}
             >
@@ -114,15 +114,15 @@ const SlidingWindow = ({ items, windowSize = 1 }) => {
         </div>
       </div>
 
-      <button onClick={() => { nextSlide(); stopAutoPlay(); }} className="slider-btn right">
+      <button onClick={() => { nextSlide(); stopAutoPlay(); }} className="header-slider-btn right">
         ▶
       </button>
 
-      <div className="slider-dots">
+      <div className="header-slider-dots">
         {items.map((_, i) => (
           <div
             key={i}
-            className={`slider-dot ${i === index ? 'active' : ''}`}
+            className={`header-slider-dot ${i === index ? 'active' : ''}`}
             onClick={() => handleDotClick(i)}
           />
         ))}

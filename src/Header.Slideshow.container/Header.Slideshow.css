@@ -1,10 +1,10 @@
-.slider-container {
-  padding: 0;
+.header-slider-container {
+  padding: 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  height: 720px;
-  width: 90%;
+  height: 480px;
+  width: 100%;
   max-width: 100%;
   margin: 20px auto;
   position: relative;
@@ -15,7 +15,7 @@
 }
 
 /* The window that hides the overflow */
-.slider-window {
+.header-slider-window {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,14 +28,14 @@
   mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
 }
 
-.slider-track {
+.header-slider-track {
   display: flex;
   width: 100%;
   height: 100%;
   /* Transform is handled in JS */
 }
 
-.slider-item {
+.header-slider-item {
   /* width is set via inline style for responsiveness */
   flex-shrink: 0;
   box-sizing: border-box;
@@ -43,8 +43,8 @@
   /* Myntra's subtle background */
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 720px;
+  align-items: flex-start;
+  height: 680px;
   width: 100%;
   /* Example height */
   color: #333;
@@ -52,14 +52,14 @@
   font-weight: bold;
 }
 
-.slider-item img {
+.header-slider-item img {
   width: 100%;
   object-fit: contain;
   display: block;
 }
 
 /* Buttons */
-.slider-btn {
+.header-slider-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -76,30 +76,30 @@
   /* Hidden by default, show on hover */
 }
 
-.slider-container:hover .slider-btn {
+.header-slider-container:hover .header-slider-btn {
   display: block;
 }
 
-.slider-btn:hover {
+.header-slider-btn:hover {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-.slider-btn.left {
+.header-slider-btn.left {
   left: 0;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 
-.slider-btn.right {
+.header-slider-btn.right {
   right: 0;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 
 /* Dots */
-.slider-dots {
+.header-slider-dots {
   position: absolute;
-  bottom: 15px;
+  bottom: 35px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -107,7 +107,7 @@
   z-index: 10;
 }
 
-.slider-dot {
+.header-slider-dot {
   width: 8px;
   height: 8px;
   background-color: rgba(0, 0, 0, 0.2);
@@ -116,7 +116,7 @@
   transition: background-color 0.3s, transform 0.3s;
 }
 
-.slider-dot.active {
+.header-slider-dot.active {
   background-color: wheat;
   /* Myntra Pink */
   transform: scale(1.2);

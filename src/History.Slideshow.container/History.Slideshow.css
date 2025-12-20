@@ -1,0 +1,143 @@
+.history-slider-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    margin: 20px auto;
+    border-radius: 4px;
+    overflow: visible;
+    /* Allow content to be seen in the translucent mask area if needed, but usually hidden + mask is safer */
+}
+
+/* The window that hides the overflow */
+.history-slider-window {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: wheat;
+    height: auto;
+    /* Create a translucent fade effect on the left and right edges */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+}
+
+.history-slider-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    /* Transform is handled in JS */
+}
+
+.history-slider-item {
+    /* width is set via inline style for responsiveness */
+    flex-shrink: 0;
+    padding: 0 5px;
+    box-sizing: border-box;
+    background-color: wheat;
+    /* Myntra's subtle background */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    /* Example height */
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.history-slider-item img {
+    width: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.image-details {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* Overlay to make text readable */
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.history-slider-item:hover .image-details {
+    opacity: 1;
+}
+
+/* Buttons */
+.history-slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Transparent white */
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    transition: background 0.3s, color 0.3s;
+    display: none;
+    /* Hidden by default, show on hover */
+}
+
+.history-slider-container:hover .history-slider-btn {
+    display: block;
+}
+
+.history-slider-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.history-slider-btn.left {
+    left: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.history-slider-btn.right {
+    right: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+/* Dots */
+.history-slider-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.history-slider-dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.history-slider-dot.active {
+    background-color: wheat;
+    /* Myntra Pink */
+    transform: scale(1.2);
+}
