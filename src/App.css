@@ -1,4 +1,4 @@
 .App {
     text-align: center;
-    background-color: wheat;
+    background: linear-gradient(to bottom, rgb(247, 212, 148), #f8e4e6);
 }
