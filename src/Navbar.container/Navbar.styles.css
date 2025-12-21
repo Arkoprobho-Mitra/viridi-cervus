@@ -8,6 +8,10 @@
   color: white;
   padding: 10px;
   border-radius: 5px;
+  position: relative;
+  /* Establish positioning context for Mega Menu */
+  z-index: 1100;
+  /* Ensure Navbar stays on top (MegaMenu is 1000) */
 
 }
 

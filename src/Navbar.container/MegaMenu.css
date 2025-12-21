@@ -1,0 +1,84 @@
+.mega-menu-container {
+    position: absolute;
+    top: 100%;
+    /* Position directly below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: rgb(250, 239, 224);
+    border-top: 1px solid #eaeaec;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow for premium feel */
+    z-index: 1000;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    /* Slide down animation */
+    animation: slideDown 0.2s ease-out forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mega-menu-content {
+    display: flex;
+    max-width: 1200px;
+    /* Or standard container width */
+    width: 100%;
+    padding: 0 20px;
+    justify-content: flex-start;
+    /* Items start from left, but usually structured in cols */
+}
+
+.mega-menu-column {
+    padding: 0 20px;
+    flex: 1;
+    /* Distribute space evenly or use fixed widths */
+    /* Check if Myntra uses fixed widths or flex. Usually flex columns, but 5 columns max */
+    min-width: 180px;
+}
+
+/* Specific styling for alternate background colors if column index is odd/even? Myntra has uniform columns. */
+.mega-menu-column:nth-child(even) {
+    background-color: transparent;
+}
+
+.column-heading {
+    font-size: 14px;
+    font-weight: 700;
+    color: forestgreen;
+    /* Myntra pink/red or use specific theme color */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.column-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.column-item {
+    font-size: 14px;
+    color: #282c3f;
+    /* Dark grey for text */
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-weight: 400;
+    transition: font-weight 0.1s;
+}
+
+.column-item:hover {
+    font-weight: 600;
+    /* Bold on hover */
+    color: #000;
+}

@@ -1,0 +1,122 @@
+.category-section {
+    padding: 40px 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.category-header {
+    font-size: 24px;
+    color: #3e4152;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.category-card {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    /* Aspect ratio for the card */
+    aspect-ratio: 215 / 330;
+    transition: transform 0.2s ease;
+}
+
+.category-card:hover {
+    transform: scale(1.02);
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.category-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Gradient similar to reference: transparent to purple/blue */
+    background: linear-gradient(to top, #5d5bb5 0%, rgba(93, 91, 181, 0.9) 30%, rgba(93, 91, 181, 0) 100%);
+    /* Actually the reference looks more like a solid block at bottom with a fade up. */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(106, 90, 205, 0.6) 20%, #6a5acd 100%);
+
+    /* Let's try to match the reference "purple/blue block" style more closely */
+    background: linear-gradient(0deg, #6c63ff 0%, #8ca6db 100%);
+    /* The reference is complex. Let's do a simple gradient overlay that looks premium */
+    background: linear-gradient(to top, rgba(62, 28, 168, 0.95) 0%, rgba(62, 28, 168, 0.6) 30%, rgba(0, 0, 0, 0) 100%);
+
+    padding: 15px 10px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 40%;
+    /* Overlay covers bottom 40% */
+}
+
+/* Adjust text styles */
+.category-info h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #e0e0e0;
+}
+
+.category-info .discount {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.category-info .shop-now {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+    .category-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .category-header {
+        text-align: center;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
