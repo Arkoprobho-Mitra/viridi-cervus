@@ -107,50 +107,33 @@
   margin-right: 10px;
 }
 
-.men:hover {
-  background-color: #777;
-  border-radius: 5px;
+/* Navigation Items Hover Effect */
+.categories>div,
+.item-containers>div {
+  position: relative;
+  cursor: pointer;
+  padding: 5px 0;
 }
 
-.women:hover {
-  background-color: #777;
-  border-radius: 5px;
+/* Underline Animation */
+.categories>div::after,
+.item-containers>div::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: forestgreen;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
 }
 
-.beauty:hover {
-  background-color: #777;
-  border-radius: 5px;
-}
-
-.kids:hover {
-  background-color: #777;
-  border-radius: 5px;
-}
-
-.accessories:hover {
-  background-color: #777;
-  border-radius: 5px;
-}
-
-.delivery-address:hover {
-  background-color: #777;
-  border-radius: 5px;
-}
-
-.cart:hover {
-  background-color: #777;
-  border-radius: 5px;
-}
-
-.account:hover {
-  background-color: #777;
-  border-radius: 5px;
-}
-
-
-.wishlist:hover {
-  background-color: #777;
-  border-radius: 5px;
+.categories>div:hover::after,
+.item-containers>div:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 
