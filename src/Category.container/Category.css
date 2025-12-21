@@ -1,25 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
 .category-section {
-    padding: 40px 20px;
-    max-width: 1600px;
-    margin: 0 auto;
+    padding: 40px 0;
+    width: 100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 .category-header {
-    font-size: 24px;
-    color: #3e4152;
+    font-size: 36px;
+    /* Larger font size for grandeur */
+    color: #1a2e1a;
+    /* Deep elegant green (Viridi) or dark charcoal */
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 30px;
-    font-weight: 700;
-    text-align: left;
-    margin-left: 10px;
+    letter-spacing: 4px;
+    /* Wide spacing for exclusivity */
+    margin-bottom: 50px;
+    font-weight: 400;
+    /* Serif fonts often look better with lighter weight */
+    text-align: center;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    /* Serif font for elegance */
+
+    /* Decorative elements */
+    position: relative;
+    padding: 20px 0;
+    border-top: 1px solid #d4af37;
+    /* Metallic Gold border */
+    border-bottom: 1px solid #d4af37;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.15), transparent);
+    /* Subtle gold shimmer */
+    background-size: 200% 100%;
+    width: 100%;
+
+    /* Animation */
+    animation: goldShimmer 10s linear infinite;
 }
+
+@keyframes goldShimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Optional: Add a flourish or icon using pseudo-elements if desired, but clean is often more 'exclusive'. */
 
 .category-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .category-card {
@@ -63,7 +98,7 @@
     background: linear-gradient(0deg, #6c63ff 0%, #8ca6db 100%);
     /* The reference is complex. Let's do a simple gradient overlay that looks premium */
     /*background: linear-gradient(to top, rgba(65, 28, 168, 0.95) 0%, rgba(248, 43, 43, 0.6) 30%, rgba(0, 0, 0, 0) 100%);*/
-    background: linear-gradient(to top, rgba(248, 43, 43, 0.6) 0%, rgba(65, 28, 168, 0.95) 10%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to top, rgba(248, 43, 43, 0.6) 0%, rgba(65, 28, 168, 0.95) 12%, rgba(0, 0, 0, 0) 100%);
 
     padding: 20px 0px;
     text-align: center;

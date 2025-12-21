@@ -17,7 +17,7 @@ const Navbar = () => {
     <div className='Navbar' onMouseLeave={handleMouseLeave}>
 
       <div className='logo-container'>
-        <img src="/image.container/logo.png" className='logo' alt='logo' />
+        <img src="/image.container/logo.png" className='logo' alt='Viridi Cervus Logo' />
       </div>
       <div className='nav-links'>
         <div className='categories'>

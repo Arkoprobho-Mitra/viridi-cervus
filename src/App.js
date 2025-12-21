@@ -5,6 +5,7 @@ import './App.css';
 import ItemSponsored from './Header.Slideshow.container/Item.sponsored.jsx';
 import Category from './Category.container/Category.jsx';
 import ItemHistory from 'E:/Shopping website/website/viridi-cervus/src/History.Slideshow.container/ItemHistory.jsx';
+import Footer from './Footer.container/Footer.jsx';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <ItemSponsored />
       <ItemHistory />
       <Category />
-      <p>Viridi Cervus</p>
+      <Footer />
     </div>
   );
 }
