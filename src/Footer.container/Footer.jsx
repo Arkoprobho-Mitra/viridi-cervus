@@ -75,7 +75,7 @@ const Footer = () => {
 
                 <div className="footer-copyright">
                     <div className="footer-logo">
-                        <img src="/image.container/logo.png" alt="Viridi Cervus Logo" />
+                        <img src="/image.container/logo1.png" alt="Viridi Cervus Logo" />
                         <span>Viridi Cervus</span>
                     </div>
                     <p className="copyright-text">© 2025 www.viridicervus.com. All rights reserved.</p>

@@ -12,7 +12,7 @@
 .footer-content {
     display: flex;
     justify-content: space-between;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 20px;
     flex-wrap: wrap;
@@ -96,6 +96,8 @@
 
 .social-links {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 15px;
 }
 
@@ -107,12 +109,13 @@
 
 .social-icon:hover {
     color: black;
+    font-weight: 500;
 }
 
 
 /* Footer Bottom */
 .footer-bottom {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 20px 20px;
     border-top: 1px solid #eaeaec;
