@@ -10,6 +10,9 @@ import Footer from './Footer.container/Footer.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Signin.Container/Signup.Login.jsx';
 
+import TermsOfUse from './Legal/TermsOfUse.jsx';
+import PrivacyPolicy from './Legal/PrivacyPolicy.jsx';
+
 function App() {
   return (
     <Router>
@@ -25,6 +28,8 @@ function App() {
             </>
           } />
           <Route path="/login" element={<Login />} />
+          <Route path="/terms" element={<><TermsOfUse /><Footer /></>} />
+          <Route path="/privacy" element={<><PrivacyPolicy /><Footer /></>} />
         </Routes>
       </div>
     </Router>

@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Signup.Login.css';
 import googleIcon from './login.image.container/search.png';
 import metaIcon from './login.image.container/meta.png';
 import xIcon from './login.image.container/twitter.png';
 import loginVideo from './login.image.container/loginscreenvideo.mp4';
+import SignupModal from './SignupModal';
 
 const Login = () => {
+    const [isSignupOpen, setIsSignupOpen] = useState(false);
+
     return (
         <div className="login-container" >
             <div className="login-split-container">
@@ -66,11 +69,27 @@ const Login = () => {
                         </div>
 
                         <p className="signup-link">
-                            Don't have an account? <Link to="/signup">Sign Up</Link>
+                            Don't have an account?
+                            <span
+                                onClick={() => setIsSignupOpen(true)}
+                                style={{
+                                    color: 'forestgreen',
+                                    fontWeight: '700',
+                                    cursor: 'pointer',
+                                    marginLeft: '5px'
+                                }}
+                            >
+                                Sign Up
+                            </span>
                         </p>
                     </div>
                 </div>
             </div>
+
+            <SignupModal
+                isOpen={isSignupOpen}
+                onClose={() => setIsSignupOpen(false)}
+            />
         </div>
     );
 };
