@@ -15,6 +15,7 @@ const Login = () => {
                         <video
                             src={loginVideo}
                             autoPlay
+                            preload="auto"
                             loop
                             muted
                             playsInline
