@@ -7,15 +7,27 @@ import Category from './Category.container/Category.jsx';
 import ItemHistory from 'E:/Shopping website/website/viridi-cervus/src/History.Slideshow.container/ItemHistory.jsx';
 import Footer from './Footer.container/Footer.jsx';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './Signin.Container/Signup.Login.jsx';
+
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <ItemSponsored />
-      <ItemHistory />
-      <Category />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <ItemSponsored />
+              <ItemHistory />
+              <Category />
+              <Footer />
+            </>
+          } />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

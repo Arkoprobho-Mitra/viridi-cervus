@@ -1,12 +1,16 @@
 import React from 'react';
 import './Navbar.styles.css';
 
+import { Link } from 'react-router-dom';
+
 export const AccountDropdown = () => (
     <div className="dropdown-menu account-dropdown">
         <div className="dropdown-header">
             <h4>Welcome</h4>
             <p>To access account and manage orders</p>
-            <button className="login-btn">LOGIN / SIGNUP</button>
+            <Link to="/login">
+                <button className="login-btn">LOGIN / SIGNUP</button>
+            </Link>
         </div>
         <ul className="dropdown-list">
             <li>Orders</li>
