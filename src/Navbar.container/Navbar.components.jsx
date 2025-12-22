@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.styles.css';
 import MegaMenu from './MegaMenu';
 import { AccountDropdown, WishlistDropdown, CartDropdown } from './NavbarDropdowns';
@@ -31,7 +32,9 @@ const Navbar = () => {
 
       <div className='navbar-content'>
         <div className='logo-container'>
-          <img src="/image.container/logo1.png" className='logo' alt='Viridi Cervus Logo' />
+          <Link to="/">
+            <img src="/image.container/logo1.png" className='logo' alt='Viridi Cervus Logo' />
+          </Link>
         </div>
         <div className='nav-links'>
           <div className='categories'>
