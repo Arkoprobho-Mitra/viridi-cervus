@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Signup.Login.css';
+import googleIcon from './login.image.container/search.png';
+import metaIcon from './login.image.container/meta.png';
+import xIcon from './login.image.container/twitter.png';
 
 const Login = () => {
     return (
@@ -28,18 +31,18 @@ const Login = () => {
                 </form>
 
                 <div className="divider">
-                    <span>OR CONTINUE WITH</span>
+                    <span>Or Login In Using</span>
                 </div>
 
                 <div className="social-login">
-                    <button className="social-btn google">
-                        <img src="./login.image.container/search.png" alt="Google" />
-                    </button>
                     <button className="social-btn meta">
-                        <img src="./login.image.container/meta.png" alt="Meta" />
+                        <img src={metaIcon} alt="Meta" />
                     </button>
                     <button className="social-btn X">
-                        <img src="./login.image.container/twitter.png" alt="X" />
+                        <img src={xIcon} alt="X" />
+                    </button>
+                    <button className="social-btn google">
+                        <img src={googleIcon} alt="Google" />
                     </button>
                 </div>
 
