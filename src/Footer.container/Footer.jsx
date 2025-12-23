@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -20,16 +21,16 @@ const Footer = () => {
                 <div className="footer-section">
                     <h4>CUSTOMER POLICIES</h4>
                     <ul>
-                        <li>Contact Us</li>
-                        <li>FAQ</li>
-                        <li>T&C</li>
-                        <li>Terms Of Use</li>
-                        <li>Track Orders</li>
-                        <li>Shipping</li>
-                        <li>Cancellation</li>
-                        <li>Returns</li>
-                        <li>Privacy policy</li>
-                        <li>Grievance Officer</li>
+                        <li><Link to="/contact" target="_blank" rel="noopener noreferrer">Contact Us</Link></li>
+                        <li><Link to="/faq" target="_blank" rel="noopener noreferrer">FAQ</Link></li>
+                        <li><Link to="/terms-and-conditions" target="_blank" rel="noopener noreferrer">T&C</Link></li>
+                        <li><Link to="/terms" target="_blank" rel="noopener noreferrer">Terms Of Use</Link></li>
+                        <li><Link to="/track-orders" target="_blank" rel="noopener noreferrer">Track Orders</Link></li>
+                        <li><Link to="/shipping" target="_blank" rel="noopener noreferrer">Shipping</Link></li>
+                        <li><Link to="/cancellation" target="_blank" rel="noopener noreferrer">Cancellation</Link></li>
+                        <li><Link to="/returns" target="_blank" rel="noopener noreferrer">Returns</Link></li>
+                        <li><Link to="/privacy" target="_blank" rel="noopener noreferrer">Privacy policy</Link></li>
+                        <li><Link to="/grievance" target="_blank" rel="noopener noreferrer">Grievance Officer</Link></li>
                     </ul>
                 </div>
 
