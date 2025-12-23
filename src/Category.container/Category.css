@@ -54,13 +54,15 @@
     gap: 20px;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0px 20px;
+    justify-content: center;
 }
 
 .category-card {
     position: relative;
     cursor: pointer;
     overflow: hidden;
+    width: 100%;
     /* Aspect ratio for the card */
     aspect-ratio: 215 / 330;
     transition: transform 0.2s ease;
@@ -89,7 +91,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 90%;
+    width: 100%;
     /* Gradient similar to reference: transparent to purple/blue */
     /* Actually the reference looks more like a solid block at bottom with a fade up. */
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(106, 90, 205, 0.6) 20%, #6a5acd 100%);
@@ -101,7 +103,7 @@
     background: linear-gradient(to top, rgba(248, 43, 43, 0.6) 0%, rgba(65, 28, 168, 0.95) 12%, rgba(0, 0, 0, 0) 100%);
 
     padding: 10px 0px;
-    margin: 10px;
+    margin: 0;
     text-align: center;
     color: white;
     display: flex;
