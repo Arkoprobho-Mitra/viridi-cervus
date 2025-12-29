@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { navbarData } from './navbarData';
 import './MegaMenu.css';
 
@@ -18,7 +19,15 @@ const MegaMenu = ({ category, visible }) => {
                         <h4 className="column-heading">{column.heading}</h4>
                         <ul className="column-list">
                             {column.items.map((item, idx) => (
-                                <li key={idx} className="column-item">{item}</li>
+                                <li key={idx} className="column-item">
+                                    <Link
+                                        to={`/products?gender=${category}&category=${column.heading}&subCategory=${item}`}
+                                        className="menu-link"
+                                        style={{ textDecoration: 'none', color: 'inherit' }}
+                                    >
+                                        {item}
+                                    </Link>
+                                </li>
                             ))}
                         </ul>
                     </div>
