@@ -1,12 +1,13 @@
 
 import React from 'react';
 import './ProductListing.css';
-import { filterOptions } from './productsData';
+import FilterModal from './FilterModal.jsx';
 
-const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors: [], discount: null }, onFilterChange, onClearFilters }) => {
+const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors: [], discount: null }, onFilterChange, onClearFilters, availableOptions = { brands: [], colors: [], prices: [], discountRange: [] } }) => {
 
     const [minInput, setMinInput] = React.useState(selectedFilters.priceRange[0]);
     const [maxInput, setMaxInput] = React.useState(selectedFilters.priceRange[1]);
+    const [showBrandModal, setShowBrandModal] = React.useState(false);
 
     React.useEffect(() => {
         setMinInput(selectedFilters.priceRange[0]);
@@ -46,15 +47,73 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
         return selectedFilters[section]?.includes(value);
     };
 
+    // Sticky Sidebar Logic
+    const sidebarRef = React.useRef(null);
+    const [stickyOffset, setStickyOffset] = React.useState(20);
+
+    React.useEffect(() => {
+        const calculateOffset = () => {
+            if (sidebarRef.current) {
+                const sidebarHeight = sidebarRef.current.offsetHeight;
+                const viewHeight = window.innerHeight;
+
+                // Assuming a fixed header height ~80px. 
+                // If sidebar fits: stick to top (e.g. 85px).
+                // If NOT fits: stick to bottom.
+                // top = viewHeight - sidebarHeight - 20 (padding).
+
+                if (sidebarHeight + 100 > viewHeight) { // 100 buffer for header
+                    const offset = viewHeight - sidebarHeight - 20;
+                    setStickyOffset(offset);
+                } else {
+                    setStickyOffset(85); // Header + padding
+                }
+            }
+        };
+
+        calculateOffset();
+        window.addEventListener('resize', calculateOffset);
+
+        const observer = new ResizeObserver(calculateOffset);
+        if (sidebarRef.current) observer.observe(sidebarRef.current);
+
+        return () => {
+            window.removeEventListener('resize', calculateOffset);
+            observer.disconnect();
+        };
+    }, [selectedFilters]);
+
     return (
-        <div className="filters-sidebar">
+        <div
+            className="filters-sidebar"
+            ref={sidebarRef}
+            style={{ position: 'sticky', top: `${stickyOffset}px`, alignSelf: 'flex-start' }}
+        >
             <div className="filter-section">
                 <div className="filter-title">Filters <span onClick={onClearFilters} className="clear-all-btn">CLEAR ALL</span></div>
             </div>
 
+            {availableOptions.categories && availableOptions.categories.length > 0 && (
+                <div className="filter-section">
+                    <div className="filter-title">Categories</div>
+                    {availableOptions.categories.map((cat, index) => (
+                        <label key={index} className="filter-option">
+                            <input
+                                type="checkbox"
+                                checked={isSelected('categories', cat)}
+                                onChange={() => onFilterChange('categories', cat)}
+                            />
+                            {cat}
+                        </label>
+                    ))}
+                </div>
+            )}
+
             <div className="filter-section">
-                <div className="filter-title">Brand</div>
-                {filterOptions.brands.map((brand, index) => (
+                <div className="filter-title">
+                    Brand
+                </div>
+                {availableOptions.brands.slice(0, 10).map((brand, index) => (
                     <label key={index} className="filter-option">
                         <input
                             type="checkbox"
@@ -65,7 +124,28 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
                         <span className="filter-count">({Math.floor(Math.random() * 1000) + 100})</span>
                     </label>
                 ))}
+                {availableOptions.brands.length > 10 && (
+                    <div
+                        className="more-brands-btn"
+                        onClick={() => setShowBrandModal(true)}
+                        style={{ color: 'forestgreen', fontSize: '14px', fontWeight: '600', cursor: 'pointer', marginTop: '10px', paddingLeft: '5px' }}
+                    >
+                        + {availableOptions.brands.length - 10} more
+                    </div>
+                )}
             </div>
+
+            {showBrandModal && (
+                <FilterModal
+                    title="Select Brands"
+                    options={availableOptions.brands}
+                    selectedOptions={selectedFilters.brands}
+                    onApply={(newSelection) => {
+                        onFilterChange('brands', newSelection);
+                    }}
+                    onClose={() => setShowBrandModal(false)}
+                />
+            )}
 
             <div className="filter-section">
                 <div className="filter-title">
@@ -137,7 +217,7 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
 
             <div className="filter-section">
                 <div className="filter-title">Color</div>
-                {filterOptions.colors.map((color, index) => (
+                {availableOptions.colors.map((color, index) => (
                     <label key={index} className="filter-option">
                         <input
                             type="checkbox"
@@ -154,7 +234,7 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
 
             <div className="filter-section">
                 <div className="filter-title">Discount Range</div>
-                {filterOptions.discountRange.map((range, index) => (
+                {availableOptions.discountRange.map((range, index) => (
                     <label key={index} className="filter-option">
                         <input
                             type="radio"

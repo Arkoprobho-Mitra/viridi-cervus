@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.styles.css';
 import MegaMenu from './MegaMenu';
 import { AccountDropdown, WishlistDropdown, CartDropdown } from './NavbarDropdowns';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState(null);
   const [activeItem, setActiveItem] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (e) => {
+    if (e.key === 'Enter' && searchQuery.trim()) {
+      navigate(`/products?search=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
 
   const handleMouseEnter = (category) => {
     setActiveCategory(category);
@@ -46,7 +54,14 @@ const Navbar = () => {
             <div className='delivery-address'>Delivery Address</div>
           </div>
           <div className='search'>
-            <input type='text' className='search-box' placeholder='Search...' />
+            <input
+              type='text'
+              className='search-box'
+              placeholder='Search...'
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleSearch}
+            />
           </div>
           <div className='item-containers'>
             <div className='account' onMouseEnter={() => handleItemEnter('account')}>

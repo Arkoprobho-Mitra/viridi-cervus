@@ -21,7 +21,7 @@ const MegaMenu = ({ category, visible }) => {
                             {column.items.map((item, idx) => (
                                 <li key={idx} className="column-item">
                                     <Link
-                                        to={`/products?gender=${category}&category=${column.heading}&subCategory=${item}`}
+                                        to={`/products?gender=${encodeURIComponent(category)}&category=${encodeURIComponent(column.heading)}&subCategory=${encodeURIComponent(item)}`}
                                         className="menu-link"
                                         style={{ textDecoration: 'none', color: 'inherit' }}
                                     >

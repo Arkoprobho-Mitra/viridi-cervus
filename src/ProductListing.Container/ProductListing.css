@@ -15,7 +15,13 @@
     flex-shrink: 0;
     border-right: 1px solid #e9e9ed;
     padding-right: 20px;
+    /* Position handled by JS/CSS combination */
+    position: sticky;
+    /* top set via inline style */
+    z-index: 20;
 }
+
+
 
 .filter-section {
     border-bottom: 1px solid #e9e9ed;
@@ -82,6 +88,8 @@
 /* Main Content */
 .product-grid-section {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .listing-header {
@@ -432,4 +440,17 @@
 .price-separator {
     color: #94969f;
     font-size: 12px;
+}
+
+.breadcrumb-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb-link:hover {
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
 }
