@@ -22,6 +22,7 @@ const ProductListing = () => {
     const [selectedFilters, setSelectedFilters] = React.useState({
         brands: [],
         prices: [],
+        priceRange: [0, 5000],
         colors: [],
         discount: null
     });
@@ -48,6 +49,7 @@ const ProductListing = () => {
         setSelectedFilters({
             brands: [],
             prices: [],
+            priceRange: [0, 5000],
             colors: [],
             discount: null
         });
@@ -62,6 +64,11 @@ const ProductListing = () => {
 
         // Color Filter
         if (selectedFilters.colors.length > 0 && !selectedFilters.colors.includes(product.color)) {
+            return false;
+        }
+
+        // Price Filter (Slider Range)
+        if (product.price < selectedFilters.priceRange[0] || product.price > selectedFilters.priceRange[1]) {
             return false;
         }
 

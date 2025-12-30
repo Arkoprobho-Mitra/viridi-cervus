@@ -262,7 +262,8 @@
     position: relative;
     z-index: 1;
     height: 4px;
-    margin: 0 10px;
+    margin: 0 8px;
+    /* Align track ends with thumb centers (16px/2 = 8px) */
 }
 
 .slider__track {
@@ -290,12 +291,13 @@
 
 .thumb {
     -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     pointer-events: none;
     position: absolute;
     height: 0;
     width: 100%;
+    left: 0;
+    /* Align input with container edge */
     outline: none;
     z-index: 3;
     top: 50%;
@@ -308,12 +310,15 @@
     pointer-events: all;
     width: 16px;
     height: 16px;
-    border-radius: 50%;
-    background-color: #fff;
+    background-color: #ff3f6c;
+    /* Brand Color */
     cursor: pointer;
-    border: 1px solid #ced4da;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    margin-top: 1px;
+    /* Arrow Shape: Up Triangle */
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    /* Remove borders/shadows as clip-path cuts them anyway */
+    border: none;
+    box-shadow: none;
+    transform: translateY(-50%);
 }
 
 .thumb::-moz-range-thumb {
@@ -322,11 +327,14 @@
     pointer-events: all;
     width: 16px;
     height: 16px;
-    border-radius: 50%;
-    background-color: #fff;
+    background-color: #ff3f6c;
+    /* Brand Color */
     cursor: pointer;
-    border: 1px solid #ced4da;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    /* Arrow Shape: Up Triangle */
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    border: none;
+    box-shadow: none;
+    transform: translateY(-50%);
 }
 
 .thumb::-webkit-slider-runnable-track {
@@ -343,4 +351,22 @@
     box-shadow: none;
     border: none;
     background: transparent;
+}
+
+/* Fine-tune Max Arrow Alignment */
+.thumb-right::-webkit-slider-thumb {
+    transform: translate(-2px, -50%);
+}
+
+.thumb-right::-moz-range-thumb {
+    transform: translate(-2px, -50%);
+}
+
+/* Fine-tune Min Arrow Alignment */
+.thumb-left::-webkit-slider-thumb {
+    transform: translate(-2px, -50%);
+}
+
+.thumb-left::-moz-range-thumb {
+    transform: translate(-2px, -50%);
 }

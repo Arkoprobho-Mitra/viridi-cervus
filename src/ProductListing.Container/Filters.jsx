@@ -14,7 +14,7 @@ const Filters = ({ selectedFilters = { brands: [], prices: [], colors: [], disco
     return (
         <div className="filters-sidebar">
             <div className="filter-section">
-                <div className="filter-title">Filters <span onClick={onClearFilters} style={{ color: '#ff3f6c', cursor: 'pointer', fontSize: '12px' }}>CLEAR ALL</span></div>
+                <div className="filter-title">Filters <span onClick={onClearFilters} style={{ color: 'forestgreen', cursor: 'pointer', fontSize: '12px' }}>CLEAR ALL</span></div>
             </div>
 
             <div className="filter-section">
@@ -33,17 +33,59 @@ const Filters = ({ selectedFilters = { brands: [], prices: [], colors: [], disco
             </div>
 
             <div className="filter-section">
-                <div className="filter-title">Price</div>
-                {filterOptions.prices.map((price, index) => (
-                    <label key={index} className="filter-option">
-                        <input
-                            type="checkbox"
-                            checked={isSelected('prices', price)}
-                            onChange={() => onFilterChange('prices', price)}
+                <div className="filter-title">
+                    Price
+                    <span style={{ fontSize: '12px', fontWeight: 'normal', float: 'right', color: '#666' }}>
+                        Rs. {selectedFilters.priceRange[0]} - Rs. {selectedFilters.priceRange[1]}
+                    </span>
+                </div>
+                <div className="range-slider-container">
+                    <input
+                        type="range"
+                        min="0"
+                        max="5000"
+                        value={selectedFilters.priceRange[0]}
+                        onChange={(e) => {
+                            const val = Math.min(Number(e.target.value), selectedFilters.priceRange[1] - 100);
+                            onFilterChange('priceRange', [val, selectedFilters.priceRange[1]]);
+                        }}
+                        className="thumb thumb-left"
+                        style={{ zIndex: selectedFilters.priceRange[0] > 4000 && '5' }}
+                    />
+                    <input
+                        type="range"
+                        min="0"
+                        max="5000"
+                        value={selectedFilters.priceRange[1]}
+                        onChange={(e) => {
+                            const val = Math.max(Number(e.target.value), selectedFilters.priceRange[0] + 100);
+                            onFilterChange('priceRange', [selectedFilters.priceRange[0], val]);
+                        }}
+                        className="thumb thumb-right"
+                    />
+                    <div className="slider">
+                        <div className="slider__track" />
+                        <div
+                            className="slider__range"
+                            style={{
+                                left: `${(selectedFilters.priceRange[0] / 5000) * 100}%`,
+                                width: `${((selectedFilters.priceRange[1] - selectedFilters.priceRange[0]) / 5000) * 100}%`
+                            }}
                         />
-                        {price}
-                    </label>
-                ))}
+                    </div>
+                </div>
+                <div style={{ marginTop: '20px' }}>
+                    {filterOptions.prices.map((price, index) => (
+                        <label key={index} className="filter-option">
+                            <input
+                                type="checkbox"
+                                checked={isSelected('prices', price)}
+                                onChange={() => onFilterChange('prices', price)}
+                            />
+                            {price}
+                        </label>
+                    ))}
+                </div>
             </div>
 
             <div className="filter-section">
