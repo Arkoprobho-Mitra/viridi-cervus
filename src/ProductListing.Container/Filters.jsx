@@ -14,7 +14,7 @@ const Filters = ({ selectedFilters = { brands: [], prices: [], colors: [], disco
     return (
         <div className="filters-sidebar">
             <div className="filter-section">
-                <div className="filter-title">Filters <span onClick={onClearFilters} style={{ color: 'forestgreen', cursor: 'pointer', fontSize: '12px' }}>CLEAR ALL</span></div>
+                <div className="filter-title">Filters <span onClick={onClearFilters} className="clear-all-btn">CLEAR ALL</span></div>
             </div>
 
             <div className="filter-section">

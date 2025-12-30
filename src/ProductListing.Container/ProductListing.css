@@ -62,7 +62,21 @@
     height: 14px;
     border-radius: 50%;
     margin-right: 10px;
-    border: 1px solid #e9e9ed;
+    border: 1px solid black;
+}
+
+.clear-all-btn {
+    color: forestgreen;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.clear-all-btn:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+    font-weight: 700;
 }
 
 /* Main Content */
@@ -208,21 +222,24 @@
 }
 
 .product-price-row {
-    display: flex;
+    display: justify-content;
     align-items: center;
-    gap: 8px;
+    justify-content: space-between;
+    gap: 2px;
     font-size: 14px;
 }
 
 .current-price {
     font-weight: 700;
     color: #282c3f;
+    margin-right: 2px;
 }
 
 .original-price {
     text-decoration: line-through;
     color: #7e818c;
     font-size: 12px;
+    margin-right: 2px;
 }
 
 .discount-text {
