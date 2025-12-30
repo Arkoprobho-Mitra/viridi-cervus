@@ -47,7 +47,7 @@
 
 .filter-option input {
     margin-right: 10px;
-    accent-color: #ff3f6c;
+    accent-color: forestgreen;
     /* Brand color */
 }
 
@@ -284,7 +284,7 @@
     z-index: 2;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #ff3f6c;
+    background-color: firebrick;
     border-radius: 5px;
     height: 4px;
 }
@@ -310,7 +310,7 @@
     pointer-events: all;
     width: 16px;
     height: 16px;
-    background-color: #ff3f6c;
+    background-color: forestgreen;
     /* Brand Color */
     cursor: pointer;
     /* Arrow Shape: Up Triangle */
@@ -327,7 +327,7 @@
     pointer-events: all;
     width: 16px;
     height: 16px;
-    background-color: #ff3f6c;
+    background-color: forestgreen;
     /* Brand Color */
     cursor: pointer;
     /* Arrow Shape: Up Triangle */
