@@ -68,7 +68,10 @@ const ProductListing = () => {
         }
 
         // Price Filter (Slider Range)
-        if (product.price < selectedFilters.priceRange[0] || product.price > selectedFilters.priceRange[1]) {
+        const minPrice = selectedFilters.priceRange[0] === '' ? 0 : selectedFilters.priceRange[0];
+        const maxPrice = selectedFilters.priceRange[1] === '' ? 5000 : selectedFilters.priceRange[1];
+
+        if (product.price < minPrice || product.price > maxPrice) {
             return false;
         }
 
