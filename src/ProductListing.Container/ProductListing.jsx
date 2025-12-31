@@ -66,6 +66,24 @@ const ProductListing = () => {
     const [currentPage, setCurrentPage] = React.useState(1);
     const itemsPerPage = 50; // Updated to 50 items per page
 
+    // Sorting State
+    const [sortBy, setSortBy] = React.useState('recommended');
+    const [isSortOpen, setSortOpen] = React.useState(false);
+
+    // Sorting Logic
+    const sortItems = (items, sortType) => {
+        const sorted = [...items];
+        if (sortType === 'discount') {
+            sorted.sort((a, b) => b.discount - a.discount);
+        } else if (sortType === 'priceLow') {
+            sorted.sort((a, b) => a.price - b.price);
+        } else if (sortType === 'priceHigh') {
+            sorted.sort((a, b) => b.price - a.price);
+        }
+        // 'recommended' is default order
+        return sorted;
+    };
+
     const handlePageChange = (page) => {
         setCurrentPage(page);
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -195,12 +213,26 @@ const ProductListing = () => {
         setCurrentPage(1);
     }, [gender, category, subCategory, search]);
 
+    // 4. Sorting
+    const sortedProducts = React.useMemo(() => {
+        return sortItems(filteredProducts, sortBy);
+    }, [filteredProducts, sortBy]);
+
     // Calculate Pagination
-    const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
-    const displayedProducts = filteredProducts.slice(
+    const totalPages = Math.ceil(sortedProducts.length / itemsPerPage);
+    const displayedProducts = sortedProducts.slice(
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
     );
+
+    const getSortLabel = (type) => {
+        switch (type) {
+            case 'discount': return 'Better Discount';
+            case 'priceLow': return 'Price: Low to High';
+            case 'priceHigh': return 'Price: High to Low';
+            default: return 'Recommended';
+        }
+    };
 
     return (
         <div className="product-listing-container">
@@ -247,18 +279,52 @@ const ProductListing = () => {
                         )}
                     </div>
 
-                    <div className="page-title">
-                        {capitalize(gender)} {subCategory} Collections <span className="item-count"> - {filteredProducts.length} items</span>
-                    </div>
+                    <div className="listing-header-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginTop: '10px' }}>
+                        <div className="page-title">
+                            {capitalize(gender)} {subCategory} Collections <span className="item-count"> - {sortedProducts.length} items</span>
+                        </div>
 
-                    {/* Sort/Filter chips could go here (Bundles, Closure etc from screenshot), skipping for initial layout to focus on grid */}
-                    <div style={{ marginTop: '15px', display: 'flex', gap: '15px', fontSize: '14px', color: '#282c3f' }}>
-                        <span style={{ fontWeight: 700 }}>FILTERS</span>
-                        {/* Static mocks for the top chips */}
-                        <span>Bundles <span style={{ fontSize: '10px' }}>▼</span></span>
-                        <span>Closure <span style={{ fontSize: '10px' }}>▼</span></span>
-                        <span>Country of Origin <span style={{ fontSize: '10px' }}>▼</span></span>
-                        <span>Fabrics <span style={{ fontSize: '10px' }}>▼</span></span>
+                        {/* Custom Sort Dropdown */}
+                        <div className="sort-container">
+                            <span className="sort-label">Sort by : </span>
+                            <div
+                                className={`custom-sort-dropdown ${isSortOpen ? 'open' : ''}`}
+                                onClick={() => setSortOpen(!isSortOpen)}
+                                onMouseLeave={() => setSortOpen(false)}
+                            >
+                                <span className="selected-sort">{getSortLabel(sortBy)}</span>
+                                <span className="sort-chevron"></span>
+
+                                {isSortOpen && (
+                                    <ul className="sort-options-list">
+                                        <li
+                                            className={sortBy === 'recommended' ? 'active' : ''}
+                                            onClick={(e) => { e.stopPropagation(); setSortBy('recommended'); setSortOpen(false); }}
+                                        >
+                                            Recommended
+                                        </li>
+                                        <li
+                                            className={sortBy === 'discount' ? 'active' : ''}
+                                            onClick={(e) => { e.stopPropagation(); setSortBy('discount'); setSortOpen(false); }}
+                                        >
+                                            Better Discount
+                                        </li>
+                                        <li
+                                            className={sortBy === 'priceLow' ? 'active' : ''}
+                                            onClick={(e) => { e.stopPropagation(); setSortBy('priceLow'); setSortOpen(false); }}
+                                        >
+                                            Price: Low to High
+                                        </li>
+                                        <li
+                                            className={sortBy === 'priceHigh' ? 'active' : ''}
+                                            onClick={(e) => { e.stopPropagation(); setSortBy('priceHigh'); setSortOpen(false); }}
+                                        >
+                                            Price: High to Low
+                                        </li>
+                                    </ul>
+                                )}
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -267,7 +333,7 @@ const ProductListing = () => {
                     {displayedProducts.map(product => (
                         <ProductCard key={product.id} product={product} />
                     ))}
-                    {filteredProducts.length === 0 && (
+                    {sortedProducts.length === 0 && (
                         <div style={{ gridColumn: '1 / -1', padding: '20px', textAlign: 'center' }}>
                             No products found with the selected filters.
                         </div>

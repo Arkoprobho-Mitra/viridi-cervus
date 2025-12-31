@@ -53,9 +53,32 @@ export const AccountDropdown = () => {
 
 export const WishlistDropdown = () => {
     const isAuthenticated = localStorage.getItem('isAuthenticated');
+    const [wishlistProducts, setWishlistProducts] = React.useState([]);
 
-    // Use simulated data consistent with main Wishlist page
-    const wishlistItems = products.slice(0, 4);
+    const updateWishlist = () => {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        const key = currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
+        const storedIds = JSON.parse(localStorage.getItem(key)) || [];
+        // Filter the full products list to find matches
+        const items = products
+            .filter(p => storedIds.includes(p.id))
+            .sort((a, b) => b.discount - a.discount);
+        setWishlistProducts(items);
+    };
+
+    React.useEffect(() => {
+        updateWishlist();
+        window.addEventListener('wishlistUpdated', updateWishlist);
+        window.addEventListener('storage', updateWishlist); // For cross-tab sync
+
+        return () => {
+            window.removeEventListener('wishlistUpdated', updateWishlist);
+            window.removeEventListener('storage', updateWishlist);
+        };
+    }, []);
+
+    const displayedItems = wishlistProducts.slice(0, 8);
+    const remainingCount = wishlistProducts.length - displayedItems.length;
 
     if (!isAuthenticated) {
         return (
@@ -69,22 +92,51 @@ export const WishlistDropdown = () => {
         );
     }
 
+    const removeFromWishlist = (e, id) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        const key = currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
+        const currentIds = JSON.parse(localStorage.getItem(key)) || [];
+
+        const newIds = currentIds.filter(itemId => itemId !== id);
+        localStorage.setItem(key, JSON.stringify(newIds));
+
+        window.dispatchEvent(new Event('wishlistUpdated'));
+    };
+
     return (
         <div className="dropdown-menu wishlist-dropdown">
-            <h4>Your Wishlist ({wishlistItems.length} items)</h4>
+            <h4>Your Wishlist ({wishlistProducts.length} items)</h4>
             <div className="wishlist-grid">
-                {wishlistItems.map(item => (
+                {displayedItems.map(item => (
                     <div key={item.id} className="wishlist-item">
                         <img src={item.image} alt={item.title} />
                         <div className="item-details">
                             <span className="item-name" style={{ display: 'block', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '120px' }}>{item.title}</span>
-                            <span className="item-price">Rs. {item.price}</span>
+                            <span className="item-price">
+                                Rs. {item.price}
+                                <span style={{ fontSize: '10px', color: '#ff905a', marginLeft: '5px', fontWeight: 'bold' }}>
+                                    ({item.discount}% OFF)
+                                </span>
+                            </span>
                         </div>
                         {/* Simplified 'Move to Bag' for dropdown */}
-                        <button className="move-to-cart" style={{ fontSize: '10px', padding: '4px 8px' }}>MOVE</button>
+                        <button className="move-to-cart" style={{ fontSize: '10px', padding: '4px 8px', marginRight: '5px' }}>MOVE</button>
+                        <span
+                            className="remove-wishlist-item"
+                            onClick={(e) => removeFromWishlist(e, item.id)}
+                            title="Remove from wishlist"
+                        >×</span>
                     </div>
                 ))}
             </div>
+            {remainingCount > 0 && (
+                <div style={{ textAlign: 'center', margin: '10px 0', fontSize: '12px', color: '#ff3f6c', fontWeight: 'bold' }}>
+                    + {remainingCount} more items
+                </div>
+            )}
             <Link to="/wishlist" style={{ textDecoration: 'none' }}>
                 <button className="view-all-btn">VIEW ALL</button>
             </Link>

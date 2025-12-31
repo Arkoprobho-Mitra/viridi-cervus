@@ -1,18 +1,89 @@
-.mock-users-container {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #e9e9ed;
-    width: 100%;
-}
-
-.mock-users-container h3 {
-    font-size: 16px;
+/* Toggle Button */
+.dev-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #282c3f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
     font-weight: 700;
-    color: #282c3f;
-    margin-bottom: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
-.mock-users-container .subtitle {
+.dev-mode-toggle:hover {
+    background-color: forestgreen;
+    transform: translateY(-2px);
+}
+
+/* Modal Overlay */
+.mock-users-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    backdrop-filter: blur(4px);
+}
+
+/* Modal Content */
+.mock-users-popup {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.popup-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #282c3f;
+}
+
+.close-popup-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #94969f;
+}
+
+.close-popup-btn:hover {
+    color: #282c3f;
+}
+
+.mock-users-popup .subtitle {
     font-size: 12px;
     color: #94969f;
     margin-bottom: 15px;

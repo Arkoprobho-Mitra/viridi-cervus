@@ -3,6 +3,46 @@ import { Link } from 'react-router-dom';
 import './ProductListing.css';
 
 const ProductCard = ({ product, actionType = 'wishlist', onAction }) => {
+    const [isWishlisted, setIsWishlisted] = React.useState(false);
+
+    const getWishlistKey = () => {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        return currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
+    };
+
+    React.useEffect(() => {
+        const key = getWishlistKey();
+        const wishlist = JSON.parse(localStorage.getItem(key)) || [];
+        setIsWishlisted(wishlist.includes(product.id));
+    }, [product.id]);
+
+    const toggleWishlist = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const key = getWishlistKey();
+        const currentWishlist = JSON.parse(localStorage.getItem(key)) || [];
+        let newWishlist;
+
+        if (isWishlisted) {
+            newWishlist = currentWishlist.filter(id => id !== product.id);
+            console.log("Removed from wishlist:", product.title);
+        } else {
+            if (!currentWishlist.includes(product.id)) {
+                newWishlist = [...currentWishlist, product.id];
+            } else {
+                newWishlist = currentWishlist;
+            }
+            console.log("Added to wishlist:", product.title);
+        }
+
+        localStorage.setItem(key, JSON.stringify(newWishlist));
+        setIsWishlisted(!isWishlisted);
+
+        // Dispatch event for other components to update
+        window.dispatchEvent(new Event('wishlistUpdated'));
+    };
+
     return (
         <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
             <div className="product-card">
@@ -27,8 +67,11 @@ const ProductCard = ({ product, actionType = 'wishlist', onAction }) => {
                             ✕ Remove
                         </div>
                     ) : (
-                        <div className="wishlist-btn-overlay">
-                            ♡ Wishlist
+                        <div
+                            className={`wishlist-btn-overlay ${isWishlisted ? 'wishlisted' : ''}`}
+                            onClick={toggleWishlist}
+                        >
+                            {isWishlisted ? '♥ WISHLISTED' : '♡ WISHLIST'}
                         </div>
                     )}
                 </div>
@@ -46,20 +89,20 @@ const ProductCard = ({ product, actionType = 'wishlist', onAction }) => {
                 </div>
 
                 {/* Add to Cart Button (Conditional) */}
-                {onAction && actionType === 'remove' && (
-                    <div className="product-action-footer">
-                        <button
-                            className="add-to-cart-action-btn"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                // Handler logic here or passed prop
-                                console.log('Added to cart:', product.id);
-                            }}
-                        >
-                            MOVE TO BAG
-                        </button>
-                    </div>
-                )}
+                {/* Action Button: 'MOVE TO BAG' for Wishlist, 'ADD TO BAG' for Listing */}
+                <div className="product-action-footer">
+                    <button
+                        className="add-to-cart-action-btn"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation(); // vital to prevent Link navigation
+                            console.log(actionType === 'remove' ? "Moved to bag:" : "Added to bag:", product.title);
+                            // Logic to actually add to cart would go here
+                        }}
+                    >
+                        {actionType === 'remove' ? 'MOVE TO BAG' : 'ADD TO BAG'}
+                    </button>
+                </div>
             </div>
         </Link>
     );

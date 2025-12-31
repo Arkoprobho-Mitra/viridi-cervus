@@ -6,6 +6,7 @@ import metaIcon from './login.image.container/meta.png';
 import xIcon from './login.image.container/twitter.png';
 import loginVideo from './login.image.container/loginscreenvideo.mp4';
 import SignupModal from './SignupModal';
+import MergeWishlistModal from './MergeWishlistModal';
 import MockUserList from './MockUserList';
 import { usersData } from './usersData';
 
@@ -15,11 +16,49 @@ const Login = () => {
     const [loginData, setLoginData] = useState({ email: '', password: '' });
     const [error, setError] = useState('');
 
-    const handleLogin = (user) => {
-        // Successful login logic
+    // Merge Wishlist State
+    const [showMergeModal, setShowMergeModal] = useState(false);
+    const [pendingUser, setPendingUser] = useState(null);
+    const [guestIds, setGuestIds] = useState([]);
+
+    const finalizeLogin = (user) => {
         localStorage.setItem('isAuthenticated', 'true');
         localStorage.setItem('currentUser', JSON.stringify(user));
         navigate('/'); // Redirect to Home
+    };
+
+    const handleLogin = (user) => {
+        // Check for guest wishlist items
+        const guestItems = JSON.parse(localStorage.getItem('wishlist_guest')) || [];
+
+        if (guestItems.length > 0) {
+            setPendingUser(user);
+            setGuestIds(guestItems);
+            setShowMergeModal(true);
+        } else {
+            finalizeLogin(user);
+        }
+    };
+
+    const handleMergeWishlist = () => {
+        const userKey = `wishlist_${pendingUser.email}`;
+        const existingUserWishlist = JSON.parse(localStorage.getItem(userKey)) || [];
+
+        // Merge arrays and remove duplicates
+        const mergedSet = new Set([...existingUserWishlist, ...guestIds]);
+        const mergedArray = Array.from(mergedSet);
+
+        localStorage.setItem(userKey, JSON.stringify(mergedArray));
+        localStorage.removeItem('wishlist_guest'); // Clear guest data
+
+        setShowMergeModal(false);
+        finalizeLogin(pendingUser);
+    };
+
+    const handleDiscardWishlist = () => {
+        localStorage.removeItem('wishlist_guest'); // Clear guest data
+        setShowMergeModal(false);
+        finalizeLogin(pendingUser);
     };
 
     const handleDirectLogin = (user) => {
@@ -137,6 +176,13 @@ const Login = () => {
             <SignupModal
                 isOpen={isSignupOpen}
                 onClose={() => setIsSignupOpen(false)}
+            />
+
+            <MergeWishlistModal
+                isOpen={showMergeModal}
+                guestItemIds={guestIds}
+                onMerge={handleMergeWishlist}
+                onDiscard={handleDiscardWishlist}
             />
         </div>
     );

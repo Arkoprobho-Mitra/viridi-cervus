@@ -58,7 +58,7 @@
 }
 
 .filter-count {
-    color: #94969f;
+    color: #5e1425;
     font-size: 11px;
     margin-left: 5px;
 }
@@ -110,7 +110,7 @@
 }
 
 .item-count {
-    color: #878b94;
+    color: #5e1425;
     font-weight: 400;
 }
 
@@ -135,6 +135,8 @@
     background: #fff;
     transition: box-shadow 0.2s ease-in-out;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card:hover {
@@ -197,17 +199,32 @@
     border-top: 1px solid #e9e9ed;
     transform: translateY(100%);
     /* Hidden by default */
-    transition: transform 0.2s;
+    transition: transform 0.2s, background-color 0.2s, color 0.2s;
     letter-spacing: 0.5px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    cursor: pointer;
 }
 
 .product-card:hover .wishlist-btn-overlay {
     transform: translateY(0);
     /* Show on hover */
+}
+
+.wishlist-btn-overlay:hover {
+    background-color: #f5f5f6;
+    color: forestgreen;
+}
+
+.wishlist-btn-overlay.wishlisted {
+    background-color: #282c3f;
+    color: #fff;
+}
+
+.wishlist-btn-overlay.wishlisted:hover {
+    background-color: #3e4152;
 }
 
 /* Product Info */
@@ -290,10 +307,16 @@
 
 .add-to-cart-action-btn {
     width: 100%;
-    padding: 8px;
+    height: 40px;
+    /* Fixed height */
+    padding: 0;
+    /* Reset padding since we use flex center */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #fff;
     border: 1px solid #d4d5d9;
-    color: #ff3f6c;
+    color: forestgreen;
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
@@ -303,9 +326,9 @@
 }
 
 .add-to-cart-action-btn:hover {
-    background: #ff3f6c;
+    background: forestgreen;
     color: #fff;
-    border-color: #ff3f6c;
+    border-color: gold;
 }
 
 /* Slider CSS */
@@ -466,7 +489,7 @@
 
 /* Variant for Remove button (used in Wishlist) */
 .wishlist-btn-overlay.remove-btn {
-    color: #ff3f6c;
+    color: forestgreen;
     /* Myntra pink/red */
     border-top: 1px solid #e9e9ed;
 }
@@ -498,4 +521,91 @@
     font-weight: bold;
     text-decoration: underline;
     cursor: pointer;
+}
+
+/* Sort Dropdown Styles (Reused from Wishlist for consistency) */
+.sort-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.sort-label {
+    font-size: 14px;
+    color: #282c3f;
+    font-weight: 400;
+}
+
+.custom-sort-dropdown {
+    position: relative;
+    width: 250px;
+    /* Slightly wider for longer text 'Recommended' */
+    padding: 9px 12px;
+    border: 1px solid #d4d5d9;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #282c3f;
+}
+
+.custom-sort-dropdown:hover {
+    border-color: #282c3f;
+}
+
+.selected-sort {
+    font-weight: 700;
+    color: #282c3f;
+}
+
+.sort-chevron {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #282c3f;
+    border-bottom: 2px solid #282c3f;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+    transition: transform 0.2s;
+}
+
+.custom-sort-dropdown.open .sort-chevron {
+    transform: rotate(-135deg);
+    margin-bottom: -2px;
+}
+
+.sort-options-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #e9e9ed;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 5px 0;
+    margin: 4px 0 0 0;
+    z-index: 50;
+}
+
+.sort-options-list li {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #282c3f;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.sort-options-list li:hover {
+    background-color: #f5f5f6;
+    font-weight: 700;
+}
+
+.sort-options-list li.active {
+    background-color: #f5f5f6;
+    font-weight: 700;
 }

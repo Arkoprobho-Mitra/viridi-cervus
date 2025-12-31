@@ -13,6 +13,47 @@ const ProductPage = () => {
     const [selectedSize, setSelectedSize] = useState('M');
     const [quantity, setQuantity] = useState(1);
     const [activeAccordion, setActiveAccordion] = useState('desc');
+    const [isWishlisted, setIsWishlisted] = useState(false);
+
+    // Check wishlist status on mount/update
+    useEffect(() => {
+        const checkWishlistStatus = () => {
+            const auth = localStorage.getItem('isAuthenticated');
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const key = auth && currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
+            const storedIds = JSON.parse(localStorage.getItem(key)) || [];
+
+            if (product) {
+                setIsWishlisted(storedIds.includes(product.id));
+            }
+        };
+
+        checkWishlistStatus();
+        window.addEventListener('wishlistUpdated', checkWishlistStatus);
+
+        return () => {
+            window.removeEventListener('wishlistUpdated', checkWishlistStatus);
+        };
+    }, [product]);
+
+    const handleWishlistToggle = () => {
+        const auth = localStorage.getItem('isAuthenticated');
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        const key = auth && currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
+
+        const storedIds = JSON.parse(localStorage.getItem(key)) || [];
+        let newIds;
+
+        if (isWishlisted) {
+            newIds = storedIds.filter(id => id !== product.id);
+        } else {
+            newIds = [...storedIds, product.id];
+        }
+
+        localStorage.setItem(key, JSON.stringify(newIds));
+        setIsWishlisted(!isWishlisted); // Optimistic UI update
+        window.dispatchEvent(new Event('wishlistUpdated'));
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -174,8 +215,12 @@ const ProductPage = () => {
                         Add to Cart
                     </button>
 
-                    <button className="wishlist-btn">
-                        ♡ Add to Wishlist
+                    <button
+                        className={`wishlist-btn ${isWishlisted ? 'active' : ''}`}
+                        onClick={handleWishlistToggle}
+                        style={isWishlisted ? { backgroundColor: '#333', color: '#fff', borderColor: '#333' } : {}}
+                    >
+                        {isWishlisted ? '♥ Wishlisted' : '♡ Add to Wishlist'}
                     </button>
 
                     <div className="product-info-accordion">
