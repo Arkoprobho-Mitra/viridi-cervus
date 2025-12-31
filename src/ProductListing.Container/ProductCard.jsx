@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductListing.css';
 
-const ProductCard = ({ product, actionType = 'wishlist', onAction }) => {
+const ProductCard = ({ product, actionType = 'wishlist', onAction, onMoveToBag }) => {
     const [isWishlisted, setIsWishlisted] = React.useState(false);
 
     // Stable random for "Only Few Left" badge
@@ -99,8 +99,13 @@ const ProductCard = ({ product, actionType = 'wishlist', onAction }) => {
                         onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation(); // vital to prevent Link navigation
-                            console.log(actionType === 'remove' ? "Moved to bag:" : "Added to bag:", product.title);
-                            // Logic to actually add to cart would go here
+
+                            if (actionType === 'remove' && onMoveToBag) {
+                                onMoveToBag();
+                            } else {
+                                console.log("Added to bag:", product.title);
+                                // Logic to actually add to cart would go here
+                            }
                         }}
                     >
                         {actionType === 'remove' ? 'MOVE TO BAG' : 'ADD TO BAG'}

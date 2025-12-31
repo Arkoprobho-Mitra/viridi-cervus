@@ -7,6 +7,8 @@ import ProductCard from '../ProductListing.Container/ProductCard';
 import Pagination from '../ProductListing.Container/Pagination';
 import WishlistGuest from './WishlistGuest';
 
+import MoveToBagModal from './MoveToBagModal';
+
 const Wishlist = () => {
     const navigate = useNavigate();
     // Initialize with some mock data (first 8 items)
@@ -17,6 +19,9 @@ const Wishlist = () => {
     const [sortBy, setSortBy] = useState('discount');
     const [isSortOpen, setSortOpen] = useState(false);
     const sortTimeoutRef = React.useRef(null);
+
+    // Modal State
+    const [selectedProductForBag, setSelectedProductForBag] = useState(null);
 
     const handleSortLeave = () => {
         sortTimeoutRef.current = setTimeout(() => {
@@ -91,8 +96,11 @@ const Wishlist = () => {
     }
 
     const removeFromWishlist = (e, id) => {
-        e.preventDefault();
-        e.stopPropagation();
+        // e might be null if called from internal handler
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
 
         // Update Local State
         setWishlistItems(prev => prev.filter(item => item.id !== id));
@@ -106,6 +114,21 @@ const Wishlist = () => {
 
         // Dispatch Event (for Navbar)
         window.dispatchEvent(new Event('wishlistUpdated'));
+    };
+
+    const handleMoveToBag = (product) => {
+        setSelectedProductForBag(product);
+    };
+
+    const handleConfirmMoveToBag = (product, size, qty) => {
+        console.log(`Moving to bag: ${product.title}, Size: ${size}, Qty: ${qty}`);
+
+        // Logically Add to Cart (Mock - in real app would verify stock/add to cart API)
+        // Here we just remove from wishlist as per standard flow
+
+        removeFromWishlist(null, product.id);
+        setSelectedProductForBag(null);
+        alert(`${product.title} (Size: ${size}, Qty: ${qty}) moved to bag!`);
     };
 
     const handlePageChange = (page) => {
@@ -181,6 +204,7 @@ const Wishlist = () => {
                                 product={product}
                                 actionType="remove"
                                 onAction={(e) => removeFromWishlist(e, product.id)}
+                                onMoveToBag={() => handleMoveToBag(product)}
                             />
                         ))}
                     </div>
@@ -195,10 +219,20 @@ const Wishlist = () => {
                             />
                         </div>
                     )}
+
+                    {/* Move to Bag Modal */}
+                    <MoveToBagModal
+                        product={selectedProductForBag}
+                        isOpen={!!selectedProductForBag}
+                        onClose={() => setSelectedProductForBag(null)}
+                        onConfirm={handleConfirmMoveToBag}
+                    />
                 </>
             )}
         </div>
     );
 };
+
+
 
 export default Wishlist;
