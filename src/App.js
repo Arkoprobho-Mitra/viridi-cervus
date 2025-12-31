@@ -14,9 +14,12 @@ import LegalRoutes from './Legal/LegalRoutes.jsx';
 import ProductListing from './ProductListing.Container/ProductListing.jsx';
 import ProductPage from './ProductPage.Container/Product.Page.jsx';
 
+import ScrollToTop from './ScrollToTop';
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <Navbar />
         <Routes>
