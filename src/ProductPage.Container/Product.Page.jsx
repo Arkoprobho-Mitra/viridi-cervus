@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { products } from '../ProductListing.Container/productsData';
 import './Product.Page.css';
@@ -59,12 +59,43 @@ const ProductPage = () => {
         }, 300);
     };
 
+    const similarRef = useRef(null);
+
+    // Similar Products (Priority: SubCategory > Brand > Ads)
+    const similarProducts = useMemo(() => {
+        if (!product) return [];
+        return products
+            .filter(p => p.id !== product.id)
+            .map(p => {
+                let score = 0;
+                if (p.subCategory === product.subCategory) score += 1000;
+                if (p.brand === product.brand) score += 100;
+                if (p.isAd) score += 10;
+                return { ...p, score };
+            })
+            .filter(p => p.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 15);
+    }, [product]);
+
     if (!product) return <div style={{ padding: '100px', textAlign: 'center' }}>Loading...</div>;
 
-    // Similar Products (Same Category, exclude current)
-    const similarProducts = products
-        .filter(p => p.category === product.category && p.id !== product.id)
-        .slice(0, 4);
+    const handleSimilarNext = () => {
+        if (similarRef.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = similarRef.current;
+            if (scrollLeft + clientWidth >= scrollWidth - 50) {
+                similarRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                similarRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+            }
+        }
+    };
+
+    const handleSimilarPrev = () => {
+        if (similarRef.current) {
+            similarRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+        }
+    };
 
     return (
         <div className="product-page-container">
@@ -152,7 +183,7 @@ const ProductPage = () => {
                             {
                                 id: 'desc', label: 'DESCRIPTION', content: (
                                     <>
-                                        <p>Experience the epitome of luxury with the {product.title}. Crafted from the finest materials, this piece defines elegance and sophistication. Perfect for {product.subCategory.toLowerCase()} lovers who appreciate attention to detail.</p>
+                                        <p>Experience the epitome of luxury with the {product.title}. Crafted from the finest materials, this piece defines elegance and sophistication. Perfect for {(product.subCategory || product.category || '').toLowerCase()} lovers who appreciate attention to detail.</p>
                                         <p>• Premium Quality</p>
                                         <p>• Modern Fit</p>
                                     </>
@@ -204,17 +235,29 @@ const ProductPage = () => {
 
             {/* Similar Products */}
             <div className="similar-products-section">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                     <h2 className="section-title" style={{ marginBottom: 0 }}>Similar Products</h2>
-                    <button className="view-all-btn">View All &gt;</button>
+                    <div className="similar-nav">
+                        <button className="similar-btn prev" onClick={handleSimilarPrev}>&lt;</button>
+                        <button className="similar-btn next" onClick={handleSimilarNext}>&gt;</button>
+                    </div>
                 </div>
-                <div className="similar-grid">
+                <div className="similar-scroll-view" ref={similarRef}>
                     {similarProducts.map(p => (
-                        <div key={p.id} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <div key={p.id} className="similar-card-wrapper">
                             <ProductCard product={p} />
                         </div>
                     ))}
                 </div>
+            </div>
+
+            <div className="view-all-container">
+                <Link
+                    to={`/products?gender=${product.group}${product.subCategory ? `&subCategory=${encodeURIComponent(product.subCategory)}` : `&category=${encodeURIComponent(product.category)}`}`}
+                    className="view-all-bottom-btn"
+                >
+                    View All {product.subCategory || product.category}
+                </Link>
             </div>
         </div>
     );

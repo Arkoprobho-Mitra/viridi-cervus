@@ -365,10 +365,80 @@
     color: #fff;
 }
 
+/* Similar Products Scroll */
+.similar-scroll-view {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+}
+
+.similar-scroll-view::-webkit-scrollbar {
+    display: none;
+}
+
+.similar-card-wrapper {
+    flex: 0 0 250px;
+    margin-bottom: 20px;
+}
+
+.similar-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.similar-btn {
+    background: #fff;
+    border: 1px solid #ddd;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    /* Consistent size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-family: monospace;
+}
+
+.similar-btn:hover {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
 .similar-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 40px;
+}
+
+.view-all-container {
+    text-align: center;
+    margin: 60px 0 80px;
+}
+
+.view-all-bottom-btn {
+    display: inline-block;
+    padding: 16px 50px;
+    border: 1px solid #111;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #111;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    transition: all 0.3s;
+    background: transparent;
+}
+
+.view-all-bottom-btn:hover {
+    background: #111;
+    color: #fff;
 }
 
 /* Editorial Banner */
