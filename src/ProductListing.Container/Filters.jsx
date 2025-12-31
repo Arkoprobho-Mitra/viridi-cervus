@@ -8,6 +8,7 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
     const [minInput, setMinInput] = React.useState(selectedFilters.priceRange[0]);
     const [maxInput, setMaxInput] = React.useState(selectedFilters.priceRange[1]);
     const [showBrandModal, setShowBrandModal] = React.useState(false);
+    const [showCategoryModal, setShowCategoryModal] = React.useState(false);
 
     React.useEffect(() => {
         setMinInput(selectedFilters.priceRange[0]);
@@ -96,7 +97,7 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
             {availableOptions.categories && availableOptions.categories.length > 0 && (
                 <div className="filter-section">
                     <div className="filter-title">Categories</div>
-                    {availableOptions.categories.map((cat, index) => (
+                    {availableOptions.categories.slice(0, 10).map((cat, index) => (
                         <label key={index} className="filter-option">
                             <input
                                 type="checkbox"
@@ -106,9 +107,31 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
                             {cat}
                         </label>
                     ))}
+                    {availableOptions.categories.length > 10 && (
+                        <div
+                            className="more-brands-btn"
+                            onClick={() => setShowCategoryModal(true)}
+                            style={{ color: 'forestgreen', fontSize: '14px', fontWeight: '600', cursor: 'pointer', marginTop: '10px', paddingLeft: '5px' }}
+                        >
+                            + {availableOptions.categories.length - 10} more
+                        </div>
+                    )}
                 </div>
             )}
 
+            {showCategoryModal && (
+                <FilterModal
+                    title="Select Categories"
+                    options={availableOptions.categories}
+                    selectedOptions={selectedFilters.categories}
+                    onApply={(newSelection) => {
+                        onFilterChange('categories', newSelection);
+                    }}
+                    onClose={() => setShowCategoryModal(false)}
+                />
+            )}
+
+            {/* Brand Section */}
             <div className="filter-section">
                 <div className="filter-title">
                     Brand

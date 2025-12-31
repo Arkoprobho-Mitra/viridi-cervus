@@ -12,6 +12,7 @@ import Login from './Signin.Container/Signup.Login.jsx';
 
 import LegalRoutes from './Legal/LegalRoutes.jsx';
 import ProductListing from './ProductListing.Container/ProductListing.jsx';
+import ProductPage from './ProductPage.Container/Product.Page.jsx';
 
 function App() {
   return (
@@ -31,6 +32,12 @@ function App() {
           <Route path="/products" element={
             <>
               <ProductListing />
+              <Footer />
+            </>
+          } />
+          <Route path="/product/:id" element={
+            <>
+              <ProductPage />
               <Footer />
             </>
           } />

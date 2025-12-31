@@ -54,6 +54,7 @@ const ProductListing = () => {
     const clearFilters = () => {
         setSelectedFilters({
             brands: [],
+            categories: [],
             prices: [],
             priceRange: [0, 5000],
             colors: [],
