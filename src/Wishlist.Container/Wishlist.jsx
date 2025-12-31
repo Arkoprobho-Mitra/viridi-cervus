@@ -5,23 +5,29 @@ import '../ProductListing.Container/ProductListing.css'; // Reuse product card s
 import { products } from '../ProductListing.Container/productsData';
 import ProductCard from '../ProductListing.Container/ProductCard';
 import Pagination from '../ProductListing.Container/Pagination';
+import WishlistGuest from './WishlistGuest';
 
 const Wishlist = () => {
     const navigate = useNavigate();
     // Initialize with some mock data (first 8 items)
     const [wishlistItems, setWishlistItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const itemsPerPage = 50;
 
     useEffect(() => {
-        const isAuthenticated = localStorage.getItem('isAuthenticated');
-        if (!isAuthenticated) {
-            navigate('/login');
-        } else {
+        const auth = localStorage.getItem('isAuthenticated');
+        setIsAuthenticated(!!auth);
+
+        if (auth) {
             // Simulate fetching wishlist from server
             setWishlistItems(products.slice(0, 60)); // 60 items total
         }
-    }, [navigate]);
+    }, []);
+
+    if (!isAuthenticated) {
+        return <WishlistGuest />;
+    }
 
     const removeFromWishlist = (e, id) => {
         e.preventDefault();
