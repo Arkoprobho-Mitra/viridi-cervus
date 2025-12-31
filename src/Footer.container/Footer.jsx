@@ -70,7 +70,14 @@ const Footer = () => {
                 <div className="popular-searches">
                     <h4>POPULAR SEARCHES</h4>
                     <p>
-                        Makeup | Dresses For Girls | T-Shirts | Sandals | Headphones | Babydolls | Blazers For Men | Handbags | Ladies Watches | Bags | Sport Shoes | Reebok Shoes | Puma Shoes | Boxers | Wallets | Tops | Earrings | Fastrack Watches | Kurtis | Nike | Smart Watches | Titan Watches | Designer Blouse | Gowns | Rings | Cricket Shoes | Forever 21 | Eye Makeup | Photo Frames | Punjabi Suits | Bikini | Lipstick | Saree | Watches | Dresses | Lehenga | Nike Shoes | Goggles | Bras | Suit | Chinos | Shoes | Adidas Shoes | Woodland Shoes | Jewellery | Designers Sarees
+                        {['Men Watches', 'Sneakers', 'Fine Jewellery', 'Scarves', 'Swimwear', 'Flats', 'Innerwear', 'Perfume', 'Kids Watches', 'Deodorant', 'Sherwanis', 'Activity Toys', 'Sleepwear', 'Tshirts', 'Dhotis', 'Ethnic Wear', 'Heels', 'Nehru Jackets', 'Formal Shirts', 'Dresses', 'Wallets', 'Eye Cream', 'Track Pants', 'Primer', 'Socks', 'Conditioner', 'Masks', 'Hair Gel', 'Belts', 'Sunglasses', 'Kurtas', 'Jeans', 'Handbags', 'Lipstick', 'Saree', 'Tops'].map((term, index, array) => (
+                            <React.Fragment key={term}>
+                                <Link to={`/products?search=${encodeURIComponent(term.trim())}`} className="popular-search-link">
+                                    {term.trim()}
+                                </Link>
+                                {index < array.length - 1 && ' | '}
+                            </React.Fragment>
+                        ))}
                     </p>
                 </div>
 
