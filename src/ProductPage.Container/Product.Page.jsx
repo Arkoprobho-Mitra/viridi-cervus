@@ -7,6 +7,9 @@ import ProductCard from '../ProductListing.Container/ProductCard';
 const ProductPage = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
+    const [images, setImages] = useState([]);
+    const [thumbnailStartIndex, setThumbnailStartIndex] = useState(0);
+    const [animatingId, setAnimatingId] = useState(null);
     const [selectedSize, setSelectedSize] = useState('M');
     const [quantity, setQuantity] = useState(1);
     const [activeAccordion, setActiveAccordion] = useState('desc');
@@ -15,7 +18,46 @@ const ProductPage = () => {
         window.scrollTo(0, 0);
         const found = products.find(p => p.id === parseInt(id));
         setProduct(found);
+        if (found) {
+            const imgs = Array(8).fill(found.image).map((src, i) => ({ src, id: i }));
+            setImages(imgs);
+            setThumbnailStartIndex(0);
+        }
     }, [id]);
+
+    const handleMainNext = () => {
+        setImages(prev => {
+            const next = [...prev];
+            const first = next.shift();
+            next.push(first);
+            return next;
+        });
+    };
+
+    const handleMainPrev = () => {
+        setImages(prev => {
+            const next = [...prev];
+            const last = next.pop();
+            next.unshift(last);
+            return next;
+        });
+    };
+
+    const handleThumbnailClick = (clickedId) => {
+        if (animatingId !== null) return;
+        setAnimatingId(clickedId);
+
+        setTimeout(() => {
+            setImages(prev => {
+                const index = prev.findIndex(img => img.id === clickedId);
+                if (index === -1 || index === 0) return prev;
+                const next = [...prev];
+                [next[0], next[index]] = [next[index], next[0]];
+                return next;
+            });
+            setAnimatingId(null);
+        }, 300);
+    };
 
     if (!product) return <div style={{ padding: '100px', textAlign: 'center' }}>Loading...</div>;
 
@@ -37,10 +79,28 @@ const ProductPage = () => {
             <div className="product-main-layout">
                 {/* Left: Gallery */}
                 <div className="product-gallery">
-                    <img src={product.image} alt={product.title} className="main-image" />
-                    <div className="gallery-grid">
-                        <img src={product.image} alt="Detail 1" style={{ opacity: 0.9 }} />
-                        <img src={product.image} alt="Detail 2" style={{ opacity: 0.8 }} />
+                    <div className="main-image-wrapper">
+                        <button className="gallery-nav-btn prev" onClick={handleMainPrev}>&lt;</button>
+                        <img
+                            src={images[0]?.src || product.image}
+                            alt={product.title}
+                            className={`main-image ${animatingId !== null ? 'animating' : ''}`}
+                        />
+                        <button className="gallery-nav-btn next" onClick={handleMainNext}>&gt;</button>
+                    </div>
+
+                    <div className="gallery-scroll-wrapper">
+                        <div className="gallery-grid">
+                            {images.slice(1).slice(thumbnailStartIndex, thumbnailStartIndex + 3).map((img) => (
+                                <img
+                                    key={img.id}
+                                    src={img.src}
+                                    alt={`Detail ${img.id}`}
+                                    className={`gallery-item ${animatingId === img.id ? 'animating' : ''}`}
+                                    onClick={() => handleThumbnailClick(img.id)}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
 
@@ -83,46 +143,52 @@ const ProductPage = () => {
                         Add to Cart
                     </button>
 
+                    <button className="wishlist-btn">
+                        ♡ Add to Wishlist
+                    </button>
+
                     <div className="product-info-accordion">
-                        <div className="info-item">
-                            <div className="info-header" onClick={() => setActiveAccordion(activeAccordion === 'desc' ? '' : 'desc')}>
-                                <span>DESCRIPTION</span>
-                                <span>{activeAccordion === 'desc' ? '-' : '+'}</span>
-                            </div>
-                            {activeAccordion === 'desc' && (
-                                <div className="info-content">
-                                    <p>Experience the epitome of luxury with the {product.title}. Crafted from the finest materials, this piece defines elegance and sophistication. Perfect for {product.subCategory.toLowerCase()} lovers who appreciate attention to detail.</p>
-                                    <p>• Premium Quality</p>
-                                    <p>• Modern Fit</p>
-                                </div>
-                            )}
-                        </div>
-                        <div className="info-item">
-                            <div className="info-header" onClick={() => setActiveAccordion(activeAccordion === 'mat' ? '' : 'mat')}>
-                                <span>MATERIAL & CARE</span>
-                                <span>{activeAccordion === 'mat' ? '-' : '+'}</span>
-                            </div>
-                            {activeAccordion === 'mat' && (
-                                <div className="info-content">
-                                    <p>100% Cotton / Premium Blend.</p>
-                                    <p>Machine wash cold. Do not bleach.</p>
-                                </div>
-                            )}
-                        </div>
-                        <div className="info-item">
-                            <div className="info-header" onClick={() => setActiveAccordion(activeAccordion === 'ship' ? '' : 'ship')}>
-                                <span>SHIPPING</span>
-                                <span>{activeAccordion === 'ship' ? '-' : '+'}</span>
-                            </div>
-                            {activeAccordion === 'ship' && (
-                                <div className="info-content">
+                        {[
+                            {
+                                id: 'desc', label: 'DESCRIPTION', content: (
+                                    <>
+                                        <p>Experience the epitome of luxury with the {product.title}. Crafted from the finest materials, this piece defines elegance and sophistication. Perfect for {product.subCategory.toLowerCase()} lovers who appreciate attention to detail.</p>
+                                        <p>• Premium Quality</p>
+                                        <p>• Modern Fit</p>
+                                    </>
+                                )
+                            },
+                            {
+                                id: 'mat', label: 'MATERIAL & CARE', content: (
+                                    <>
+                                        <p>100% Cotton / Premium Blend.</p>
+                                        <p>Machine wash cold. Do not bleach.</p>
+                                    </>
+                                )
+                            },
+                            {
+                                id: 'ship', label: 'SHIPPING', content: (
                                     <div style={{ fontSize: '13px', color: '#555' }}>
                                         <p>📍 Sent from Mumbai</p>
                                         <p style={{ marginTop: '5px' }}>Regular Package - Estimated arrival 3-5 days</p>
                                     </div>
+                                )
+                            }
+                        ].map(section => (
+                            <div className="info-item" key={section.id}>
+                                <div className="info-header" onClick={() => setActiveAccordion(activeAccordion === section.id ? '' : section.id)}>
+                                    <span>{section.label}</span>
+                                    <span>{activeAccordion === section.id ? '-' : '+'}</span>
                                 </div>
-                            )}
-                        </div>
+                                <div className={`info-content-wrapper ${activeAccordion === section.id ? 'open' : ''}`}>
+                                    <div className="info-content-inner">
+                                        <div className="info-content">
+                                            {section.content}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
