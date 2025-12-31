@@ -13,6 +13,7 @@ import Login from './Signin.Container/Signup.Login.jsx';
 import LegalRoutes from './Legal/LegalRoutes.jsx';
 import ProductListing from './ProductListing.Container/ProductListing.jsx';
 import ProductPage from './ProductPage.Container/Product.Page.jsx';
+import Wishlist from './Wishlist.Container/Wishlist.jsx';
 
 import ScrollToTop from './ScrollToTop';
 
@@ -41,6 +42,12 @@ function App() {
           <Route path="/product/:id" element={
             <>
               <ProductPage />
+              <Footer />
+            </>
+          } />
+          <Route path="/wishlist" element={
+            <>
+              <Wishlist />
               <Footer />
             </>
           } />

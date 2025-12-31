@@ -1,0 +1,97 @@
+.wishlist-container {
+    padding: 30px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
+    /* background-color: #fdfdfd; Removed to show global gradient */
+    color: #1a1a1a;
+    min-height: 80vh;
+    /* Ensure it feels substantial like Product Page */
+}
+
+.wishlist-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    /* Match section-title of Product Page */
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: #111;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.wishlist-count {
+    font-size: 16px;
+    color: #878b94;
+    font-weight: 400;
+}
+
+.wishlist-page-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px 20px;
+}
+
+.wishlist-page-grid>a {
+    display: flex;
+    /* Changed from block to flex to better control child height */
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    min-width: 0;
+    /* Allows text truncation to work inside flex items */
+}
+
+/* Customize the remove button */
+.wishlist-btn-overlay.remove-btn {
+    color: #ff3f6c;
+    /* Myntra pink/red */
+    border-top: 1px solid #e9e9ed;
+}
+
+.wishlist-btn-overlay.remove-btn:hover {
+    background-color: #fff0f3;
+}
+
+.empty-wishlist {
+    text-align: center;
+    padding: 100px 0;
+    color: #282c3f;
+}
+
+.empty-wishlist h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.empty-wishlist p {
+    font-size: 18px;
+    color: #94969f;
+    margin-bottom: 30px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.continue-shopping-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: forestgreen;
+    /* Brand color */
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.continue-shopping-btn:hover {
+    background-color: #1e7038;
+    /* Darker green */
+}

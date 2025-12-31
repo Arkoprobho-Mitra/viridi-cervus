@@ -3,27 +3,50 @@ import './Navbar.styles.css';
 
 import { Link } from 'react-router-dom';
 
-export const AccountDropdown = () => (
-    <div className="dropdown-menu account-dropdown">
-        <div className="dropdown-header">
-            <h4>Welcome</h4>
-            <p>To access account and manage orders</p>
-            <Link to="/login">
-                <button className="login-btn">LOGIN / SIGNUP</button>
-            </Link>
+export const AccountDropdown = () => {
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    const currentUser = isAuthenticated ? JSON.parse(localStorage.getItem('currentUser')) : null;
+
+    const handleLogout = () => {
+        localStorage.removeItem('isAuthenticated');
+        localStorage.removeItem('currentUser');
+        window.location.href = '/'; // Refresh/Redirect to clear state
+    };
+
+    return (
+        <div className="dropdown-menu account-dropdown">
+            <div className="dropdown-header">
+                {isAuthenticated ? (
+                    <>
+                        <h4>Hello, {currentUser?.name}</h4>
+                        <p>{currentUser?.email}</p>
+                        <button className="login-btn" onClick={handleLogout} style={{ backgroundColor: '#ff3f6c', borderColor: '#ff3f6c' }}>
+                            LOGOUT
+                        </button>
+                    </>
+                ) : (
+                    <>
+                        <h4>Welcome</h4>
+                        <p>To access account and manage orders</p>
+                        <Link to="/login">
+                            <button className="login-btn">LOGIN / SIGNUP</button>
+                        </Link>
+                    </>
+                )}
+            </div>
+            <ul className="dropdown-list">
+                <li>Orders</li>
+                <li><Link to="/wishlist" style={{ textDecoration: 'none', color: 'inherit' }}>Wishlist</Link></li>
+                <li>Gift Cards</li>
+                <li>Contact Us</li>
+                <li>Viridi Credit</li>
+                <li>Coupons</li>
+                <li>Saved Cards</li>
+                <li>Saved Addresses</li>
+            </ul>
         </div>
-        <ul className="dropdown-list">
-            <li>Orders</li>
-            <li>Wishlist</li>
-            <li>Gift Cards</li>
-            <li>Contact Us</li>
-            <li>Viridi Credit</li>
-            <li>Coupons</li>
-            <li>Saved Cards</li>
-            <li>Saved Addresses</li>
-        </ul>
-    </div>
-);
+    );
+};
 
 export const WishlistDropdown = () => {
     // Mock data for wishlist

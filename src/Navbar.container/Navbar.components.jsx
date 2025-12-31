@@ -65,11 +65,17 @@ const Navbar = () => {
           </div>
           <div className='item-containers'>
             <div className='account' onMouseEnter={() => handleItemEnter('account')}>
-              Account
+              {/* Show User Name if logged in, else Profile */}
+              {localStorage.getItem('currentUser')
+                ? JSON.parse(localStorage.getItem('currentUser')).name.split(' ')[0]
+                : 'Profile'
+              }
               {activeItem === 'account' && <AccountDropdown />}
             </div>
             <div className='wishlist' onMouseEnter={() => handleItemEnter('wishlist')}>
-              Wishlist
+              <Link to="/wishlist" style={{ textDecoration: 'none', color: 'inherit' }}>
+                Wishlist
+              </Link>
               {activeItem === 'wishlist' && <WishlistDropdown />}
             </div>
             <div className='cart' onMouseEnter={() => handleItemEnter('cart')}>

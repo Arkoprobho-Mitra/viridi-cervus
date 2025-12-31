@@ -1,14 +1,44 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Signup.Login.css';
 import googleIcon from './login.image.container/search.png';
 import metaIcon from './login.image.container/meta.png';
 import xIcon from './login.image.container/twitter.png';
 import loginVideo from './login.image.container/loginscreenvideo.mp4';
 import SignupModal from './SignupModal';
+import MockUserList from './MockUserList';
+import { usersData } from './usersData';
 
 const Login = () => {
+    const navigate = useNavigate();
     const [isSignupOpen, setIsSignupOpen] = useState(false);
+    const [loginData, setLoginData] = useState({ email: '', password: '' });
+    const [error, setError] = useState('');
+
+    const handleLogin = (user) => {
+        // Successful login logic
+        localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        navigate('/'); // Redirect to Home
+    };
+
+    const handleDirectLogin = (user) => {
+        handleLogin(user);
+    };
+
+    const handleManualSubmit = (e) => {
+        e.preventDefault();
+        const user = usersData.find(u =>
+            (u.email === loginData.email || u.phone === loginData.email) &&
+            u.password === loginData.password
+        );
+
+        if (user) {
+            handleLogin(user);
+        } else {
+            setError('Invalid credentials. Try using the mock users below.');
+        }
+    };
 
     return (
         <div className="login-container" >
@@ -37,15 +67,30 @@ const Login = () => {
                         <h2>Welcome Back</h2>
                         <p className="login-subtitle">Login to your account</p>
 
-                        <form className="login-form">
+                        <form className="login-form" onSubmit={handleManualSubmit}>
                             <div className="form-group">
                                 <label htmlFor="email">Email or Mobile Number</label>
-                                <input type="text" id="email" placeholder="Enter your email" />
+                                <input
+                                    type="text"
+                                    id="email"
+                                    placeholder="Enter your email"
+                                    value={loginData.email}
+                                    onChange={e => setLoginData({ ...loginData, email: e.target.value })}
+                                    required
+                                />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="password">Password</label>
-                                <input type="password" id="password" placeholder="Enter your password" />
+                                <input
+                                    type="password"
+                                    id="password"
+                                    placeholder="Enter your password"
+                                    value={loginData.password}
+                                    onChange={e => setLoginData({ ...loginData, password: e.target.value })}
+                                    required
+                                />
                             </div>
+                            {error && <p style={{ color: 'red', fontSize: '12px', marginBottom: '10px' }}>{error}</p>}
                             <div className="form-actions">
                                 <a href="#" className="forgot-password">Forgot Password?</a>
                             </div>
@@ -82,6 +127,9 @@ const Login = () => {
                                 Sign Up
                             </span>
                         </p>
+
+                        {/* Mock User Container */}
+                        <MockUserList onDirectLogin={handleDirectLogin} />
                     </div>
                 </div>
             </div>

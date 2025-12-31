@@ -1,0 +1,77 @@
+.mock-users-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e9e9ed;
+    width: 100%;
+}
+
+.mock-users-container h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #282c3f;
+    margin-bottom: 5px;
+}
+
+.mock-users-container .subtitle {
+    font-size: 12px;
+    color: #94969f;
+    margin-bottom: 15px;
+}
+
+.mock-users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.mock-user-card {
+    border: 1px solid #e9e9ed;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #f9f9fa;
+}
+
+.mock-user-card:hover {
+    border-color: forestgreen;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    background: #e9e9ed;
+    color: #282c3f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.user-details {
+    font-size: 11px;
+    color: #535766;
+}
+
+.user-name {
+    font-weight: 700;
+    color: #282c3f;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.user-email,
+.user-phone,
+.user-password {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}

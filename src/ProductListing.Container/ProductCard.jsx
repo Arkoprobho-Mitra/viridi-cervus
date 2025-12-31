@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductListing.css';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, actionType = 'wishlist', onAction }) => {
     return (
         <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
             <div className="product-card">
@@ -19,9 +19,18 @@ const ProductCard = ({ product }) => {
 
                     {product.isAd && <div className="ad-badge">Ad</div>}
 
-                    <div className="wishlist-btn-overlay">
-                        ♡ Wishlist
-                    </div>
+                    {actionType === 'remove' ? (
+                        <div
+                            className="wishlist-btn-overlay remove-btn"
+                            onClick={onAction}
+                        >
+                            ✕ Remove
+                        </div>
+                    ) : (
+                        <div className="wishlist-btn-overlay">
+                            ♡ Wishlist
+                        </div>
+                    )}
                 </div>
 
                 <div className="product-info">
@@ -35,6 +44,22 @@ const ProductCard = ({ product }) => {
                     {/* Randomly show "Only Few Left!" for visual variety if needed, or based on data */}
                     {Math.random() > 0.8 && <div className="few-left">Only Few Left!</div>}
                 </div>
+
+                {/* Add to Cart Button (Conditional) */}
+                {onAction && actionType === 'remove' && (
+                    <div className="product-action-footer">
+                        <button
+                            className="add-to-cart-action-btn"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                // Handler logic here or passed prop
+                                console.log('Added to cart:', product.id);
+                            }}
+                        >
+                            MOVE TO BAG
+                        </button>
+                    </div>
+                )}
             </div>
         </Link>
     );

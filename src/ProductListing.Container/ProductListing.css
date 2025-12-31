@@ -283,6 +283,31 @@
     margin-top: 5px;
 }
 
+.product-action-footer {
+    padding: 0 10px 10px;
+    margin-top: auto;
+}
+
+.add-to-cart-action-btn {
+    width: 100%;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #d4d5d9;
+    color: #ff3f6c;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.add-to-cart-action-btn:hover {
+    background: #ff3f6c;
+    color: #fff;
+    border-color: #ff3f6c;
+}
+
 /* Slider CSS */
 .range-slider-container {
     position: relative;
@@ -436,6 +461,18 @@
     color: #282c3f;
     font-family: inherit;
     -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Variant for Remove button (used in Wishlist) */
+.wishlist-btn-overlay.remove-btn {
+    color: #ff3f6c;
+    /* Myntra pink/red */
+    border-top: 1px solid #e9e9ed;
+}
+
+.wishlist-btn-overlay.remove-btn:hover {
+    background-color: #fff0f3;
 }
 
 .price-input::-webkit-outer-spin-button,
