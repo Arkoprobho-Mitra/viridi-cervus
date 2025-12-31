@@ -28,7 +28,8 @@ const ProductListing = () => {
         prices: [],
         priceRange: [0, 5000],
         colors: [],
-        discount: null
+        discount: null,
+        kidsGender: []
     });
 
     const handleFilterChange = (section, value) => {
@@ -59,7 +60,8 @@ const ProductListing = () => {
             prices: [],
             priceRange: [0, 5000],
             colors: [],
-            discount: null
+            discount: null,
+            kidsGender: []
         });
     };
 
@@ -118,13 +120,22 @@ const ProductListing = () => {
         if (subCategory && subCategory !== 'All' && product.subCategory !== subCategory) return false;
 
         if (search) {
-            const lowerSearch = search.toLowerCase();
-            const matches =
-                product.title.toLowerCase().includes(lowerSearch) ||
-                product.brand.toLowerCase().includes(lowerSearch) ||
-                product.category.toLowerCase().includes(lowerSearch) ||
-                product.subCategory.toLowerCase().includes(lowerSearch) ||
-                product.group.toLowerCase().includes(lowerSearch);
+            const query = search.toLowerCase().trim();
+            const searchTerms = query.split(/\s+/);
+
+            const productText = `${product.title} ${product.brand} ${product.category} ${product.subCategory} ${product.group}`.toLowerCase();
+
+            // Check if ALL search terms are present as word beginnings
+            const matches = searchTerms.every(term => {
+                try {
+                    // \b matches word boundary, preventing 'men' from matching 'women'
+                    const regex = new RegExp(`\\b${term}`, 'i');
+                    return regex.test(productText);
+                } catch (e) {
+                    // Fallback to simple includes if regex creation fails (e.g., invalid regex pattern)
+                    return productText.includes(term);
+                }
+            });
             if (!matches) return false;
         }
 
@@ -164,7 +175,8 @@ const ProductListing = () => {
         discountRange: [
             '10% and above', '20% and above', '30% and above', '40% and above',
             '50% and above', '60% and above', '70% and above', '80% and above'
-        ]
+        ],
+        kidsGender: (gender && gender.toLowerCase() === 'kids' && !category && !subCategory) ? ['Boys', 'Girls', 'Unisex'] : []
     };
 
     // 3. Final Filtering (Sidebar Filters)
@@ -182,6 +194,21 @@ const ProductListing = () => {
         // Color Filter
         if (selectedFilters.colors.length > 0 && !selectedFilters.colors.includes(product.color)) {
             return false;
+        }
+
+        // Kids Gender Filter (using new kidsCategory field)
+        if (selectedFilters.kidsGender.length > 0) {
+            // Check if product has the field (for safety) and matches
+            if (product.kidsCategory && !selectedFilters.kidsGender.includes(product.kidsCategory)) {
+                return false;
+            }
+            // If product doesn't have kidsCategory (e.g. not a Kids item or script missed it), 
+            // deciding whether to hide or show. 
+            // If it's a "Kids" item it *should* have it.
+            // If it doesn't, let's look at the robust check to be safe?
+            // "Levis Flats" -> script set "Girls".
+            // So plain strict check is good.
+            if (!product.kidsCategory) return false;
         }
 
         // Price Filter (Slider Range)
@@ -230,7 +257,8 @@ const ProductListing = () => {
             prices: [],
             priceRange: [0, 5000],
             colors: [],
-            discount: null
+            discount: null,
+            kidsGender: []
         });
         setCurrentPage(1);
     }, [gender, category, subCategory, search]);

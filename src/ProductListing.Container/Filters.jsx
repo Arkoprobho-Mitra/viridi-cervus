@@ -94,6 +94,25 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
                 <div className="filter-title">Filters <span onClick={onClearFilters} className="clear-all-btn">CLEAR ALL</span></div>
             </div>
 
+            {/* Gender Filter for Kids */}
+            {availableOptions.kidsGender && availableOptions.kidsGender.length > 0 && (
+                <div className="filter-section">
+                    <div className="filter-title">Gender</div>
+                    {availableOptions.kidsGender.map(option => (
+                        <label key={option} className="filter-option">
+                            <input
+                                type="checkbox"
+                                id={`gender-${option}`}
+                                checked={selectedFilters.kidsGender && selectedFilters.kidsGender.includes(option)}
+                                onChange={() => onFilterChange('kidsGender', option)}
+                                style={{ marginRight: '8px' }}
+                            />
+                            {option}
+                        </label>
+                    ))}
+                </div>
+            )}
+
             {availableOptions.categories && availableOptions.categories.length > 0 && (
                 <div className="filter-section">
                     <div className="filter-title">Categories</div>

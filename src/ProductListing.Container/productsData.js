@@ -94,7 +94,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Flats"
+        "subCategory": "Flats",
+        "kidsCategory": "Girls"
     },
     {
         "id": 7,
@@ -110,7 +111,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Innerwear & Thermals"
+        "subCategory": "Innerwear & Thermals",
+        "kidsCategory": "Girls"
     },
     {
         "id": 8,
@@ -174,7 +176,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Flats"
+        "subCategory": "Flats",
+        "kidsCategory": "Girls"
     },
     {
         "id": 12,
@@ -206,7 +209,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Activity Toys"
+        "subCategory": "Activity Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 14,
@@ -606,7 +610,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Socks"
+        "subCategory": "Socks",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 39,
@@ -654,7 +659,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Tshirts"
+        "subCategory": "Tshirts",
+        "kidsCategory": "Girls"
     },
     {
         "id": 42,
@@ -862,7 +868,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Learning & Development"
+        "subCategory": "Learning & Development",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 55,
@@ -878,7 +885,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Heels"
+        "subCategory": "Heels",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 56,
@@ -894,7 +902,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Tshirts"
+        "subCategory": "Tshirts",
+        "kidsCategory": "Girls"
     },
     {
         "id": 57,
@@ -910,7 +919,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Rompers & Sleepsuits"
+        "subCategory": "Rompers & Sleepsuits",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 58,
@@ -942,7 +952,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Party Wear"
+        "subCategory": "Party Wear",
+        "kidsCategory": "Boys"
     },
     {
         "id": 60,
@@ -990,7 +1001,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Rompers & Sleepsuits"
+        "subCategory": "Rompers & Sleepsuits",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 63,
@@ -1006,7 +1018,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Skirts & shorts"
+        "subCategory": "Skirts & shorts",
+        "kidsCategory": "Girls"
     },
     {
         "id": 64,
@@ -1022,7 +1035,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "kidsCategory": "Boys"
     },
     {
         "id": 65,
@@ -1070,7 +1084,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Jacket, Sweater & Sweatshirts"
+        "subCategory": "Jacket, Sweater & Sweatshirts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 68,
@@ -1102,7 +1117,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "T-Shirts"
+        "subCategory": "T-Shirts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 70,
@@ -1294,7 +1310,8 @@ export const products = [
         "isAd": true,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Activity Toys"
+        "subCategory": "Activity Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 82,
@@ -1326,7 +1343,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Flats"
+        "subCategory": "Flats",
+        "kidsCategory": "Girls"
     },
     {
         "id": 84,
@@ -1486,7 +1504,8 @@ export const products = [
         "isAd": true,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Socks"
+        "subCategory": "Socks",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 94,
@@ -1582,7 +1601,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Ethnic Wear"
+        "subCategory": "Ethnic Wear",
+        "kidsCategory": "Boys"
     },
     {
         "id": 100,
@@ -1710,7 +1730,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Skirts & shorts"
+        "subCategory": "Skirts & shorts",
+        "kidsCategory": "Girls"
     },
     {
         "id": 108,
@@ -1726,7 +1747,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Skirts & shorts"
+        "subCategory": "Skirts & shorts",
+        "kidsCategory": "Girls"
     },
     {
         "id": 109,
@@ -1838,7 +1860,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Learning & Development"
+        "subCategory": "Learning & Development",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 116,
@@ -1870,7 +1893,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Soft Toys"
+        "subCategory": "Soft Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 118,
@@ -1886,7 +1910,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Ethnic Wear"
+        "subCategory": "Ethnic Wear",
+        "kidsCategory": "Boys"
     },
     {
         "id": 119,
@@ -1982,7 +2007,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Clothing Sets"
+        "subCategory": "Clothing Sets",
+        "kidsCategory": "Boys"
     },
     {
         "id": 125,
@@ -2126,7 +2152,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Party Wear"
+        "subCategory": "Party Wear",
+        "kidsCategory": "Boys"
     },
     {
         "id": 134,
@@ -2238,7 +2265,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Party wear"
+        "subCategory": "Party wear",
+        "kidsCategory": "Girls"
     },
     {
         "id": 141,
@@ -2254,7 +2282,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Activity Toys"
+        "subCategory": "Activity Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 142,
@@ -2286,7 +2315,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Infant Care"
+        "subCategory": "Infant Care",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 144,
@@ -2462,7 +2492,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Sports Shoes"
+        "subCategory": "Sports Shoes",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 155,
@@ -2542,7 +2573,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Learning & Development"
+        "subCategory": "Learning & Development",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 160,
@@ -2574,7 +2606,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Jacket, Sweater & Sweatshirts"
+        "subCategory": "Jacket, Sweater & Sweatshirts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 162,
@@ -2590,7 +2623,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Sports Shoes"
+        "subCategory": "Sports Shoes",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 163,
@@ -2606,7 +2640,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Flats"
+        "subCategory": "Flats",
+        "kidsCategory": "Girls"
     },
     {
         "id": 164,
@@ -2670,7 +2705,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Sandals"
+        "subCategory": "Sandals",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 168,
@@ -2718,7 +2754,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Clothing Sets"
+        "subCategory": "Clothing Sets",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 171,
@@ -2814,7 +2851,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Activity Toys"
+        "subCategory": "Activity Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 177,
@@ -2894,7 +2932,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Soft Toys"
+        "subCategory": "Soft Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 182,
@@ -3182,7 +3221,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Soft Toys"
+        "subCategory": "Soft Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 200,
@@ -3262,7 +3302,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Clothing Sets"
+        "subCategory": "Clothing Sets",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 205,
@@ -3278,7 +3319,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Skirts & shorts"
+        "subCategory": "Skirts & shorts",
+        "kidsCategory": "Girls"
     },
     {
         "id": 206,
@@ -3358,7 +3400,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Tops"
+        "subCategory": "Tops",
+        "kidsCategory": "Girls"
     },
     {
         "id": 211,
@@ -3422,7 +3465,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Trousers"
+        "subCategory": "Trousers",
+        "kidsCategory": "Boys"
     },
     {
         "id": 215,
@@ -3502,7 +3546,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Skirts & shorts"
+        "subCategory": "Skirts & shorts",
+        "kidsCategory": "Girls"
     },
     {
         "id": 220,
@@ -3518,7 +3563,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Tops"
+        "subCategory": "Tops",
+        "kidsCategory": "Girls"
     },
     {
         "id": 221,
@@ -3550,7 +3596,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Action Figure / Play set"
+        "subCategory": "Action Figure / Play set",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 223,
@@ -3678,7 +3725,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Dresses"
+        "subCategory": "Dresses",
+        "kidsCategory": "Girls"
     },
     {
         "id": 231,
@@ -3790,7 +3838,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Heels"
+        "subCategory": "Heels",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 238,
@@ -3838,7 +3887,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Winter Wear"
+        "subCategory": "Winter Wear",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 241,
@@ -3934,7 +3984,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Nightwear & Loungewear"
+        "subCategory": "Nightwear & Loungewear",
+        "kidsCategory": "Boys"
     },
     {
         "id": 247,
@@ -4126,7 +4177,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Innerwear & Thermals"
+        "subCategory": "Innerwear & Thermals",
+        "kidsCategory": "Girls"
     },
     {
         "id": 259,
@@ -4174,7 +4226,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Kurta Sets"
+        "subCategory": "Kurta Sets",
+        "kidsCategory": "Girls"
     },
     {
         "id": 262,
@@ -4222,7 +4275,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Winter Wear"
+        "subCategory": "Winter Wear",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 265,
@@ -4238,7 +4292,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Learning & Development"
+        "subCategory": "Learning & Development",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 266,
@@ -4286,7 +4341,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Dresses"
+        "subCategory": "Dresses",
+        "kidsCategory": "Girls"
     },
     {
         "id": 269,
@@ -4302,7 +4358,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "School Shoes"
+        "subCategory": "School Shoes",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 270,
@@ -4526,7 +4583,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 284,
@@ -4622,7 +4680,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Soft Toys"
+        "subCategory": "Soft Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 290,
@@ -4750,7 +4809,8 @@ export const products = [
         "isAd": true,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Innerwear & Thermals"
+        "subCategory": "Innerwear & Thermals",
+        "kidsCategory": "Girls"
     },
     {
         "id": 298,
@@ -4862,7 +4922,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "School Shoes"
+        "subCategory": "School Shoes",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 305,
@@ -4878,7 +4939,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Sandals"
+        "subCategory": "Sandals",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 306,
@@ -4894,7 +4956,8 @@ export const products = [
         "isAd": true,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "School Shoes"
+        "subCategory": "School Shoes",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 307,
@@ -5166,7 +5229,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Skirts & shorts"
+        "subCategory": "Skirts & shorts",
+        "kidsCategory": "Girls"
     },
     {
         "id": 324,
@@ -5214,7 +5278,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Sandals"
+        "subCategory": "Sandals",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 327,
@@ -5246,7 +5311,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Innerwear & Thermals"
+        "subCategory": "Innerwear & Thermals",
+        "kidsCategory": "Boys"
     },
     {
         "id": 329,
@@ -5294,7 +5360,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Sandals"
+        "subCategory": "Sandals",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 332,
@@ -5438,7 +5505,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Infant Care"
+        "subCategory": "Infant Care",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 341,
@@ -5454,7 +5522,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Shorts"
+        "subCategory": "Shorts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 342,
@@ -5678,7 +5747,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Winter Wear"
+        "subCategory": "Winter Wear",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 356,
@@ -5694,7 +5764,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Soft Toys"
+        "subCategory": "Soft Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 357,
@@ -5710,7 +5781,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Dresses"
+        "subCategory": "Dresses",
+        "kidsCategory": "Girls"
     },
     {
         "id": 358,
@@ -5774,7 +5846,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Action Figure / Play set"
+        "subCategory": "Action Figure / Play set",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 362,
@@ -6030,7 +6103,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "kidsCategory": "Boys"
     },
     {
         "id": 378,
@@ -6142,7 +6216,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Winter Wear"
+        "subCategory": "Winter Wear",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 385,
@@ -6174,7 +6249,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Infant Care"
+        "subCategory": "Infant Care",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 387,
@@ -6222,7 +6298,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 390,
@@ -6334,7 +6411,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Learning & Development"
+        "subCategory": "Learning & Development",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 397,
@@ -6366,7 +6444,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Shorts"
+        "subCategory": "Shorts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 399,
@@ -6654,7 +6733,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Soft Toys"
+        "subCategory": "Soft Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 417,
@@ -6782,7 +6862,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Shirts"
+        "subCategory": "Shirts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 425,
@@ -6798,7 +6879,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Rompers & Sleepsuits"
+        "subCategory": "Rompers & Sleepsuits",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 426,
@@ -7086,7 +7168,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Bottom wear"
+        "subCategory": "Bottom wear",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 444,
@@ -7182,7 +7265,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Trousers"
+        "subCategory": "Trousers",
+        "kidsCategory": "Boys"
     },
     {
         "id": 450,
@@ -7246,7 +7330,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 454,
@@ -7342,7 +7427,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Rompers & Sleepsuits"
+        "subCategory": "Rompers & Sleepsuits",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 460,
@@ -7358,7 +7444,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Lehenga Choli"
+        "subCategory": "Lehenga Choli",
+        "kidsCategory": "Girls"
     },
     {
         "id": 461,
@@ -7422,7 +7509,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Action Figure / Play set"
+        "subCategory": "Action Figure / Play set",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 465,
@@ -7742,7 +7830,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Learning & Development"
+        "subCategory": "Learning & Development",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 485,
@@ -7774,7 +7863,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Activity Toys"
+        "subCategory": "Activity Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 487,
@@ -7934,7 +8024,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Shirts"
+        "subCategory": "Shirts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 497,
@@ -7998,7 +8089,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Tights & Leggings"
+        "subCategory": "Tights & Leggings",
+        "kidsCategory": "Girls"
     },
     {
         "id": 501,
@@ -8062,7 +8154,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Dresses"
+        "subCategory": "Dresses",
+        "kidsCategory": "Girls"
     },
     {
         "id": 505,
@@ -8318,7 +8411,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 521,
@@ -8414,7 +8508,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Sandals"
+        "subCategory": "Sandals",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 527,
@@ -8494,7 +8589,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Shorts"
+        "subCategory": "Shorts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 532,
@@ -8510,7 +8606,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Jacket, Sweater & Sweatshirts"
+        "subCategory": "Jacket, Sweater & Sweatshirts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 533,
@@ -8542,7 +8639,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Infant Care"
+        "subCategory": "Infant Care",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 535,
@@ -8606,7 +8704,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Clothing Sets"
+        "subCategory": "Clothing Sets",
+        "kidsCategory": "Girls"
     },
     {
         "id": 539,
@@ -8686,7 +8785,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "T-Shirts"
+        "subCategory": "T-Shirts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 544,
@@ -8718,7 +8818,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Clothing Sets"
+        "subCategory": "Clothing Sets",
+        "kidsCategory": "Boys"
     },
     {
         "id": 546,
@@ -8766,7 +8867,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Learning & Development"
+        "subCategory": "Learning & Development",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 549,
@@ -8798,7 +8900,8 @@ export const products = [
         "isAd": true,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Jeans, Trousers & Capris"
+        "subCategory": "Jeans, Trousers & Capris",
+        "kidsCategory": "Girls"
     },
     {
         "id": 551,
@@ -8846,7 +8949,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Tops"
+        "subCategory": "Tops",
+        "kidsCategory": "Girls"
     },
     {
         "id": 554,
@@ -8958,7 +9062,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Flipflops"
+        "subCategory": "Flipflops",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 561,
@@ -9006,7 +9111,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Tights & Leggings"
+        "subCategory": "Tights & Leggings",
+        "kidsCategory": "Girls"
     },
     {
         "id": 564,
@@ -9022,7 +9128,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "kidsCategory": "Boys"
     },
     {
         "id": 565,
@@ -9262,7 +9369,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Sandals"
+        "subCategory": "Sandals",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 580,
@@ -9342,7 +9450,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Tops"
+        "subCategory": "Tops",
+        "kidsCategory": "Girls"
     },
     {
         "id": 585,
@@ -9438,7 +9547,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Kurta Sets"
+        "subCategory": "Kurta Sets",
+        "kidsCategory": "Girls"
     },
     {
         "id": 591,
@@ -9486,7 +9596,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Clothing Sets"
+        "subCategory": "Clothing Sets",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 594,
@@ -9534,7 +9645,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Infant Care"
+        "subCategory": "Infant Care",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 597,
@@ -9598,7 +9710,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Infant Care"
+        "subCategory": "Infant Care",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 601,
@@ -9630,7 +9743,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Soft Toys"
+        "subCategory": "Soft Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 603,
@@ -9646,7 +9760,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Infant Care"
+        "subCategory": "Infant Care",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 604,
@@ -9774,7 +9889,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "School Shoes"
+        "subCategory": "School Shoes",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 612,
@@ -9822,7 +9938,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Rompers & Sleepsuits"
+        "subCategory": "Rompers & Sleepsuits",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 615,
@@ -9854,7 +9971,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Flats"
+        "subCategory": "Flats",
+        "kidsCategory": "Girls"
     },
     {
         "id": 617,
@@ -9886,7 +10004,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Jacket, Sweater & Sweatshirts"
+        "subCategory": "Jacket, Sweater & Sweatshirts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 619,
@@ -9902,7 +10021,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 620,
@@ -10094,7 +10214,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Nightwear & Loungewear"
+        "subCategory": "Nightwear & Loungewear",
+        "kidsCategory": "Boys"
     },
     {
         "id": 632,
@@ -10174,7 +10295,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Dresses"
+        "subCategory": "Dresses",
+        "kidsCategory": "Girls"
     },
     {
         "id": 637,
@@ -10270,7 +10392,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Sandals"
+        "subCategory": "Sandals",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 643,
@@ -10446,7 +10569,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Tops"
+        "subCategory": "Tops",
+        "kidsCategory": "Girls"
     },
     {
         "id": 654,
@@ -10462,7 +10586,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Party Wear"
+        "subCategory": "Party Wear",
+        "kidsCategory": "Boys"
     },
     {
         "id": 655,
@@ -10702,7 +10827,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Jacket, Sweater & Sweatshirts"
+        "subCategory": "Jacket, Sweater & Sweatshirts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 670,
@@ -10766,7 +10892,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Skirts & shorts"
+        "subCategory": "Skirts & shorts",
+        "kidsCategory": "Girls"
     },
     {
         "id": 674,
@@ -10862,7 +10989,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Shorts"
+        "subCategory": "Shorts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 680,
@@ -11006,7 +11134,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Kurta Sets"
+        "subCategory": "Kurta Sets",
+        "kidsCategory": "Girls"
     },
     {
         "id": 689,
@@ -11214,7 +11343,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Track Pants & Pyjamas"
+        "subCategory": "Track Pants & Pyjamas",
+        "kidsCategory": "Boys"
     },
     {
         "id": 702,
@@ -11262,7 +11392,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Winter Wear"
+        "subCategory": "Winter Wear",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 705,
@@ -11294,7 +11425,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Dresses"
+        "subCategory": "Dresses",
+        "kidsCategory": "Girls"
     },
     {
         "id": 707,
@@ -11326,7 +11458,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Heels"
+        "subCategory": "Heels",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 709,
@@ -11470,7 +11603,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Heels"
+        "subCategory": "Heels",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 718,
@@ -11502,7 +11636,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Flats"
+        "subCategory": "Flats",
+        "kidsCategory": "Girls"
     },
     {
         "id": 720,
@@ -11598,7 +11733,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Soft Toys"
+        "subCategory": "Soft Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 726,
@@ -11646,7 +11782,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Sandals"
+        "subCategory": "Sandals",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 729,
@@ -11678,7 +11815,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Nightwear & Loungewear"
+        "subCategory": "Nightwear & Loungewear",
+        "kidsCategory": "Boys"
     },
     {
         "id": 731,
@@ -11822,7 +11960,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Tshirts"
+        "subCategory": "Tshirts",
+        "kidsCategory": "Girls"
     },
     {
         "id": 740,
@@ -11854,7 +11993,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Sandals"
+        "subCategory": "Sandals",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 742,
@@ -11982,7 +12122,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Heels"
+        "subCategory": "Heels",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 750,
@@ -12030,7 +12171,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Activity Toys"
+        "subCategory": "Activity Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 753,
@@ -12190,7 +12332,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Winter Wear"
+        "subCategory": "Winter Wear",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 763,
@@ -12302,7 +12445,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Skirts & shorts"
+        "subCategory": "Skirts & shorts",
+        "kidsCategory": "Girls"
     },
     {
         "id": 770,
@@ -12382,7 +12526,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Winter Wear"
+        "subCategory": "Winter Wear",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 775,
@@ -12414,7 +12559,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Learning & Development"
+        "subCategory": "Learning & Development",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 777,
@@ -12430,7 +12576,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Dresses"
+        "subCategory": "Dresses",
+        "kidsCategory": "Girls"
     },
     {
         "id": 778,
@@ -12446,7 +12593,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Trousers"
+        "subCategory": "Trousers",
+        "kidsCategory": "Boys"
     },
     {
         "id": 779,
@@ -12686,7 +12834,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Bottom wear"
+        "subCategory": "Bottom wear",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 794,
@@ -12734,7 +12883,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Winter Wear"
+        "subCategory": "Winter Wear",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 797,
@@ -12846,7 +12996,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Tights & Leggings"
+        "subCategory": "Tights & Leggings",
+        "kidsCategory": "Girls"
     },
     {
         "id": 804,
@@ -12878,7 +13029,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Tops"
+        "subCategory": "Tops",
+        "kidsCategory": "Girls"
     },
     {
         "id": 806,
@@ -12942,7 +13094,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Sports Shoes"
+        "subCategory": "Sports Shoes",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 810,
@@ -12958,7 +13111,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Jacket, Sweater & Sweatshirts"
+        "subCategory": "Jacket, Sweater & Sweatshirts",
+        "kidsCategory": "Boys"
     },
     {
         "id": 811,
@@ -13118,7 +13272,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Rompers & Sleepsuits"
+        "subCategory": "Rompers & Sleepsuits",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 821,
@@ -13166,7 +13321,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Winter Wear"
+        "subCategory": "Winter Wear",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 824,
@@ -13246,7 +13402,8 @@ export const products = [
         "isAd": true,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Action Figure / Play set"
+        "subCategory": "Action Figure / Play set",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 829,
@@ -13470,7 +13627,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Learning & Development"
+        "subCategory": "Learning & Development",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 843,
@@ -13502,7 +13660,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Action Figure / Play set"
+        "subCategory": "Action Figure / Play set",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 845,
@@ -13534,7 +13693,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Action Figure / Play set"
+        "subCategory": "Action Figure / Play set",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 847,
@@ -13614,7 +13774,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Rompers & Sleepsuits"
+        "subCategory": "Rompers & Sleepsuits",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 852,
@@ -13742,7 +13903,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Innerwear & Sleepwear"
+        "subCategory": "Innerwear & Sleepwear",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 860,
@@ -13774,7 +13936,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Skirts & shorts"
+        "subCategory": "Skirts & shorts",
+        "kidsCategory": "Girls"
     },
     {
         "id": 862,
@@ -13790,7 +13953,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Innerwear & Thermals"
+        "subCategory": "Innerwear & Thermals",
+        "kidsCategory": "Boys"
     },
     {
         "id": 863,
@@ -13854,7 +14018,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Action Figure / Play set"
+        "subCategory": "Action Figure / Play set",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 867,
@@ -13982,7 +14147,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Heels"
+        "subCategory": "Heels",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 875,
@@ -14238,7 +14404,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Innerwear & Thermals"
+        "subCategory": "Innerwear & Thermals",
+        "kidsCategory": "Boys"
     },
     {
         "id": 891,
@@ -14446,7 +14613,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Bodysuits"
+        "subCategory": "Bodysuits",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 904,
@@ -14478,7 +14646,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Jacket, Sweater & Sweatshirts"
+        "subCategory": "Jacket, Sweater & Sweatshirts",
+        "kidsCategory": "Girls"
     },
     {
         "id": 906,
@@ -14574,7 +14743,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Rompers & Sleepsuits"
+        "subCategory": "Rompers & Sleepsuits",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 912,
@@ -14670,7 +14840,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Nightwear & Loungewear"
+        "subCategory": "Nightwear & Loungewear",
+        "kidsCategory": "Girls"
     },
     {
         "id": 918,
@@ -14686,7 +14857,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Infants",
-        "subCategory": "Winter Wear"
+        "subCategory": "Winter Wear",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 919,
@@ -14798,7 +14970,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Activity Toys"
+        "subCategory": "Activity Toys",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 926,
@@ -14878,7 +15051,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Footwear",
-        "subCategory": "Flats"
+        "subCategory": "Flats",
+        "kidsCategory": "Girls"
     },
     {
         "id": 931,
@@ -14910,7 +15084,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Nightwear & Loungewear"
+        "subCategory": "Nightwear & Loungewear",
+        "kidsCategory": "Boys"
     },
     {
         "id": 933,
@@ -14958,7 +15133,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Learning & Development"
+        "subCategory": "Learning & Development",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 936,
@@ -15038,7 +15214,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Action Figure / Play set"
+        "subCategory": "Action Figure / Play set",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 941,
@@ -15118,7 +15295,8 @@ export const products = [
         "isAd": true,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Clothing Sets"
+        "subCategory": "Clothing Sets",
+        "kidsCategory": "Girls"
     },
     {
         "id": 946,
@@ -15134,7 +15312,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Action Figure / Play set"
+        "subCategory": "Action Figure / Play set",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 947,
@@ -15150,7 +15329,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Party wear"
+        "subCategory": "Party wear",
+        "kidsCategory": "Girls"
     },
     {
         "id": 948,
@@ -15214,7 +15394,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Action Figure / Play set"
+        "subCategory": "Action Figure / Play set",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 952,
@@ -15310,7 +15491,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Nightwear & Loungewear"
+        "subCategory": "Nightwear & Loungewear",
+        "kidsCategory": "Boys"
     },
     {
         "id": 958,
@@ -15582,7 +15764,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Action Figure / Play set"
+        "subCategory": "Action Figure / Play set",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 975,
@@ -15614,7 +15797,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Lehenga Choli"
+        "subCategory": "Lehenga Choli",
+        "kidsCategory": "Girls"
     },
     {
         "id": 977,
@@ -15646,7 +15830,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Boys Clothing",
-        "subCategory": "Ethnic Wear"
+        "subCategory": "Ethnic Wear",
+        "kidsCategory": "Boys"
     },
     {
         "id": 979,
@@ -15710,7 +15895,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Dungarees & Jumpsuits"
+        "subCategory": "Dungarees & Jumpsuits",
+        "kidsCategory": "Girls"
     },
     {
         "id": 983,
@@ -15806,7 +15992,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Toys & Games",
-        "subCategory": "Learning & Development"
+        "subCategory": "Learning & Development",
+        "kidsCategory": "Unisex"
     },
     {
         "id": 989,
@@ -15854,7 +16041,8 @@ export const products = [
         "isAd": false,
         "group": "Kids",
         "category": "Girls Clothing",
-        "subCategory": "Innerwear & Thermals"
+        "subCategory": "Innerwear & Thermals",
+        "kidsCategory": "Girls"
     },
     {
         "id": 992,
