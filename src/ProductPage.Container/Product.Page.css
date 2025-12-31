@@ -246,10 +246,26 @@
     background-color: #f9f9f9;
 }
 
-.quantity-selector span {
-    padding: 0 15px;
-    font-weight: 500;
+.quantity-selector .quantity-input {
+    width: 60px;
+    padding: 0;
+    border: none;
+    text-align: center;
     font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
+/* Hide Spin Buttons */
+.quantity-selector .quantity-input::-webkit-outer-spin-button,
+.quantity-selector .quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Actions */
@@ -476,4 +492,184 @@
 .editorial-btn:hover {
     background: #000;
     color: #fff;
+}
+
+/* Reviews Block */
+.reviews-block {
+    padding: 10px 0;
+}
+
+.review-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Push sort to right */
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Review Sort Dropdown */
+.review-sort-container {
+    position: relative;
+    z-index: 10;
+}
+
+.review-sort-dropdown {
+    width: 140px;
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+}
+
+.review-sort-dropdown:hover {
+    border-color: #333;
+}
+
+.review-sort-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 140px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    list-style: none;
+    padding: 5px 0;
+    margin-top: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    /* Animation props */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.review-sort-dropdown.open .review-sort-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.review-sort-options li {
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #333;
+}
+
+.review-sort-options li:hover {
+    background: #f5f5f5;
+    font-weight: 600;
+}
+
+.summary-score {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.summary-text {
+    font-size: 13px;
+    color: #555;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.review-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.review-item:last-of-type {
+    border-bottom: none;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+    font-size: 12px;
+}
+
+.review-rating {
+    background-color: #03a685;
+    /* Myntra Green */
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 10px;
+}
+
+.review-user {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.review-date {
+    color: #94969f;
+}
+
+.review-text {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Review List - Scrollable */
+.review-list {
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 5px;
+    /* Prevent scrollbar overlapping text */
+}
+
+/* Custom Scrollbar for Reviews */
+.review-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.review-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.review-list::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 4px;
+}
+
+.review-list::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+}
+
+.view-all-reviews-btn {
+    width: 100%;
+    margin-top: 10px;
+    background: transparent;
+    border: none;
+    color: forestgreen;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    text-align: left;
+    padding: 10px 0 0;
+    /* Updated padding */
+    display: inline-block;
+}
+
+.view-all-reviews-btn:hover {
+    text-decoration: underline;
 }

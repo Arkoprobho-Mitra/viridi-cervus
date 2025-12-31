@@ -16,6 +16,27 @@ const Wishlist = () => {
     const itemsPerPage = 50;
     const [sortBy, setSortBy] = useState('discount');
     const [isSortOpen, setSortOpen] = useState(false);
+    const sortTimeoutRef = React.useRef(null);
+
+    const handleSortLeave = () => {
+        sortTimeoutRef.current = setTimeout(() => {
+            setSortOpen(false);
+        }, 200);
+    };
+
+    const handleSortEnter = () => {
+        if (sortTimeoutRef.current) {
+            clearTimeout(sortTimeoutRef.current);
+        }
+    };
+
+    useEffect(() => {
+        return () => {
+            if (sortTimeoutRef.current) {
+                clearTimeout(sortTimeoutRef.current);
+            }
+        };
+    }, []);
 
     // Sorting Logic
     const sortItems = (items, sortType) => {
@@ -110,6 +131,8 @@ const Wishlist = () => {
                         <div
                             className={`custom-sort-dropdown ${isSortOpen ? 'open' : ''}`}
                             onClick={() => setSortOpen(!isSortOpen)}
+                            onMouseLeave={handleSortLeave}
+                            onMouseEnter={handleSortEnter}
                         >
                             <span className="selected-sort">
                                 {sortBy === 'discount' && 'Better Discount'}
@@ -118,28 +141,26 @@ const Wishlist = () => {
                             </span>
                             <span className="sort-chevron"></span>
 
-                            {isSortOpen && (
-                                <ul className="sort-options-list">
-                                    <li
-                                        className={sortBy === 'discount' ? 'active' : ''}
-                                        onClick={(e) => { e.stopPropagation(); setSortBy('discount'); setSortOpen(false); }}
-                                    >
-                                        Better Discount
-                                    </li>
-                                    <li
-                                        className={sortBy === 'priceLow' ? 'active' : ''}
-                                        onClick={(e) => { e.stopPropagation(); setSortBy('priceLow'); setSortOpen(false); }}
-                                    >
-                                        Price: Low to High
-                                    </li>
-                                    <li
-                                        className={sortBy === 'priceHigh' ? 'active' : ''}
-                                        onClick={(e) => { e.stopPropagation(); setSortBy('priceHigh'); setSortOpen(false); }}
-                                    >
-                                        Price: High to Low
-                                    </li>
-                                </ul>
-                            )}
+                            <ul className="sort-options-list">
+                                <li
+                                    className={sortBy === 'discount' ? 'active' : ''}
+                                    onClick={(e) => { e.stopPropagation(); setSortBy('discount'); handleSortLeave(); }}
+                                >
+                                    Better Discount
+                                </li>
+                                <li
+                                    className={sortBy === 'priceLow' ? 'active' : ''}
+                                    onClick={(e) => { e.stopPropagation(); setSortBy('priceLow'); handleSortLeave(); }}
+                                >
+                                    Price: Low to High
+                                </li>
+                                <li
+                                    className={sortBy === 'priceHigh' ? 'active' : ''}
+                                    onClick={(e) => { e.stopPropagation(); setSortBy('priceHigh'); handleSortLeave(); }}
+                                >
+                                    Price: High to Low
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 )}

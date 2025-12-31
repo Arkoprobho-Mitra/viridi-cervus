@@ -36,6 +36,7 @@ export const AccountDropdown = () => {
                 )}
             </div>
             <ul className="dropdown-list">
+                <li>My Account</li>
                 <li>Orders</li>
                 <li><Link to="/wishlist" style={{ textDecoration: 'none', color: 'inherit' }}>Wishlist</Link></li>
                 <li>Gift Cards</li>

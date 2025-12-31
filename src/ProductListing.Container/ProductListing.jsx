@@ -12,10 +12,11 @@ const ProductListing = () => {
     const queryParams = new URLSearchParams(location.search);
 
     // Get params with defaults
-    const gender = queryParams.get('gender') || (queryParams.get('search') ? null : 'Men'); // Default to Men only if no search
-    const category = queryParams.get('category'); // Removed default 'Clothing' to allow search to work broadly
-    const subCategory = queryParams.get('subCategory');
+    // Default to 'Men' ONLY if no gender, no category, and no search is provided (Landing on /products directly)
+    const category = queryParams.get('category');
     const search = queryParams.get('search');
+    const subCategory = queryParams.get('subCategory');
+    const gender = queryParams.get('gender') || (category || search ? null : 'Men');
 
     // Capitalize helper
     const capitalize = (s) => s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
@@ -69,6 +70,27 @@ const ProductListing = () => {
     // Sorting State
     const [sortBy, setSortBy] = React.useState('recommended');
     const [isSortOpen, setSortOpen] = React.useState(false);
+    const sortTimeoutRef = React.useRef(null);
+
+    const handleSortLeave = () => {
+        sortTimeoutRef.current = setTimeout(() => {
+            setSortOpen(false);
+        }, 200);
+    };
+
+    const handleSortEnter = () => {
+        if (sortTimeoutRef.current) {
+            clearTimeout(sortTimeoutRef.current);
+        }
+    };
+
+    React.useEffect(() => {
+        return () => {
+            if (sortTimeoutRef.current) {
+                clearTimeout(sortTimeoutRef.current);
+            }
+        };
+    }, []);
 
     // Sorting Logic
     const sortItems = (items, sortType) => {
@@ -264,8 +286,8 @@ const ProductListing = () => {
                         {category && category !== 'Clothing' && (
                             <>
                                 {' / '}
-                                {subCategory && subCategory !== 'All' ? (
-                                    <Link to={`/products?gender=${gender}&category=${encodeURIComponent(category)}`} className="breadcrumb-link">{category}</Link>
+                                {(subCategory && subCategory !== 'All') ? (
+                                    <Link to={`/products?${gender ? `gender=${gender}&` : ''}category=${encodeURIComponent(category)}`} className="breadcrumb-link">{category}</Link>
                                 ) : (
                                     <strong>{category}</strong>
                                 )}
@@ -281,7 +303,7 @@ const ProductListing = () => {
 
                     <div className="listing-header-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginTop: '10px' }}>
                         <div className="page-title">
-                            {capitalize(gender)} {subCategory} Collections <span className="item-count"> - {sortedProducts.length} items</span>
+                            {gender ? `${capitalize(gender)} ` : ''}{category || ''} {subCategory ? subCategory : ''} Collections <span className="item-count"> - {sortedProducts.length} items</span>
                         </div>
 
                         {/* Custom Sort Dropdown */}
@@ -290,39 +312,38 @@ const ProductListing = () => {
                             <div
                                 className={`custom-sort-dropdown ${isSortOpen ? 'open' : ''}`}
                                 onClick={() => setSortOpen(!isSortOpen)}
-                                onMouseLeave={() => setSortOpen(false)}
+                                onMouseLeave={handleSortLeave}
+                                onMouseEnter={handleSortEnter}
                             >
                                 <span className="selected-sort">{getSortLabel(sortBy)}</span>
                                 <span className="sort-chevron"></span>
 
-                                {isSortOpen && (
-                                    <ul className="sort-options-list">
-                                        <li
-                                            className={sortBy === 'recommended' ? 'active' : ''}
-                                            onClick={(e) => { e.stopPropagation(); setSortBy('recommended'); setSortOpen(false); }}
-                                        >
-                                            Recommended
-                                        </li>
-                                        <li
-                                            className={sortBy === 'discount' ? 'active' : ''}
-                                            onClick={(e) => { e.stopPropagation(); setSortBy('discount'); setSortOpen(false); }}
-                                        >
-                                            Better Discount
-                                        </li>
-                                        <li
-                                            className={sortBy === 'priceLow' ? 'active' : ''}
-                                            onClick={(e) => { e.stopPropagation(); setSortBy('priceLow'); setSortOpen(false); }}
-                                        >
-                                            Price: Low to High
-                                        </li>
-                                        <li
-                                            className={sortBy === 'priceHigh' ? 'active' : ''}
-                                            onClick={(e) => { e.stopPropagation(); setSortBy('priceHigh'); setSortOpen(false); }}
-                                        >
-                                            Price: High to Low
-                                        </li>
-                                    </ul>
-                                )}
+                                <ul className="sort-options-list">
+                                    <li
+                                        className={sortBy === 'recommended' ? 'active' : ''}
+                                        onClick={(e) => { e.stopPropagation(); setSortBy('recommended'); handleSortLeave(); }}
+                                    >
+                                        Recommended
+                                    </li>
+                                    <li
+                                        className={sortBy === 'discount' ? 'active' : ''}
+                                        onClick={(e) => { e.stopPropagation(); setSortBy('discount'); handleSortLeave(); }}
+                                    >
+                                        Better Discount
+                                    </li>
+                                    <li
+                                        className={sortBy === 'priceLow' ? 'active' : ''}
+                                        onClick={(e) => { e.stopPropagation(); setSortBy('priceLow'); handleSortLeave(); }}
+                                    >
+                                        Price: Low to High
+                                    </li>
+                                    <li
+                                        className={sortBy === 'priceHigh' ? 'active' : ''}
+                                        onClick={(e) => { e.stopPropagation(); setSortBy('priceHigh'); handleSortLeave(); }}
+                                    >
+                                        Price: High to Low
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>

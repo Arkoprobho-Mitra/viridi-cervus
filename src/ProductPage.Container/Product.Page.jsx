@@ -17,6 +17,17 @@ const ProductPage = () => {
 
     // Check wishlist status on mount/update
     useEffect(() => {
+        window.scrollTo(0, 0);
+        const found = products.find(p => p.id === parseInt(id));
+        setProduct(found);
+        if (found) {
+            const imgs = Array(8).fill(found.image).map((src, i) => ({ src, id: i }));
+            setImages(imgs);
+            setThumbnailStartIndex(0);
+        }
+    }, [id]);
+
+    useEffect(() => {
         const checkWishlistStatus = () => {
             const auth = localStorage.getItem('isAuthenticated');
             const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -55,16 +66,77 @@ const ProductPage = () => {
         window.dispatchEvent(new Event('wishlistUpdated'));
     };
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        const found = products.find(p => p.id === parseInt(id));
-        setProduct(found);
-        if (found) {
-            const imgs = Array(8).fill(found.image).map((src, i) => ({ src, id: i }));
-            setImages(imgs);
-            setThumbnailStartIndex(0);
+    // Reviews State & logic
+    const [reviewSort, setReviewSort] = useState('newest');
+    const [isReviewSortOpen, setReviewSortOpen] = useState(false);
+    const [visibleReviewsCount, setVisibleReviewsCount] = useState(3);
+    const reviewSortTimeoutRef = useRef(null);
+
+    const handleReviewSortLeave = () => {
+        reviewSortTimeoutRef.current = setTimeout(() => {
+            setReviewSortOpen(false);
+        }, 200);
+    };
+
+    const handleReviewSortEnter = () => {
+        if (reviewSortTimeoutRef.current) {
+            clearTimeout(reviewSortTimeoutRef.current);
         }
-    }, [id]);
+    };
+
+    useEffect(() => {
+        return () => {
+            if (reviewSortTimeoutRef.current) {
+                clearTimeout(reviewSortTimeoutRef.current);
+            }
+        };
+    }, []);
+
+    const reviewsData = useMemo(() => [
+        { id: 1, user: 'Arjun K.', rating: 5, date: '2 days ago', dateObj: new Date(Date.now() - 2 * 86400000), text: 'Absolutely love the fit! The fabric feels premium and breathable.' },
+        { id: 2, user: 'Sneha P.', rating: 4, date: '1 week ago', dateObj: new Date(Date.now() - 7 * 86400000), text: 'Great quality but the size runs slightly large. Recommend sizing down.' },
+        { id: 3, user: 'Rahul M.', rating: 5, date: '2 weeks ago', dateObj: new Date(Date.now() - 14 * 86400000), text: 'Best purchase I made this season. Worth every rupee.' },
+        { id: 4, user: 'Vikram S.', rating: 2, date: '1 month ago', dateObj: new Date(Date.now() - 30 * 86400000), text: 'Color faded after one wash. Disappointed.' },
+        { id: 5, user: 'Priya D.', rating: 1, date: '2 months ago', dateObj: new Date(Date.now() - 60 * 86400000), text: 'Stitching came off immediately. Poor quality.' },
+        { id: 6, user: 'Amit B.', rating: 5, date: '2 months ago', dateObj: new Date(Date.now() - 65 * 86400000), text: 'Perfect for office wear. Very comfortable.' },
+        { id: 7, user: 'Kavita R.', rating: 4, date: '3 months ago', dateObj: new Date(Date.now() - 90 * 86400000), text: 'Good material, but delivery was delayed.' },
+        { id: 8, user: 'Rohan J.', rating: 3, date: '4 months ago', dateObj: new Date(Date.now() - 120 * 86400000), text: 'Average quality. Expected better for the price.' },
+        { id: 9, user: 'Meera S.', rating: 5, date: '5 months ago', dateObj: new Date(Date.now() - 150 * 86400000), text: 'Loved it! Will buy again.' },
+        { id: 10, user: 'Suresh T.', rating: 4, date: '6 months ago', dateObj: new Date(Date.now() - 180 * 86400000), text: 'Fits well, true to size.' }
+    ], []);
+
+    const sortedReviews = useMemo(() => {
+        const sorted = [...reviewsData];
+        switch (reviewSort) {
+            case 'newest': return sorted.sort((a, b) => b.dateObj - a.dateObj);
+            case 'oldest': return sorted.sort((a, b) => a.dateObj - b.dateObj);
+            case 'ratingHigh': return sorted.sort((a, b) => b.rating - a.rating);
+            case 'ratingLow': return sorted.sort((a, b) => a.rating - b.rating);
+            default: return sorted;
+        }
+    }, [reviewsData, reviewSort]);
+
+    const getReviewSortLabel = (type) => {
+        switch (type) {
+            case 'newest': return 'Newest First';
+            case 'oldest': return 'Oldest First';
+            case 'ratingHigh': return 'Positive First';
+            case 'ratingLow': return 'Negative First';
+            default: return 'Newest First';
+        }
+    };
+
+    // Click outside handler for sort dropdown
+    const sortRef = useRef(null);
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (sortRef.current && !sortRef.current.contains(event.target)) {
+                setReviewSortOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
 
     const handleMainNext = () => {
         setImages(prev => {
@@ -206,9 +278,24 @@ const ProductPage = () => {
 
                     <label className="selector-label">Quantity</label>
                     <div className="quantity-selector">
-                        <button onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
-                        <span>{quantity}</span>
-                        <button onClick={() => setQuantity(quantity + 1)}>+</button>
+                        <button onClick={() => setQuantity(Math.max(1, (parseInt(quantity) || 0) - 1))}>-</button>
+                        <input
+                            type="number"
+                            className="quantity-input"
+                            value={quantity}
+                            onChange={(e) => {
+                                const val = e.target.value;
+                                if (val === '' || /^\d+$/.test(val)) {
+                                    setQuantity(val);
+                                }
+                            }}
+                            onBlur={() => {
+                                let val = parseInt(quantity);
+                                if (!val || val < 1) val = 1;
+                                setQuantity(val);
+                            }}
+                        />
+                        <button onClick={() => setQuantity((parseInt(quantity) || 0) + 1)}>+</button>
                     </div>
 
                     <button className="add-to-cart-btn">
@@ -247,6 +334,59 @@ const ProductPage = () => {
                                     <div style={{ fontSize: '13px', color: '#555' }}>
                                         <p>📍 Sent from Mumbai</p>
                                         <p style={{ marginTop: '5px' }}>Regular Package - Estimated arrival 3-5 days</p>
+                                    </div>
+                                )
+                            },
+                            {
+                                id: 'reviews', label: `REVIEWS (${sortedReviews.length})`, content: (
+                                    <div className="reviews-block">
+                                        <div className="review-summary">
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                                <span className="summary-score">{product.rating} <span style={{ color: '#03a685' }}>★</span></span>
+                                                <span className="summary-text">Overall Rating</span>
+                                            </div>
+
+                                            {/* Review Sort Dropdown */}
+                                            <div className="review-sort-container" ref={sortRef}>
+                                                <div
+                                                    className={`review-sort-dropdown ${isReviewSortOpen ? 'open' : ''}`}
+                                                    onClick={() => setReviewSortOpen(!isReviewSortOpen)}
+                                                    onMouseLeave={handleReviewSortLeave}
+                                                    onMouseEnter={handleReviewSortEnter}
+                                                >
+                                                    <span>{getReviewSortLabel(reviewSort)}</span>
+                                                    <span className="sort-chevron"></span>
+
+                                                    <ul className="review-sort-options">
+                                                        <li onClick={() => { setReviewSort('newest'); handleReviewSortLeave(); }}>Newest First</li>
+                                                        <li onClick={() => { setReviewSort('oldest'); handleReviewSortLeave(); }}>Oldest First</li>
+                                                        <li onClick={() => { setReviewSort('ratingHigh'); handleReviewSortLeave(); }}>Positive First</li>
+                                                        <li onClick={() => { setReviewSort('ratingLow'); handleReviewSortLeave(); }}>Negative First</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="review-list">
+                                            {sortedReviews.slice(0, visibleReviewsCount).map(review => (
+                                                <div key={review.id} className="review-item">
+                                                    <div className="review-header">
+                                                        <span className="review-rating">{review.rating} ★</span>
+                                                        <span className="review-user">{review.user}</span>
+                                                        <span className="review-date">{review.date}</span>
+                                                    </div>
+                                                    <p className="review-text">{review.text}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                        {sortedReviews.length > 3 && (
+                                            <button
+                                                className="view-all-reviews-btn"
+                                                onClick={() => setVisibleReviewsCount(visibleReviewsCount === 3 ? 8 : 3)}
+                                            >
+                                                {visibleReviewsCount === 3 ? 'View All Reviews' : 'View Less'}
+                                            </button>
+                                        )}
                                     </div>
                                 )
                             }

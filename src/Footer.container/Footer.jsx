@@ -9,12 +9,12 @@ const Footer = () => {
                 <div className="footer-section">
                     <h4>ONLINE SHOPPING</h4>
                     <ul>
-                        <li>Men</li>
-                        <li>Women</li>
-                        <li>Kids</li>
-                        <li>Home & Living</li>
-                        <li>Beauty</li>
-                        <li>Gift Cards</li>
+                        <li><Link to="/products?gender=Men">Men</Link></li>
+                        <li><Link to="/products?gender=Women">Women</Link></li>
+                        <li><Link to="/products?gender=Kids">Kids</Link></li>
+                        <li><Link to="/products?gender=Beauty">Beauty</Link></li>
+                        <li><Link to="/products?gender=Accessories">Accessories</Link></li>
+                        <li><Link to="/giftcards">Gift Cards</Link></li>
                     </ul>
                 </div>
 
@@ -57,11 +57,11 @@ const Footer = () => {
                 <div className="footer-section useful-links">
                     <h4>USEFUL LINKS</h4>
                     <ul>
-                        <li>Blog</li>
-                        <li>Careers</li>
-                        <li>Site Map</li>
-                        <li>Corporate Information</li>
-                        <li>Whitehat</li>
+                        <li><Link to="/blog">Blog</Link></li>
+                        <li><Link to="/careers">Careers</Link></li>
+                        <li><Link to="/sitemap">Site Map</Link></li>
+                        <li><Link to="/corporate-info">Corporate Information</Link></li>
+                        <li><Link to="/whitehat">Whitehat</Link></li>
                     </ul>
                 </div>
             </div>

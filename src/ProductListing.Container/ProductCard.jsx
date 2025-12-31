@@ -5,6 +5,9 @@ import './ProductListing.css';
 const ProductCard = ({ product, actionType = 'wishlist', onAction }) => {
     const [isWishlisted, setIsWishlisted] = React.useState(false);
 
+    // Stable random for "Only Few Left" badge
+    const showFewLeft = React.useMemo(() => Math.random() > 0.8, []);
+
     const getWishlistKey = () => {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         return currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
@@ -85,7 +88,7 @@ const ProductCard = ({ product, actionType = 'wishlist', onAction }) => {
                         <span className="discount-text">({product.discount}% OFF)</span>
                     </div>
                     {/* Randomly show "Only Few Left!" for visual variety if needed, or based on data */}
-                    {Math.random() > 0.8 && <div className="few-left">Only Few Left!</div>}
+                    <div className="few-left" style={{ visibility: showFewLeft ? 'visible' : 'hidden' }}>Only Few Left!</div>
                 </div>
 
                 {/* Add to Cart Button (Conditional) */}

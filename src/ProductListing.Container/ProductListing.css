@@ -590,6 +590,18 @@
     padding: 5px 0;
     margin: 4px 0 0 0;
     z-index: 50;
+
+    /* Animation props */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.custom-sort-dropdown.open .sort-options-list {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .sort-options-list li {
