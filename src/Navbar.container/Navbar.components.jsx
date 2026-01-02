@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.styles.css';
 import MegaMenu from './MegaMenu';
@@ -14,12 +14,51 @@ const Navbar = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
+  const [cartCount, setCartCount] = useState(0);
+  const [wishlistCount, setWishlistCount] = useState(0);
+
+  useEffect(() => {
+    const updateCounts = () => {
+      const isAuth = localStorage.getItem('isAuthenticated');
+      const currentUser = isAuth ? JSON.parse(localStorage.getItem('currentUser')) : null;
+
+      // Cart Count
+      const cartKey = isAuth && currentUser ? `cart_${currentUser.email}` : 'cart_guest';
+      const cartItems = JSON.parse(localStorage.getItem(cartKey)) || [];
+      const cCount = cartItems.reduce((acc, item) => acc + (item.qty || 1), 0);
+      setCartCount(cCount);
+
+      // Wishlist Count
+      const wishlistKey = isAuth && currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
+      // Wishlist stores IDs (guest) or objects (auth) depending on implementation, 
+      // but in Wishlist.jsx we see it stores IDs for guest and IDs for auth (wait, check Wishlist.jsx)
+      // Wishlist.jsx line 111: const currentIds = JSON.parse(localStorage.getItem(key)) || [];
+      // It seems it stores IDs (array of strings/numbers).
+      // Let's verify Wishlist.jsx again. Item 76: const storedIds = JSON.parse(localStorage.getItem(key)) || [];
+      // Yes, generally IDs.
+      const wishlistItems = JSON.parse(localStorage.getItem(wishlistKey)) || [];
+      setWishlistCount(wishlistItems.length);
+    };
+
+    updateCounts();
+    window.addEventListener('cartUpdated', updateCounts);
+    window.addEventListener('wishlistUpdated', updateCounts);
+    window.addEventListener('storage', updateCounts);
+
+    return () => {
+      window.removeEventListener('cartUpdated', updateCounts);
+      window.removeEventListener('wishlistUpdated', updateCounts);
+      window.removeEventListener('storage', updateCounts);
+    };
+  }, []);
+
   const handleSearch = (e) => {
     if (e.key === 'Enter' && searchQuery.trim()) {
       setShowSuggestions(false);
       navigate(`/products?search=${encodeURIComponent(searchQuery.trim())}`);
     }
   };
+
 
   const handleSearchChange = (e) => {
     const val = e.target.value;
@@ -129,13 +168,17 @@ const Navbar = () => {
               {activeItem === 'account' && <AccountDropdown />}
             </div>
             <div className='wishlist' onMouseEnter={() => handleItemEnter('wishlist')}>
-              <Link to="/wishlist" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Link to="/wishlist" style={{ textDecoration: 'none', color: 'inherit', position: 'relative' }}>
                 Wishlist
+                {wishlistCount > 0 && <span className="nav-count-badge">{wishlistCount}</span>}
               </Link>
               {activeItem === 'wishlist' && <WishlistDropdown />}
             </div>
             <div className='cart' onMouseEnter={() => handleItemEnter('cart')}>
-              Cart
+              <Link to="/cart" style={{ textDecoration: 'none', color: 'inherit', position: 'relative' }}>
+                Cart
+                {cartCount > 0 && <span className="nav-count-badge">{cartCount}</span>}
+              </Link>
               {activeItem === 'cart' && <CartDropdown />}
             </div>
           </div>

@@ -86,7 +86,7 @@ export const WishlistDropdown = () => {
             <div className="dropdown-menu wishlist-dropdown" style={{ textAlign: 'center', padding: '20px' }}>
                 <h4>Your Wishlist</h4>
                 <p style={{ margin: '10px 0', fontSize: '13px', color: '#535766' }}>Your wishlist is empty.</p>
-                <Link to="/products">
+                <Link to="/">
                     <button className="login-btn" style={{ width: '100%', marginTop: '10px' }}>START SHOPPING</button>
                 </Link>
             </div>
@@ -245,7 +245,7 @@ export const CartDropdown = () => {
             <div className="dropdown-menu cart-dropdown" style={{ textAlign: 'center', padding: '20px' }}>
                 <h4>Shopping Bag</h4>
                 <p style={{ margin: '10px 0', fontSize: '13px', color: '#535766' }}>Your bag is empty.</p>
-                <Link to="/products">
+                <Link to="/">
                     <button className="login-btn" style={{ width: '100%', marginTop: '10px' }}>START SHOPPING</button>
                 </Link>
             </div>

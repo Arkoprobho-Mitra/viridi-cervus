@@ -193,7 +193,7 @@ const Wishlist = () => {
                 <div className="empty-wishlist">
                     <h2>Your Wishlist is Empty</h2>
                     <p>Save items that you like in your wishlist. Review them anytime and easily move them to the bag.</p>
-                    <Link to="/products" className="continue-shopping-btn">Continue Shopping</Link>
+                    <Link to="/" className="continue-shopping-btn">Continue Shopping</Link>
                 </div>
             ) : (
                 <>

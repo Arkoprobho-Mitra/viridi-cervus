@@ -14,6 +14,7 @@ import LegalRoutes from './Legal/LegalRoutes.jsx';
 import ProductListing from './ProductListing.Container/ProductListing.jsx';
 import ProductPage from './ProductPage.Container/Product.Page.jsx';
 import Wishlist from './Wishlist.Container/Wishlist.jsx';
+import CartPage from './Cart.Container/CartPage.jsx';
 
 import ScrollToTop from './ScrollToTop';
 
@@ -48,6 +49,12 @@ function App() {
           <Route path="/wishlist" element={
             <>
               <Wishlist />
+              <Footer />
+            </>
+          } />
+          <Route path="/cart" element={
+            <>
+              <CartPage />
               <Footer />
             </>
           } />
