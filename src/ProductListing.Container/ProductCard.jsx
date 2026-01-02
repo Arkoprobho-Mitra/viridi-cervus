@@ -103,8 +103,28 @@ const ProductCard = ({ product, actionType = 'wishlist', onAction, onMoveToBag }
                             if (actionType === 'remove' && onMoveToBag) {
                                 onMoveToBag();
                             } else {
-                                console.log("Added to bag:", product.title);
-                                // Logic to actually add to cart would go here
+                                // Default "Add to Bag" logic
+                                const auth = localStorage.getItem('isAuthenticated');
+                                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                                const key = auth && currentUser ? `cart_${currentUser.email}` : 'cart_guest';
+
+                                const storedItems = JSON.parse(localStorage.getItem(key)) || [];
+                                // Default size 'M' if not specified, or just generic add
+                                const defaultSize = 'M';
+                                const existingItemIndex = storedItems.findIndex(item => item.id === product.id && item.size === defaultSize);
+
+                                let newItems;
+                                if (existingItemIndex > -1) {
+                                    newItems = [...storedItems];
+                                    newItems[existingItemIndex].qty += 1;
+                                } else {
+                                    newItems = [...storedItems, { id: product.id, qty: 1, size: defaultSize }];
+                                }
+
+                                localStorage.setItem(key, JSON.stringify(newItems));
+                                window.dispatchEvent(new Event('cartUpdated'));
+                                // console.log("Added to bag:", product.title);
+                                alert(`${product.title} added to bag!`);
                             }
                         }}
                     >

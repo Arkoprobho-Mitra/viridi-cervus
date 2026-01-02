@@ -298,7 +298,29 @@ const ProductPage = () => {
                         <button onClick={() => setQuantity((parseInt(quantity) || 0) + 1)}>+</button>
                     </div>
 
-                    <button className="add-to-cart-btn">
+                    <button 
+                        className="add-to-cart-btn"
+                        onClick={() => {
+                            const auth = localStorage.getItem('isAuthenticated');
+                            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                            const key = auth && currentUser ? `cart_${currentUser.email}` : 'cart_guest';
+                            
+                            const storedItems = JSON.parse(localStorage.getItem(key)) || [];
+                            const existingItemIndex = storedItems.findIndex(item => item.id === product.id && item.size === selectedSize);
+                            
+                            let newItems;
+                            if (existingItemIndex > -1) {
+                                newItems = [...storedItems];
+                                newItems[existingItemIndex].qty += parseInt(quantity);
+                            } else {
+                                newItems = [...storedItems, { id: product.id, qty: parseInt(quantity), size: selectedSize }];
+                            }
+                            
+                            localStorage.setItem(key, JSON.stringify(newItems));
+                            window.dispatchEvent(new Event('cartUpdated'));
+                            alert(`${product.title} (${selectedSize}) added to bag!`);
+                        }}
+                    >
                         Add to Cart
                     </button>
 
