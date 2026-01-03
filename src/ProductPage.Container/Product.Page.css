@@ -674,3 +674,75 @@
 .view-all-reviews-btn:hover {
     text-decoration: underline;
 }
+
+/* Delivery Check Section */
+.delivery-check-section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.delivery-header-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.5px;
+}
+
+.pincode-input-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.pincode-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.pincode-input:focus {
+    border-color: #000;
+}
+
+.check-pincode-btn {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: none;
+    color: forestgreen;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.check-pincode-btn:hover {
+    text-decoration: underline;
+}
+
+.delivery-result {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.change-pincode-btn {
+    background: transparent;
+    border: none;
+    color: forestgreen;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.change-pincode-btn:hover {
+    text-decoration: underline;
+}

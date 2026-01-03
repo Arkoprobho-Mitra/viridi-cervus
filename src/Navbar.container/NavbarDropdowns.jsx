@@ -140,9 +140,13 @@ export const WishlistDropdown = () => {
             <div className="wishlist-list" style={{ maxHeight: '300px', overflowY: 'auto' }}>
                 {displayedItems.map((item, index) => (
                     <div key={`${item.id}-${index}`} className="wishlist-item" style={{ display: 'flex', gap: '10px', padding: '10px 0', borderBottom: '1px solid #eee', position: 'relative' }}>
-                        <img src={item.image} alt={item.title} style={{ width: '50px', height: '60px', objectFit: 'cover' }} />
+                        <Link to={`/product/${item.id}`}>
+                            <img src={item.image} alt={item.title} style={{ width: '50px', height: '60px', objectFit: 'cover' }} />
+                        </Link>
                         <div className="item-info" style={{ flex: 1 }}>
-                            <div className="item-name" style={{ fontSize: '12px', fontWeight: 'bold', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '140px' }}>{item.title}</div>
+                            <Link to={`/product/${item.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <div className="item-name" style={{ fontSize: '12px', fontWeight: 'bold', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '140px' }}>{item.title}</div>
+                            </Link>
                             <div className="item-meta" style={{ fontSize: '11px', color: '#777', margin: '2px 0' }}>
                                 <span style={{ color: '#ff905a', fontWeight: 'bold' }}>
                                     ({item.discount}% OFF)
@@ -258,9 +262,13 @@ export const CartDropdown = () => {
             <div className="cart-list" style={{ maxHeight: '300px', overflowY: 'auto' }}>
                 {displayedItems.map((item, index) => (
                     <div key={`${item.id}-${item.size}-${index}`} className="cart-item" style={{ display: 'flex', gap: '10px', padding: '10px 0', borderBottom: '1px solid #eee', position: 'relative' }}>
-                        <img src={item.image} alt={item.title} style={{ width: '50px', height: '60px', objectFit: 'cover' }} />
+                        <Link to={`/product/${item.id}`}>
+                            <img src={item.image} alt={item.title} style={{ width: '50px', height: '60px', objectFit: 'cover' }} />
+                        </Link>
                         <div className="item-info" style={{ flex: 1 }}>
-                            <div className="item-name" style={{ fontSize: '12px', fontWeight: 'bold', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '140px' }}>{item.title}</div>
+                            <Link to={`/product/${item.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <div className="item-name" style={{ fontSize: '12px', fontWeight: 'bold', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '140px' }}>{item.title}</div>
+                            </Link>
                             <div className="item-meta" style={{ fontSize: '11px', color: '#777' }}>
                                 Size: {item.size} | Qty: {item.qty}
                             </div>

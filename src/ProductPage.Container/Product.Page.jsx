@@ -66,6 +66,27 @@ const ProductPage = () => {
         window.dispatchEvent(new Event('wishlistUpdated'));
     };
 
+    // Delivery Check State
+    const [pincode, setPincode] = useState('');
+    const [deliveryResult, setDeliveryResult] = useState(null);
+
+    const checkPincode = () => {
+        if (!/^\d{6}$/.test(pincode)) {
+            alert('Please enter a valid 6-digit pincode.');
+            return;
+        }
+        // Mock API simulation
+        const today = new Date();
+        const deliveryDate = new Date(today);
+        deliveryDate.setDate(today.getDate() + 4); // Date + 4 days
+
+        setDeliveryResult({
+            date: deliveryDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short', weekday: 'short' }),
+            fee: 'FREE',
+            message: 'Delivery available'
+        });
+    };
+
     // Reviews State & logic
     const [reviewSort, setReviewSort] = useState('newest');
     const [isReviewSortOpen, setReviewSortOpen] = useState(false);
@@ -298,16 +319,16 @@ const ProductPage = () => {
                         <button onClick={() => setQuantity((parseInt(quantity) || 0) + 1)}>+</button>
                     </div>
 
-                    <button 
+                    <button
                         className="add-to-cart-btn"
                         onClick={() => {
                             const auth = localStorage.getItem('isAuthenticated');
                             const currentUser = JSON.parse(localStorage.getItem('currentUser'));
                             const key = auth && currentUser ? `cart_${currentUser.email}` : 'cart_guest';
-                            
+
                             const storedItems = JSON.parse(localStorage.getItem(key)) || [];
                             const existingItemIndex = storedItems.findIndex(item => item.id === product.id && item.size === selectedSize);
-                            
+
                             let newItems;
                             if (existingItemIndex > -1) {
                                 newItems = [...storedItems];
@@ -315,7 +336,7 @@ const ProductPage = () => {
                             } else {
                                 newItems = [...storedItems, { id: product.id, qty: parseInt(quantity), size: selectedSize }];
                             }
-                            
+
                             localStorage.setItem(key, JSON.stringify(newItems));
                             window.dispatchEvent(new Event('cartUpdated'));
                             alert(`${product.title} (${selectedSize}) added to bag!`);
@@ -331,6 +352,51 @@ const ProductPage = () => {
                     >
                         {isWishlisted ? '♥ Wishlisted' : '♡ Add to Wishlist'}
                     </button>
+
+                    {/* Delivery Check Section */}
+                    <div className="delivery-check-section">
+                        <div className="delivery-header-title">
+                            DELIVERY OPTIONS <span style={{ fontSize: '16px' }}>🚚</span>
+                        </div>
+
+                        {localStorage.getItem('isAuthenticated') ? (
+                            <div className="delivery-result">
+                                <p style={{ margin: '5px 0' }}><strong>Detected Location:</strong> Mumbai, 400001</p>
+                                <p style={{ margin: '5px 0' }}>
+                                    Get it by <strong>{new Date(Date.now() + 4 * 86400000).toLocaleDateString('en-US', { day: 'numeric', month: 'short', weekday: 'short' })}</strong>
+                                    <span style={{ marginLeft: '10px', color: 'forestgreen', fontWeight: 'bold' }}>FREE</span>
+                                </p>
+                            </div>
+                        ) : (
+                            !deliveryResult ? (
+                                <div className="pincode-input-wrapper">
+                                    <input
+                                        type="text"
+                                        className="pincode-input"
+                                        placeholder="Enter Pincode"
+                                        maxLength="6"
+                                        value={pincode}
+                                        onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
+                                    />
+                                    <button className="check-pincode-btn" onClick={checkPincode}>Check</button>
+                                </div>
+                            ) : (
+                                <div className="delivery-result">
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                        <p style={{ margin: 0 }}>Delivery to <strong>{pincode}</strong></p>
+                                        <button className="change-pincode-btn" onClick={() => { setDeliveryResult(null); setPincode(''); }}>Change</button>
+                                    </div>
+                                    <p style={{ marginTop: '10px', marginBottom: '5px' }}>
+                                        Get it by <strong>{deliveryResult.date}</strong> |
+                                        {deliveryResult.fee === 'FREE' ? <span style={{ color: 'forestgreen', fontWeight: 'bold', marginLeft: '5px' }}>FREE</span> : `Rs. ${deliveryResult.fee}`}
+                                    </p>
+                                </div>
+                            )
+                        )}
+                        <p style={{ fontSize: '12px', color: '#666', marginTop: '10px', lineHeight: '1.4' }}>
+                            Please enter PIN code to check delivery time & Pay on Delivery Availability
+                        </p>
+                    </div>
 
                     <div className="product-info-accordion">
                         {[
