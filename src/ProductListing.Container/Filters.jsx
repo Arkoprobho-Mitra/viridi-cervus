@@ -50,6 +50,7 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
 
     // Sticky Sidebar Logic
     const sidebarRef = React.useRef(null);
+    const sliderRef = React.useRef(null);
     const [stickyOffset, setStickyOffset] = React.useState(20);
 
     React.useEffect(() => {
@@ -83,6 +84,39 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
             observer.disconnect();
         };
     }, [selectedFilters]);
+
+    const handleSliderClick = (e) => {
+        if (!sliderRef.current) return;
+
+        const rect = sliderRef.current.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const sliderWidth = rect.width;
+
+        // Calculate percentage of width clicked (0 to 1)
+        const percent = Math.max(0, Math.min(1, clickX / sliderWidth));
+
+        // Convert to price value (0 to 5000)
+        const value = Math.round(percent * 5000);
+
+        const currentMin = selectedFilters.priceRange[0] === '' ? 0 : selectedFilters.priceRange[0];
+        const currentMax = selectedFilters.priceRange[1] === '' ? 5000 : selectedFilters.priceRange[1];
+
+        // Determine which handle is closer
+        const distToMin = Math.abs(currentMin - value);
+        const distToMax = Math.abs(currentMax - value);
+
+        if (distToMin < distToMax) {
+            // Update Min (ensure it doesn't cross Max)
+            const newVal = Math.min(value, currentMax);
+            setMinInput(newVal);
+            onFilterChange('priceRange', [newVal, currentMax]);
+        } else {
+            // Update Max (ensure it doesn't cross Min)
+            const newVal = Math.max(value, currentMin);
+            setMaxInput(newVal);
+            onFilterChange('priceRange', [currentMin, newVal]);
+        }
+    };
 
     return (
         <div
@@ -244,7 +278,12 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
                         }}
                         className="thumb thumb-right"
                     />
-                    <div className="slider">
+                    <div
+                        className="slider"
+                        ref={sliderRef}
+                        onClick={handleSliderClick}
+                        style={{ cursor: 'pointer' }}
+                    >
                         <div className="slider__track" />
                         <div
                             className="slider__range"
