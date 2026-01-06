@@ -31,6 +31,10 @@ const GiftCards = () => {
     const [buyAmount, setBuyAmount] = React.useState('');
     const [visibleCodes, setVisibleCodes] = React.useState({});
 
+    // Claim Modal State
+    const [isClaimModalOpen, setIsClaimModalOpen] = React.useState(false);
+    const [claimCode, setClaimCode] = React.useState('');
+
     const handleBuy = () => {
         const amount = parseFloat(buyAmount);
         if (!amount || amount <= 0) {
@@ -54,6 +58,40 @@ const GiftCards = () => {
         setIsBuyModalOpen(false);
         setBuyAmount('');
         alert("Gift card purchased successfully!");
+    };
+
+    const handleClaim = () => {
+        // Basic format check: VIRI-XXXX-XXXX
+        const codePattern = /^VIRI-[A-Z0-9]{4}-[A-Z0-9]{4}$/;
+        if (!codePattern.test(claimCode.toUpperCase())) {
+            alert("Invalid code format. Expected: VIRI-XXXX-XXXX");
+            return;
+        }
+
+        // Check if code already exists
+        const exists = giftCards.some(c => c.code === claimCode.toUpperCase());
+        if (exists) {
+            alert("This card has already been added to your account.");
+            return;
+        }
+
+        // Simulate fetching card details (random balance)
+        const newCard = {
+            id: Date.now(),
+            code: claimCode.toUpperCase(),
+            balance: Math.floor(Math.random() * 2000) + 500, // Random 500-2500
+            expiry: getExpiryDate(),
+            status: 'Active',
+            isRedeemed: false
+        };
+
+        const updatedUser = { ...currentUser, giftCards: [...giftCards, newCard] };
+        setCurrentUser(updatedUser);
+        localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+
+        setIsClaimModalOpen(false);
+        setClaimCode('');
+        alert(`Card added successfully! Value: Rs. ${newCard.balance}`);
     };
 
     const handleRedeem = (cardId) => {
@@ -187,7 +225,10 @@ const GiftCards = () => {
                     </div>
                 )}
 
-                <button className="primary-btn" onClick={() => setIsBuyModalOpen(true)} style={{ marginTop: '30px' }}>Buy Gift Card</button>
+                <div style={{ marginTop: '30px', display: 'flex', gap: '15px' }}>
+                    <button className="primary-btn" onClick={() => setIsBuyModalOpen(true)}>Buy Gift Card</button>
+                    <button className="primary-btn" onClick={() => setIsClaimModalOpen(true)} style={{ backgroundColor: 'white', color: '#282c3f', border: '1px solid #d4d5d9' }}>Claim Gift Card</button>
+                </div>
             </div>
 
             {isBuyModalOpen && (
@@ -224,6 +265,47 @@ const GiftCards = () => {
                             style={{ width: '100%', marginTop: '0' }}
                         >
                             PROCEED TO PAY
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            {isClaimModalOpen && (
+                <div className="modal-overlay">
+                    <div className="modal-content" style={{ maxWidth: '400px' }}>
+                        <div className="modal-header">
+                            <h3>Claim Gift Card</h3>
+                            <button className="close-btn" onClick={() => setIsClaimModalOpen(false)}>×</button>
+                        </div>
+                        <div style={{ marginBottom: '20px' }}>
+                            <label style={{ display: 'block', marginBottom: '10px', fontSize: '12px', fontWeight: 'bold', color: '#555' }}>GIFT CARD CODE</label>
+                            <input
+                                type="text"
+                                value={claimCode}
+                                onChange={(e) => {
+                                    let val = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+                                    if (val.length > 12) val = val.slice(0, 12);
+
+                                    if (val.length > 8) {
+                                        val = `${val.slice(0, 4)}-${val.slice(4, 8)}-${val.slice(8)}`;
+                                    } else if (val.length > 4) {
+                                        val = `${val.slice(0, 4)}-${val.slice(4)}`;
+                                    }
+                                    setClaimCode(val);
+                                }}
+                                placeholder="Enter 12-digit code (e.g. VIRI-XXXX-XXXX)"
+                                style={{ width: '100%', padding: '12px', border: '1px solid #ddd', borderRadius: '4px', fontSize: '16px', textTransform: 'uppercase' }}
+                            />
+                            <p style={{ fontSize: '11px', color: '#777', marginTop: '5px' }}>
+                                Valid format: VIRI-XXXX-XXXX
+                            </p>
+                        </div>
+                        <button
+                            className="primary-btn"
+                            onClick={handleClaim}
+                            style={{ width: '100%', marginTop: '0' }}
+                        >
+                            ADD TO ACCOUNT
                         </button>
                     </div>
                 </div>
