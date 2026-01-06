@@ -17,6 +17,15 @@ import ProductPage from './ProductPage.Container/Product.Page.jsx';
 import Wishlist from './Wishlist.Container/Wishlist.jsx';
 import CartPage from './Cart.Container/CartPage.jsx';
 
+import MyAccount from './Account.Container/MyAccount.jsx';
+import Orders from './Account.Container/Orders.jsx';
+import GiftCards from './Account.Container/GiftCards.jsx';
+import ContactUs from './Account.Container/ContactUs.jsx';
+import ViridiCredit from './Account.Container/ViridiCredit.jsx';
+import Coupons from './Account.Container/Coupons.jsx';
+import SavedCards from './Account.Container/SavedCards.jsx';
+import SavedAddresses from './Account.Container/SavedAddresses.jsx';
+
 import ScrollToTop from './ScrollToTop';
 
 function App() {
@@ -60,6 +69,16 @@ function App() {
               <Footer />
             </>
           } />
+
+          <Route path="/account" element={<><MyAccount /><Footer /></>} />
+          <Route path="/orders" element={<><Orders /><Footer /></>} />
+          <Route path="/gift-cards" element={<><GiftCards /><Footer /></>} />
+          <Route path="/contact-us" element={<><ContactUs /><Footer /></>} />
+          <Route path="/viridi-credit" element={<><ViridiCredit /><Footer /></>} />
+          <Route path="/coupons" element={<><Coupons /><Footer /></>} />
+          <Route path="/saved-cards" element={<><SavedCards /><Footer /></>} />
+          <Route path="/saved-addresses" element={<><SavedAddresses /><Footer /></>} />
+
           <Route path="/*" element={<LegalRoutes />} />
         </Routes>
       </div>

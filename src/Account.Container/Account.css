@@ -1,0 +1,150 @@
+.account-page-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Assistant', sans-serif;
+    color: #333;
+    min-height: 60vh;
+}
+
+.account-page-header {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eaeaec;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+    color: #282c3f;
+}
+
+.account-content {
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #eaeaec;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    color: #7e818c;
+}
+
+.empty-state img {
+    width: 150px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    font-size: 20px;
+    color: #282c3f;
+    margin-bottom: 10px;
+}
+
+.primary-btn {
+    background-color: forestgreen;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.info-card {
+    border: 1px solid #eaeaec;
+    padding: 20px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.info-label {
+    font-size: 12px;
+    color: #7e818c;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.info-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #282c3f;
+}
+
+/* Guest View Styles */
+.account-guest-container {
+    background-image: url('../Signin.Container/login.image.container/background.image.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 80px);
+    /* Fill remaining height */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    /* Break out of parent container width if needed */
+    margin-right: calc(-50vw + 50%);
+}
+
+.guest-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid gold;
+    padding: 60px 80px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.guest-logo {
+    width: 250px;
+    height: auto;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.guest-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #282c3f;
+    letter-spacing: 1px;
+}
+
+.guest-subtitle {
+    font-size: 16px;
+    color: #535766;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.guest-login-btn {
+    display: inline-block;
+    padding: 12px 40px;
+    border: 1px solid gold;
+    color: forestgreen;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.guest-login-btn:hover {
+    background-color: forestgreen;
+    color: #fff;
+}

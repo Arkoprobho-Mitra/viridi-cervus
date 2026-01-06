@@ -36,15 +36,15 @@ export const AccountDropdown = () => {
                 )}
             </div>
             <ul className="dropdown-list">
-                <li>My Account</li>
-                <li>Orders</li>
-                <li><Link to="/wishlist" style={{ textDecoration: 'none', color: 'inherit' }}>Wishlist</Link></li>
-                <li>Gift Cards</li>
-                <li>Contact Us</li>
-                <li>Viridi Credit</li>
-                <li>Coupons</li>
-                <li>Saved Cards</li>
-                <li>Saved Addresses</li>
+                <li><Link to="/account" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>My Account</Link></li>
+                <li><Link to="/orders" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>Orders</Link></li>
+                <li><Link to="/wishlist" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>Wishlist</Link></li>
+                <li><Link to="/gift-cards" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>Gift Cards</Link></li>
+                <li><Link to="/contact-us" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>Contact Us</Link></li>
+                <li><Link to="/viridi-credit" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>Viridi Credit</Link></li>
+                <li><Link to="/coupons" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>Coupons</Link></li>
+                <li><Link to="/saved-cards" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>Saved Cards</Link></li>
+                <li><Link to="/saved-addresses" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>Saved Addresses</Link></li>
             </ul>
         </div>
     );

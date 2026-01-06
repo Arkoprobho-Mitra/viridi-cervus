@@ -30,12 +30,61 @@ const categories = [
     { id: 24, label: 'Fragrances', discount: '30-80% OFF', image: require('./images/2422.jpg'), link: '/products?gender=Beauty&category=Fragrances' },
 ];
 
+// Helper to generate random discount text
+const getRandomDiscount = () => {
+    const min = 20 + Math.floor(Math.random() * 3) * 10; // 20, 30, 40
+    const max = 50 + Math.floor(Math.random() * 4) * 10; // 50, 60, 70, 80
+    const types = [
+        `${min}-${max}% OFF`,
+        `UP TO ${max}% OFF`,
+        `FLAT ${min}% OFF`
+    ];
+    return types[Math.floor(Math.random() * types.length)];
+};
+
 const Category = () => {
+    // Persist discounts for 24 hours
+    const categoriesWithDiscounts = React.useMemo(() => {
+        const STORAGE_KEY = 'category_discounts_data';
+        const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+
+        try {
+            const stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
+            const now = Date.now();
+
+            if (stored && (now - stored.timestamp < TWENTY_FOUR_HOURS)) {
+                // Use stored discounts
+                return categories.map(cat => ({
+                    ...cat,
+                    discount: stored.discounts[cat.id] || getRandomDiscount() // Fallback if ID missing
+                }));
+            }
+        } catch (e) {
+            console.error("Error reading discounts from storage", e);
+        }
+
+        // Generate new discounts
+        const newDiscounts = {};
+        const updatedCategories = categories.map(cat => {
+            const discount = getRandomDiscount();
+            newDiscounts[cat.id] = discount;
+            return { ...cat, discount };
+        });
+
+        // Save to storage
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            timestamp: Date.now(),
+            discounts: newDiscounts
+        }));
+
+        return updatedCategories;
+    }, []);
+
     return (
         <div className="category-section">
             <h2 className="category-header">SHOP BY CATEGORY</h2>
             <div className="category-grid">
-                {categories.map((cat) => (
+                {categoriesWithDiscounts.map((cat) => (
                     <Link
                         to={cat.link}
                         key={cat.id}
