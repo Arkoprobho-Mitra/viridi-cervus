@@ -116,7 +116,7 @@ const HistorySlidingWindow = ({ items, windowSize = 4 }) => {
 
                             {item.description && (
                                 <div className="image-details">
-                                    <p>{item.description}</p>
+                                    <div>{item.description}</div>
                                 </div>
                             )}
                         </div>

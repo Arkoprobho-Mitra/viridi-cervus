@@ -27,6 +27,27 @@ const ProductPage = () => {
         }
     }, [id]);
 
+    // Track Visited Products
+    useEffect(() => {
+        if (!product) return;
+
+        const auth = localStorage.getItem('isAuthenticated');
+        const currentUser = auth ? JSON.parse(localStorage.getItem('currentUser')) : null;
+        const historyKey = auth && currentUser ? `visited_products_${currentUser.email}` : 'visited_products_guest';
+
+        const history = JSON.parse(localStorage.getItem(historyKey)) || [];
+
+        // Remove current if exists (to move to top)
+        const filteredHistory = history.filter(itemId => itemId !== product.id);
+
+        // Add to front
+        const newHistory = [product.id, ...filteredHistory].slice(0, 15);
+
+        localStorage.setItem(historyKey, JSON.stringify(newHistory));
+        window.dispatchEvent(new Event('historyUpdated'));
+
+    }, [product]);
+
     useEffect(() => {
         const checkWishlistStatus = () => {
             const auth = localStorage.getItem('isAuthenticated');

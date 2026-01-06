@@ -287,7 +287,7 @@ export const CartDropdown = () => {
                 ))}
             </div>
             {remainingCount > 0 && (
-                <div style={{ textAlign: 'center', margin: '5px 0', fontSize: '11px', color: '#ff3f6c', fontWeight: 'bold' }}>
+                <div style={{ textAlign: 'center', margin: '5px 0', fontSize: '11px', color: 'forestgreen', fontWeight: 'bold' }}>
                     + {remainingCount} more items
                 </div>
             )}
@@ -300,7 +300,7 @@ export const CartDropdown = () => {
                     <button className="view-cart-btn" style={{ width: '100%', padding: '8px', backgroundColor: 'white', border: '1px solid #d4d5d9', fontWeight: 'bold' }}>VIEW BAG</button>
                 </Link>
                 <Link to="/checkout" style={{ flex: 1 }}>
-                    <button className="checkout-btn" style={{ width: '100%', padding: '8px', backgroundColor: '#ff3f6c', color: 'white', border: 'none', fontWeight: 'bold' }}>CHECKOUT</button>
+                    <button className="checkout-btn" style={{ width: '100%', padding: '8px', backgroundColor: 'forestgreen', color: 'white', border: 'none', fontWeight: 'bold' }}>CHECKOUT</button>
                 </Link>
             </div>
         </div>
