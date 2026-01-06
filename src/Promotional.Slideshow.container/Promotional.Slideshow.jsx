@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./History.Slideshow.css";
+import "./Promotional.Slideshow.css";
 
 
-const HistorySlidingWindow = ({ items, windowSize = 4 }) => {
+const PromotionalSlidingWindow = ({ items, windowSize = 4 }) => {
     const [index, setIndex] = useState(0); // real index
     const [displayIndex, setDisplayIndex] = useState(windowSize); // index for extendedItems
     const [isTransitioning, setIsTransitioning] = useState(false);
@@ -86,14 +86,14 @@ const HistorySlidingWindow = ({ items, windowSize = 4 }) => {
     const itemWidth = 100 / windowSize;
 
     return (
-        <div className="history-slider-container" onMouseEnter={stopAutoPlay} onMouseLeave={startAutoPlay}>
-            <button onClick={() => { prevSlide(); stopAutoPlay(); }} className="history-slider-btn left">
+        <div className="promotion-slider-container" onMouseEnter={stopAutoPlay} onMouseLeave={startAutoPlay}>
+            <button onClick={() => { prevSlide(); stopAutoPlay(); }} className="promotion-slider-btn left">
                 ◀
             </button>
 
-            <div className="history-slider-window">
+            <div className="promotion-slider-window">
                 <div
-                    className="history-slider-track"
+                    className="promotion-slider-track"
                     ref={trackRef}
                     onTransitionEnd={handleTransitionEnd}
                     style={{
@@ -103,7 +103,7 @@ const HistorySlidingWindow = ({ items, windowSize = 4 }) => {
                 >
                     {extendedItems.map((item, i) => (
                         <div
-                            className="history-slider-item"
+                            className="promotion-slider-item"
                             key={i}
                             style={{ width: `${itemWidth}%` }}
                         >
@@ -120,15 +120,15 @@ const HistorySlidingWindow = ({ items, windowSize = 4 }) => {
                 </div>
             </div>
 
-            <button onClick={() => { nextSlide(); stopAutoPlay(); }} className="history-slider-btn right">
+            <button onClick={() => { nextSlide(); stopAutoPlay(); }} className="promotion-slider-btn right">
                 ▶
             </button>
 
-            <div className="history-slider-dots">
+            <div className="promotion-slider-dots">
                 {items.map((_, i) => (
                     <div
                         key={i}
-                        className={`history-slider-dot ${i === index ? 'active' : ''}`}
+                        className={`promotion-slider-dot ${i === index ? 'active' : ''}`}
                         onClick={() => handleDotClick(i)}
                     />
                 ))}
@@ -137,4 +137,4 @@ const HistorySlidingWindow = ({ items, windowSize = 4 }) => {
     );
 };
 
-export default HistorySlidingWindow;
+export default PromotionalSlidingWindow;

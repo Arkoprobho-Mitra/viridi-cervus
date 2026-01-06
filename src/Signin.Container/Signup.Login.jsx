@@ -22,6 +22,30 @@ const Login = () => {
     const [guestIds, setGuestIds] = useState([]);
 
     const finalizeLogin = (user) => {
+        // Merge Guest History (Visited Products)
+        const guestHistory = JSON.parse(localStorage.getItem('visited_products_guest')) || [];
+        const userHistoryKey = `visited_products_${user.email}`;
+        const userHistory = JSON.parse(localStorage.getItem(userHistoryKey)) || [];
+
+        // Merge: Guest items come first (most recent), then existing user items
+        // Remove duplicates checking against the combined list
+        const combinedHistory = [...guestHistory, ...userHistory];
+        const uniqueHistory = [...new Set(combinedHistory)].slice(0, 15);
+
+        localStorage.setItem(userHistoryKey, JSON.stringify(uniqueHistory));
+        localStorage.removeItem('visited_products_guest');
+
+        // Merge Guest Search History
+        const guestSearch = JSON.parse(localStorage.getItem('search_history_guest')) || [];
+        const userSearchKey = `search_history_${user.email}`;
+        const userSearch = JSON.parse(localStorage.getItem(userSearchKey)) || [];
+
+        const combinedSearch = [...guestSearch, ...userSearch];
+        const uniqueSearch = [...new Set(combinedSearch)].slice(0, 15);
+
+        localStorage.setItem(userSearchKey, JSON.stringify(uniqueSearch));
+        localStorage.removeItem('search_history_guest');
+
         localStorage.setItem('isAuthenticated', 'true');
         localStorage.setItem('currentUser', JSON.stringify(user));
         navigate('/'); // Redirect to Home

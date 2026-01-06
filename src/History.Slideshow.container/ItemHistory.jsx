@@ -20,44 +20,47 @@ const ItemHistory = () => {
 
     const updateHistory = () => {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        if (!currentUser) return; // Should not happen if auth is true, but safe check
+        if (!currentUser) return;
 
         const visitKey = `visited_products_${currentUser.email}`;
-        const searchKey = `search_history_${currentUser.email}`;
-
         const visitedIds = JSON.parse(localStorage.getItem(visitKey)) || [];
-        const searchTerms = JSON.parse(localStorage.getItem(searchKey)) || [];
 
-        // 1. Get Visited Products
+        // 1. Visited Products
         let items = visitedIds.map(id => products.find(p => p.id === id)).filter(Boolean);
+        const existingIds = new Set(items.map(p => p.id));
 
-        // 2. Fill with Search Results if < 15
-        if (items.length < 15) {
-            const needed = 15 - items.length;
-            const existingIds = new Set(items.map(p => p.id));
-            let searchResults = [];
-
-            for (const term of searchTerms) {
-                if (searchResults.length >= needed) break;
-
-                const matches = products.filter(p => {
-                    if (existingIds.has(p.id)) return false;
-                    const text = `${p.title} ${p.brand} ${p.category}`.toLowerCase();
-                    return text.includes(term.toLowerCase());
-                });
-
-                for (const match of matches) {
-                    if (!existingIds.has(match.id)) {
-                        searchResults.push(match);
-                        existingIds.add(match.id);
-                        if (searchResults.length >= needed) break;
-                    }
+        const fill = (candidates) => {
+            for (const p of candidates) {
+                if (items.length >= 15) return;
+                if (!existingIds.has(p.id)) {
+                    items.push(p);
+                    existingIds.add(p.id);
                 }
             }
-            items = [...items, ...searchResults];
+        };
+
+        // 2. Similar Products (Matches SubCategory of visited items)
+        if (items.length < 15) {
+            const visitedSubCats = new Set(items.map(p => p.subCategory).filter(Boolean));
+            // Prioritize by finding all matching params, but simple filter is okay for now
+            const similarItems = products.filter(p => visitedSubCats.has(p.subCategory));
+            fill(similarItems);
         }
 
-        // 3. Format for Slider
+        // 3. Same Brand (Matches Brand of visited items)
+        if (items.length < 15) {
+            const visitedBrands = new Set(items.map(p => p.brand).filter(Boolean));
+            const brandItems = products.filter(p => visitedBrands.has(p.brand));
+            fill(brandItems);
+        }
+
+        // 4. Promotional Ads
+        if (items.length < 15) {
+            const ads = products.filter(p => p.isAd);
+            fill(ads);
+        }
+
+        // Format for Slider
         const formattedItems = items.map(product => ({
             image: (
                 <Link to={`/product/${product.id}`} draggable="false">
@@ -89,9 +92,9 @@ const ItemHistory = () => {
     if (!isAuthenticated || historyItems.length === 0) return null;
 
     return (
-        <div>
+        <div className="history-slideshow-wrapper">
             <HistoryBanner />
-            <HistorySlidingWindow items={historyItems} windowSize={Math.min(4, historyItems.length)} />
+            <HistorySlidingWindow items={historyItems} windowSize={Math.min(6, historyItems.length)} />
             <HistoryBanner />
         </div>
     );

@@ -5,6 +5,7 @@ import './App.css';
 import ItemSponsored from './Header.Slideshow.container/Item.sponsored.jsx';
 import Category from './Category.container/Category.jsx';
 import ItemHistory from 'E:/Shopping website/website/viridi-cervus/src/History.Slideshow.container/ItemHistory.jsx';
+import PromotionalDeals from './Promotional.Slideshow.container/PromotionalDeals.jsx';
 import Footer from './Footer.container/Footer.jsx';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" element={
             <>
               <ItemSponsored />
+              <PromotionalDeals />
               <ItemHistory />
               <Category />
               <Footer />

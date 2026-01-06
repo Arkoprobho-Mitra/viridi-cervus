@@ -1,4 +1,4 @@
-.history-slider-container {
+.promotion-slider-container {
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -10,11 +10,10 @@
     margin: 20px auto;
     border-radius: 4px;
     overflow: visible;
-    /* Allow content to be seen in the translucent mask area if needed, but usually hidden + mask is safer */
 }
 
 /* The window that hides the overflow */
-.history-slider-window {
+.promotion-slider-window {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -28,38 +27,36 @@
     mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
 }
 
-.history-slider-track {
+.promotion-slider-track {
     display: flex;
     width: 100%;
     height: 100%;
     /* Transform is handled in JS */
 }
 
-.history-slider-item {
+.promotion-slider-item {
     /* width is set via inline style for responsiveness */
     flex-shrink: 0;
     padding: 0 5px;
     box-sizing: border-box;
     background-color: wheat;
-    /* Myntra's subtle background */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    /* Example height */
     color: #333;
     font-size: 2rem;
     font-weight: bold;
     position: relative;
 }
 
-.history-slider-item img {
+.promotion-slider-item img {
     width: 100%;
     object-fit: contain;
     display: block;
 }
 
-.image-details {
+.promotion-slider-item .image-details {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -68,25 +65,22 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.1);
-    /* Overlay to make text readable */
     color: white;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
-    /* Allow clicks to pass through to the Link image */
 }
 
-.history-slider-item:hover .image-details {
+.promotion-slider-item:hover .image-details {
     opacity: 1;
 }
 
 /* Buttons */
-.history-slider-btn {
+.promotion-slider-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(255, 255, 255, 0.5);
-    /* Transparent white */
     color: #333;
     border: none;
     padding: 10px 15px;
@@ -95,31 +89,30 @@
     font-size: 1.5rem;
     transition: background 0.3s, color 0.3s;
     display: none;
-    /* Hidden by default, show on hover */
 }
 
-.history-slider-container:hover .history-slider-btn {
+.promotion-slider-container:hover .promotion-slider-btn {
     display: block;
 }
 
-.history-slider-btn:hover {
+.promotion-slider-btn:hover {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.history-slider-btn.left {
+.promotion-slider-btn.left {
     left: 0;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
 }
 
-.history-slider-btn.right {
+.promotion-slider-btn.right {
     right: 0;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
 }
 
 /* Dots */
-.history-slider-dots {
+.promotion-slider-dots {
     position: absolute;
     bottom: 15px;
     left: 50%;
@@ -129,7 +122,7 @@
     z-index: 10;
 }
 
-.history-slider-dot {
+.promotion-slider-dot {
     width: 8px;
     height: 8px;
     background-color: rgba(0, 0, 0, 0.2);
@@ -138,11 +131,7 @@
     transition: background-color 0.3s, transform 0.3s;
 }
 
-.history-slider-dot.active {
+.promotion-slider-dot.active {
     background-color: wheat;
-    /* Myntra Pink */
     transform: scale(1.2);
-}
-.history-slideshow-wrapper {
-    margin: 20px 0;
 }
