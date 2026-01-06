@@ -2,6 +2,7 @@ import React from 'react';
 import './Navbar.styles.css';
 
 import { Link } from 'react-router-dom';
+import AddressModal from '../Account.Container/AddressModal';
 import { products } from '../ProductListing.Container/productsData';
 
 export const AccountDropdown = () => {
@@ -11,6 +12,7 @@ export const AccountDropdown = () => {
     const handleLogout = () => {
         localStorage.removeItem('isAuthenticated');
         localStorage.removeItem('currentUser');
+        localStorage.removeItem('selectedDeliveryAddress');
         window.location.href = '/'; // Refresh/Redirect to clear state
     };
 
@@ -295,6 +297,7 @@ export const CartDropdown = () => {
                 <span>Total</span>
                 <span>Rs. {total}</span>
             </div>
+
             <div className="cart-actions" style={{ display: 'flex', gap: '10px' }}>
                 <Link to="/cart" style={{ flex: 1 }}>
                     <button className="view-cart-btn" style={{ width: '100%', padding: '8px', backgroundColor: 'white', border: '1px solid #d4d5d9', fontWeight: 'bold' }}>VIEW BAG</button>
@@ -304,5 +307,121 @@ export const CartDropdown = () => {
                 </Link>
             </div>
         </div>
+    );
+};
+
+export const AddressDropdown = () => {
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    const [currentUser, setCurrentUser] = React.useState(null);
+    const [selectedAddrStr, setSelectedAddrStr] = React.useState(localStorage.getItem('selectedDeliveryAddress'));
+
+    const loadData = () => {
+        if (!isAuthenticated) return;
+        const user = JSON.parse(localStorage.getItem('currentUser'));
+        setCurrentUser(user);
+    };
+
+    React.useEffect(() => {
+        loadData();
+        window.addEventListener('userUpdated', loadData);
+        return () => window.removeEventListener('userUpdated', loadData);
+    }, [isAuthenticated]);
+
+    const onAddressClick = (addr) => {
+        const str = JSON.stringify(addr);
+        setSelectedAddrStr(str);
+        localStorage.setItem('selectedDeliveryAddress', str);
+
+        // Save as last used for this user
+        if (currentUser && currentUser.email) {
+            localStorage.setItem(`last_selected_address_${currentUser.email}`, str);
+        }
+
+        window.dispatchEvent(new Event('deliveryAddressUpdated'));
+    };
+
+
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
+
+    const handleSaveAddress = (addressData) => {
+        const newAddresses = [...(currentUser.addresses || []), addressData];
+        const updatedUser = { ...currentUser, addresses: newAddresses };
+        setCurrentUser(updatedUser);
+        localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+        window.dispatchEvent(new Event('userUpdated'));
+        setIsModalOpen(false);
+    };
+
+    if (!isAuthenticated) {
+        return (
+            <div className="dropdown-menu address-dropdown" style={{ textAlign: 'center', padding: '20px' }}>
+                <h4>Saved Addresses</h4>
+                <p style={{ margin: '10px 0', fontSize: '13px', color: '#535766' }}>Login to view your saved addresses.</p>
+                <Link to="/login">
+                    <button className="login-btn" style={{ width: '100%', marginTop: '10px' }}>LOGIN</button>
+                </Link>
+            </div>
+        );
+    }
+
+    const addresses = currentUser?.addresses || [];
+
+    const renderAddressText = (addr) => {
+        if (typeof addr === 'string') return addr;
+        return `${addr.address}, ${addr.locality}, ${addr.city} - ${addr.pincode}`;
+    };
+
+    const getTypeLabel = (addr) => {
+        if (typeof addr !== 'object') return 'HOME';
+        if (addr.addressType === 'OTHER' && addr.customType) return addr.customType;
+        return addr.addressType || 'HOME';
+    };
+
+    return (
+        <>
+            <div className="dropdown-menu address-dropdown">
+                <h4>Saved Addresses</h4>
+                {addresses.length > 0 ? (
+                    <div className="address-list">
+                        {addresses.map((addr, idx) => {
+                            const isSel = selectedAddrStr === JSON.stringify(addr);
+                            return (
+                                <div
+                                    key={idx}
+                                    className={`address-item ${isSel ? 'selected' : ''}`}
+                                    onClick={() => onAddressClick(addr)}
+                                >
+                                    <div className="address-name">
+                                        {typeof addr === 'object' ? addr.name : (currentUser?.name || 'User')}
+                                        <span className="address-badge">{getTypeLabel(addr)}</span>
+                                        {isSel && <span style={{ float: 'right', color: 'forestgreen', fontWeight: 'bold' }}>✓</span>}
+                                    </div>
+                                    <div className="address-details">
+                                        {renderAddressText(addr)}
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                ) : (
+                    <div style={{ textAlign: 'center', padding: '20px 0', color: '#666', fontSize: '13px' }}>
+                        No addresses saved.
+                    </div>
+                )}
+
+                <button className="add-address-btn" onClick={() => setIsModalOpen(true)}>+ ADD NEW ADDRESS</button>
+
+            </div>
+            {isModalOpen && (
+                <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 9999 }}>
+                    <AddressModal
+                        isOpen={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                        onSave={handleSaveAddress}
+                        initialData={null}
+                    />
+                </div>
+            )}
+        </>
     );
 };

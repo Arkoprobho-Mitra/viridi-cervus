@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.styles.css';
 import MegaMenu from './MegaMenu';
-import { AccountDropdown, WishlistDropdown, CartDropdown } from './NavbarDropdowns';
+import { AccountDropdown, WishlistDropdown, CartDropdown, AddressDropdown } from './NavbarDropdowns';
 
 import { products } from '../ProductListing.Container/productsData';
 
@@ -16,11 +16,20 @@ const Navbar = () => {
 
   const [cartCount, setCartCount] = useState(0);
   const [wishlistCount, setWishlistCount] = useState(0);
+  const [userName, setUserName] = useState('Profile');
+  const [deliveryAddressLabel, setDeliveryAddressLabel] = useState('Delivery Address');
 
   useEffect(() => {
     const updateCounts = () => {
       const isAuth = localStorage.getItem('isAuthenticated');
       const currentUser = isAuth ? JSON.parse(localStorage.getItem('currentUser')) : null;
+
+      // Update User Name
+      if (isAuth && currentUser && currentUser.name) {
+        setUserName(currentUser.name.split(' ')[0]);
+      } else {
+        setUserName('Profile');
+      }
 
       // Cart Count
       const cartKey = isAuth && currentUser ? `cart_${currentUser.email}` : 'cart_guest';
@@ -30,24 +39,46 @@ const Navbar = () => {
 
       // Wishlist Count
       const wishlistKey = isAuth && currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
-      // Wishlist stores IDs (guest) or objects (auth) depending on implementation, 
-      // but in Wishlist.jsx we see it stores IDs for guest and IDs for auth (wait, check Wishlist.jsx)
-      // Wishlist.jsx line 111: const currentIds = JSON.parse(localStorage.getItem(key)) || [];
-      // It seems it stores IDs (array of strings/numbers).
-      // Let's verify Wishlist.jsx again. Item 76: const storedIds = JSON.parse(localStorage.getItem(key)) || [];
-      // Yes, generally IDs.
       const wishlistItems = JSON.parse(localStorage.getItem(wishlistKey)) || [];
       setWishlistCount(wishlistItems.length);
+
+      // Delivery Address Label
+      if (isAuth) {
+        const selected = localStorage.getItem('selectedDeliveryAddress');
+        if (selected) {
+          try {
+            const addr = JSON.parse(selected);
+            if (typeof addr === 'string') {
+              setDeliveryAddressLabel(`Deliver to ${addr.substring(0, 15)}...`);
+            } else {
+              // Show City and Pincode, or just Pincode if City missing
+              const location = addr.city || addr.locality || addr.address || 'Location';
+              setDeliveryAddressLabel(`Deliver to ${location} - ${addr.pincode}`);
+            }
+          } catch (e) {
+            setDeliveryAddressLabel('Delivery Address');
+          }
+        } else {
+          setDeliveryAddressLabel('Delivery Address');
+        }
+      } else {
+        setDeliveryAddressLabel('Delivery Address');
+      }
     };
 
     updateCounts();
+    // Listen for events that change data
     window.addEventListener('cartUpdated', updateCounts);
     window.addEventListener('wishlistUpdated', updateCounts);
+    window.addEventListener('userUpdated', updateCounts);
+    window.addEventListener('deliveryAddressUpdated', updateCounts);
     window.addEventListener('storage', updateCounts);
 
     return () => {
       window.removeEventListener('cartUpdated', updateCounts);
       window.removeEventListener('wishlistUpdated', updateCounts);
+      window.removeEventListener('userUpdated', updateCounts);
+      window.removeEventListener('deliveryAddressUpdated', updateCounts);
       window.removeEventListener('storage', updateCounts);
     };
   }, []);
@@ -143,7 +174,12 @@ const Navbar = () => {
             <div className='kids' onMouseEnter={() => handleMouseEnter('kids')}>Kids</div>
             <div className='beauty' onMouseEnter={() => handleMouseEnter('beauty')}>Beauty</div>
             <div className='accessories' onMouseEnter={() => handleMouseEnter('accessories')}>Accessories</div>
-            <div className='delivery-address'>Delivery Address</div>
+            <div className='delivery-address' style={{ position: 'relative' }} onMouseEnter={() => handleItemEnter('address')}>
+              <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '200px' }}>
+                {deliveryAddressLabel}
+              </div>
+              {activeItem === 'address' && <AddressDropdown />}
+            </div>
           </div>
           <div className='search'>
             <input
@@ -171,11 +207,8 @@ const Navbar = () => {
           </div>
           <div className='item-containers'>
             <div className='account' onMouseEnter={() => handleItemEnter('account')}>
-              {/* Show User Name if logged in, else Profile */}
-              {localStorage.getItem('currentUser')
-                ? JSON.parse(localStorage.getItem('currentUser')).name.split(' ')[0]
-                : 'Profile'
-              }
+              {/* Show User Name based on state */}
+              {userName}
               {activeItem === 'account' && <AccountDropdown />}
             </div>
             <div className='wishlist' onMouseEnter={() => handleItemEnter('wishlist')}>

@@ -18,18 +18,31 @@ const MyAccount = () => {
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
+            // Check file size (limit to 300KB)
+            if (file.size > 300 * 1024) {
+                alert("File size is too big. Please upload an image smaller than 300KB.");
+                return;
+            }
+
             const reader = new FileReader();
             reader.onloadend = () => {
                 const base64String = reader.result;
-                setProfileImage(base64String);
 
-                // Update user in local storage
-                const updatedUser = { ...currentUser, profileImage: base64String };
-                setCurrentUser(updatedUser);
-                localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+                try {
+                    // Update user in local storage
+                    const updatedUser = { ...currentUser, profileImage: base64String };
+                    localStorage.setItem('currentUser', JSON.stringify(updatedUser)); // Try saving first
 
-                // Dispatch event for other components (like Navbar) to update if needed
-                window.dispatchEvent(new Event('userUpdated'));
+                    // If successful, update state
+                    setProfileImage(base64String);
+                    setCurrentUser(updatedUser);
+
+                    // Dispatch event for other components (like Navbar) to update if needed
+                    window.dispatchEvent(new Event('userUpdated'));
+                } catch (error) {
+                    console.error("Storage error:", error);
+                    alert("Failed to save image. Your local storage might be full. Please clear some space or use a smaller image.");
+                }
             };
             reader.readAsDataURL(file);
         }
