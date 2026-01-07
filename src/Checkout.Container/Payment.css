@@ -10,6 +10,8 @@
 .payment-left {
     flex: 2;
     display: flex;
+    flex-direction: column;
+    /* Changed for new layout */
     background-color: white;
     border: 1px solid #eaeaec;
     border-radius: 4px;
@@ -55,12 +57,25 @@
 }
 
 /* Specific Method Styles */
+.payment-split-layout {
+    display: flex;
+    flex: 1;
+}
+
+.viridi-credits-block-top {
+    padding: 20px 30px;
+    border-bottom: 1px solid #eaeaec;
+    background-color: #fafafa;
+}
+
 .saved-cards-list,
 .upi-options,
 .cod-section {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    padding-right: 15px;
+    /* Added spacing for ticks here too just in case */
 }
 
 .payment-item-card {
@@ -71,6 +86,8 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
+    position: relative;
+    /* Added for tick positioning */
 }
 
 .payment-item-card:hover {
@@ -78,8 +95,25 @@
 }
 
 .payment-item-card.selected {
-    border-color: forestgreen;
+    border: 3px solid forestgreen;
     background-color: #f0fdf4;
+}
+
+.selection-tick {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background-color: forestgreen;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .card-input-form {
@@ -98,15 +132,20 @@
 }
 
 .pay-now-btn {
-    width: 100%;
-    padding: 12px;
+    width: 60%;
+    /* Adjusted width */
+    align-self: flex-end;
+    /* Align to right */
+    margin: 20px 30px;
+    /* Spacing */
+    padding: 15px;
     background-color: forestgreen;
     color: white;
     border: none;
+    border-radius: 4px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 20px;
-    border-radius: 4px;
 }
 
 .pay-now-btn:hover {
@@ -116,4 +155,100 @@
 /* Right Section is similar to Checkout */
 .payment-right {
     flex: 1;
+}
+
+/* Net Banking Styles */
+.bank-search-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.bank-list-container {
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Increased gap for clear separation */
+    padding: 15px;
+    /* Added padding around to prevent tick cutoff */
+    padding-right: 20px;
+    /* Extra right padding for the tick */
+}
+
+/* Custom Scrollbar for bank list */
+.bank-list-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.bank-list-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.bank-list-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+
+.bank-list-container::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+/* Order Success Popup */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Scrollbar for credit history */
+.credit-history-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.credit-history-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.credit-history-list::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+
+.credit-history-list::-webkit-scrollbar-thumb:hover {
+    background: #888;
 }

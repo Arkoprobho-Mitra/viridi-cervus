@@ -159,6 +159,26 @@ const CheckoutPage = () => {
     return (
         <div className="checkout-container">
             <div className="checkout-left">
+                <div style={{ marginBottom: '20px' }}>
+                    <button
+                        onClick={() => navigate('/cart')}
+                        style={{
+                            background: 'none',
+                            border: 'none',
+                            color: '#282c3f',
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '5px',
+                            padding: 0
+                        }}
+                    >
+                        <span>←</span> Back to Cart
+                    </button>
+                </div>
+
                 {/* 1. Address Section */}
                 <div className="checkout-section">
                     <h3>Select Delivery Address</h3>

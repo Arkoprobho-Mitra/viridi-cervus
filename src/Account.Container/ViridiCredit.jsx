@@ -176,6 +176,15 @@ const ViridiCredit = () => {
         // Update Balance
         updatedUser.walletBalance = (updatedUser.walletBalance || 0) + amount;
 
+        // Add to History
+        const newHistoryItem = {
+            type: 'credit',
+            amount: amount,
+            date: new Date().toISOString(),
+            description: 'Wallet Top-up'
+        };
+        updatedUser.creditHistory = [newHistoryItem, ...(updatedUser.creditHistory || [])];
+
         setCurrentUser(updatedUser);
         localStorage.setItem('currentUser', JSON.stringify(updatedUser));
 
@@ -199,6 +208,42 @@ const ViridiCredit = () => {
                 </p>
 
                 <button className="primary-btn" onClick={() => setIsTopUpModalOpen(true)}>+ TOP UP CREDIT</button>
+
+                {/* Transaction History */}
+                <div className="transaction-history" style={{ marginTop: '40px', width: '100%' }}>
+                    <h3 style={{ fontSize: '18px', marginBottom: '20px', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>Transaction History</h3>
+                    {currentUser.creditHistory && currentUser.creditHistory.length > 0 ? (
+                        <div className="history-list">
+                            {currentUser.creditHistory.map((item, index) => (
+                                <div key={index} className="history-item" style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    padding: '15px 0',
+                                    borderBottom: '1px solid #f5f5f7'
+                                }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                        <div style={{ fontWeight: '600', color: '#333', fontSize: '15px' }}>{item.description}</div>
+                                        <div style={{ fontSize: '13px', color: '#999' }}>{new Date(item.date).toLocaleDateString()} • {new Date(item.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+                                    </div>
+                                    <div style={{
+                                        fontWeight: 'bold',
+                                        fontSize: '16px',
+                                        color: item.type === 'credit' ? 'forestgreen' : '#e11b22',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '5px'
+                                    }}>
+                                        {item.type === 'credit' ? '+' : '-'}
+                                        <span>Rs. {item.amount.toFixed(2)}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div style={{ color: '#888', fontStyle: 'italic' }}>No transactions yet.</div>
+                    )}
+                </div>
             </div>
 
             {isTopUpModalOpen && (
@@ -247,7 +292,7 @@ const ViridiCredit = () => {
 
                                 <div style={{ background: '#f9f9fa', padding: '15px', borderRadius: '12px', border: '1px solid #eaeaec' }}>
                                     <div style={{ fontSize: '12px', color: '#666', marginBottom: '5px', fontWeight: '600' }}>Current Balance</div>
-                                    <div style={{ fontSize: '18px', color: 'forestgreen', fontWeight: '700' }}>Rs. {walletBalance}</div>
+                                    <div style={{ fontSize: '18px', color: 'forestgreen', fontWeight: '700' }}>Rs. {totalBalance.toFixed(2)}</div>
                                 </div>
                             </div>
 

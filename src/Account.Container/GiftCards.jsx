@@ -95,14 +95,30 @@ const GiftCards = () => {
     };
 
     const handleRedeem = (cardId) => {
+        let redeemedAmount = 0;
         const updatedCards = giftCards.map(card => {
             if (card.id === cardId) {
+                redeemedAmount = card.balance;
                 return { ...card, isRedeemed: true };
             }
             return card;
         });
 
-        const updatedUser = { ...currentUser, giftCards: updatedCards };
+        const newHistoryItem = {
+            type: 'credit',
+            amount: redeemedAmount,
+            date: new Date().toISOString(),
+            description: 'Gift Card Redeemed'
+        };
+
+        const updatedHistory = [newHistoryItem, ...(currentUser.creditHistory || [])];
+
+        const updatedUser = {
+            ...currentUser,
+            giftCards: updatedCards,
+            creditHistory: updatedHistory
+        };
+
         setCurrentUser(updatedUser);
         localStorage.setItem('currentUser', JSON.stringify(updatedUser));
         alert("Gift card redeemed successfully! Amount added to balance.");
