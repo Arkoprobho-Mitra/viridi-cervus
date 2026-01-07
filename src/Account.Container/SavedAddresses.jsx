@@ -17,6 +17,18 @@ const SavedAddresses = () => {
         if (currentUser) {
             setAddresses(currentUser.addresses || []);
         }
+
+        const handleAddressUpdate = () => {
+            setSelectedAddrStr(localStorage.getItem('selectedDeliveryAddress'));
+        };
+
+        window.addEventListener('deliveryAddressUpdated', handleAddressUpdate);
+        window.addEventListener('storage', handleAddressUpdate);
+
+        return () => {
+            window.removeEventListener('deliveryAddressUpdated', handleAddressUpdate);
+            window.removeEventListener('storage', handleAddressUpdate);
+        };
     }, [currentUser]);
 
     const handleSelectAddress = (addr) => {
@@ -35,10 +47,16 @@ const SavedAddresses = () => {
         if (editingIndex !== null) {
             // Edit existing
             updatedAddresses = [...addresses];
-            updatedAddresses[editingIndex] = formatAddressString(addressData);
+            const existing = addresses[editingIndex];
+            // Preserve ID if it exists
+            updatedAddresses[editingIndex] = {
+                ...(typeof existing === 'object' ? existing : {}),
+                ...formatAddressString(addressData)
+            };
         } else {
             // Add new
-            updatedAddresses = [...addresses, formatAddressString(addressData)];
+            const newAddr = { ...formatAddressString(addressData), id: Date.now() };
+            updatedAddresses = [...addresses, newAddr];
         }
 
         updateUserStorage(updatedAddresses);
@@ -48,8 +66,40 @@ const SavedAddresses = () => {
 
     const handleDelete = (index) => {
         if (window.confirm("Are you sure you want to delete this address?")) {
+            const addressToDelete = addresses[index];
             const updatedAddresses = addresses.filter((_, i) => i !== index);
             updateUserStorage(updatedAddresses);
+
+            // Check if deleted address was selected
+            let isDeletedSelected = false;
+            try {
+                const selected = JSON.parse(selectedAddrStr);
+                // Check ID match
+                if (typeof addressToDelete === 'object' && addressToDelete.id && selected.id) {
+                    isDeletedSelected = addressToDelete.id === selected.id;
+                }
+                // Check String match or fallback
+                else {
+                    isDeletedSelected = JSON.stringify(addressToDelete) === selectedAddrStr;
+                }
+            } catch (e) {
+                isDeletedSelected = JSON.stringify(addressToDelete) === selectedAddrStr;
+            }
+
+            if (isDeletedSelected) {
+                if (updatedAddresses.length > 0) {
+                    // Select first available
+                    const first = updatedAddresses[0];
+                    const str = JSON.stringify(first);
+                    setSelectedAddrStr(str);
+                    localStorage.setItem('selectedDeliveryAddress', str);
+                } else {
+                    // Clear selection
+                    setSelectedAddrStr(null);
+                    localStorage.removeItem('selectedDeliveryAddress');
+                }
+                window.dispatchEvent(new Event('deliveryAddressUpdated'));
+            }
         }
     };
 
@@ -110,7 +160,31 @@ const SavedAddresses = () => {
                 {addresses.length > 0 ? (
                     <div className="card-grid">
                         {addresses.map((addr, idx) => {
-                            const isSel = selectedAddrStr === JSON.stringify(addr);
+                            // Robust selection check
+                            const isSel = (() => {
+                                if (!selectedAddrStr) return false;
+                                try {
+                                    const selected = JSON.parse(selectedAddrStr);
+
+                                    // Complex Object Match (ID or Content)
+                                    if (typeof addr === 'object' && addr !== null) {
+                                        if (selected.id && addr.id) return selected.id === addr.id;
+                                        // Fallback to strict match if IDs are missing
+                                        return JSON.stringify(addr) === selectedAddrStr;
+                                    }
+
+                                    // Legacy String Match
+                                    if (typeof addr === 'string') {
+                                        // If selected is user-normalized object from string
+                                        if (selected.address === addr) return true;
+                                        // Or exact string match
+                                        return selected === addr;
+                                    }
+                                    return false;
+                                } catch (e) {
+                                    return JSON.stringify(addr) === selectedAddrStr;
+                                }
+                            })();
                             return (
                                 <div
                                     key={idx}

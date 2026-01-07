@@ -25,6 +25,7 @@ import ViridiCredit from './Account.Container/ViridiCredit.jsx';
 import Coupons from './Account.Container/Coupons.jsx';
 import SavedCards from './Account.Container/SavedCards.jsx';
 import SavedAddresses from './Account.Container/SavedAddresses.jsx';
+import CheckoutPage from './Checkout.Container/CheckoutPage.jsx';
 
 import ScrollToTop from './ScrollToTop';
 
@@ -78,6 +79,7 @@ function App() {
           <Route path="/coupons" element={<><Coupons /><Footer /></>} />
           <Route path="/saved-cards" element={<><SavedCards /><Footer /></>} />
           <Route path="/saved-addresses" element={<><SavedAddresses /><Footer /></>} />
+          <Route path="/checkout" element={<><CheckoutPage /><Footer /></>} />
 
           <Route path="/*" element={<LegalRoutes />} />
         </Routes>

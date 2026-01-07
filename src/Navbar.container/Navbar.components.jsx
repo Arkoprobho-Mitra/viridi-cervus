@@ -13,6 +13,7 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
 
   const [cartCount, setCartCount] = useState(0);
   const [wishlistCount, setWishlistCount] = useState(0);
@@ -146,7 +147,9 @@ const Navbar = () => {
 
   const handleMouseLeave = () => {
     setActiveCategory(null);
-    setActiveItem(null);
+    if (!isAddressModalOpen) {
+      setActiveItem(null);
+    }
   };
 
   const handleItemEnter = (item) => {
@@ -155,7 +158,10 @@ const Navbar = () => {
   };
 
   const handleItemLeave = () => {
-    setActiveItem(null);
+    // Only close if modal is NOT open
+    if (!isAddressModalOpen) {
+      setActiveItem(null);
+    }
   };
 
   return (
@@ -178,7 +184,12 @@ const Navbar = () => {
               <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '200px' }}>
                 {deliveryAddressLabel}
               </div>
-              {activeItem === 'address' && <AddressDropdown />}
+              {(activeItem === 'address' || isAddressModalOpen) && (
+                <AddressDropdown
+                  isOpen={isAddressModalOpen}
+                  setIsOpen={setIsAddressModalOpen}
+                />
+              )}
             </div>
           </div>
           <div className='search'>

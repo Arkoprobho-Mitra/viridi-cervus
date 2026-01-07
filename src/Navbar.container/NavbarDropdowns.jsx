@@ -310,7 +310,7 @@ export const CartDropdown = () => {
     );
 };
 
-export const AddressDropdown = () => {
+export const AddressDropdown = ({ isOpen, setIsOpen }) => {
     const isAuthenticated = localStorage.getItem('isAuthenticated');
     const [currentUser, setCurrentUser] = React.useState(null);
     const [selectedAddrStr, setSelectedAddrStr] = React.useState(localStorage.getItem('selectedDeliveryAddress'));
@@ -340,16 +340,14 @@ export const AddressDropdown = () => {
         window.dispatchEvent(new Event('deliveryAddressUpdated'));
     };
 
-
-    const [isModalOpen, setIsModalOpen] = React.useState(false);
-
     const handleSaveAddress = (addressData) => {
-        const newAddresses = [...(currentUser.addresses || []), addressData];
+        const addressWithId = { ...addressData, id: Date.now() };
+        const newAddresses = [...(currentUser.addresses || []), addressWithId];
         const updatedUser = { ...currentUser, addresses: newAddresses };
         setCurrentUser(updatedUser);
         localStorage.setItem('currentUser', JSON.stringify(updatedUser));
         window.dispatchEvent(new Event('userUpdated'));
-        setIsModalOpen(false);
+        setIsOpen(false);
     };
 
     if (!isAuthenticated) {
@@ -409,14 +407,14 @@ export const AddressDropdown = () => {
                     </div>
                 )}
 
-                <button className="add-address-btn" onClick={() => setIsModalOpen(true)}>+ ADD NEW ADDRESS</button>
+                <button className="add-address-btn" onClick={() => setIsOpen(true)}>+ ADD NEW ADDRESS</button>
 
             </div>
-            {isModalOpen && (
+            {isOpen && (
                 <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 9999 }}>
                     <AddressModal
-                        isOpen={isModalOpen}
-                        onClose={() => setIsModalOpen(false)}
+                        isOpen={isOpen}
+                        onClose={() => setIsOpen(false)}
                         onSave={handleSaveAddress}
                         initialData={null}
                     />
