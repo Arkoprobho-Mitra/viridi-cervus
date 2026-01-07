@@ -65,8 +65,8 @@ const AddressModal = ({ isOpen, onClose, onSave, initialData }) => {
     };
 
     return (
-        <div className="modal-overlay">
-            <div className="modal-content">
+        <div className="modal-overlay" onClick={onClose}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <div className="modal-header">
                     <h3>{initialData ? 'Edit Address' : 'Add New Address'}</h3>
                     <button className="close-btn" onClick={onClose}>&times;</button>

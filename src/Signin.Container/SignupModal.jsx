@@ -20,8 +20,8 @@ const SignupModal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="modal-overlay">
-            <div className="modal-content">
+        <div className="modal-overlay" onClick={onClose}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <button className="modal-close" onClick={onClose}>&times;</button>
                 <div className="modal-header">
                     <h2>Sign Up</h2>

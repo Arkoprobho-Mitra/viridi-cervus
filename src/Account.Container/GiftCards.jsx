@@ -232,8 +232,8 @@ const GiftCards = () => {
             </div>
 
             {isBuyModalOpen && (
-                <div className="modal-overlay">
-                    <div className="modal-content" style={{ maxWidth: '400px' }}>
+                <div className="modal-overlay" onClick={() => setIsBuyModalOpen(false)}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '400px' }}>
                         <div className="modal-header">
                             <h3>Buy Gift Card</h3>
                             <button className="close-btn" onClick={() => setIsBuyModalOpen(false)}>×</button>
@@ -271,8 +271,8 @@ const GiftCards = () => {
             )}
 
             {isClaimModalOpen && (
-                <div className="modal-overlay">
-                    <div className="modal-content" style={{ maxWidth: '400px' }}>
+                <div className="modal-overlay" onClick={() => setIsClaimModalOpen(false)}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '400px' }}>
                         <div className="modal-header">
                             <h3>Claim Gift Card</h3>
                             <button className="close-btn" onClick={() => setIsClaimModalOpen(false)}>×</button>

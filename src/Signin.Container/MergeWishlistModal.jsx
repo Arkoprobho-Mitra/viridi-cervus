@@ -9,8 +9,8 @@ const MergeWishlistModal = ({ isOpen, guestItemIds, onMerge, onDiscard }) => {
     const guestItems = products.filter(p => guestItemIds.includes(p.id));
 
     return (
-        <div className="merge-modal-overlay">
-            <div className="merge-modal">
+        <div className="merge-modal-overlay" onClick={onDiscard}>
+            <div className="merge-modal" onClick={(e) => e.stopPropagation()}>
                 <div className="merge-header">
                     <h3>Unsaved Wishlist Items</h3>
                     <p>You have items in your guest wishlist. Would you like to add them to your account?</p>
