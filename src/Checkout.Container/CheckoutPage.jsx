@@ -4,6 +4,15 @@ import AddressModal from '../Account.Container/AddressModal';
 import { useNavigate } from 'react-router-dom';
 import { products } from '../ProductListing.Container/productsData';
 
+const generateUniqueId = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < 16; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+};
+
 const CheckoutPage = () => {
     const navigate = useNavigate();
     const [cartItems, setCartItems] = useState([]);
@@ -18,10 +27,9 @@ const CheckoutPage = () => {
             const storedUser = JSON.parse(localStorage.getItem('currentUser'));
             if (storedUser) {
                 setCurrentUser(storedUser);
-                // Default addresses + user addresses
-                const addresses = storedUser.addresses || [
+
+                let rawAddresses = storedUser.addresses || [
                     {
-                        id: 1,
                         name: storedUser.name,
                         mobile: '9876543210',
                         pincode: '560001',
@@ -32,31 +40,95 @@ const CheckoutPage = () => {
                         addressType: 'HOME'
                     }
                 ];
-                setSavedAddresses(addresses);
 
-                // Auto-select the first one or the last selected
+                // ENFORCE UNIQUE 16-CHAR ALPHANUMERIC IDS & NORMALIZE STRINGS
+                let dataChanged = false;
+                const uniqueAddresses = rawAddresses.map((addr) => {
+                    // 1. Handle String Addresses (Legacy)
+                    if (typeof addr === 'string') {
+                        dataChanged = true;
+                        const newId = generateUniqueId();
+                        console.log("Converting string address to object with ID:", { addr, newId });
+                        return {
+                            name: storedUser.name,
+                            mobile: storedUser.phone || storedUser.mobile || '9876543210',
+                            pincode: '000000', // Default if missing
+                            address: addr,
+                            locality: '',
+                            city: '',
+                            state: '',
+                            addressType: 'HOME',
+                            id: newId
+                        };
+                    }
+
+                    // 2. Handle Object Addresses (Check/Fix ID)
+                    if (typeof addr === 'object' && addr !== null) {
+                        // Check if ID exists and is 16-char alphanumeric
+                        const isValidId = typeof addr.id === 'string' && addr.id.length === 16 && /^[a-zA-Z0-9]+$/.test(addr.id);
+
+                        if (!isValidId) {
+                            dataChanged = true;
+                            const newId = generateUniqueId();
+                            console.log("Generating new ID for address object:", { oldId: addr.id, newId });
+                            return { ...addr, id: newId };
+                        }
+                        return addr;
+                    }
+
+                    return addr; // Should not happen
+                });
+
+                console.log("Address Load Debug:", {
+                    dataChanged,
+                    uniqueIds: uniqueAddresses.map(a => a.id),
+                    rawCount: rawAddresses.length,
+                    finalCount: uniqueAddresses.length
+                });
+
+                // Persist migration if we changed any IDs or converted strings
+                if (dataChanged) {
+                    const updatedUser = { ...storedUser, addresses: uniqueAddresses };
+                    localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+                    setCurrentUser(updatedUser);
+                }
+
+                setSavedAddresses(uniqueAddresses);
+
+                // Auto-select logic
                 const lastSelected = localStorage.getItem('selectedDeliveryAddress');
                 if (lastSelected) {
                     try {
                         const parsed = JSON.parse(lastSelected);
-                        // Match by ID, Exact Object String, or Legacy String property
-                        const match = addresses.find(a =>
-                            (a.id && parsed.id && a.id === parsed.id) ||
-                            (JSON.stringify(a) === lastSelected) ||
-                            (typeof a === 'string' && a === parsed.address)
-                        );
+                        console.log("Attempting to match selection:", parsed);
 
-                        // Robust ID determination
+                        // Strict ID Match first
+                        let match = uniqueAddresses.find(a => a.id === parsed.id);
+
+                        // Fallback: detailed content match (for just-migrated items)
+                        if (!match) {
+                            console.warn("Strict ID match failed, trying content fallback");
+                            match = uniqueAddresses.find(a =>
+                                a.name === parsed.name &&
+                                a.pincode === parsed.pincode &&
+                                a.address === parsed.address &&
+                                (a.mobile === parsed.mobile || !parsed.mobile) // Loose match for mobile if missing
+                            );
+                        }
+
                         if (match) {
-                            setSelectedAddressId(match.id !== undefined ? match.id : addresses.indexOf(match));
+                            console.log("Match found:", match.id);
+                            setSelectedAddressId(match.id);
                         } else {
-                            setSelectedAddressId(addresses[0].id !== undefined ? addresses[0].id : 0);
+                            console.warn("No match found, defaulting to first");
+                            setSelectedAddressId(uniqueAddresses[0]?.id);
                         }
                     } catch (e) {
-                        setSelectedAddressId(addresses[0].id !== undefined ? addresses[0].id : 0);
+                        console.error("Error matching address:", e);
+                        setSelectedAddressId(uniqueAddresses[0]?.id);
                     }
                 } else {
-                    setSelectedAddressId(addresses[0].id !== undefined ? addresses[0].id : 0);
+                    setSelectedAddressId(uniqueAddresses[0]?.id);
                 }
             }
 
@@ -92,7 +164,7 @@ const CheckoutPage = () => {
     }, [navigate]);
 
     const handleAddAddress = (newAddress) => {
-        const addressWithId = { ...newAddress, id: Date.now() };
+        const addressWithId = { ...newAddress, id: generateUniqueId() };
         const updatedAddresses = [...savedAddresses, addressWithId];
         setSavedAddresses(updatedAddresses);
 
@@ -113,9 +185,12 @@ const CheckoutPage = () => {
     };
 
     const handleAddressSelect = (addr) => {
-        // Use ID if available, otherwise find index in current list (risky but fallback)
-        const id = addr.id !== undefined ? addr.id : savedAddresses.indexOf(addr);
-        setSelectedAddressId(id);
+        if (!addr.id) {
+            // Should not happen with new logic, but safe fallback
+            console.error("Selected address has no ID:", addr);
+            return;
+        }
+        setSelectedAddressId(addr.id);
         localStorage.setItem('selectedDeliveryAddress', JSON.stringify(addr));
         window.dispatchEvent(new Event('deliveryAddressUpdated'));
     };
@@ -184,20 +259,19 @@ const CheckoutPage = () => {
                     <h3>Select Delivery Address</h3>
                     <div className="address-grid">
                         {savedAddresses.map((addr, index) => {
-                            // Normalize Data
-                            const isObject = typeof addr === 'object' && addr !== null;
-                            const name = isObject ? addr.name : currentUser?.name;
-                            const mobile = isObject ? addr.mobile : (currentUser?.phone || currentUser?.mobile);
-                            const addressLine = isObject ? `${addr.address || ''}, ${addr.locality || ''}` : addr;
-                            const cityState = isObject ? `${addr.city || ''}, ${addr.state || ''} - ${addr.pincode || ''}` : '';
-                            const type = isObject ? addr.addressType : 'HOME';
-                            const id = (isObject && addr.id !== undefined) ? addr.id : index; // Robust Fallback ID
+                            // Data is now normalized to objects with IDs
+                            const name = addr.name || currentUser?.name;
+                            const mobile = addr.mobile || currentUser?.phone || currentUser?.mobile;
+                            const addressLine = `${addr.address || ''}, ${addr.locality || ''}`;
+                            const cityState = `${addr.city || ''}, ${addr.state || ''} - ${addr.pincode || ''}`;
+                            const type = addr.addressType || 'HOME';
+                            const id = addr.id;
 
                             return (
                                 <div
                                     key={id}
                                     className={`address-card ${selectedAddressId === id ? 'selected' : ''}`}
-                                    onClick={() => handleAddressSelect(isObject ? addr : { ...currentUser, address: addr, id })}
+                                    onClick={() => handleAddressSelect(addr)}
                                 >
                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
                                         <h4>
