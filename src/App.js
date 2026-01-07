@@ -26,6 +26,7 @@ import Coupons from './Account.Container/Coupons.jsx';
 import SavedCards from './Account.Container/SavedCards.jsx';
 import SavedAddresses from './Account.Container/SavedAddresses.jsx';
 import CheckoutPage from './Checkout.Container/CheckoutPage.jsx';
+import PaymentPage from './Checkout.Container/PaymentPage.jsx';
 
 import ScrollToTop from './ScrollToTop';
 
@@ -80,6 +81,7 @@ function App() {
           <Route path="/saved-cards" element={<><SavedCards /><Footer /></>} />
           <Route path="/saved-addresses" element={<><SavedAddresses /><Footer /></>} />
           <Route path="/checkout" element={<><CheckoutPage /><Footer /></>} />
+          <Route path="/payment" element={<><PaymentPage /><Footer /></>} />
 
           <Route path="/*" element={<LegalRoutes />} />
         </Routes>

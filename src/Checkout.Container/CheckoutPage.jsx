@@ -152,13 +152,8 @@ const CheckoutPage = () => {
             alert('Please select a delivery address');
             return;
         }
-
-        alert('Order Placed Successfully! (Simulation)');
-
-        // Clear Cart
-        localStorage.removeItem(`cart_${currentUser?.email}`);
-        window.dispatchEvent(new Event('cartUpdated'));
-        navigate('/'); // Redirect to home or orders
+        // Navigate to payment page
+        navigate('/payment');
     };
 
     return (

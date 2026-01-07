@@ -1,0 +1,119 @@
+.payment-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 30px;
+    font-family: 'Assistant', sans-serif;
+}
+
+.payment-left {
+    flex: 2;
+    display: flex;
+    background-color: white;
+    border: 1px solid #eaeaec;
+    border-radius: 4px;
+    min-height: 500px;
+}
+
+.payment-options-sidebar {
+    width: 30%;
+    background-color: #f4f4f5;
+    border-right: 1px solid #eaeaec;
+}
+
+.payment-option-tab {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 1px solid #eaeaec;
+    border-left: 4px solid transparent;
+    transition: all 0.2s;
+}
+
+.payment-option-tab:hover {
+    background-color: #fff;
+}
+
+.payment-option-tab.active {
+    background-color: white;
+    border-left-color: forestgreen;
+    color: forestgreen;
+}
+
+.payment-method-content {
+    flex: 1;
+    padding: 30px;
+}
+
+.method-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Specific Method Styles */
+.saved-cards-list,
+.upi-options,
+.cod-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.payment-item-card {
+    border: 1px solid #eaeaec;
+    padding: 15px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.payment-item-card:hover {
+    border-color: #333;
+}
+
+.payment-item-card.selected {
+    border-color: forestgreen;
+    background-color: #f0fdf4;
+}
+
+.card-input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.pay-now-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: forestgreen;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.pay-now-btn:hover {
+    background-color: #282c3f;
+}
+
+/* Right Section is similar to Checkout */
+.payment-right {
+    flex: 1;
+}
