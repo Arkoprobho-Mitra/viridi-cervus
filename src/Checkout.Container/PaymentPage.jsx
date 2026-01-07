@@ -90,6 +90,18 @@ const PaymentPage = () => {
                 }
             }
 
+            // Save Order Details
+            const newOrder = {
+                id: Date.now(), // Simple ID
+                date: new Date().toISOString(),
+                status: 'In Transit', // Default status for new orders
+                items: cartItems,
+                total: totalAmount,
+                deliveryDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toDateString() // Mock delivery date (+5 days)
+            };
+            storedUser.orders = [newOrder, ...(storedUser.orders || [])];
+            localStorage.setItem('currentUser', JSON.stringify(storedUser));
+
             // Clear Cart
             localStorage.removeItem(`cart_${storedUser.email}`);
         }

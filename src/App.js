@@ -28,6 +28,9 @@ import SavedAddresses from './Account.Container/SavedAddresses.jsx';
 import CheckoutPage from './Checkout.Container/CheckoutPage.jsx';
 import PaymentPage from './Checkout.Container/PaymentPage.jsx';
 
+import OrderDetail from './Account.Container/OrderDetail.jsx';
+import Help from './Account.Container/Help.jsx';
+
 import ScrollToTop from './ScrollToTop';
 
 function App() {
@@ -74,6 +77,8 @@ function App() {
 
           <Route path="/account" element={<><MyAccount /><Footer /></>} />
           <Route path="/orders" element={<><Orders /><Footer /></>} />
+          <Route path="/order-details/:orderId/:productId" element={<><OrderDetail /><Footer /></>} />
+          <Route path="/help/:orderId/:itemId" element={<><Help /><Footer /></>} />
           <Route path="/gift-cards" element={<><GiftCards /><Footer /></>} />
           <Route path="/contact-us" element={<><ContactUs /><Footer /></>} />
           <Route path="/viridi-credit" element={<><ViridiCredit /><Footer /></>} />

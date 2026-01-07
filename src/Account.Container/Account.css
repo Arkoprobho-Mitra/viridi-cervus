@@ -2,19 +2,21 @@
     max-width: 1200px;
     margin: 40px auto;
     padding: 20px;
-    font-family: 'Assistant', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #333;
     min-height: 60vh;
 }
 
 .account-page-header {
-    font-size: 24px;
+    font-size: 28px;
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     border-bottom: 1px solid #eaeaec;
     padding-bottom: 15px;
     text-transform: uppercase;
     color: #282c3f;
+    letter-spacing: 1px;
 }
 
 .account-content {
@@ -282,6 +284,25 @@
     color: forestgreen;
 }
 
-.type-btn.active:hover {
-    color: white;
+
+
+.topic-item {
+    padding: 20px;
+    border: 1px solid #eaeaec;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #282c3f;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #fff;
+}
+
+.topic-item:hover {
+    background-color: #f4f4f5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-color: #d4d5d9;
 }

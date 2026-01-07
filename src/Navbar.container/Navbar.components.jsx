@@ -44,8 +44,42 @@ const Navbar = () => {
       setWishlistCount(wishlistItems.length);
 
       // Delivery Address Label
+      // Delivery Address Label
       if (isAuth) {
-        const selected = localStorage.getItem('selectedDeliveryAddress');
+        let selected = localStorage.getItem('selectedDeliveryAddress');
+
+        // Validation: Ensure selected address actually exists in user's list
+        if (currentUser && currentUser.addresses) {
+          let isValid = false;
+          let currentAddresses = currentUser.addresses;
+
+          if (selected) {
+            try {
+              const selectedObj = JSON.parse(selected);
+              isValid = currentAddresses.some(addr => {
+                if (addr.id && selectedObj.id) return addr.id === selectedObj.id;
+                // Fallback: check if the object roughly matches (e.g. stringified equality)
+                return JSON.stringify(addr) === JSON.stringify(selectedObj);
+              });
+            } catch (e) {
+              isValid = false;
+            }
+          }
+
+          if (!isValid) {
+            // If invalid or not found, revert to first address if available
+            if (currentAddresses.length > 0) {
+              const firstAddr = currentAddresses[0];
+              selected = JSON.stringify(firstAddr);
+              localStorage.setItem('selectedDeliveryAddress', selected);
+            } else {
+              // No addresses at all
+              localStorage.removeItem('selectedDeliveryAddress');
+              selected = null;
+            }
+          }
+        }
+
         if (selected) {
           try {
             const addr = JSON.parse(selected);
