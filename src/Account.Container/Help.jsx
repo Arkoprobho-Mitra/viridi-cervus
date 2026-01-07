@@ -294,14 +294,16 @@ const Help = () => {
                                     )}
                                 </div>
                             </div>
-                            <div style={{ width: '100px', height: '100px', backgroundColor: '#eef0f3', borderRadius: '50%', margin: '0 auto 20px' }}></div>
+                            <img
+                                src="/images/profile_placeholder.png"
+                                alt="No queries"
+                                style={{ width: '100px', height: '100px', borderRadius: '50%', margin: '0 auto 20px', display: 'block', objectFit: 'cover' }}
+                            />
                             <div style={{ fontWeight: '600', fontSize: '16px', color: '#282c3f', marginBottom: '10px' }}>No queries found</div>
                             <div style={{ fontSize: '14px', color: '#696e79', marginBottom: '30px' }}>
                                 There were no queries raised<br />in <strong>{dateRange}</strong>
                             </div>
-                            <div style={{ color: 'forestgreen', fontSize: '14px', fontWeight: '600', cursor: 'pointer' }}>
-                                Search queries from <span style={{ color: 'forestgreen' }}>Different dates</span>
-                            </div>
+
                         </div>
                     )}
 
