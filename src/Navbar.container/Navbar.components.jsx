@@ -121,6 +121,7 @@ const Navbar = () => {
   const handleSearch = (e) => {
     if (e.key === 'Enter' && searchQuery.trim()) {
       setShowSuggestions(false);
+      const query = searchQuery.trim();
 
       // Track Search History
       const auth = localStorage.getItem('isAuthenticated');
@@ -128,11 +129,19 @@ const Navbar = () => {
       const searchKey = auth && currentUser ? `search_history_${currentUser.email}` : 'search_history_guest';
 
       const history = JSON.parse(localStorage.getItem(searchKey)) || [];
-      const newHistory = [searchQuery.trim(), ...history.filter(term => term !== searchQuery.trim())].slice(0, 10);
+      const newHistory = [query, ...history.filter(term => term !== query)].slice(0, 10);
       localStorage.setItem(searchKey, JSON.stringify(newHistory));
       window.dispatchEvent(new Event('historyUpdated'));
 
-      navigate(`/products?search=${encodeURIComponent(searchQuery.trim())}`);
+      // Check if the query is a Brand
+      const uniqueBrands = [...new Set(products.map(p => p.brand.toLowerCase()))];
+      if (uniqueBrands.includes(query.toLowerCase())) {
+        // Find the exact casing from products for better display in URL, though matching is lowercase
+        const brandMatch = products.find(p => p.brand.toLowerCase() === query.toLowerCase()).brand;
+        navigate(`/promotions/${encodeURIComponent(brandMatch)}`);
+      } else {
+        navigate(`/products?search=${encodeURIComponent(query)}`);
+      }
     }
   };
 

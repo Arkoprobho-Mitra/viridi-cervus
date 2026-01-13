@@ -524,7 +524,9 @@ const ProductPage = () => {
                 <p className="editorial-text">
                     Discover pieces made to move with you — refined, versatile, and built to last beyond the season.
                 </p>
-                <button className="editorial-btn">Shop The Collection</button>
+                <Link to={`/promotions/${encodeURIComponent(product.brand)}`} className="editorial-btn" style={{ textDecoration: 'none', display: 'inline-block' }}>
+                    Shop The Collection
+                </Link>
             </div>
 
             {/* Similar Products */}

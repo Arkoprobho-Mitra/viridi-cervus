@@ -27,6 +27,7 @@ import SavedCards from './Account.Container/SavedCards.jsx';
 import SavedAddresses from './Account.Container/SavedAddresses.jsx';
 import CheckoutPage from './Checkout.Container/CheckoutPage.jsx';
 import PaymentPage from './Checkout.Container/PaymentPage.jsx';
+import BrandPage from './Product.Promotional.Page.Container/BrandPage.jsx';
 
 import OrderDetail from './Account.Container/OrderDetail.jsx';
 import Help from './Account.Container/Help.jsx';
@@ -59,6 +60,12 @@ function App() {
           <Route path="/product/:id" element={
             <>
               <ProductPage />
+              <Footer />
+            </>
+          } />
+          <Route path="/promotions/:brandName" element={
+            <>
+              <BrandPage />
               <Footer />
             </>
           } />

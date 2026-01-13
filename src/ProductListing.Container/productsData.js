@@ -14,7 +14,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 1
     },
     {
         "id": 2,
@@ -30,7 +31,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sneakers"
+        "subCategory": "Sneakers",
+        "brandTemplateId": 2
     },
     {
         "id": 3,
@@ -46,7 +48,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 3
     },
     {
         "id": 4,
@@ -62,7 +65,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 4
     },
     {
         "id": 5,
@@ -78,7 +82,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Swimwear"
+        "subCategory": "Swimwear",
+        "brandTemplateId": 5
     },
     {
         "id": 6,
@@ -95,7 +100,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Flats",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 5
     },
     {
         "id": 7,
@@ -112,7 +118,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Innerwear & Thermals",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 6
     },
     {
         "id": 8,
@@ -128,7 +135,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 4
     },
     {
         "id": 9,
@@ -144,7 +152,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 7
     },
     {
         "id": 10,
@@ -160,7 +169,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Deodorant"
+        "subCategory": "Deodorant",
+        "brandTemplateId": 7
     },
     {
         "id": 11,
@@ -177,7 +187,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Flats",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 1
     },
     {
         "id": 12,
@@ -193,7 +204,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Sherwanis"
+        "subCategory": "Sherwanis",
+        "brandTemplateId": 2
     },
     {
         "id": 13,
@@ -210,7 +222,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Activity Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 14,
@@ -226,7 +239,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Sleepwear & Loungewear"
+        "subCategory": "Sleepwear & Loungewear",
+        "brandTemplateId": 4
     },
     {
         "id": 15,
@@ -242,7 +256,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Tshirts"
+        "subCategory": "Tshirts",
+        "brandTemplateId": 5
     },
     {
         "id": 16,
@@ -258,7 +273,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 6
     },
     {
         "id": 17,
@@ -274,7 +290,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Dhotis"
+        "subCategory": "Dhotis",
+        "brandTemplateId": 7
     },
     {
         "id": 18,
@@ -290,7 +307,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Ethnic Wear"
+        "subCategory": "Ethnic Wear",
+        "brandTemplateId": 1
     },
     {
         "id": 19,
@@ -306,7 +324,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 3
     },
     {
         "id": 20,
@@ -322,7 +341,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Heels"
+        "subCategory": "Heels",
+        "brandTemplateId": 2
     },
     {
         "id": 21,
@@ -338,7 +358,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Nehru Jackets"
+        "subCategory": "Nehru Jackets",
+        "brandTemplateId": 2
     },
     {
         "id": 22,
@@ -354,7 +375,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "T-Shirts"
+        "subCategory": "T-Shirts",
+        "brandTemplateId": 4
     },
     {
         "id": 23,
@@ -370,7 +392,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Deodorant"
+        "subCategory": "Deodorant",
+        "brandTemplateId": 3
     },
     {
         "id": 24,
@@ -386,7 +409,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 3
     },
     {
         "id": 25,
@@ -402,7 +426,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Formal Shirts"
+        "subCategory": "Formal Shirts",
+        "brandTemplateId": 4
     },
     {
         "id": 26,
@@ -418,7 +443,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Dresses"
+        "subCategory": "Dresses",
+        "brandTemplateId": 3
     },
     {
         "id": 27,
@@ -434,7 +460,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 5
     },
     {
         "id": 28,
@@ -450,7 +477,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Eye Cream"
+        "subCategory": "Eye Cream",
+        "brandTemplateId": 4
     },
     {
         "id": 29,
@@ -466,7 +494,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Deodorant"
+        "subCategory": "Deodorant",
+        "brandTemplateId": 1
     },
     {
         "id": 30,
@@ -482,7 +511,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Track Pants & Joggers"
+        "subCategory": "Track Pants & Joggers",
+        "brandTemplateId": 5
     },
     {
         "id": 31,
@@ -498,7 +528,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Primer"
+        "subCategory": "Primer",
+        "brandTemplateId": 6
     },
     {
         "id": 32,
@@ -514,7 +545,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 5
     },
     {
         "id": 33,
@@ -530,7 +562,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Gel"
+        "subCategory": "Hair Gel",
+        "brandTemplateId": 1
     },
     {
         "id": 34,
@@ -546,7 +579,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 1
     },
     {
         "id": 35,
@@ -562,7 +596,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 7
     },
     {
         "id": 36,
@@ -578,7 +613,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 6
     },
     {
         "id": 37,
@@ -594,7 +630,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Fragrances"
+        "subCategory": "Fragrances",
+        "brandTemplateId": 5
     },
     {
         "id": 38,
@@ -611,7 +648,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Socks",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 2
     },
     {
         "id": 39,
@@ -627,7 +665,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Conditioner"
+        "subCategory": "Conditioner",
+        "brandTemplateId": 3
     },
     {
         "id": 40,
@@ -643,7 +682,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 4
     },
     {
         "id": 41,
@@ -660,7 +700,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Tshirts",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 4
     },
     {
         "id": 42,
@@ -676,7 +717,8 @@ export const products = [
         "isAd": true,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 3
     },
     {
         "id": 43,
@@ -692,7 +734,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Socks"
+        "subCategory": "Socks",
+        "brandTemplateId": 4
     },
     {
         "id": 44,
@@ -708,7 +751,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Eyeshadow"
+        "subCategory": "Eyeshadow",
+        "brandTemplateId": 1
     },
     {
         "id": 45,
@@ -724,7 +768,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sneakers"
+        "subCategory": "Sneakers",
+        "brandTemplateId": 1
     },
     {
         "id": 46,
@@ -740,7 +785,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Dupattas & Shawls"
+        "subCategory": "Dupattas & Shawls",
+        "brandTemplateId": 2
     },
     {
         "id": 47,
@@ -756,7 +802,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Shorts"
+        "subCategory": "Shorts",
+        "brandTemplateId": 4
     },
     {
         "id": 48,
@@ -772,7 +819,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Dhotis"
+        "subCategory": "Dhotis",
+        "brandTemplateId": 7
     },
     {
         "id": 49,
@@ -788,7 +836,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Gel"
+        "subCategory": "Hair Gel",
+        "brandTemplateId": 1
     },
     {
         "id": 50,
@@ -804,7 +853,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Masks & Peel"
+        "subCategory": "Masks & Peel",
+        "brandTemplateId": 3
     },
     {
         "id": 51,
@@ -820,7 +870,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 2
     },
     {
         "id": 52,
@@ -836,7 +887,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Formal Shirts"
+        "subCategory": "Formal Shirts",
+        "brandTemplateId": 3
     },
     {
         "id": 53,
@@ -852,7 +904,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Camisoles & Thermals"
+        "subCategory": "Camisoles & Thermals",
+        "brandTemplateId": 7
     },
     {
         "id": 54,
@@ -869,7 +922,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Learning & Development",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 55,
@@ -886,7 +940,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Heels",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 56,
@@ -903,7 +958,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Tshirts",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 2
     },
     {
         "id": 57,
@@ -920,7 +976,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Rompers & Sleepsuits",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 4
     },
     {
         "id": 58,
@@ -936,7 +993,8 @@ export const products = [
         "isAd": true,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sports Shoes"
+        "subCategory": "Sports Shoes",
+        "brandTemplateId": 2
     },
     {
         "id": 59,
@@ -953,7 +1011,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Party Wear",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 3
     },
     {
         "id": 60,
@@ -969,7 +1028,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Nehru Jackets"
+        "subCategory": "Nehru Jackets",
+        "brandTemplateId": 3
     },
     {
         "id": 61,
@@ -985,7 +1045,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 7
     },
     {
         "id": 62,
@@ -1002,7 +1063,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Rompers & Sleepsuits",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 63,
@@ -1019,7 +1081,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Skirts & shorts",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 7
     },
     {
         "id": 64,
@@ -1036,7 +1099,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Jeans",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 5
     },
     {
         "id": 65,
@@ -1052,7 +1116,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Shorts"
+        "subCategory": "Shorts",
+        "brandTemplateId": 3
     },
     {
         "id": 66,
@@ -1068,7 +1133,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Bra"
+        "subCategory": "Bra",
+        "brandTemplateId": 7
     },
     {
         "id": 67,
@@ -1085,7 +1151,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Jacket, Sweater & Sweatshirts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 1
     },
     {
         "id": 68,
@@ -1101,7 +1168,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Kajal"
+        "subCategory": "Kajal",
+        "brandTemplateId": 1
     },
     {
         "id": 69,
@@ -1118,7 +1186,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "T-Shirts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 3
     },
     {
         "id": 70,
@@ -1134,7 +1203,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Briefs"
+        "subCategory": "Briefs",
+        "brandTemplateId": 3
     },
     {
         "id": 71,
@@ -1150,7 +1220,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 4
     },
     {
         "id": 72,
@@ -1166,7 +1237,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Body Lotion"
+        "subCategory": "Body Lotion",
+        "brandTemplateId": 2
     },
     {
         "id": 73,
@@ -1182,7 +1254,8 @@ export const products = [
         "isAd": true,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Accessory"
+        "subCategory": "Hair Accessory",
+        "brandTemplateId": 5
     },
     {
         "id": 74,
@@ -1198,7 +1271,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Shorts"
+        "subCategory": "Shorts",
+        "brandTemplateId": 7
     },
     {
         "id": 75,
@@ -1214,7 +1288,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 4
     },
     {
         "id": 76,
@@ -1230,7 +1305,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 4
     },
     {
         "id": 77,
@@ -1246,7 +1322,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Casual Shirts"
+        "subCategory": "Casual Shirts",
+        "brandTemplateId": 6
     },
     {
         "id": 78,
@@ -1262,7 +1339,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Gel"
+        "subCategory": "Hair Gel",
+        "brandTemplateId": 2
     },
     {
         "id": 79,
@@ -1278,7 +1356,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 5
     },
     {
         "id": 80,
@@ -1294,7 +1373,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Mascara"
+        "subCategory": "Mascara",
+        "brandTemplateId": 6
     },
     {
         "id": 81,
@@ -1311,7 +1391,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Activity Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 82,
@@ -1327,7 +1408,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Compact"
+        "subCategory": "Compact",
+        "brandTemplateId": 5
     },
     {
         "id": 83,
@@ -1344,7 +1426,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Flats",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 5
     },
     {
         "id": 84,
@@ -1360,7 +1443,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 5
     },
     {
         "id": 85,
@@ -1376,7 +1460,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Mascara"
+        "subCategory": "Mascara",
+        "brandTemplateId": 6
     },
     {
         "id": 86,
@@ -1392,7 +1477,8 @@ export const products = [
         "isAd": true,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 3
     },
     {
         "id": 87,
@@ -1408,7 +1494,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Sherwanis"
+        "subCategory": "Sherwanis",
+        "brandTemplateId": 2
     },
     {
         "id": 88,
@@ -1424,7 +1511,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Formal Trousers"
+        "subCategory": "Formal Trousers",
+        "brandTemplateId": 5
     },
     {
         "id": 89,
@@ -1440,7 +1528,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Lipsticks"
+        "subCategory": "Lipsticks",
+        "brandTemplateId": 5
     },
     {
         "id": 90,
@@ -1456,7 +1545,8 @@ export const products = [
         "isAd": true,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 3
     },
     {
         "id": 91,
@@ -1472,7 +1562,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 1
     },
     {
         "id": 92,
@@ -1488,7 +1579,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Track Pants & Joggers"
+        "subCategory": "Track Pants & Joggers",
+        "brandTemplateId": 1
     },
     {
         "id": 93,
@@ -1505,7 +1597,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Socks",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 94,
@@ -1521,7 +1614,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 3
     },
     {
         "id": 95,
@@ -1537,7 +1631,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "brandTemplateId": 2
     },
     {
         "id": 96,
@@ -1553,7 +1648,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 6
     },
     {
         "id": 97,
@@ -1569,7 +1665,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Sleepwear & Loungewear"
+        "subCategory": "Sleepwear & Loungewear",
+        "brandTemplateId": 7
     },
     {
         "id": 98,
@@ -1585,7 +1682,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Shampoo"
+        "subCategory": "Shampoo",
+        "brandTemplateId": 3
     },
     {
         "id": 99,
@@ -1602,7 +1700,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Ethnic Wear",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 6
     },
     {
         "id": 100,
@@ -1618,7 +1717,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Sports Shoes & Floaters"
+        "subCategory": "Sports Shoes & Floaters",
+        "brandTemplateId": 4
     },
     {
         "id": 101,
@@ -1634,7 +1734,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 5
     },
     {
         "id": 102,
@@ -1650,7 +1751,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Boots"
+        "subCategory": "Boots",
+        "brandTemplateId": 6
     },
     {
         "id": 103,
@@ -1666,7 +1768,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Kurtas & Kurta Sets"
+        "subCategory": "Kurtas & Kurta Sets",
+        "brandTemplateId": 1
     },
     {
         "id": 104,
@@ -1682,7 +1785,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 4
     },
     {
         "id": 105,
@@ -1698,7 +1802,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Body Scrub"
+        "subCategory": "Body Scrub",
+        "brandTemplateId": 4
     },
     {
         "id": 106,
@@ -1714,7 +1819,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 5
     },
     {
         "id": 107,
@@ -1731,7 +1837,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Skirts & shorts",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 1
     },
     {
         "id": 108,
@@ -1748,7 +1855,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Skirts & shorts",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 4
     },
     {
         "id": 109,
@@ -1764,7 +1872,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Deodorant"
+        "subCategory": "Deodorant",
+        "brandTemplateId": 2
     },
     {
         "id": 110,
@@ -1780,7 +1889,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sports Shoes"
+        "subCategory": "Sports Shoes",
+        "brandTemplateId": 1
     },
     {
         "id": 111,
@@ -1796,7 +1906,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Premium Beauty"
+        "subCategory": "Premium Beauty",
+        "brandTemplateId": 5
     },
     {
         "id": 112,
@@ -1812,7 +1923,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 3
     },
     {
         "id": 113,
@@ -1828,7 +1940,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Eyeshadow"
+        "subCategory": "Eyeshadow",
+        "brandTemplateId": 7
     },
     {
         "id": 114,
@@ -1844,7 +1957,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 7
     },
     {
         "id": 115,
@@ -1861,7 +1975,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Learning & Development",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 2
     },
     {
         "id": 116,
@@ -1877,7 +1992,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Nehru Jackets"
+        "subCategory": "Nehru Jackets",
+        "brandTemplateId": 6
     },
     {
         "id": 117,
@@ -1894,7 +2010,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Soft Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 118,
@@ -1911,7 +2028,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Ethnic Wear",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 1
     },
     {
         "id": 119,
@@ -1927,7 +2045,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 3
     },
     {
         "id": 120,
@@ -1943,7 +2062,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Swimwear"
+        "subCategory": "Swimwear",
+        "brandTemplateId": 4
     },
     {
         "id": 121,
@@ -1959,7 +2079,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Bra"
+        "subCategory": "Bra",
+        "brandTemplateId": 5
     },
     {
         "id": 122,
@@ -1975,7 +2096,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Mascara"
+        "subCategory": "Mascara",
+        "brandTemplateId": 6
     },
     {
         "id": 123,
@@ -1991,7 +2113,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 6
     },
     {
         "id": 124,
@@ -2008,7 +2131,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Clothing Sets",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 4
     },
     {
         "id": 125,
@@ -2024,7 +2148,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Premium Beauty"
+        "subCategory": "Premium Beauty",
+        "brandTemplateId": 1
     },
     {
         "id": 126,
@@ -2040,7 +2165,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Primer"
+        "subCategory": "Primer",
+        "brandTemplateId": 7
     },
     {
         "id": 127,
@@ -2056,7 +2182,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 4
     },
     {
         "id": 128,
@@ -2072,7 +2199,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Swimwear"
+        "subCategory": "Swimwear",
+        "brandTemplateId": 1
     },
     {
         "id": 129,
@@ -2088,7 +2216,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 130,
@@ -2104,7 +2233,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 5
     },
     {
         "id": 131,
@@ -2120,7 +2250,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 5
     },
     {
         "id": 132,
@@ -2136,7 +2267,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Sunscreen"
+        "subCategory": "Sunscreen",
+        "brandTemplateId": 1
     },
     {
         "id": 133,
@@ -2153,7 +2285,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Party Wear",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 3
     },
     {
         "id": 134,
@@ -2169,7 +2302,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Briefs"
+        "subCategory": "Briefs",
+        "brandTemplateId": 6
     },
     {
         "id": 135,
@@ -2185,7 +2319,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 7
     },
     {
         "id": 136,
@@ -2201,7 +2336,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Compact"
+        "subCategory": "Compact",
+        "brandTemplateId": 2
     },
     {
         "id": 137,
@@ -2217,7 +2353,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Sweaters & Sweatshirts"
+        "subCategory": "Sweaters & Sweatshirts",
+        "brandTemplateId": 5
     },
     {
         "id": 138,
@@ -2233,7 +2370,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 139,
@@ -2249,7 +2387,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 140,
@@ -2266,7 +2405,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Party wear",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 7
     },
     {
         "id": 141,
@@ -2283,7 +2423,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Activity Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 4
     },
     {
         "id": 142,
@@ -2299,7 +2440,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Track Pants & Joggers"
+        "subCategory": "Track Pants & Joggers",
+        "brandTemplateId": 1
     },
     {
         "id": 143,
@@ -2316,7 +2458,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Infant Care",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 144,
@@ -2332,7 +2475,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 2
     },
     {
         "id": 145,
@@ -2348,7 +2492,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Sweaters & Sweatshirts"
+        "subCategory": "Sweaters & Sweatshirts",
+        "brandTemplateId": 7
     },
     {
         "id": 146,
@@ -2364,7 +2509,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 147,
@@ -2380,7 +2526,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Sleepwear & Loungewear"
+        "subCategory": "Sleepwear & Loungewear",
+        "brandTemplateId": 2
     },
     {
         "id": 148,
@@ -2396,7 +2543,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Kurtas & Kurta Sets"
+        "subCategory": "Kurtas & Kurta Sets",
+        "brandTemplateId": 2
     },
     {
         "id": 149,
@@ -2412,7 +2560,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 7
     },
     {
         "id": 150,
@@ -2428,7 +2577,8 @@ export const products = [
         "isAd": true,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Dress Materials"
+        "subCategory": "Dress Materials",
+        "brandTemplateId": 4
     },
     {
         "id": 151,
@@ -2444,7 +2594,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 2
     },
     {
         "id": 152,
@@ -2460,7 +2611,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 7
     },
     {
         "id": 153,
@@ -2476,7 +2628,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 7
     },
     {
         "id": 154,
@@ -2493,7 +2646,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Sports Shoes",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 5
     },
     {
         "id": 155,
@@ -2509,7 +2663,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Conditioner"
+        "subCategory": "Conditioner",
+        "brandTemplateId": 6
     },
     {
         "id": 156,
@@ -2525,7 +2680,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 4
     },
     {
         "id": 157,
@@ -2541,7 +2697,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 158,
@@ -2557,7 +2714,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 159,
@@ -2574,7 +2732,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Learning & Development",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 160,
@@ -2590,7 +2749,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Lip Liner"
+        "subCategory": "Lip Liner",
+        "brandTemplateId": 4
     },
     {
         "id": 161,
@@ -2607,7 +2767,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Jacket, Sweater & Sweatshirts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 1
     },
     {
         "id": 162,
@@ -2624,7 +2785,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Sports Shoes",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 163,
@@ -2641,7 +2803,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Flats",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 3
     },
     {
         "id": 164,
@@ -2657,7 +2820,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 3
     },
     {
         "id": 165,
@@ -2673,7 +2837,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Shorts"
+        "subCategory": "Shorts",
+        "brandTemplateId": 4
     },
     {
         "id": 166,
@@ -2689,7 +2854,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Color"
+        "subCategory": "Hair Color",
+        "brandTemplateId": 6
     },
     {
         "id": 167,
@@ -2706,7 +2872,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Sandals",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 168,
@@ -2722,7 +2889,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Primer"
+        "subCategory": "Primer",
+        "brandTemplateId": 6
     },
     {
         "id": 169,
@@ -2738,7 +2906,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "brandTemplateId": 2
     },
     {
         "id": 170,
@@ -2755,7 +2924,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Clothing Sets",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 171,
@@ -2771,7 +2941,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sneakers"
+        "subCategory": "Sneakers",
+        "brandTemplateId": 5
     },
     {
         "id": 172,
@@ -2787,7 +2958,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Jackets"
+        "subCategory": "Jackets",
+        "brandTemplateId": 1
     },
     {
         "id": 173,
@@ -2803,7 +2975,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Dhotis"
+        "subCategory": "Dhotis",
+        "brandTemplateId": 5
     },
     {
         "id": 174,
@@ -2819,7 +2992,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Thermals"
+        "subCategory": "Thermals",
+        "brandTemplateId": 1
     },
     {
         "id": 175,
@@ -2835,7 +3009,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 3
     },
     {
         "id": 176,
@@ -2852,7 +3027,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Activity Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 177,
@@ -2868,7 +3044,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Jumpsuits"
+        "subCategory": "Jumpsuits",
+        "brandTemplateId": 1
     },
     {
         "id": 178,
@@ -2884,7 +3061,8 @@ export const products = [
         "isAd": true,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Sarees"
+        "subCategory": "Sarees",
+        "brandTemplateId": 3
     },
     {
         "id": 179,
@@ -2900,7 +3078,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 4
     },
     {
         "id": 180,
@@ -2916,7 +3095,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Sleepwear & Loungewear"
+        "subCategory": "Sleepwear & Loungewear",
+        "brandTemplateId": 1
     },
     {
         "id": 181,
@@ -2933,7 +3113,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Soft Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 5
     },
     {
         "id": 182,
@@ -2949,7 +3130,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 7
     },
     {
         "id": 183,
@@ -2965,7 +3147,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 6
     },
     {
         "id": 184,
@@ -2981,7 +3164,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 1
     },
     {
         "id": 185,
@@ -2997,7 +3181,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Shapewear"
+        "subCategory": "Shapewear",
+        "brandTemplateId": 4
     },
     {
         "id": 186,
@@ -3013,7 +3198,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Tshirts"
+        "subCategory": "Tshirts",
+        "brandTemplateId": 5
     },
     {
         "id": 187,
@@ -3029,7 +3215,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Thermals"
+        "subCategory": "Thermals",
+        "brandTemplateId": 5
     },
     {
         "id": 188,
@@ -3045,7 +3232,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Dupattas & Shawls"
+        "subCategory": "Dupattas & Shawls",
+        "brandTemplateId": 3
     },
     {
         "id": 189,
@@ -3061,7 +3249,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Flats"
+        "subCategory": "Flats",
+        "brandTemplateId": 1
     },
     {
         "id": 190,
@@ -3077,7 +3266,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "T-Shirts"
+        "subCategory": "T-Shirts",
+        "brandTemplateId": 2
     },
     {
         "id": 191,
@@ -3093,7 +3283,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Sherwanis"
+        "subCategory": "Sherwanis",
+        "brandTemplateId": 5
     },
     {
         "id": 192,
@@ -3109,7 +3300,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Nail Polish"
+        "subCategory": "Nail Polish",
+        "brandTemplateId": 2
     },
     {
         "id": 193,
@@ -3125,7 +3317,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 5
     },
     {
         "id": 194,
@@ -3141,7 +3334,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 2
     },
     {
         "id": 195,
@@ -3157,7 +3351,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 196,
@@ -3173,7 +3368,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Mascara"
+        "subCategory": "Mascara",
+        "brandTemplateId": 3
     },
     {
         "id": 197,
@@ -3189,7 +3385,8 @@ export const products = [
         "isAd": true,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 198,
@@ -3205,7 +3402,8 @@ export const products = [
         "isAd": true,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Sleepwear & Loungewear"
+        "subCategory": "Sleepwear & Loungewear",
+        "brandTemplateId": 3
     },
     {
         "id": 199,
@@ -3222,7 +3420,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Soft Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 2
     },
     {
         "id": 200,
@@ -3238,7 +3437,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 2
     },
     {
         "id": 201,
@@ -3254,7 +3454,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 5
     },
     {
         "id": 202,
@@ -3270,7 +3471,8 @@ export const products = [
         "isAd": true,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Boxers"
+        "subCategory": "Boxers",
+        "brandTemplateId": 3
     },
     {
         "id": 203,
@@ -3286,7 +3488,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Dhotis"
+        "subCategory": "Dhotis",
+        "brandTemplateId": 5
     },
     {
         "id": 204,
@@ -3303,7 +3506,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Clothing Sets",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 205,
@@ -3320,7 +3524,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Skirts & shorts",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 1
     },
     {
         "id": 206,
@@ -3336,7 +3541,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Formal Shoes"
+        "subCategory": "Formal Shoes",
+        "brandTemplateId": 6
     },
     {
         "id": 207,
@@ -3352,7 +3558,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Briefs"
+        "subCategory": "Briefs",
+        "brandTemplateId": 2
     },
     {
         "id": 208,
@@ -3368,7 +3575,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "brandTemplateId": 2
     },
     {
         "id": 209,
@@ -3384,7 +3592,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Jackets & Coats"
+        "subCategory": "Jackets & Coats",
+        "brandTemplateId": 2
     },
     {
         "id": 210,
@@ -3401,7 +3610,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Tops",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 3
     },
     {
         "id": 211,
@@ -3417,7 +3627,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 6
     },
     {
         "id": 212,
@@ -3433,7 +3644,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 6
     },
     {
         "id": 213,
@@ -3449,7 +3661,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Kurtas & Suits"
+        "subCategory": "Kurtas & Suits",
+        "brandTemplateId": 1
     },
     {
         "id": 214,
@@ -3466,7 +3679,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Trousers",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 2
     },
     {
         "id": 215,
@@ -3482,7 +3696,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Sweatshirts"
+        "subCategory": "Sweatshirts",
+        "brandTemplateId": 1
     },
     {
         "id": 216,
@@ -3498,7 +3713,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 7
     },
     {
         "id": 217,
@@ -3514,7 +3730,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 5
     },
     {
         "id": 218,
@@ -3530,7 +3747,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 3
     },
     {
         "id": 219,
@@ -3547,7 +3765,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Skirts & shorts",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 5
     },
     {
         "id": 220,
@@ -3564,7 +3783,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Tops",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 2
     },
     {
         "id": 221,
@@ -3580,7 +3800,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 4
     },
     {
         "id": 222,
@@ -3597,7 +3818,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Action Figure / Play set",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 223,
@@ -3613,7 +3835,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Suits"
+        "subCategory": "Suits",
+        "brandTemplateId": 3
     },
     {
         "id": 224,
@@ -3629,7 +3852,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Lipsticks"
+        "subCategory": "Lipsticks",
+        "brandTemplateId": 7
     },
     {
         "id": 225,
@@ -3645,7 +3869,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 7
     },
     {
         "id": 226,
@@ -3661,7 +3886,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "brandTemplateId": 6
     },
     {
         "id": 227,
@@ -3677,7 +3903,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Briefs & Trunks"
+        "subCategory": "Briefs & Trunks",
+        "brandTemplateId": 3
     },
     {
         "id": 228,
@@ -3693,7 +3920,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Bra"
+        "subCategory": "Bra",
+        "brandTemplateId": 2
     },
     {
         "id": 229,
@@ -3709,7 +3937,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Eyeshadow"
+        "subCategory": "Eyeshadow",
+        "brandTemplateId": 1
     },
     {
         "id": 230,
@@ -3726,7 +3955,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Dresses",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 1
     },
     {
         "id": 231,
@@ -3742,7 +3972,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 1
     },
     {
         "id": 232,
@@ -3758,7 +3989,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Vests"
+        "subCategory": "Vests",
+        "brandTemplateId": 2
     },
     {
         "id": 233,
@@ -3774,7 +4006,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Dupattas & Shawls"
+        "subCategory": "Dupattas & Shawls",
+        "brandTemplateId": 3
     },
     {
         "id": 234,
@@ -3790,7 +4023,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Sweatshirts"
+        "subCategory": "Sweatshirts",
+        "brandTemplateId": 3
     },
     {
         "id": 235,
@@ -3806,7 +4040,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 2
     },
     {
         "id": 236,
@@ -3822,7 +4057,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Sports Shoes & Floaters"
+        "subCategory": "Sports Shoes & Floaters",
+        "brandTemplateId": 2
     },
     {
         "id": 237,
@@ -3839,7 +4075,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Heels",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 238,
@@ -3855,7 +4092,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Track Pants & Joggers"
+        "subCategory": "Track Pants & Joggers",
+        "brandTemplateId": 2
     },
     {
         "id": 239,
@@ -3871,7 +4109,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Dhotis"
+        "subCategory": "Dhotis",
+        "brandTemplateId": 2
     },
     {
         "id": 240,
@@ -3888,7 +4127,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Winter Wear",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 241,
@@ -3904,7 +4144,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Primer"
+        "subCategory": "Primer",
+        "brandTemplateId": 4
     },
     {
         "id": 242,
@@ -3920,7 +4161,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 243,
@@ -3936,7 +4178,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 1
     },
     {
         "id": 244,
@@ -3952,7 +4195,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 2
     },
     {
         "id": 245,
@@ -3968,7 +4212,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Body Lotion"
+        "subCategory": "Body Lotion",
+        "brandTemplateId": 5
     },
     {
         "id": 246,
@@ -3985,7 +4230,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Nightwear & Loungewear",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 2
     },
     {
         "id": 247,
@@ -4001,7 +4247,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 6
     },
     {
         "id": 248,
@@ -4017,7 +4264,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Kurtis, Tunics & Tops"
+        "subCategory": "Kurtis, Tunics & Tops",
+        "brandTemplateId": 3
     },
     {
         "id": 249,
@@ -4033,7 +4281,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Eyeliner"
+        "subCategory": "Eyeliner",
+        "brandTemplateId": 4
     },
     {
         "id": 250,
@@ -4049,7 +4298,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 2
     },
     {
         "id": 251,
@@ -4065,7 +4315,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Swimwear"
+        "subCategory": "Swimwear",
+        "brandTemplateId": 6
     },
     {
         "id": 252,
@@ -4081,7 +4332,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Lehenga Cholis"
+        "subCategory": "Lehenga Cholis",
+        "brandTemplateId": 5
     },
     {
         "id": 253,
@@ -4097,7 +4349,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 6
     },
     {
         "id": 254,
@@ -4113,7 +4366,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Boots"
+        "subCategory": "Boots",
+        "brandTemplateId": 3
     },
     {
         "id": 255,
@@ -4129,7 +4383,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 6
     },
     {
         "id": 256,
@@ -4145,7 +4400,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Oil"
+        "subCategory": "Hair Oil",
+        "brandTemplateId": 7
     },
     {
         "id": 257,
@@ -4161,7 +4417,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 4
     },
     {
         "id": 258,
@@ -4178,7 +4435,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Innerwear & Thermals",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 2
     },
     {
         "id": 259,
@@ -4194,7 +4452,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "brandTemplateId": 6
     },
     {
         "id": 260,
@@ -4210,7 +4469,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 2
     },
     {
         "id": 261,
@@ -4227,7 +4487,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Kurta Sets",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 6
     },
     {
         "id": 262,
@@ -4243,7 +4504,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 6
     },
     {
         "id": 263,
@@ -4259,7 +4521,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 2
     },
     {
         "id": 264,
@@ -4276,7 +4539,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Winter Wear",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 265,
@@ -4293,7 +4557,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Learning & Development",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 266,
@@ -4309,7 +4574,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 4
     },
     {
         "id": 267,
@@ -4325,7 +4591,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 7
     },
     {
         "id": 268,
@@ -4342,7 +4609,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Dresses",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 3
     },
     {
         "id": 269,
@@ -4359,7 +4627,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "School Shoes",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 270,
@@ -4375,7 +4644,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Swimwear"
+        "subCategory": "Swimwear",
+        "brandTemplateId": 6
     },
     {
         "id": 271,
@@ -4391,7 +4661,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 7
     },
     {
         "id": 272,
@@ -4407,7 +4678,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Tshirts"
+        "subCategory": "Tshirts",
+        "brandTemplateId": 2
     },
     {
         "id": 273,
@@ -4423,7 +4695,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Kurtas & Kurta Sets"
+        "subCategory": "Kurtas & Kurta Sets",
+        "brandTemplateId": 6
     },
     {
         "id": 274,
@@ -4439,7 +4712,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Co-ords"
+        "subCategory": "Co-ords",
+        "brandTemplateId": 7
     },
     {
         "id": 275,
@@ -4455,7 +4729,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 5
     },
     {
         "id": 276,
@@ -4471,7 +4746,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Vests"
+        "subCategory": "Vests",
+        "brandTemplateId": 4
     },
     {
         "id": 277,
@@ -4487,7 +4763,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Kurtas & Suits"
+        "subCategory": "Kurtas & Suits",
+        "brandTemplateId": 4
     },
     {
         "id": 278,
@@ -4503,7 +4780,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Mascara"
+        "subCategory": "Mascara",
+        "brandTemplateId": 5
     },
     {
         "id": 279,
@@ -4519,7 +4797,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Playsuits"
+        "subCategory": "Playsuits",
+        "brandTemplateId": 6
     },
     {
         "id": 280,
@@ -4535,7 +4814,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Sherwanis"
+        "subCategory": "Sherwanis",
+        "brandTemplateId": 3
     },
     {
         "id": 281,
@@ -4551,7 +4831,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 282,
@@ -4567,7 +4848,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Flats"
+        "subCategory": "Flats",
+        "brandTemplateId": 7
     },
     {
         "id": 283,
@@ -4584,7 +4866,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Casual Shoes",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 284,
@@ -4600,7 +4883,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Flip Flops"
+        "subCategory": "Flip Flops",
+        "brandTemplateId": 2
     },
     {
         "id": 285,
@@ -4616,7 +4900,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Sports Shoes & Floaters"
+        "subCategory": "Sports Shoes & Floaters",
+        "brandTemplateId": 7
     },
     {
         "id": 286,
@@ -4632,7 +4917,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 2
     },
     {
         "id": 287,
@@ -4648,7 +4934,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Dupattas & Shawls"
+        "subCategory": "Dupattas & Shawls",
+        "brandTemplateId": 2
     },
     {
         "id": 288,
@@ -4664,7 +4951,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sneakers"
+        "subCategory": "Sneakers",
+        "brandTemplateId": 6
     },
     {
         "id": 289,
@@ -4681,7 +4969,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Soft Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 5
     },
     {
         "id": 290,
@@ -4697,7 +4986,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 7
     },
     {
         "id": 291,
@@ -4713,7 +5003,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 7
     },
     {
         "id": 292,
@@ -4729,7 +5020,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Track Pants & Joggers"
+        "subCategory": "Track Pants & Joggers",
+        "brandTemplateId": 7
     },
     {
         "id": 293,
@@ -4745,7 +5037,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Boxers"
+        "subCategory": "Boxers",
+        "brandTemplateId": 5
     },
     {
         "id": 294,
@@ -4761,7 +5054,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Color"
+        "subCategory": "Hair Color",
+        "brandTemplateId": 5
     },
     {
         "id": 295,
@@ -4777,7 +5071,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Flip Flops"
+        "subCategory": "Flip Flops",
+        "brandTemplateId": 7
     },
     {
         "id": 296,
@@ -4793,7 +5088,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Shorts"
+        "subCategory": "Shorts",
+        "brandTemplateId": 1
     },
     {
         "id": 297,
@@ -4810,7 +5106,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Innerwear & Thermals",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 1
     },
     {
         "id": 298,
@@ -4826,7 +5123,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Eyeliner"
+        "subCategory": "Eyeliner",
+        "brandTemplateId": 5
     },
     {
         "id": 299,
@@ -4842,7 +5140,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Blazers & Coats"
+        "subCategory": "Blazers & Coats",
+        "brandTemplateId": 1
     },
     {
         "id": 300,
@@ -4858,7 +5157,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Dresses"
+        "subCategory": "Dresses",
+        "brandTemplateId": 5
     },
     {
         "id": 301,
@@ -4874,7 +5174,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Oil"
+        "subCategory": "Hair Oil",
+        "brandTemplateId": 1
     },
     {
         "id": 302,
@@ -4890,7 +5191,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Sunscreen"
+        "subCategory": "Sunscreen",
+        "brandTemplateId": 4
     },
     {
         "id": 303,
@@ -4906,7 +5208,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 5
     },
     {
         "id": 304,
@@ -4923,7 +5226,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "School Shoes",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 305,
@@ -4940,7 +5244,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Sandals",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 306,
@@ -4957,7 +5262,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "School Shoes",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 307,
@@ -4973,7 +5279,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 7
     },
     {
         "id": 308,
@@ -4989,7 +5296,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 4
     },
     {
         "id": 309,
@@ -5005,7 +5313,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 4
     },
     {
         "id": 310,
@@ -5021,7 +5330,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 4
     },
     {
         "id": 311,
@@ -5037,7 +5347,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Compact"
+        "subCategory": "Compact",
+        "brandTemplateId": 4
     },
     {
         "id": 312,
@@ -5053,7 +5364,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 313,
@@ -5069,7 +5381,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 7
     },
     {
         "id": 314,
@@ -5085,7 +5398,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Cream"
+        "subCategory": "Hair Cream",
+        "brandTemplateId": 4
     },
     {
         "id": 315,
@@ -5101,7 +5415,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Cream"
+        "subCategory": "Hair Cream",
+        "brandTemplateId": 2
     },
     {
         "id": 316,
@@ -5117,7 +5432,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Briefs & Trunks"
+        "subCategory": "Briefs & Trunks",
+        "brandTemplateId": 3
     },
     {
         "id": 317,
@@ -5133,7 +5449,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Sleepwear & Loungewear"
+        "subCategory": "Sleepwear & Loungewear",
+        "brandTemplateId": 5
     },
     {
         "id": 318,
@@ -5149,7 +5466,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 4
     },
     {
         "id": 319,
@@ -5165,7 +5483,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Sherwanis"
+        "subCategory": "Sherwanis",
+        "brandTemplateId": 4
     },
     {
         "id": 320,
@@ -5181,7 +5500,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Kurtas & Kurta Sets"
+        "subCategory": "Kurtas & Kurta Sets",
+        "brandTemplateId": 3
     },
     {
         "id": 321,
@@ -5197,7 +5517,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 4
     },
     {
         "id": 322,
@@ -5213,7 +5534,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Sherwanis"
+        "subCategory": "Sherwanis",
+        "brandTemplateId": 1
     },
     {
         "id": 323,
@@ -5230,7 +5552,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Skirts & shorts",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 2
     },
     {
         "id": 324,
@@ -5246,7 +5569,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Kurtas & Kurta Sets"
+        "subCategory": "Kurtas & Kurta Sets",
+        "brandTemplateId": 2
     },
     {
         "id": 325,
@@ -5262,7 +5586,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Deodorant"
+        "subCategory": "Deodorant",
+        "brandTemplateId": 1
     },
     {
         "id": 326,
@@ -5279,7 +5604,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Sandals",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 4
     },
     {
         "id": 327,
@@ -5295,7 +5621,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 328,
@@ -5312,7 +5639,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Innerwear & Thermals",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 7
     },
     {
         "id": 329,
@@ -5328,7 +5656,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 7
     },
     {
         "id": 330,
@@ -5344,7 +5673,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 331,
@@ -5361,7 +5691,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Sandals",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 332,
@@ -5377,7 +5708,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 3
     },
     {
         "id": 333,
@@ -5393,7 +5725,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 3
     },
     {
         "id": 334,
@@ -5409,7 +5742,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Shorts"
+        "subCategory": "Shorts",
+        "brandTemplateId": 1
     },
     {
         "id": 335,
@@ -5425,7 +5759,8 @@ export const products = [
         "isAd": true,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Deodorant"
+        "subCategory": "Deodorant",
+        "brandTemplateId": 3
     },
     {
         "id": 336,
@@ -5441,7 +5776,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Flip Flops"
+        "subCategory": "Flip Flops",
+        "brandTemplateId": 1
     },
     {
         "id": 337,
@@ -5457,7 +5793,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Boxers"
+        "subCategory": "Boxers",
+        "brandTemplateId": 3
     },
     {
         "id": 338,
@@ -5473,7 +5810,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Shorts"
+        "subCategory": "Shorts",
+        "brandTemplateId": 2
     },
     {
         "id": 339,
@@ -5489,7 +5827,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Briefs & Trunks"
+        "subCategory": "Briefs & Trunks",
+        "brandTemplateId": 4
     },
     {
         "id": 340,
@@ -5506,7 +5845,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Infant Care",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 341,
@@ -5523,7 +5863,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Shorts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 1
     },
     {
         "id": 342,
@@ -5539,7 +5880,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Lipsticks"
+        "subCategory": "Lipsticks",
+        "brandTemplateId": 2
     },
     {
         "id": 343,
@@ -5555,7 +5897,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 6
     },
     {
         "id": 344,
@@ -5571,7 +5914,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Lipsticks"
+        "subCategory": "Lipsticks",
+        "brandTemplateId": 3
     },
     {
         "id": 345,
@@ -5587,7 +5931,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 4
     },
     {
         "id": 346,
@@ -5603,7 +5948,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 347,
@@ -5619,7 +5965,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Jackets"
+        "subCategory": "Jackets",
+        "brandTemplateId": 7
     },
     {
         "id": 348,
@@ -5635,7 +5982,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 6
     },
     {
         "id": 349,
@@ -5651,7 +5999,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Cream"
+        "subCategory": "Hair Cream",
+        "brandTemplateId": 6
     },
     {
         "id": 350,
@@ -5667,7 +6016,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Formal Trousers"
+        "subCategory": "Formal Trousers",
+        "brandTemplateId": 5
     },
     {
         "id": 351,
@@ -5683,7 +6033,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 2
     },
     {
         "id": 352,
@@ -5699,7 +6050,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Thermals"
+        "subCategory": "Thermals",
+        "brandTemplateId": 1
     },
     {
         "id": 353,
@@ -5715,7 +6067,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 4
     },
     {
         "id": 354,
@@ -5731,7 +6084,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Camisoles & Thermals"
+        "subCategory": "Camisoles & Thermals",
+        "brandTemplateId": 2
     },
     {
         "id": 355,
@@ -5748,7 +6102,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Winter Wear",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 356,
@@ -5765,7 +6120,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Soft Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 357,
@@ -5782,7 +6138,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Dresses",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 3
     },
     {
         "id": 358,
@@ -5798,7 +6155,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Primer"
+        "subCategory": "Primer",
+        "brandTemplateId": 5
     },
     {
         "id": 359,
@@ -5814,7 +6172,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Compact"
+        "subCategory": "Compact",
+        "brandTemplateId": 5
     },
     {
         "id": 360,
@@ -5830,7 +6189,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Vests"
+        "subCategory": "Vests",
+        "brandTemplateId": 2
     },
     {
         "id": 361,
@@ -5847,7 +6207,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Action Figure / Play set",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 362,
@@ -5863,7 +6224,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 363,
@@ -5879,7 +6241,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Formal Trousers"
+        "subCategory": "Formal Trousers",
+        "brandTemplateId": 7
     },
     {
         "id": 364,
@@ -5895,7 +6258,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Boxers"
+        "subCategory": "Boxers",
+        "brandTemplateId": 3
     },
     {
         "id": 365,
@@ -5911,7 +6275,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Premium Beauty"
+        "subCategory": "Premium Beauty",
+        "brandTemplateId": 6
     },
     {
         "id": 366,
@@ -5927,7 +6292,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 7
     },
     {
         "id": 367,
@@ -5943,7 +6309,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 368,
@@ -5959,7 +6326,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 5
     },
     {
         "id": 369,
@@ -5975,7 +6343,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Sunscreen"
+        "subCategory": "Sunscreen",
+        "brandTemplateId": 6
     },
     {
         "id": 370,
@@ -5991,7 +6360,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Heels"
+        "subCategory": "Heels",
+        "brandTemplateId": 4
     },
     {
         "id": 371,
@@ -6007,7 +6377,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 6
     },
     {
         "id": 372,
@@ -6023,7 +6394,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Deodorant"
+        "subCategory": "Deodorant",
+        "brandTemplateId": 2
     },
     {
         "id": 373,
@@ -6039,7 +6411,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 3
     },
     {
         "id": 374,
@@ -6055,7 +6428,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 6
     },
     {
         "id": 375,
@@ -6071,7 +6445,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Formal Shoes"
+        "subCategory": "Formal Shoes",
+        "brandTemplateId": 7
     },
     {
         "id": 376,
@@ -6087,7 +6462,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 7
     },
     {
         "id": 377,
@@ -6104,7 +6480,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Jeans",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 2
     },
     {
         "id": 378,
@@ -6120,7 +6497,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Sports Shoes & Floaters"
+        "subCategory": "Sports Shoes & Floaters",
+        "brandTemplateId": 4
     },
     {
         "id": 379,
@@ -6136,7 +6514,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 5
     },
     {
         "id": 380,
@@ -6152,7 +6531,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Bra"
+        "subCategory": "Bra",
+        "brandTemplateId": 7
     },
     {
         "id": 381,
@@ -6168,7 +6548,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Heels"
+        "subCategory": "Heels",
+        "brandTemplateId": 4
     },
     {
         "id": 382,
@@ -6184,7 +6565,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 7
     },
     {
         "id": 383,
@@ -6200,7 +6582,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Sweatshirts"
+        "subCategory": "Sweatshirts",
+        "brandTemplateId": 5
     },
     {
         "id": 384,
@@ -6217,7 +6600,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Winter Wear",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 5
     },
     {
         "id": 385,
@@ -6233,7 +6617,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Premium Beauty"
+        "subCategory": "Premium Beauty",
+        "brandTemplateId": 1
     },
     {
         "id": 386,
@@ -6250,7 +6635,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Infant Care",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 387,
@@ -6266,7 +6652,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 388,
@@ -6282,7 +6669,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Swimwear"
+        "subCategory": "Swimwear",
+        "brandTemplateId": 1
     },
     {
         "id": 389,
@@ -6299,7 +6687,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Casual Shoes",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 390,
@@ -6315,7 +6704,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sneakers"
+        "subCategory": "Sneakers",
+        "brandTemplateId": 2
     },
     {
         "id": 391,
@@ -6331,7 +6721,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Sunscreen"
+        "subCategory": "Sunscreen",
+        "brandTemplateId": 6
     },
     {
         "id": 392,
@@ -6347,7 +6738,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 6
     },
     {
         "id": 393,
@@ -6363,7 +6755,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 6
     },
     {
         "id": 394,
@@ -6379,7 +6772,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Sunscreen"
+        "subCategory": "Sunscreen",
+        "brandTemplateId": 3
     },
     {
         "id": 395,
@@ -6395,7 +6789,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Color"
+        "subCategory": "Hair Color",
+        "brandTemplateId": 7
     },
     {
         "id": 396,
@@ -6412,7 +6807,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Learning & Development",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 5
     },
     {
         "id": 397,
@@ -6428,7 +6824,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Formal Trousers"
+        "subCategory": "Formal Trousers",
+        "brandTemplateId": 6
     },
     {
         "id": 398,
@@ -6445,7 +6842,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Shorts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 6
     },
     {
         "id": 399,
@@ -6461,7 +6859,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 7
     },
     {
         "id": 400,
@@ -6477,7 +6876,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 1
     },
     {
         "id": 401,
@@ -6493,7 +6893,8 @@ export const products = [
         "isAd": true,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 2
     },
     {
         "id": 402,
@@ -6509,7 +6910,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Cream"
+        "subCategory": "Hair Cream",
+        "brandTemplateId": 7
     },
     {
         "id": 403,
@@ -6525,7 +6927,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 2
     },
     {
         "id": 404,
@@ -6541,7 +6944,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Eyeliner"
+        "subCategory": "Eyeliner",
+        "brandTemplateId": 7
     },
     {
         "id": 405,
@@ -6557,7 +6961,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Casual Trousers"
+        "subCategory": "Casual Trousers",
+        "brandTemplateId": 7
     },
     {
         "id": 406,
@@ -6573,7 +6978,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 4
     },
     {
         "id": 407,
@@ -6589,7 +6995,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Lip Gloss"
+        "subCategory": "Lip Gloss",
+        "brandTemplateId": 6
     },
     {
         "id": 408,
@@ -6605,7 +7012,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Shrugs"
+        "subCategory": "Shrugs",
+        "brandTemplateId": 4
     },
     {
         "id": 409,
@@ -6621,7 +7029,8 @@ export const products = [
         "isAd": true,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Sweaters & Sweatshirts"
+        "subCategory": "Sweaters & Sweatshirts",
+        "brandTemplateId": 7
     },
     {
         "id": 410,
@@ -6637,7 +7046,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Deodorant"
+        "subCategory": "Deodorant",
+        "brandTemplateId": 7
     },
     {
         "id": 411,
@@ -6653,7 +7063,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Lip Liner"
+        "subCategory": "Lip Liner",
+        "brandTemplateId": 6
     },
     {
         "id": 412,
@@ -6669,7 +7080,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sports Shoes"
+        "subCategory": "Sports Shoes",
+        "brandTemplateId": 6
     },
     {
         "id": 413,
@@ -6685,7 +7097,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Heels"
+        "subCategory": "Heels",
+        "brandTemplateId": 1
     },
     {
         "id": 414,
@@ -6701,7 +7114,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Thermals"
+        "subCategory": "Thermals",
+        "brandTemplateId": 7
     },
     {
         "id": 415,
@@ -6717,7 +7131,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 7
     },
     {
         "id": 416,
@@ -6734,7 +7149,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Soft Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 5
     },
     {
         "id": 417,
@@ -6750,7 +7166,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Tshirts"
+        "subCategory": "Tshirts",
+        "brandTemplateId": 7
     },
     {
         "id": 418,
@@ -6766,7 +7183,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 7
     },
     {
         "id": 419,
@@ -6782,7 +7200,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Makeup"
+        "subCategory": "Makeup",
+        "brandTemplateId": 6
     },
     {
         "id": 420,
@@ -6798,7 +7217,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Kurtis, Tunics & Tops"
+        "subCategory": "Kurtis, Tunics & Tops",
+        "brandTemplateId": 4
     },
     {
         "id": 421,
@@ -6814,7 +7234,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Lip Liner"
+        "subCategory": "Lip Liner",
+        "brandTemplateId": 4
     },
     {
         "id": 422,
@@ -6830,7 +7251,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Lip Gloss"
+        "subCategory": "Lip Gloss",
+        "brandTemplateId": 2
     },
     {
         "id": 423,
@@ -6846,7 +7268,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 5
     },
     {
         "id": 424,
@@ -6863,7 +7286,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Shirts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 3
     },
     {
         "id": 425,
@@ -6880,7 +7304,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Rompers & Sleepsuits",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 426,
@@ -6896,7 +7321,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 2
     },
     {
         "id": 427,
@@ -6912,7 +7338,8 @@ export const products = [
         "isAd": true,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Accessory"
+        "subCategory": "Hair Accessory",
+        "brandTemplateId": 5
     },
     {
         "id": 428,
@@ -6928,7 +7355,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Shorts & Skirts"
+        "subCategory": "Shorts & Skirts",
+        "brandTemplateId": 2
     },
     {
         "id": 429,
@@ -6944,7 +7372,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Lip Gloss"
+        "subCategory": "Lip Gloss",
+        "brandTemplateId": 7
     },
     {
         "id": 430,
@@ -6960,7 +7389,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Nail Polish"
+        "subCategory": "Nail Polish",
+        "brandTemplateId": 3
     },
     {
         "id": 431,
@@ -6976,7 +7406,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 7
     },
     {
         "id": 432,
@@ -6992,7 +7423,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Sleepwear & Loungewear"
+        "subCategory": "Sleepwear & Loungewear",
+        "brandTemplateId": 3
     },
     {
         "id": 433,
@@ -7008,7 +7440,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 3
     },
     {
         "id": 434,
@@ -7024,7 +7457,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Dhotis"
+        "subCategory": "Dhotis",
+        "brandTemplateId": 2
     },
     {
         "id": 435,
@@ -7040,7 +7474,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 5
     },
     {
         "id": 436,
@@ -7056,7 +7491,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Lipstick"
+        "subCategory": "Lipstick",
+        "brandTemplateId": 2
     },
     {
         "id": 437,
@@ -7072,7 +7508,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 7
     },
     {
         "id": 438,
@@ -7088,7 +7525,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 5
     },
     {
         "id": 439,
@@ -7104,7 +7542,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Formal Shoes"
+        "subCategory": "Formal Shoes",
+        "brandTemplateId": 1
     },
     {
         "id": 440,
@@ -7120,7 +7559,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Skirts & Palazzos"
+        "subCategory": "Skirts & Palazzos",
+        "brandTemplateId": 3
     },
     {
         "id": 441,
@@ -7136,7 +7576,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 2
     },
     {
         "id": 442,
@@ -7152,7 +7593,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Fragrances"
+        "subCategory": "Fragrances",
+        "brandTemplateId": 1
     },
     {
         "id": 443,
@@ -7169,7 +7611,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Bottom wear",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 4
     },
     {
         "id": 444,
@@ -7185,7 +7628,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 6
     },
     {
         "id": 445,
@@ -7201,7 +7645,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sports Shoes"
+        "subCategory": "Sports Shoes",
+        "brandTemplateId": 6
     },
     {
         "id": 446,
@@ -7217,7 +7662,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Gel"
+        "subCategory": "Hair Gel",
+        "brandTemplateId": 4
     },
     {
         "id": 447,
@@ -7233,7 +7679,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Skincare"
+        "subCategory": "Skincare",
+        "brandTemplateId": 3
     },
     {
         "id": 448,
@@ -7249,7 +7696,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Shorts"
+        "subCategory": "Shorts",
+        "brandTemplateId": 4
     },
     {
         "id": 449,
@@ -7266,7 +7714,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Trousers",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 4
     },
     {
         "id": 450,
@@ -7282,7 +7731,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Face Wash"
+        "subCategory": "Face Wash",
+        "brandTemplateId": 4
     },
     {
         "id": 451,
@@ -7298,7 +7748,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 3
     },
     {
         "id": 452,
@@ -7314,7 +7765,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 3
     },
     {
         "id": 453,
@@ -7331,7 +7783,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Casual Shoes",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 454,
@@ -7347,7 +7800,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Cream"
+        "subCategory": "Hair Cream",
+        "brandTemplateId": 2
     },
     {
         "id": 455,
@@ -7363,7 +7817,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "brandTemplateId": 3
     },
     {
         "id": 456,
@@ -7379,7 +7834,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 2
     },
     {
         "id": 457,
@@ -7395,7 +7851,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 1
     },
     {
         "id": 458,
@@ -7411,7 +7868,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 5
     },
     {
         "id": 459,
@@ -7428,7 +7886,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Rompers & Sleepsuits",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 4
     },
     {
         "id": 460,
@@ -7445,7 +7904,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Lehenga Choli",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 6
     },
     {
         "id": 461,
@@ -7461,7 +7921,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 2
     },
     {
         "id": 462,
@@ -7477,7 +7938,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Socks"
+        "subCategory": "Socks",
+        "brandTemplateId": 7
     },
     {
         "id": 463,
@@ -7493,7 +7955,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "brandTemplateId": 1
     },
     {
         "id": 464,
@@ -7510,7 +7973,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Action Figure / Play set",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 4
     },
     {
         "id": 465,
@@ -7526,7 +7990,8 @@ export const products = [
         "isAd": true,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 4
     },
     {
         "id": 466,
@@ -7542,7 +8007,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Fragrances"
+        "subCategory": "Fragrances",
+        "brandTemplateId": 5
     },
     {
         "id": 467,
@@ -7558,7 +8024,8 @@ export const products = [
         "isAd": true,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 7
     },
     {
         "id": 468,
@@ -7574,7 +8041,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Flats"
+        "subCategory": "Flats",
+        "brandTemplateId": 4
     },
     {
         "id": 469,
@@ -7590,7 +8058,8 @@ export const products = [
         "isAd": true,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Body Scrub"
+        "subCategory": "Body Scrub",
+        "brandTemplateId": 5
     },
     {
         "id": 470,
@@ -7606,7 +8075,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 4
     },
     {
         "id": 471,
@@ -7622,7 +8092,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Thermals"
+        "subCategory": "Thermals",
+        "brandTemplateId": 4
     },
     {
         "id": 472,
@@ -7638,7 +8109,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Camisoles & Thermals"
+        "subCategory": "Camisoles & Thermals",
+        "brandTemplateId": 1
     },
     {
         "id": 473,
@@ -7654,7 +8126,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Track Pants & Joggers"
+        "subCategory": "Track Pants & Joggers",
+        "brandTemplateId": 4
     },
     {
         "id": 474,
@@ -7670,7 +8143,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sneakers"
+        "subCategory": "Sneakers",
+        "brandTemplateId": 5
     },
     {
         "id": 475,
@@ -7686,7 +8160,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Eyeliner"
+        "subCategory": "Eyeliner",
+        "brandTemplateId": 6
     },
     {
         "id": 476,
@@ -7702,7 +8177,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 6
     },
     {
         "id": 477,
@@ -7718,7 +8194,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Socks"
+        "subCategory": "Socks",
+        "brandTemplateId": 1
     },
     {
         "id": 478,
@@ -7734,7 +8211,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Lip Liner"
+        "subCategory": "Lip Liner",
+        "brandTemplateId": 2
     },
     {
         "id": 479,
@@ -7750,7 +8228,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Vests"
+        "subCategory": "Vests",
+        "brandTemplateId": 6
     },
     {
         "id": 480,
@@ -7766,7 +8245,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Jackets"
+        "subCategory": "Jackets",
+        "brandTemplateId": 6
     },
     {
         "id": 481,
@@ -7782,7 +8262,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Track Pants & Joggers"
+        "subCategory": "Track Pants & Joggers",
+        "brandTemplateId": 6
     },
     {
         "id": 482,
@@ -7798,7 +8279,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Sweatshirts"
+        "subCategory": "Sweatshirts",
+        "brandTemplateId": 7
     },
     {
         "id": 483,
@@ -7814,7 +8296,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sports Shoes"
+        "subCategory": "Sports Shoes",
+        "brandTemplateId": 3
     },
     {
         "id": 484,
@@ -7831,7 +8314,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Learning & Development",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 485,
@@ -7847,7 +8331,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 486,
@@ -7864,7 +8349,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Activity Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 487,
@@ -7880,7 +8366,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 4
     },
     {
         "id": 488,
@@ -7896,7 +8383,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Fragrances"
+        "subCategory": "Fragrances",
+        "brandTemplateId": 2
     },
     {
         "id": 489,
@@ -7912,7 +8400,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 1
     },
     {
         "id": 490,
@@ -7928,7 +8417,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Lipsticks"
+        "subCategory": "Lipsticks",
+        "brandTemplateId": 7
     },
     {
         "id": 491,
@@ -7944,7 +8434,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 492,
@@ -7960,7 +8451,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 7
     },
     {
         "id": 493,
@@ -7976,7 +8468,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Kurtis, Tunics & Tops"
+        "subCategory": "Kurtis, Tunics & Tops",
+        "brandTemplateId": 1
     },
     {
         "id": 494,
@@ -7992,7 +8485,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Shorts & Skirts"
+        "subCategory": "Shorts & Skirts",
+        "brandTemplateId": 6
     },
     {
         "id": 495,
@@ -8008,7 +8502,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 7
     },
     {
         "id": 496,
@@ -8025,7 +8520,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Shirts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 2
     },
     {
         "id": 497,
@@ -8041,7 +8537,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Hand Cream"
+        "subCategory": "Hand Cream",
+        "brandTemplateId": 5
     },
     {
         "id": 498,
@@ -8057,7 +8554,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 4
     },
     {
         "id": 499,
@@ -8073,7 +8571,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Ethnic Wear"
+        "subCategory": "Ethnic Wear",
+        "brandTemplateId": 3
     },
     {
         "id": 500,
@@ -8090,7 +8589,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Tights & Leggings",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 1
     },
     {
         "id": 501,
@@ -8106,7 +8606,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 4
     },
     {
         "id": 502,
@@ -8122,7 +8623,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Bra"
+        "subCategory": "Bra",
+        "brandTemplateId": 5
     },
     {
         "id": 503,
@@ -8138,7 +8640,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Lehenga Cholis"
+        "subCategory": "Lehenga Cholis",
+        "brandTemplateId": 1
     },
     {
         "id": 504,
@@ -8155,7 +8658,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Dresses",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 3
     },
     {
         "id": 505,
@@ -8171,7 +8675,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 506,
@@ -8187,7 +8692,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Foundation"
+        "subCategory": "Foundation",
+        "brandTemplateId": 2
     },
     {
         "id": 507,
@@ -8203,7 +8709,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Body Lotion"
+        "subCategory": "Body Lotion",
+        "brandTemplateId": 4
     },
     {
         "id": 508,
@@ -8219,7 +8726,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 1
     },
     {
         "id": 509,
@@ -8235,7 +8743,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Jackets"
+        "subCategory": "Jackets",
+        "brandTemplateId": 7
     },
     {
         "id": 510,
@@ -8251,7 +8760,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 5
     },
     {
         "id": 511,
@@ -8267,7 +8777,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Eye Cream"
+        "subCategory": "Eye Cream",
+        "brandTemplateId": 5
     },
     {
         "id": 512,
@@ -8283,7 +8794,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Formal Shoes"
+        "subCategory": "Formal Shoes",
+        "brandTemplateId": 1
     },
     {
         "id": 513,
@@ -8299,7 +8811,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Leggings, Salwars & Churidars"
+        "subCategory": "Leggings, Salwars & Churidars",
+        "brandTemplateId": 5
     },
     {
         "id": 514,
@@ -8315,7 +8828,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 4
     },
     {
         "id": 515,
@@ -8331,7 +8845,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Formal Shoes"
+        "subCategory": "Formal Shoes",
+        "brandTemplateId": 6
     },
     {
         "id": 516,
@@ -8347,7 +8862,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 517,
@@ -8363,7 +8879,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Body Lotion"
+        "subCategory": "Body Lotion",
+        "brandTemplateId": 1
     },
     {
         "id": 518,
@@ -8379,7 +8896,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Casual Shirts"
+        "subCategory": "Casual Shirts",
+        "brandTemplateId": 4
     },
     {
         "id": 519,
@@ -8395,7 +8913,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Skincare"
+        "subCategory": "Skincare",
+        "brandTemplateId": 3
     },
     {
         "id": 520,
@@ -8412,7 +8931,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Casual Shoes",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 521,
@@ -8428,7 +8948,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Serum"
+        "subCategory": "Serum",
+        "brandTemplateId": 3
     },
     {
         "id": 522,
@@ -8444,7 +8965,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 5
     },
     {
         "id": 523,
@@ -8460,7 +8982,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Makeup"
+        "subCategory": "Makeup",
+        "brandTemplateId": 7
     },
     {
         "id": 524,
@@ -8476,7 +8999,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Serum"
+        "subCategory": "Serum",
+        "brandTemplateId": 7
     },
     {
         "id": 525,
@@ -8492,7 +9016,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 4
     },
     {
         "id": 526,
@@ -8509,7 +9034,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Sandals",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 5
     },
     {
         "id": 527,
@@ -8525,7 +9051,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Concealer"
+        "subCategory": "Concealer",
+        "brandTemplateId": 7
     },
     {
         "id": 528,
@@ -8541,7 +9068,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 5
     },
     {
         "id": 529,
@@ -8557,7 +9085,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 7
     },
     {
         "id": 530,
@@ -8573,7 +9102,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Conditioner"
+        "subCategory": "Conditioner",
+        "brandTemplateId": 2
     },
     {
         "id": 531,
@@ -8590,7 +9120,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Shorts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 3
     },
     {
         "id": 532,
@@ -8607,7 +9138,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Jacket, Sweater & Sweatshirts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 3
     },
     {
         "id": 533,
@@ -8623,7 +9155,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Body Scrub"
+        "subCategory": "Body Scrub",
+        "brandTemplateId": 5
     },
     {
         "id": 534,
@@ -8640,7 +9173,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Infant Care",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 535,
@@ -8656,7 +9190,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 4
     },
     {
         "id": 536,
@@ -8672,7 +9207,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 6
     },
     {
         "id": 537,
@@ -8688,7 +9224,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Shrugs"
+        "subCategory": "Shrugs",
+        "brandTemplateId": 1
     },
     {
         "id": 538,
@@ -8705,7 +9242,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Clothing Sets",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 3
     },
     {
         "id": 539,
@@ -8721,7 +9259,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Blazers & Waistcoats"
+        "subCategory": "Blazers & Waistcoats",
+        "brandTemplateId": 4
     },
     {
         "id": 540,
@@ -8737,7 +9276,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 1
     },
     {
         "id": 541,
@@ -8753,7 +9293,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Dhotis"
+        "subCategory": "Dhotis",
+        "brandTemplateId": 5
     },
     {
         "id": 542,
@@ -8769,7 +9310,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Eye Cream"
+        "subCategory": "Eye Cream",
+        "brandTemplateId": 3
     },
     {
         "id": 543,
@@ -8786,7 +9328,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "T-Shirts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 6
     },
     {
         "id": 544,
@@ -8802,7 +9345,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 1
     },
     {
         "id": 545,
@@ -8819,7 +9363,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Clothing Sets",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 5
     },
     {
         "id": 546,
@@ -8835,7 +9380,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Boxers"
+        "subCategory": "Boxers",
+        "brandTemplateId": 7
     },
     {
         "id": 547,
@@ -8851,7 +9397,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Serum"
+        "subCategory": "Serum",
+        "brandTemplateId": 1
     },
     {
         "id": 548,
@@ -8868,7 +9415,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Learning & Development",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 2
     },
     {
         "id": 549,
@@ -8884,7 +9432,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Socks"
+        "subCategory": "Socks",
+        "brandTemplateId": 4
     },
     {
         "id": 550,
@@ -8901,7 +9450,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Jeans, Trousers & Capris",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 5
     },
     {
         "id": 551,
@@ -8917,7 +9467,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Dhotis"
+        "subCategory": "Dhotis",
+        "brandTemplateId": 5
     },
     {
         "id": 552,
@@ -8933,7 +9484,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Boots"
+        "subCategory": "Boots",
+        "brandTemplateId": 2
     },
     {
         "id": 553,
@@ -8950,7 +9502,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Tops",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 5
     },
     {
         "id": 554,
@@ -8966,7 +9519,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 5
     },
     {
         "id": 555,
@@ -8982,7 +9536,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 7
     },
     {
         "id": 556,
@@ -8998,7 +9553,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 557,
@@ -9014,7 +9570,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 7
     },
     {
         "id": 558,
@@ -9030,7 +9587,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 559,
@@ -9046,7 +9604,8 @@ export const products = [
         "isAd": true,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 4
     },
     {
         "id": 560,
@@ -9063,7 +9622,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Flipflops",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 5
     },
     {
         "id": 561,
@@ -9079,7 +9639,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 4
     },
     {
         "id": 562,
@@ -9095,7 +9656,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 3
     },
     {
         "id": 563,
@@ -9112,7 +9674,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Tights & Leggings",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 5
     },
     {
         "id": 564,
@@ -9129,7 +9692,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Jeans",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 1
     },
     {
         "id": 565,
@@ -9145,7 +9709,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Color"
+        "subCategory": "Hair Color",
+        "brandTemplateId": 4
     },
     {
         "id": 566,
@@ -9161,7 +9726,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Casual Trousers"
+        "subCategory": "Casual Trousers",
+        "brandTemplateId": 4
     },
     {
         "id": 567,
@@ -9177,7 +9743,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 3
     },
     {
         "id": 568,
@@ -9193,7 +9760,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Skincare"
+        "subCategory": "Skincare",
+        "brandTemplateId": 1
     },
     {
         "id": 569,
@@ -9209,7 +9777,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Tshirts"
+        "subCategory": "Tshirts",
+        "brandTemplateId": 6
     },
     {
         "id": 570,
@@ -9225,7 +9794,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Jackets"
+        "subCategory": "Jackets",
+        "brandTemplateId": 3
     },
     {
         "id": 571,
@@ -9241,7 +9811,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Playsuits"
+        "subCategory": "Playsuits",
+        "brandTemplateId": 7
     },
     {
         "id": 572,
@@ -9257,7 +9828,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 4
     },
     {
         "id": 573,
@@ -9273,7 +9845,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 6
     },
     {
         "id": 574,
@@ -9289,7 +9862,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 2
     },
     {
         "id": 575,
@@ -9305,7 +9879,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 1
     },
     {
         "id": 576,
@@ -9321,7 +9896,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 577,
@@ -9337,7 +9913,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Fragrances"
+        "subCategory": "Fragrances",
+        "brandTemplateId": 5
     },
     {
         "id": 578,
@@ -9353,7 +9930,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Boots"
+        "subCategory": "Boots",
+        "brandTemplateId": 2
     },
     {
         "id": 579,
@@ -9370,7 +9948,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Sandals",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 5
     },
     {
         "id": 580,
@@ -9386,7 +9965,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Sherwanis"
+        "subCategory": "Sherwanis",
+        "brandTemplateId": 1
     },
     {
         "id": 581,
@@ -9402,7 +9982,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Shrugs"
+        "subCategory": "Shrugs",
+        "brandTemplateId": 5
     },
     {
         "id": 582,
@@ -9418,7 +9999,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Shampoo"
+        "subCategory": "Shampoo",
+        "brandTemplateId": 2
     },
     {
         "id": 583,
@@ -9434,7 +10016,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Co-ords"
+        "subCategory": "Co-ords",
+        "brandTemplateId": 5
     },
     {
         "id": 584,
@@ -9451,7 +10034,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Tops",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 1
     },
     {
         "id": 585,
@@ -9467,7 +10051,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Cream"
+        "subCategory": "Hair Cream",
+        "brandTemplateId": 4
     },
     {
         "id": 586,
@@ -9483,7 +10068,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 7
     },
     {
         "id": 587,
@@ -9499,7 +10085,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 4
     },
     {
         "id": 588,
@@ -9515,7 +10102,8 @@ export const products = [
         "isAd": true,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Rain Jackets"
+        "subCategory": "Rain Jackets",
+        "brandTemplateId": 5
     },
     {
         "id": 589,
@@ -9531,7 +10119,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Nail Polish"
+        "subCategory": "Nail Polish",
+        "brandTemplateId": 4
     },
     {
         "id": 590,
@@ -9548,7 +10137,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Kurta Sets",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 7
     },
     {
         "id": 591,
@@ -9564,7 +10154,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sports Shoes"
+        "subCategory": "Sports Shoes",
+        "brandTemplateId": 5
     },
     {
         "id": 592,
@@ -9580,7 +10171,8 @@ export const products = [
         "isAd": true,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Boxers"
+        "subCategory": "Boxers",
+        "brandTemplateId": 4
     },
     {
         "id": 593,
@@ -9597,7 +10189,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Clothing Sets",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 594,
@@ -9613,7 +10206,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Boxers"
+        "subCategory": "Boxers",
+        "brandTemplateId": 6
     },
     {
         "id": 595,
@@ -9629,7 +10223,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Lip Balm"
+        "subCategory": "Lip Balm",
+        "brandTemplateId": 4
     },
     {
         "id": 596,
@@ -9646,7 +10241,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Infant Care",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 597,
@@ -9662,7 +10258,8 @@ export const products = [
         "isAd": true,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 3
     },
     {
         "id": 598,
@@ -9678,7 +10275,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Skincare"
+        "subCategory": "Skincare",
+        "brandTemplateId": 2
     },
     {
         "id": 599,
@@ -9694,7 +10292,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Briefs & Trunks"
+        "subCategory": "Briefs & Trunks",
+        "brandTemplateId": 1
     },
     {
         "id": 600,
@@ -9711,7 +10310,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Infant Care",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 4
     },
     {
         "id": 601,
@@ -9727,7 +10327,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 7
     },
     {
         "id": 602,
@@ -9744,7 +10345,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Soft Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 603,
@@ -9761,7 +10363,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Infant Care",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 604,
@@ -9777,7 +10380,8 @@ export const products = [
         "isAd": true,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 6
     },
     {
         "id": 605,
@@ -9793,7 +10397,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Co-ords"
+        "subCategory": "Co-ords",
+        "brandTemplateId": 6
     },
     {
         "id": 606,
@@ -9809,7 +10414,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Ethnic Wear"
+        "subCategory": "Ethnic Wear",
+        "brandTemplateId": 6
     },
     {
         "id": 607,
@@ -9825,7 +10431,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Jackets"
+        "subCategory": "Jackets",
+        "brandTemplateId": 3
     },
     {
         "id": 608,
@@ -9841,7 +10448,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Bra"
+        "subCategory": "Bra",
+        "brandTemplateId": 2
     },
     {
         "id": 609,
@@ -9857,7 +10465,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 4
     },
     {
         "id": 610,
@@ -9873,7 +10482,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Lehenga Cholis"
+        "subCategory": "Lehenga Cholis",
+        "brandTemplateId": 3
     },
     {
         "id": 611,
@@ -9890,7 +10500,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "School Shoes",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 2
     },
     {
         "id": 612,
@@ -9906,7 +10517,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 5
     },
     {
         "id": 613,
@@ -9922,7 +10534,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 614,
@@ -9939,7 +10552,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Rompers & Sleepsuits",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 615,
@@ -9955,7 +10569,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Fragrances"
+        "subCategory": "Fragrances",
+        "brandTemplateId": 5
     },
     {
         "id": 616,
@@ -9972,7 +10587,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Flats",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 4
     },
     {
         "id": 617,
@@ -9988,7 +10604,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 2
     },
     {
         "id": 618,
@@ -10005,7 +10622,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Jacket, Sweater & Sweatshirts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 4
     },
     {
         "id": 619,
@@ -10022,7 +10640,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Casual Shoes",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 4
     },
     {
         "id": 620,
@@ -10038,7 +10657,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Nail Polish"
+        "subCategory": "Nail Polish",
+        "brandTemplateId": 7
     },
     {
         "id": 621,
@@ -10054,7 +10674,8 @@ export const products = [
         "isAd": true,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Nehru Jackets"
+        "subCategory": "Nehru Jackets",
+        "brandTemplateId": 5
     },
     {
         "id": 622,
@@ -10070,7 +10691,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Masks & Peel"
+        "subCategory": "Masks & Peel",
+        "brandTemplateId": 7
     },
     {
         "id": 623,
@@ -10086,7 +10708,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 2
     },
     {
         "id": 624,
@@ -10102,7 +10725,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 3
     },
     {
         "id": 625,
@@ -10118,7 +10742,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Body Wash"
+        "subCategory": "Body Wash",
+        "brandTemplateId": 7
     },
     {
         "id": 626,
@@ -10134,7 +10759,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 1
     },
     {
         "id": 627,
@@ -10150,7 +10776,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Playsuits"
+        "subCategory": "Playsuits",
+        "brandTemplateId": 1
     },
     {
         "id": 628,
@@ -10166,7 +10793,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 4
     },
     {
         "id": 629,
@@ -10182,7 +10810,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 630,
@@ -10198,7 +10827,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Sports Shoes & Floaters"
+        "subCategory": "Sports Shoes & Floaters",
+        "brandTemplateId": 2
     },
     {
         "id": 631,
@@ -10215,7 +10845,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Nightwear & Loungewear",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 3
     },
     {
         "id": 632,
@@ -10231,7 +10862,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Sleepwear & Loungewear"
+        "subCategory": "Sleepwear & Loungewear",
+        "brandTemplateId": 5
     },
     {
         "id": 633,
@@ -10247,7 +10879,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Dhotis"
+        "subCategory": "Dhotis",
+        "brandTemplateId": 7
     },
     {
         "id": 634,
@@ -10263,7 +10896,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 4
     },
     {
         "id": 635,
@@ -10279,7 +10913,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Heels"
+        "subCategory": "Heels",
+        "brandTemplateId": 6
     },
     {
         "id": 636,
@@ -10296,7 +10931,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Dresses",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 5
     },
     {
         "id": 637,
@@ -10312,7 +10948,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 4
     },
     {
         "id": 638,
@@ -10328,7 +10965,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 3
     },
     {
         "id": 639,
@@ -10344,7 +10982,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 6
     },
     {
         "id": 640,
@@ -10360,7 +10999,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Casual Trousers"
+        "subCategory": "Casual Trousers",
+        "brandTemplateId": 4
     },
     {
         "id": 641,
@@ -10376,7 +11016,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 4
     },
     {
         "id": 642,
@@ -10393,7 +11034,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Sandals",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 643,
@@ -10409,7 +11051,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 5
     },
     {
         "id": 644,
@@ -10425,7 +11068,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Flip Flops"
+        "subCategory": "Flip Flops",
+        "brandTemplateId": 4
     },
     {
         "id": 645,
@@ -10441,7 +11085,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Lipstick"
+        "subCategory": "Lipstick",
+        "brandTemplateId": 5
     },
     {
         "id": 646,
@@ -10457,7 +11102,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 4
     },
     {
         "id": 647,
@@ -10473,7 +11119,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Body Wash"
+        "subCategory": "Body Wash",
+        "brandTemplateId": 2
     },
     {
         "id": 648,
@@ -10489,7 +11136,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 3
     },
     {
         "id": 649,
@@ -10505,7 +11153,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Oil"
+        "subCategory": "Hair Oil",
+        "brandTemplateId": 4
     },
     {
         "id": 650,
@@ -10521,7 +11170,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 2
     },
     {
         "id": 651,
@@ -10537,7 +11187,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 7
     },
     {
         "id": 652,
@@ -10553,7 +11204,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 4
     },
     {
         "id": 653,
@@ -10570,7 +11222,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Tops",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 5
     },
     {
         "id": 654,
@@ -10587,7 +11240,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Party Wear",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 5
     },
     {
         "id": 655,
@@ -10603,7 +11257,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Fragrances"
+        "subCategory": "Fragrances",
+        "brandTemplateId": 7
     },
     {
         "id": 656,
@@ -10619,7 +11274,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 1
     },
     {
         "id": 657,
@@ -10635,7 +11291,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 5
     },
     {
         "id": 658,
@@ -10651,7 +11308,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Dhotis"
+        "subCategory": "Dhotis",
+        "brandTemplateId": 3
     },
     {
         "id": 659,
@@ -10667,7 +11325,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 3
     },
     {
         "id": 660,
@@ -10683,7 +11342,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Blazers & Coats"
+        "subCategory": "Blazers & Coats",
+        "brandTemplateId": 1
     },
     {
         "id": 661,
@@ -10699,7 +11359,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Sports Shoes & Floaters"
+        "subCategory": "Sports Shoes & Floaters",
+        "brandTemplateId": 6
     },
     {
         "id": 662,
@@ -10715,7 +11376,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 2
     },
     {
         "id": 663,
@@ -10731,7 +11393,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 5
     },
     {
         "id": 664,
@@ -10747,7 +11410,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Playsuits"
+        "subCategory": "Playsuits",
+        "brandTemplateId": 5
     },
     {
         "id": 665,
@@ -10763,7 +11427,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 2
     },
     {
         "id": 666,
@@ -10779,7 +11444,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "brandTemplateId": 4
     },
     {
         "id": 667,
@@ -10795,7 +11461,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Boxers"
+        "subCategory": "Boxers",
+        "brandTemplateId": 4
     },
     {
         "id": 668,
@@ -10811,7 +11478,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "T-Shirts"
+        "subCategory": "T-Shirts",
+        "brandTemplateId": 3
     },
     {
         "id": 669,
@@ -10828,7 +11496,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Jacket, Sweater & Sweatshirts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 7
     },
     {
         "id": 670,
@@ -10844,7 +11513,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Track Pants & Joggers"
+        "subCategory": "Track Pants & Joggers",
+        "brandTemplateId": 2
     },
     {
         "id": 671,
@@ -10860,7 +11530,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Rain Jackets"
+        "subCategory": "Rain Jackets",
+        "brandTemplateId": 6
     },
     {
         "id": 672,
@@ -10876,7 +11547,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Boots"
+        "subCategory": "Boots",
+        "brandTemplateId": 2
     },
     {
         "id": 673,
@@ -10893,7 +11565,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Skirts & shorts",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 6
     },
     {
         "id": 674,
@@ -10909,7 +11582,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Sleepwear & Loungewear"
+        "subCategory": "Sleepwear & Loungewear",
+        "brandTemplateId": 7
     },
     {
         "id": 675,
@@ -10925,7 +11599,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 1
     },
     {
         "id": 676,
@@ -10941,7 +11616,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 3
     },
     {
         "id": 677,
@@ -10957,7 +11633,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Shapewear"
+        "subCategory": "Shapewear",
+        "brandTemplateId": 7
     },
     {
         "id": 678,
@@ -10973,7 +11650,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 2
     },
     {
         "id": 679,
@@ -10990,7 +11668,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Shorts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 5
     },
     {
         "id": 680,
@@ -11006,7 +11685,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Jeans"
+        "subCategory": "Jeans",
+        "brandTemplateId": 6
     },
     {
         "id": 681,
@@ -11022,7 +11702,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Briefs & Trunks"
+        "subCategory": "Briefs & Trunks",
+        "brandTemplateId": 3
     },
     {
         "id": 682,
@@ -11038,7 +11719,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 6
     },
     {
         "id": 683,
@@ -11054,7 +11736,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Kurtis, Tunics & Tops"
+        "subCategory": "Kurtis, Tunics & Tops",
+        "brandTemplateId": 4
     },
     {
         "id": 684,
@@ -11070,7 +11753,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Lehenga Cholis"
+        "subCategory": "Lehenga Cholis",
+        "brandTemplateId": 2
     },
     {
         "id": 685,
@@ -11086,7 +11770,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sandals & Floaters"
+        "subCategory": "Sandals & Floaters",
+        "brandTemplateId": 6
     },
     {
         "id": 686,
@@ -11102,7 +11787,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 7
     },
     {
         "id": 687,
@@ -11118,7 +11804,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 2
     },
     {
         "id": 688,
@@ -11135,7 +11822,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Kurta Sets",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 2
     },
     {
         "id": 689,
@@ -11151,7 +11839,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Casual Shirts"
+        "subCategory": "Casual Shirts",
+        "brandTemplateId": 7
     },
     {
         "id": 690,
@@ -11167,7 +11856,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Tshirts"
+        "subCategory": "Tshirts",
+        "brandTemplateId": 6
     },
     {
         "id": 691,
@@ -11183,7 +11873,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 7
     },
     {
         "id": 692,
@@ -11199,7 +11890,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 5
     },
     {
         "id": 693,
@@ -11215,7 +11907,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Oil"
+        "subCategory": "Hair Oil",
+        "brandTemplateId": 4
     },
     {
         "id": 694,
@@ -11231,7 +11924,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 5
     },
     {
         "id": 695,
@@ -11247,7 +11941,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 4
     },
     {
         "id": 696,
@@ -11263,7 +11958,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 1
     },
     {
         "id": 697,
@@ -11279,7 +11975,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 5
     },
     {
         "id": 698,
@@ -11295,7 +11992,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Premium Beauty"
+        "subCategory": "Premium Beauty",
+        "brandTemplateId": 7
     },
     {
         "id": 699,
@@ -11311,7 +12009,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 6
     },
     {
         "id": 700,
@@ -11327,7 +12026,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "brandTemplateId": 2
     },
     {
         "id": 701,
@@ -11344,7 +12044,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Track Pants & Pyjamas",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 7
     },
     {
         "id": 702,
@@ -11360,7 +12061,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Swimwear"
+        "subCategory": "Swimwear",
+        "brandTemplateId": 3
     },
     {
         "id": 703,
@@ -11376,7 +12078,8 @@ export const products = [
         "isAd": true,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 6
     },
     {
         "id": 704,
@@ -11393,7 +12096,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Winter Wear",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 705,
@@ -11409,7 +12113,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 5
     },
     {
         "id": 706,
@@ -11426,7 +12131,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Dresses",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 1
     },
     {
         "id": 707,
@@ -11442,7 +12148,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Mascara"
+        "subCategory": "Mascara",
+        "brandTemplateId": 1
     },
     {
         "id": 708,
@@ -11459,7 +12166,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Heels",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 709,
@@ -11475,7 +12183,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Kurtas & Kurta Sets"
+        "subCategory": "Kurtas & Kurta Sets",
+        "brandTemplateId": 2
     },
     {
         "id": 710,
@@ -11491,7 +12200,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Kurtas & Kurta Sets"
+        "subCategory": "Kurtas & Kurta Sets",
+        "brandTemplateId": 3
     },
     {
         "id": 711,
@@ -11507,7 +12217,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 712,
@@ -11523,7 +12234,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Briefs & Trunks"
+        "subCategory": "Briefs & Trunks",
+        "brandTemplateId": 7
     },
     {
         "id": 713,
@@ -11539,7 +12251,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Makeup"
+        "subCategory": "Makeup",
+        "brandTemplateId": 7
     },
     {
         "id": 714,
@@ -11555,7 +12268,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Makeup"
+        "subCategory": "Makeup",
+        "brandTemplateId": 5
     },
     {
         "id": 715,
@@ -11571,7 +12285,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 2
     },
     {
         "id": 716,
@@ -11587,7 +12302,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Kurtas & Kurta Sets"
+        "subCategory": "Kurtas & Kurta Sets",
+        "brandTemplateId": 3
     },
     {
         "id": 717,
@@ -11604,7 +12320,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Heels",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 718,
@@ -11620,7 +12337,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 719,
@@ -11637,7 +12355,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Flats",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 3
     },
     {
         "id": 720,
@@ -11653,7 +12372,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Track Pants & Joggers"
+        "subCategory": "Track Pants & Joggers",
+        "brandTemplateId": 4
     },
     {
         "id": 721,
@@ -11669,7 +12389,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 7
     },
     {
         "id": 722,
@@ -11685,7 +12406,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Premium Beauty"
+        "subCategory": "Premium Beauty",
+        "brandTemplateId": 4
     },
     {
         "id": 723,
@@ -11701,7 +12423,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 3
     },
     {
         "id": 724,
@@ -11717,7 +12440,8 @@ export const products = [
         "isAd": true,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 3
     },
     {
         "id": 725,
@@ -11734,7 +12458,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Soft Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 2
     },
     {
         "id": 726,
@@ -11750,7 +12475,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 3
     },
     {
         "id": 727,
@@ -11766,7 +12492,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 5
     },
     {
         "id": 728,
@@ -11783,7 +12510,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Sandals",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 5
     },
     {
         "id": 729,
@@ -11799,7 +12527,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Lip Liner"
+        "subCategory": "Lip Liner",
+        "brandTemplateId": 7
     },
     {
         "id": 730,
@@ -11816,7 +12545,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Nightwear & Loungewear",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 1
     },
     {
         "id": 731,
@@ -11832,7 +12562,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Serum"
+        "subCategory": "Hair Serum",
+        "brandTemplateId": 1
     },
     {
         "id": 732,
@@ -11848,7 +12579,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Concealer"
+        "subCategory": "Concealer",
+        "brandTemplateId": 3
     },
     {
         "id": 733,
@@ -11864,7 +12596,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 5
     },
     {
         "id": 734,
@@ -11880,7 +12613,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 3
     },
     {
         "id": 735,
@@ -11896,7 +12630,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sports Shoes"
+        "subCategory": "Sports Shoes",
+        "brandTemplateId": 5
     },
     {
         "id": 736,
@@ -11912,7 +12647,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Nehru Jackets"
+        "subCategory": "Nehru Jackets",
+        "brandTemplateId": 1
     },
     {
         "id": 737,
@@ -11928,7 +12664,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Gel"
+        "subCategory": "Hair Gel",
+        "brandTemplateId": 3
     },
     {
         "id": 738,
@@ -11944,7 +12681,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Vests"
+        "subCategory": "Vests",
+        "brandTemplateId": 2
     },
     {
         "id": 739,
@@ -11961,7 +12699,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Tshirts",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 5
     },
     {
         "id": 740,
@@ -11977,7 +12716,8 @@ export const products = [
         "isAd": true,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Rain Jackets"
+        "subCategory": "Rain Jackets",
+        "brandTemplateId": 2
     },
     {
         "id": 741,
@@ -11994,7 +12734,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Sandals",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 2
     },
     {
         "id": 742,
@@ -12010,7 +12751,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 4
     },
     {
         "id": 743,
@@ -12026,7 +12768,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Heels"
+        "subCategory": "Heels",
+        "brandTemplateId": 3
     },
     {
         "id": 744,
@@ -12042,7 +12785,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 2
     },
     {
         "id": 745,
@@ -12058,7 +12802,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Gel"
+        "subCategory": "Hair Gel",
+        "brandTemplateId": 5
     },
     {
         "id": 746,
@@ -12074,7 +12819,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Kurtas & Kurta Sets"
+        "subCategory": "Kurtas & Kurta Sets",
+        "brandTemplateId": 5
     },
     {
         "id": 747,
@@ -12090,7 +12836,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Casual Trousers"
+        "subCategory": "Casual Trousers",
+        "brandTemplateId": 2
     },
     {
         "id": 748,
@@ -12106,7 +12853,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 7
     },
     {
         "id": 749,
@@ -12123,7 +12871,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Heels",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 2
     },
     {
         "id": 750,
@@ -12139,7 +12888,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Dhotis"
+        "subCategory": "Dhotis",
+        "brandTemplateId": 6
     },
     {
         "id": 751,
@@ -12155,7 +12905,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Tshirts"
+        "subCategory": "Tshirts",
+        "brandTemplateId": 5
     },
     {
         "id": 752,
@@ -12172,7 +12923,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Activity Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 4
     },
     {
         "id": 753,
@@ -12188,7 +12940,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Dupattas & Shawls"
+        "subCategory": "Dupattas & Shawls",
+        "brandTemplateId": 3
     },
     {
         "id": 754,
@@ -12204,7 +12957,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sneakers"
+        "subCategory": "Sneakers",
+        "brandTemplateId": 6
     },
     {
         "id": 755,
@@ -12220,7 +12974,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Formal Trousers"
+        "subCategory": "Formal Trousers",
+        "brandTemplateId": 3
     },
     {
         "id": 756,
@@ -12236,7 +12991,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 5
     },
     {
         "id": 757,
@@ -12252,7 +13008,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Flats"
+        "subCategory": "Flats",
+        "brandTemplateId": 2
     },
     {
         "id": 758,
@@ -12268,7 +13025,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Sherwanis"
+        "subCategory": "Sherwanis",
+        "brandTemplateId": 2
     },
     {
         "id": 759,
@@ -12284,7 +13042,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Briefs"
+        "subCategory": "Briefs",
+        "brandTemplateId": 1
     },
     {
         "id": 760,
@@ -12300,7 +13059,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 4
     },
     {
         "id": 761,
@@ -12316,7 +13076,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Shapewear"
+        "subCategory": "Shapewear",
+        "brandTemplateId": 6
     },
     {
         "id": 762,
@@ -12333,7 +13094,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Winter Wear",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 763,
@@ -12349,7 +13111,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 6
     },
     {
         "id": 764,
@@ -12365,7 +13128,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 3
     },
     {
         "id": 765,
@@ -12381,7 +13145,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 3
     },
     {
         "id": 766,
@@ -12397,7 +13162,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Eye Cream"
+        "subCategory": "Eye Cream",
+        "brandTemplateId": 4
     },
     {
         "id": 767,
@@ -12413,7 +13179,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Dresses"
+        "subCategory": "Dresses",
+        "brandTemplateId": 3
     },
     {
         "id": 768,
@@ -12429,7 +13196,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Socks"
+        "subCategory": "Socks",
+        "brandTemplateId": 2
     },
     {
         "id": 769,
@@ -12446,7 +13214,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Skirts & shorts",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 6
     },
     {
         "id": 770,
@@ -12462,7 +13231,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Vests"
+        "subCategory": "Vests",
+        "brandTemplateId": 6
     },
     {
         "id": 771,
@@ -12478,7 +13248,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Briefs & Trunks"
+        "subCategory": "Briefs & Trunks",
+        "brandTemplateId": 7
     },
     {
         "id": 772,
@@ -12494,7 +13265,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Skincare"
+        "subCategory": "Skincare",
+        "brandTemplateId": 5
     },
     {
         "id": 773,
@@ -12510,7 +13282,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 7
     },
     {
         "id": 774,
@@ -12527,7 +13300,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Winter Wear",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 5
     },
     {
         "id": 775,
@@ -12543,7 +13317,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Boxers"
+        "subCategory": "Boxers",
+        "brandTemplateId": 1
     },
     {
         "id": 776,
@@ -12560,7 +13335,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Learning & Development",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 5
     },
     {
         "id": 777,
@@ -12577,7 +13353,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Dresses",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 1
     },
     {
         "id": 778,
@@ -12594,7 +13371,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Trousers",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 2
     },
     {
         "id": 779,
@@ -12610,7 +13388,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 7
     },
     {
         "id": 780,
@@ -12626,7 +13405,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Socks"
+        "subCategory": "Socks",
+        "brandTemplateId": 4
     },
     {
         "id": 781,
@@ -12642,7 +13422,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Flip Flops"
+        "subCategory": "Flip Flops",
+        "brandTemplateId": 5
     },
     {
         "id": 782,
@@ -12658,7 +13439,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Boots"
+        "subCategory": "Boots",
+        "brandTemplateId": 2
     },
     {
         "id": 783,
@@ -12674,7 +13456,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 6
     },
     {
         "id": 784,
@@ -12690,7 +13473,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 3
     },
     {
         "id": 785,
@@ -12706,7 +13490,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 1
     },
     {
         "id": 786,
@@ -12722,7 +13507,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 6
     },
     {
         "id": 787,
@@ -12738,7 +13524,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Jackets & Coats"
+        "subCategory": "Jackets & Coats",
+        "brandTemplateId": 4
     },
     {
         "id": 788,
@@ -12754,7 +13541,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 1
     },
     {
         "id": 789,
@@ -12770,7 +13558,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Eyeshadow"
+        "subCategory": "Eyeshadow",
+        "brandTemplateId": 2
     },
     {
         "id": 790,
@@ -12786,7 +13575,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Briefs"
+        "subCategory": "Briefs",
+        "brandTemplateId": 3
     },
     {
         "id": 791,
@@ -12802,7 +13592,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Serum"
+        "subCategory": "Serum",
+        "brandTemplateId": 7
     },
     {
         "id": 792,
@@ -12818,7 +13609,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 4
     },
     {
         "id": 793,
@@ -12835,7 +13627,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Bottom wear",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 794,
@@ -12851,7 +13644,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Jackets"
+        "subCategory": "Jackets",
+        "brandTemplateId": 5
     },
     {
         "id": 795,
@@ -12867,7 +13661,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Oil"
+        "subCategory": "Hair Oil",
+        "brandTemplateId": 3
     },
     {
         "id": 796,
@@ -12884,7 +13679,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Winter Wear",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 797,
@@ -12900,7 +13696,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Camisoles & Thermals"
+        "subCategory": "Camisoles & Thermals",
+        "brandTemplateId": 7
     },
     {
         "id": 798,
@@ -12916,7 +13713,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 1
     },
     {
         "id": 799,
@@ -12932,7 +13730,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Formal Trousers"
+        "subCategory": "Formal Trousers",
+        "brandTemplateId": 7
     },
     {
         "id": 800,
@@ -12948,7 +13747,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Foundation"
+        "subCategory": "Foundation",
+        "brandTemplateId": 2
     },
     {
         "id": 801,
@@ -12964,7 +13764,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 4
     },
     {
         "id": 802,
@@ -12980,7 +13781,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 803,
@@ -12997,7 +13799,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Tights & Leggings",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 3
     },
     {
         "id": 804,
@@ -13013,7 +13816,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 1
     },
     {
         "id": 805,
@@ -13030,7 +13834,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Tops",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 1
     },
     {
         "id": 806,
@@ -13046,7 +13851,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Sports Shoes & Floaters"
+        "subCategory": "Sports Shoes & Floaters",
+        "brandTemplateId": 5
     },
     {
         "id": 807,
@@ -13062,7 +13868,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Suits"
+        "subCategory": "Suits",
+        "brandTemplateId": 4
     },
     {
         "id": 808,
@@ -13078,7 +13885,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Boxers"
+        "subCategory": "Boxers",
+        "brandTemplateId": 2
     },
     {
         "id": 809,
@@ -13095,7 +13903,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Sports Shoes",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 810,
@@ -13112,7 +13921,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Jacket, Sweater & Sweatshirts",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 5
     },
     {
         "id": 811,
@@ -13128,7 +13938,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Lehenga Cholis"
+        "subCategory": "Lehenga Cholis",
+        "brandTemplateId": 5
     },
     {
         "id": 812,
@@ -13144,7 +13955,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Lip Liner"
+        "subCategory": "Lip Liner",
+        "brandTemplateId": 7
     },
     {
         "id": 813,
@@ -13160,7 +13972,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Bra"
+        "subCategory": "Bra",
+        "brandTemplateId": 1
     },
     {
         "id": 814,
@@ -13176,7 +13989,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 7
     },
     {
         "id": 815,
@@ -13192,7 +14006,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 4
     },
     {
         "id": 816,
@@ -13208,7 +14023,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Men Watches"
+        "subCategory": "Men Watches",
+        "brandTemplateId": 5
     },
     {
         "id": 817,
@@ -13224,7 +14040,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Dupattas & Shawls"
+        "subCategory": "Dupattas & Shawls",
+        "brandTemplateId": 6
     },
     {
         "id": 818,
@@ -13240,7 +14057,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Jackets"
+        "subCategory": "Jackets",
+        "brandTemplateId": 7
     },
     {
         "id": 819,
@@ -13256,7 +14074,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Dupattas & Shawls"
+        "subCategory": "Dupattas & Shawls",
+        "brandTemplateId": 1
     },
     {
         "id": 820,
@@ -13273,7 +14092,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Rompers & Sleepsuits",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 5
     },
     {
         "id": 821,
@@ -13289,7 +14109,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 3
     },
     {
         "id": 822,
@@ -13305,7 +14126,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Ethnic Wear"
+        "subCategory": "Ethnic Wear",
+        "brandTemplateId": 7
     },
     {
         "id": 823,
@@ -13322,7 +14144,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Winter Wear",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 4
     },
     {
         "id": 824,
@@ -13338,7 +14161,8 @@ export const products = [
         "isAd": true,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Nehru Jackets"
+        "subCategory": "Nehru Jackets",
+        "brandTemplateId": 4
     },
     {
         "id": 825,
@@ -13354,7 +14178,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 4
     },
     {
         "id": 826,
@@ -13370,7 +14195,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 827,
@@ -13386,7 +14212,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Face Moisturiser"
+        "subCategory": "Face Moisturiser",
+        "brandTemplateId": 3
     },
     {
         "id": 828,
@@ -13403,7 +14230,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Action Figure / Play set",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 2
     },
     {
         "id": 829,
@@ -13419,7 +14247,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Sweatshirts"
+        "subCategory": "Sweatshirts",
+        "brandTemplateId": 3
     },
     {
         "id": 830,
@@ -13435,7 +14264,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Jackets & Coats"
+        "subCategory": "Jackets & Coats",
+        "brandTemplateId": 5
     },
     {
         "id": 831,
@@ -13451,7 +14281,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 2
     },
     {
         "id": 832,
@@ -13467,7 +14298,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Nehru Jackets"
+        "subCategory": "Nehru Jackets",
+        "brandTemplateId": 2
     },
     {
         "id": 833,
@@ -13483,7 +14315,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Socks"
+        "subCategory": "Socks",
+        "brandTemplateId": 4
     },
     {
         "id": 834,
@@ -13499,7 +14332,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Ethnic Wear"
+        "subCategory": "Ethnic Wear",
+        "brandTemplateId": 3
     },
     {
         "id": 835,
@@ -13515,7 +14349,8 @@ export const products = [
         "isAd": true,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Kurtas & Suits"
+        "subCategory": "Kurtas & Suits",
+        "brandTemplateId": 1
     },
     {
         "id": 836,
@@ -13531,7 +14366,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Dhotis"
+        "subCategory": "Dhotis",
+        "brandTemplateId": 4
     },
     {
         "id": 837,
@@ -13547,7 +14383,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Fragrances"
+        "subCategory": "Fragrances",
+        "brandTemplateId": 3
     },
     {
         "id": 838,
@@ -13563,7 +14400,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Track Pants & Joggers"
+        "subCategory": "Track Pants & Joggers",
+        "brandTemplateId": 3
     },
     {
         "id": 839,
@@ -13579,7 +14417,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Flats"
+        "subCategory": "Flats",
+        "brandTemplateId": 5
     },
     {
         "id": 840,
@@ -13595,7 +14434,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Fragrances"
+        "subCategory": "Fragrances",
+        "brandTemplateId": 6
     },
     {
         "id": 841,
@@ -13611,7 +14451,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Boots"
+        "subCategory": "Boots",
+        "brandTemplateId": 2
     },
     {
         "id": 842,
@@ -13628,7 +14469,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Learning & Development",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 3
     },
     {
         "id": 843,
@@ -13644,7 +14486,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Blazers & Waistcoats"
+        "subCategory": "Blazers & Waistcoats",
+        "brandTemplateId": 5
     },
     {
         "id": 844,
@@ -13661,7 +14504,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Action Figure / Play set",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 4
     },
     {
         "id": 845,
@@ -13677,7 +14521,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Hand Cream"
+        "subCategory": "Hand Cream",
+        "brandTemplateId": 3
     },
     {
         "id": 846,
@@ -13694,7 +14539,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Action Figure / Play set",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 847,
@@ -13710,7 +14556,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Fragrances"
+        "subCategory": "Fragrances",
+        "brandTemplateId": 6
     },
     {
         "id": 848,
@@ -13726,7 +14573,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Socks"
+        "subCategory": "Socks",
+        "brandTemplateId": 6
     },
     {
         "id": 849,
@@ -13742,7 +14590,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Casual Trousers"
+        "subCategory": "Casual Trousers",
+        "brandTemplateId": 6
     },
     {
         "id": 850,
@@ -13758,7 +14607,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Shapewear"
+        "subCategory": "Shapewear",
+        "brandTemplateId": 4
     },
     {
         "id": 851,
@@ -13775,7 +14625,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Rompers & Sleepsuits",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 852,
@@ -13791,7 +14642,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 3
     },
     {
         "id": 853,
@@ -13807,7 +14659,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Swimwear"
+        "subCategory": "Swimwear",
+        "brandTemplateId": 5
     },
     {
         "id": 854,
@@ -13823,7 +14676,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Accessory"
+        "subCategory": "Hair Accessory",
+        "brandTemplateId": 1
     },
     {
         "id": 855,
@@ -13839,7 +14693,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Nehru Jackets"
+        "subCategory": "Nehru Jackets",
+        "brandTemplateId": 6
     },
     {
         "id": 856,
@@ -13855,7 +14710,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Vests"
+        "subCategory": "Vests",
+        "brandTemplateId": 7
     },
     {
         "id": 857,
@@ -13871,7 +14727,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 4
     },
     {
         "id": 858,
@@ -13887,7 +14744,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Casual Trousers"
+        "subCategory": "Casual Trousers",
+        "brandTemplateId": 4
     },
     {
         "id": 859,
@@ -13904,7 +14762,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Innerwear & Sleepwear",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 860,
@@ -13920,7 +14779,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Jumpsuits"
+        "subCategory": "Jumpsuits",
+        "brandTemplateId": 5
     },
     {
         "id": 861,
@@ -13937,7 +14797,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Skirts & shorts",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 7
     },
     {
         "id": 862,
@@ -13954,7 +14815,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Innerwear & Thermals",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 1
     },
     {
         "id": 863,
@@ -13970,7 +14832,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 2
     },
     {
         "id": 864,
@@ -13986,7 +14849,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 1
     },
     {
         "id": 865,
@@ -14002,7 +14866,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 866,
@@ -14019,7 +14884,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Action Figure / Play set",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 4
     },
     {
         "id": 867,
@@ -14035,7 +14901,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Sarees"
+        "subCategory": "Sarees",
+        "brandTemplateId": 7
     },
     {
         "id": 868,
@@ -14051,7 +14918,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Shapewear"
+        "subCategory": "Shapewear",
+        "brandTemplateId": 6
     },
     {
         "id": 869,
@@ -14067,7 +14935,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Dresses"
+        "subCategory": "Dresses",
+        "brandTemplateId": 6
     },
     {
         "id": 870,
@@ -14083,7 +14952,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Lip Gloss"
+        "subCategory": "Lip Gloss",
+        "brandTemplateId": 2
     },
     {
         "id": 871,
@@ -14099,7 +14969,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 2
     },
     {
         "id": 872,
@@ -14115,7 +14986,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Casual Trousers"
+        "subCategory": "Casual Trousers",
+        "brandTemplateId": 3
     },
     {
         "id": 873,
@@ -14131,7 +15003,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Serum"
+        "subCategory": "Hair Serum",
+        "brandTemplateId": 7
     },
     {
         "id": 874,
@@ -14148,7 +15021,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Heels",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 4
     },
     {
         "id": 875,
@@ -14164,7 +15038,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Eyeshadow"
+        "subCategory": "Eyeshadow",
+        "brandTemplateId": 5
     },
     {
         "id": 876,
@@ -14180,7 +15055,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Sweaters & Sweatshirts"
+        "subCategory": "Sweaters & Sweatshirts",
+        "brandTemplateId": 5
     },
     {
         "id": 877,
@@ -14196,7 +15072,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Jackets"
+        "subCategory": "Jackets",
+        "brandTemplateId": 4
     },
     {
         "id": 878,
@@ -14212,7 +15089,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 5
     },
     {
         "id": 879,
@@ -14228,7 +15106,8 @@ export const products = [
         "isAd": true,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 3
     },
     {
         "id": 880,
@@ -14244,7 +15123,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Shapewear"
+        "subCategory": "Shapewear",
+        "brandTemplateId": 1
     },
     {
         "id": 881,
@@ -14260,7 +15140,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Sandals & Floaters"
+        "subCategory": "Sandals & Floaters",
+        "brandTemplateId": 7
     },
     {
         "id": 882,
@@ -14276,7 +15157,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Epilator"
+        "subCategory": "Epilator",
+        "brandTemplateId": 2
     },
     {
         "id": 883,
@@ -14292,7 +15174,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 6
     },
     {
         "id": 884,
@@ -14308,7 +15191,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Dress Materials"
+        "subCategory": "Dress Materials",
+        "brandTemplateId": 3
     },
     {
         "id": 885,
@@ -14324,7 +15208,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 7
     },
     {
         "id": 886,
@@ -14340,7 +15225,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Eye Cream"
+        "subCategory": "Eye Cream",
+        "brandTemplateId": 6
     },
     {
         "id": 887,
@@ -14356,7 +15242,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 3
     },
     {
         "id": 888,
@@ -14372,7 +15259,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Flats"
+        "subCategory": "Flats",
+        "brandTemplateId": 1
     },
     {
         "id": 889,
@@ -14388,7 +15276,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 5
     },
     {
         "id": 890,
@@ -14405,7 +15294,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Innerwear & Thermals",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 5
     },
     {
         "id": 891,
@@ -14421,7 +15311,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Deodorant"
+        "subCategory": "Deodorant",
+        "brandTemplateId": 2
     },
     {
         "id": 892,
@@ -14437,7 +15328,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 5
     },
     {
         "id": 893,
@@ -14453,7 +15345,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Swimwear"
+        "subCategory": "Swimwear",
+        "brandTemplateId": 3
     },
     {
         "id": 894,
@@ -14469,7 +15362,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Color"
+        "subCategory": "Hair Color",
+        "brandTemplateId": 1
     },
     {
         "id": 895,
@@ -14485,7 +15379,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Nehru Jackets"
+        "subCategory": "Nehru Jackets",
+        "brandTemplateId": 1
     },
     {
         "id": 896,
@@ -14501,7 +15396,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Shapewear"
+        "subCategory": "Shapewear",
+        "brandTemplateId": 3
     },
     {
         "id": 897,
@@ -14517,7 +15413,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Accessory"
+        "subCategory": "Hair Accessory",
+        "brandTemplateId": 3
     },
     {
         "id": 898,
@@ -14533,7 +15430,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Dryer"
+        "subCategory": "Hair Dryer",
+        "brandTemplateId": 1
     },
     {
         "id": 899,
@@ -14549,7 +15447,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Kids Watches"
+        "subCategory": "Kids Watches",
+        "brandTemplateId": 2
     },
     {
         "id": 900,
@@ -14565,7 +15464,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 3
     },
     {
         "id": 901,
@@ -14581,7 +15481,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Serum"
+        "subCategory": "Serum",
+        "brandTemplateId": 4
     },
     {
         "id": 902,
@@ -14597,7 +15498,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 7
     },
     {
         "id": 903,
@@ -14614,7 +15516,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Bodysuits",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 904,
@@ -14630,7 +15533,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Jackets"
+        "subCategory": "Jackets",
+        "brandTemplateId": 1
     },
     {
         "id": 905,
@@ -14647,7 +15551,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Jacket, Sweater & Sweatshirts",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 1
     },
     {
         "id": 906,
@@ -14663,7 +15568,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 2
     },
     {
         "id": 907,
@@ -14679,7 +15585,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Sweatshirts"
+        "subCategory": "Sweatshirts",
+        "brandTemplateId": 2
     },
     {
         "id": 908,
@@ -14695,7 +15602,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 7
     },
     {
         "id": 909,
@@ -14711,7 +15619,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Formal Shoes"
+        "subCategory": "Formal Shoes",
+        "brandTemplateId": 4
     },
     {
         "id": 910,
@@ -14727,7 +15636,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Topwear",
-        "subCategory": "Formal Shirts"
+        "subCategory": "Formal Shirts",
+        "brandTemplateId": 3
     },
     {
         "id": 911,
@@ -14744,7 +15654,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Rompers & Sleepsuits",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 912,
@@ -14760,7 +15671,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Gel"
+        "subCategory": "Hair Gel",
+        "brandTemplateId": 6
     },
     {
         "id": 913,
@@ -14776,7 +15688,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Camisoles & Thermals"
+        "subCategory": "Camisoles & Thermals",
+        "brandTemplateId": 2
     },
     {
         "id": 914,
@@ -14792,7 +15705,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Body Lotion"
+        "subCategory": "Body Lotion",
+        "brandTemplateId": 2
     },
     {
         "id": 915,
@@ -14808,7 +15722,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Tshirts"
+        "subCategory": "Tshirts",
+        "brandTemplateId": 2
     },
     {
         "id": 916,
@@ -14824,7 +15739,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 7
     },
     {
         "id": 917,
@@ -14841,7 +15757,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Nightwear & Loungewear",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 2
     },
     {
         "id": 918,
@@ -14858,7 +15775,8 @@ export const products = [
         "group": "Kids",
         "category": "Infants",
         "subCategory": "Winter Wear",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 919,
@@ -14874,7 +15792,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Primer"
+        "subCategory": "Primer",
+        "brandTemplateId": 4
     },
     {
         "id": 920,
@@ -14890,7 +15809,8 @@ export const products = [
         "isAd": true,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Fragrances"
+        "subCategory": "Fragrances",
+        "brandTemplateId": 4
     },
     {
         "id": 921,
@@ -14906,7 +15826,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Sleepwear & Loungewear"
+        "subCategory": "Sleepwear & Loungewear",
+        "brandTemplateId": 5
     },
     {
         "id": 922,
@@ -14922,7 +15843,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 3
     },
     {
         "id": 923,
@@ -14938,7 +15860,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Conditioner"
+        "subCategory": "Conditioner",
+        "brandTemplateId": 5
     },
     {
         "id": 924,
@@ -14954,7 +15877,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 4
     },
     {
         "id": 925,
@@ -14971,7 +15895,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Activity Toys",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 926,
@@ -14987,7 +15912,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "brandTemplateId": 6
     },
     {
         "id": 927,
@@ -15003,7 +15929,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Sherwanis"
+        "subCategory": "Sherwanis",
+        "brandTemplateId": 3
     },
     {
         "id": 928,
@@ -15019,7 +15946,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Lip Gloss"
+        "subCategory": "Lip Gloss",
+        "brandTemplateId": 6
     },
     {
         "id": 929,
@@ -15035,7 +15963,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 6
     },
     {
         "id": 930,
@@ -15052,7 +15981,8 @@ export const products = [
         "group": "Kids",
         "category": "Footwear",
         "subCategory": "Flats",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 5
     },
     {
         "id": 931,
@@ -15068,7 +15998,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fine Jewellery"
+        "subCategory": "Fine Jewellery",
+        "brandTemplateId": 7
     },
     {
         "id": 932,
@@ -15085,7 +16016,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Nightwear & Loungewear",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 5
     },
     {
         "id": 933,
@@ -15101,7 +16033,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 1
     },
     {
         "id": 934,
@@ -15117,7 +16050,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 7
     },
     {
         "id": 935,
@@ -15134,7 +16068,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Learning & Development",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 936,
@@ -15150,7 +16085,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Bottomwear",
-        "subCategory": "Track Pants & Joggers"
+        "subCategory": "Track Pants & Joggers",
+        "brandTemplateId": 3
     },
     {
         "id": 937,
@@ -15166,7 +16102,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Caps & Hats"
+        "subCategory": "Caps & Hats",
+        "brandTemplateId": 2
     },
     {
         "id": 938,
@@ -15182,7 +16119,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Indian & Festive Wear",
-        "subCategory": "Kurtas & Kurta Sets"
+        "subCategory": "Kurtas & Kurta Sets",
+        "brandTemplateId": 2
     },
     {
         "id": 939,
@@ -15198,7 +16136,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Kurtas & Suits"
+        "subCategory": "Kurtas & Suits",
+        "brandTemplateId": 2
     },
     {
         "id": 940,
@@ -15215,7 +16154,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Action Figure / Play set",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 2
     },
     {
         "id": 941,
@@ -15231,7 +16171,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Hair Accessory"
+        "subCategory": "Hair Accessory",
+        "brandTemplateId": 6
     },
     {
         "id": 942,
@@ -15247,7 +16188,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Sports Shoes & Floaters"
+        "subCategory": "Sports Shoes & Floaters",
+        "brandTemplateId": 6
     },
     {
         "id": 943,
@@ -15263,7 +16205,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Thermals"
+        "subCategory": "Thermals",
+        "brandTemplateId": 1
     },
     {
         "id": 944,
@@ -15279,7 +16222,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Leggings, Salwars & Churidars"
+        "subCategory": "Leggings, Salwars & Churidars",
+        "brandTemplateId": 1
     },
     {
         "id": 945,
@@ -15296,7 +16240,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Clothing Sets",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 3
     },
     {
         "id": 946,
@@ -15313,7 +16258,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Action Figure / Play set",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 6
     },
     {
         "id": 947,
@@ -15330,7 +16276,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Party wear",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 1
     },
     {
         "id": 948,
@@ -15346,7 +16293,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Body Mist"
+        "subCategory": "Body Mist",
+        "brandTemplateId": 3
     },
     {
         "id": 949,
@@ -15362,7 +16310,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Jewellery",
-        "subCategory": "Fashion Jewellery"
+        "subCategory": "Fashion Jewellery",
+        "brandTemplateId": 3
     },
     {
         "id": 950,
@@ -15378,7 +16327,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Vests"
+        "subCategory": "Vests",
+        "brandTemplateId": 6
     },
     {
         "id": 951,
@@ -15395,7 +16345,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Action Figure / Play set",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 7
     },
     {
         "id": 952,
@@ -15411,7 +16362,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Socks"
+        "subCategory": "Socks",
+        "brandTemplateId": 6
     },
     {
         "id": 953,
@@ -15427,7 +16379,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Primer"
+        "subCategory": "Primer",
+        "brandTemplateId": 1
     },
     {
         "id": 954,
@@ -15443,7 +16396,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Vests"
+        "subCategory": "Vests",
+        "brandTemplateId": 5
     },
     {
         "id": 955,
@@ -15459,7 +16413,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Bra"
+        "subCategory": "Bra",
+        "brandTemplateId": 6
     },
     {
         "id": 956,
@@ -15475,7 +16430,8 @@ export const products = [
         "isAd": true,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Deodorant"
+        "subCategory": "Deodorant",
+        "brandTemplateId": 6
     },
     {
         "id": 957,
@@ -15492,7 +16448,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Nightwear & Loungewear",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 6
     },
     {
         "id": 958,
@@ -15508,7 +16465,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Vests"
+        "subCategory": "Vests",
+        "brandTemplateId": 5
     },
     {
         "id": 959,
@@ -15524,7 +16482,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Fragrances",
-        "subCategory": "Perfume"
+        "subCategory": "Perfume",
+        "brandTemplateId": 7
     },
     {
         "id": 960,
@@ -15540,7 +16499,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Jackets & Coats"
+        "subCategory": "Jackets & Coats",
+        "brandTemplateId": 7
     },
     {
         "id": 961,
@@ -15556,7 +16516,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 5
     },
     {
         "id": 962,
@@ -15572,7 +16533,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "brandTemplateId": 1
     },
     {
         "id": 963,
@@ -15588,7 +16550,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Swimwear"
+        "subCategory": "Swimwear",
+        "brandTemplateId": 2
     },
     {
         "id": 964,
@@ -15604,7 +16567,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Mascara"
+        "subCategory": "Mascara",
+        "brandTemplateId": 6
     },
     {
         "id": 965,
@@ -15620,7 +16584,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Skincare, Bath & Body",
-        "subCategory": "Hand Cream"
+        "subCategory": "Hand Cream",
+        "brandTemplateId": 5
     },
     {
         "id": 966,
@@ -15636,7 +16601,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Fragrances"
+        "subCategory": "Fragrances",
+        "brandTemplateId": 5
     },
     {
         "id": 967,
@@ -15652,7 +16618,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "brandTemplateId": 3
     },
     {
         "id": 968,
@@ -15668,7 +16635,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Makeup",
-        "subCategory": "Nail Polish"
+        "subCategory": "Nail Polish",
+        "brandTemplateId": 7
     },
     {
         "id": 969,
@@ -15684,7 +16652,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Vests"
+        "subCategory": "Vests",
+        "brandTemplateId": 7
     },
     {
         "id": 970,
@@ -15700,7 +16669,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Formal Shoes"
+        "subCategory": "Formal Shoes",
+        "brandTemplateId": 7
     },
     {
         "id": 971,
@@ -15716,7 +16686,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 4
     },
     {
         "id": 972,
@@ -15732,7 +16703,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Footwear",
-        "subCategory": "Formal Shoes"
+        "subCategory": "Formal Shoes",
+        "brandTemplateId": 1
     },
     {
         "id": 973,
@@ -15748,7 +16720,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Sports Shoes & Floaters"
+        "subCategory": "Sports Shoes & Floaters",
+        "brandTemplateId": 2
     },
     {
         "id": 974,
@@ -15765,7 +16738,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Action Figure / Play set",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 1
     },
     {
         "id": 975,
@@ -15781,7 +16755,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 5
     },
     {
         "id": 976,
@@ -15798,7 +16773,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Lehenga Choli",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 5
     },
     {
         "id": 977,
@@ -15814,7 +16790,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Vests"
+        "subCategory": "Vests",
+        "brandTemplateId": 5
     },
     {
         "id": 978,
@@ -15831,7 +16808,8 @@ export const products = [
         "group": "Kids",
         "category": "Boys Clothing",
         "subCategory": "Ethnic Wear",
-        "kidsCategory": "Boys"
+        "kidsCategory": "Boys",
+        "brandTemplateId": 5
     },
     {
         "id": 979,
@@ -15847,7 +16825,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Dupattas & Shawls"
+        "subCategory": "Dupattas & Shawls",
+        "brandTemplateId": 1
     },
     {
         "id": 980,
@@ -15863,7 +16842,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Watches",
-        "subCategory": "Women Watches"
+        "subCategory": "Women Watches",
+        "brandTemplateId": 1
     },
     {
         "id": 981,
@@ -15879,7 +16859,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Shampoo"
+        "subCategory": "Shampoo",
+        "brandTemplateId": 3
     },
     {
         "id": 982,
@@ -15896,7 +16877,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Dungarees & Jumpsuits",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 3
     },
     {
         "id": 983,
@@ -15912,7 +16894,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Western Wear",
-        "subCategory": "Jackets & Coats"
+        "subCategory": "Jackets & Coats",
+        "brandTemplateId": 2
     },
     {
         "id": 984,
@@ -15928,7 +16911,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Skirts & Palazzos"
+        "subCategory": "Skirts & Palazzos",
+        "brandTemplateId": 2
     },
     {
         "id": 985,
@@ -15944,7 +16928,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Haircare",
-        "subCategory": "Conditioner"
+        "subCategory": "Conditioner",
+        "brandTemplateId": 5
     },
     {
         "id": 986,
@@ -15960,7 +16945,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Footwear",
-        "subCategory": "Casual Shoes"
+        "subCategory": "Casual Shoes",
+        "brandTemplateId": 3
     },
     {
         "id": 987,
@@ -15976,7 +16962,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Sleepwear & Loungewear"
+        "subCategory": "Sleepwear & Loungewear",
+        "brandTemplateId": 5
     },
     {
         "id": 988,
@@ -15993,7 +16980,8 @@ export const products = [
         "group": "Kids",
         "category": "Toys & Games",
         "subCategory": "Learning & Development",
-        "kidsCategory": "Unisex"
+        "kidsCategory": "Unisex",
+        "brandTemplateId": 2
     },
     {
         "id": 989,
@@ -16009,7 +16997,8 @@ export const products = [
         "isAd": false,
         "group": "Beauty",
         "category": "Appliances",
-        "subCategory": "Hair Straightener"
+        "subCategory": "Hair Straightener",
+        "brandTemplateId": 7
     },
     {
         "id": 990,
@@ -16025,7 +17014,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Scarves"
+        "subCategory": "Scarves",
+        "brandTemplateId": 5
     },
     {
         "id": 991,
@@ -16042,7 +17032,8 @@ export const products = [
         "group": "Kids",
         "category": "Girls Clothing",
         "subCategory": "Innerwear & Thermals",
-        "kidsCategory": "Girls"
+        "kidsCategory": "Girls",
+        "brandTemplateId": 4
     },
     {
         "id": 992,
@@ -16058,7 +17049,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Wallets"
+        "subCategory": "Wallets",
+        "brandTemplateId": 1
     },
     {
         "id": 993,
@@ -16074,7 +17066,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Lingerie & Sleepwear",
-        "subCategory": "Bra"
+        "subCategory": "Bra",
+        "brandTemplateId": 3
     },
     {
         "id": 994,
@@ -16090,7 +17083,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Kurtis, Tunics & Tops"
+        "subCategory": "Kurtis, Tunics & Tops",
+        "brandTemplateId": 1
     },
     {
         "id": 995,
@@ -16106,7 +17100,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Makeup"
+        "subCategory": "Makeup",
+        "brandTemplateId": 1
     },
     {
         "id": 996,
@@ -16122,7 +17117,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Thermals"
+        "subCategory": "Thermals",
+        "brandTemplateId": 6
     },
     {
         "id": 997,
@@ -16138,7 +17134,8 @@ export const products = [
         "isAd": false,
         "group": "Men",
         "category": "Innerwear & Sleepwear",
-        "subCategory": "Briefs & Trunks"
+        "subCategory": "Briefs & Trunks",
+        "brandTemplateId": 3
     },
     {
         "id": 998,
@@ -16154,7 +17151,8 @@ export const products = [
         "isAd": false,
         "group": "Accessories",
         "category": "Belts, Scarves & More",
-        "subCategory": "Belts"
+        "subCategory": "Belts",
+        "brandTemplateId": 7
     },
     {
         "id": 999,
@@ -16170,7 +17168,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Beauty & Personal Care",
-        "subCategory": "Lipsticks"
+        "subCategory": "Lipsticks",
+        "brandTemplateId": 4
     },
     {
         "id": 1000,
@@ -16186,7 +17185,8 @@ export const products = [
         "isAd": false,
         "group": "Women",
         "category": "Indian & Fusion Wear",
-        "subCategory": "Jackets"
+        "subCategory": "Jackets",
+        "brandTemplateId": 5
     }
 ];
 
