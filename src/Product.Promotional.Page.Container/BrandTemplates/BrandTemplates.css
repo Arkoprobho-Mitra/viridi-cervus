@@ -21,117 +21,682 @@
 }
 
 /* =========================================
-   Template 1: Minimalist (The "Clean" Grid)
-   Structure: Centered Hero -> 4-col Grid -> Simple Strip
+   Template 1: Minimalist (Revised "Hoodie" Style)
    ========================================= */
 .tpl-minimalist {
     background: #fff;
-    padding: 40px;
+    padding: 0;
+    max-width: 100%;
+}
+
+/* Header / Hero */
+.tpl-minimalist .min-header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
 }
 
 .tpl-minimalist .min-hero {
+    position: relative;
+    background: #fdf5f0;
+    /* Beige background */
+    padding: 60px 20px 100px;
     text-align: center;
-    padding: 60px 0;
+    overflow: hidden;
+}
+
+.tpl-minimalist .min-hero-top-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.tpl-minimalist .min-hero-title {
+    font-size: 8rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 0.8;
+    text-transform: uppercase;
+    margin: 0;
+    color: #000;
+}
+
+.tpl-minimalist .min-hero-imgs {
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+}
+
+.tpl-minimalist .min-hero-main-img {
+    width: 600px;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Swipe Card */
+.tpl-minimalist .min-swipe-card {
+    position: absolute;
+    bottom: 80px;
+    left: 20%;
+    background: #fff;
+    padding: 20px;
+    width: 200px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+}
+
+.tpl-minimalist .min-swipe-line {
+    height: 2px;
+    background: #000;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+}
+
+.tpl-minimalist .min-swipe-line::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid black;
+}
+
+/* Socials */
+.tpl-minimalist .min-socials {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ticker */
+.tpl-minimalist .min-ticker-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #fff;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.tpl-minimalist .min-ticker {
+    display: inline-block;
+    animation: min-ticker 20s linear infinite;
+    font-size: 0.7rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@keyframes min-ticker {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* 3-Col Highlight Grid */
+.tpl-minimalist .min-tri-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px;
+    background: #fdf5f0;
+}
+
+.tpl-minimalist .min-tri-item {
+    position: relative;
+    height: 500px;
+}
+
+.tpl-minimalist .min-tri-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9);
+}
+
+.tpl-minimalist .min-tri-overlay {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: #fff;
+    text-align: left;
+}
+
+.tpl-minimalist .btn-explore {
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.tpl-minimalist .btn-explore:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Collection */
+.tpl-minimalist .min-collection {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.tpl-minimalist .min-col-title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-family: 'Impact', sans-serif;
+    /* Fallback for the blocky font */
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.tpl-minimalist .min-col-desc {
     max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.tpl-minimalist .min-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.tpl-minimalist .min-filter-btn {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-minimalist .min-filter-btn.active,
+.tpl-minimalist .min-filter-btn:hover {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+/* Product Grid (Horizontal Scroll or Grid) */
+.tpl-minimalist .min-prod-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 40px 60px;
+}
+
+.tpl-minimalist .min-prod-card {
+    background: #f9f9f9;
+    padding: 10px;
+    text-align: left;
+    position: relative;
+}
+
+.tpl-minimalist .min-prod-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.tpl-minimalist .min-price-tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #fff;
+    padding: 5px 10px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+/* Feature Rows (01, 02) */
+.tpl-minimalist .min-feature-row {
+    display: flex;
+    padding: 60px 40px;
+    gap: 60px;
+    align-items: center;
+}
+
+.tpl-minimalist .min-feature-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.tpl-minimalist .min-feat-img-box {
+    flex: 1;
+}
+
+.tpl-minimalist .min-feat-content {
+    flex: 1;
+    text-align: left;
+}
+
+.tpl-minimalist .min-feat-num {
+    font-size: 5rem;
+    font-weight: 700;
+    margin-right: 20px;
+    line-height: 1;
+}
+
+.tpl-minimalist .min-feat-title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.tpl-minimalist .min-feat-desc {
+    margin-top: 20px;
+    color: #666;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+/* Full Winters / Promo */
+.tpl-minimalist .min-promo-sec {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.tpl-minimalist .min-promo-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.tpl-minimalist .min-promo-btn {
+    margin-top: 40px;
+    border: 1px solid #000;
+    background: transparent;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Newsletter */
+.tpl-minimalist .min-newsletter {
+    background: #fdf5f0;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.tpl-minimalist .min-news-title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 40px;
+    line-height: 1;
+}
+
+.tpl-minimalist .min-news-input-wrap {
+    position: relative;
+    max-width: 400px;
     margin: 0 auto;
 }
 
-.tpl-minimalist .min-logo {
-    width: 80px;
-    height: 80px;
+.tpl-minimalist .min-news-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #000;
+    border-radius: 30px;
+    outline: none;
+}
+
+.tpl-minimalist .min-news-submit {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    height: 38px;
+    /* input height - padding/border */
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* Footer (Brand Specific) */
+.tpl-minimalist .min-footer {
     background: #000;
     color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    margin: 0 auto 20px;
-}
-
-.tpl-minimalist .min-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 80px;
-}
-
-.tpl-minimalist .min-cat-item {
+    padding: 60px 40px;
     text-align: center;
 }
 
-.tpl-minimalist .min-cat-img {
-    height: 300px;
-    margin-bottom: 15px;
-    filter: grayscale(100%);
-    transition: filter 0.3s;
+.tpl-minimalist .min-footer-logo {
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 40px;
 }
 
-.tpl-minimalist .min-cat-item:hover .min-cat-img {
-    filter: grayscale(0);
+.tpl-minimalist .min-footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.tpl-minimalist .min-footer-link-btn {
+    border: 1px solid #555;
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: #aaa;
+    text-transform: uppercase;
+    font-size: 0.8rem;
 }
 
 
 /* =========================================
-   Template 2: Editorial (The "Magazine" Split)
-   Structure: Split Screen Hero -> List Left / Image Right
+   Template 2: Editorial (Novaelle Style)
+   Structure: Split Grid Hero -> Filter Strip -> Product Grid -> Editorial Block
    ========================================= */
 .tpl-editorial {
-    background: #f4f4f4;
+    background: #fff;
+    color: #4a4a4a;
 }
 
+/* Header (Brand Specific) */
+.tpl-editorial .ed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tpl-editorial .ed-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: #b08d74;
+    /* Gold/Beige tone */
+}
+
+/* Hero Section */
 .tpl-editorial .ed-hero {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 80vh;
-}
-
-.tpl-editorial .ed-content {
-    padding: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: #fff;
-}
-
-.tpl-editorial .ed-visual {
-    background: #000;
+    grid-template-columns: 1fr 1fr 2fr;
+    /* 3 Columns: 1:1:2 ratio approx */
+    height: 85vh;
+    border-bottom: 1px solid #fff;
     position: relative;
+    overflow: hidden;
 }
 
-.tpl-editorial h1 {
+.tpl-editorial .ed-hero-img-col {
+    position: relative;
+    height: 100%;
+}
+
+.tpl-editorial .ed-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hero Overlay Text */
+.tpl-editorial .ed-hero-overlay {
+    position: absolute;
+    bottom: 10%;
+    left: 40px;
+    color: #fff;
+    z-index: 10;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tpl-editorial .ed-hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    line-height: 1;
+    font-size: 5rem;
+    line-height: 0.9;
+    font-weight: 400;
     margin-bottom: 20px;
 }
 
-.tpl-editorial .ed-cat-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 40px;
+.tpl-editorial .ed-hero-sub {
+    font-size: 0.8rem;
+    max-width: 300px;
+    line-height: 1.5;
+    text-transform: uppercase;
 }
 
-.tpl-editorial .ed-cat-tag {
-    border: 1px solid #000;
-    padding: 8px 16px;
+.tpl-editorial .ed-hero-btn {
+    background: #fff;
+    color: #000;
+    padding: 15px 30px;
+    border: none;
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 1px;
+    margin-top: 20px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.tpl-editorial .ed-cat-tag:hover {
-    background: #000;
+.tpl-editorial .ed-hero-btn:hover {
+    background: #f0f0f0;
+}
+
+/* Catalog / Filter Strip */
+.tpl-editorial .ed-catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    margin-top: 20px;
+}
+
+.tpl-editorial .ed-cat-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #b08d74;
+}
+
+.tpl-editorial .ed-filters {
+    display: flex;
+    gap: 10px;
+}
+
+.tpl-editorial .ed-filter-btn {
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #999;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-editorial .ed-filter-btn.active,
+.tpl-editorial .ed-filter-btn:hover {
+    border-color: #000;
+    color: #000;
+}
+
+/* Product Grid */
+.tpl-editorial .ed-prod-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    /* Space between items */
+    padding: 0 40px 60px;
+}
+
+.tpl-editorial .ed-prod-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.tpl-editorial .ed-prod-img-wrap {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.tpl-editorial .ed-prod-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.tpl-editorial .ed-prod-card:hover .ed-prod-img {
+    transform: scale(1.05);
+}
+
+.tpl-editorial .ed-prod-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.tpl-editorial .ed-prod-price {
+    font-weight: 700;
+    color: #b08d74;
+}
+
+.tpl-editorial .ed-icon-btn {
+    border: 1px solid #333;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    /* Slightly rounded */
+    background: #333;
     color: #fff;
 }
 
-.tpl-editorial .ed-banner {
-    padding: 60px;
+/* Editorial Feature Section (Split Beige/White) */
+.tpl-editorial .ed-feature-sec {
     display: flex;
-    gap: 20px;
-    overflow-x: auto;
+    height: 600px;
+    border-top: 1px solid #eee;
+}
+
+.tpl-editorial .ed-feat-img-side {
+    flex: 1;
+    background: #f5e6d3;
+    /* Light beige/pinkish */
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    padding-left: 40px;
+}
+
+.tpl-editorial .ed-feat-model-img {
+    height: 90%;
+    object-fit: contain;
+}
+
+.tpl-editorial .ed-feat-text-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    text-align: left;
+}
+
+.tpl-editorial .ed-feat-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #b08d74;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.tpl-editorial .ed-feat-desc {
+    max-width: 400px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Newsletter & Footer */
+.tpl-editorial .ed-footer-signup {
+    text-align: center;
+    padding: 80px 20px;
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+.tpl-editorial .ed-signup-text {
+    max-width: 500px;
+    margin: 0 auto 30px;
+    color: #888;
+    line-height: 1.5;
+}
+
+.tpl-editorial .ed-email-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.tpl-editorial .ed-email-input {
+    flex: 1;
+    padding: 15px;
+    background: #f4f4f4;
+    border: none;
+    outline: none;
+}
+
+.tpl-editorial .ed-sub-btn {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 0 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.8rem;
 }
 
 
@@ -139,242 +704,1330 @@
    Template 3: Boutique (The "Soft" Circle)
    Structure: Curved headers, Circular images
    ========================================= */
-.tpl-boutique {
-    background: #fff0f5;
-    text-align: center;
-}
-
-.tpl-boutique .bou-hero {
-    padding: 80px 20px;
-    background: linear-gradient(180deg, #ffe4e1 0%, #fff0f5 100%);
-}
-
-.tpl-boutique .bou-circles {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin: -50px auto 60px;
-    position: relative;
-    z-index: 10;
-}
-
-.tpl-boutique .bou-circle-item {
-    width: 160px;
-    flex-shrink: 0;
-}
-
-.tpl-boutique .bou-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 5px solid #fff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-
 /* =========================================
-   Template 4: Urban (The "Street" Dark)
-   Structure: Full width dark rows, Glitch effects
+   Template 3: Ultra (High Fashion / Serif)
+   Structure: Full Hero -> New Arrivals Grid -> Collection Banner -> Text/Img Feature
    ========================================= */
-.tpl-urban {
-    background: #111;
-    color: #fff;
+.tpl-ultra {
+    background: #fff;
+    font-family: 'Times New Roman', serif;
+    /* Or a Google Font like Playfair Display/Merriweather if avail */
+    color: #111;
 }
 
-.tpl-urban .urb-hero {
-    height: 60vh;
+/* Nav (Transparent Overlay or clean white) */
+.tpl-ultra .ul-nav {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background: #000;
-    position: relative;
-    border-bottom: 2px solid #333;
+    padding: 20px 0;
+    background: #f4f4f4;
+    /* Subtle header bg from image */
 }
 
-.tpl-urban h1 {
-    font-family: 'Impact', sans-serif;
-    /* Or bold sans */
-    font-size: 6rem;
+.tpl-ultra .ul-logo {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 5px;
     text-transform: uppercase;
-    letter-spacing: -2px;
-    color: transparent;
-    -webkit-text-stroke: 2px #fff;
+    font-family: 'Bodoni MT', serif;
+    /* Fallback to serif */
+    margin-bottom: 15px;
 }
 
-.tpl-urban .urb-cat-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.tpl-urban .urb-cat-item {
-    position: relative;
-    height: 300px;
-    border: 1px solid #333;
-    overflow: hidden;
-}
-
-.tpl-urban .urb-cat-label {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background: #fff;
-    color: #000;
-    font-weight: 800;
-    padding: 5px 10px;
+.tpl-ultra .ul-menu {
+    display: flex;
+    gap: 40px;
+    font-family: 'Inter', sans-serif;
+    /* Mix sans for menu */
+    font-size: 0.8rem;
+    font-weight: 600;
     text-transform: uppercase;
+    color: #444;
 }
 
-
-/* =========================================
-   Template 5: Luxe (The "Gold" Slider)
-   Structure: Full screen Hero Image w/ overlay text -> Horizontal Scroll Categories
-   ========================================= */
-.tpl-luxe {
-    background: #fff;
-}
-
-.tpl-luxe .lux-hero {
+/* Hero Section */
+.tpl-ultra .ul-hero {
+    width: 100%;
     height: 90vh;
     position: relative;
 }
 
-.tpl-luxe .lux-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 10%;
-    color: #fff;
-}
-
-.tpl-luxe h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    margin-bottom: 20px;
-}
-
-.tpl-luxe .lux-cat-slider {
-    padding: 60px 0 60px 10%;
-    overflow-x: auto;
-    display: flex;
-    gap: 40px;
-}
-
-.tpl-luxe .lux-cat-card {
-    min-width: 300px;
-}
-
-.tpl-luxe .lux-cat-img {
-    height: 400px;
+.tpl-ultra .ul-hero-img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
+    object-position: center top;
 }
 
-
-/* =========================================
-   Template 6: Pop (The "Bento" Grid)
-   Structure: Colorful, Asymmetric Grid
-   ========================================= */
-.tpl-pop {
-    background: #fffae5;
-    padding: 20px;
+/* Section Titles */
+.tpl-ultra .ul-sect-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 60px 0 10px;
+    font-weight: 400;
 }
 
-.tpl-pop-hero {
-    background: #ff3366;
-    color: #fff;
-    border: 4px solid #000;
-    box-shadow: 8px 8px 0 #000;
-    padding: 40px;
-    margin-bottom: 40px;
+.tpl-ultra .ul-sect-line {
+    width: 40px;
+    height: 3px;
+    background: #d45d5d;
+    /* Reddish accent */
+    margin: 10px auto 60px;
 }
 
-.tpl-pop-bento {
+/* New Arrivals Grid */
+.tpl-ultra .ul-prod-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 200px;
-    gap: 20px;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
 }
 
-.tpl-pop-item {
-    border: 3px solid #000;
-    background: #fff;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s;
+.tpl-ultra .ul-prod-card {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
 }
 
-.tpl-pop-item:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 4px 4px 0 #000;
+.tpl-ultra .ul-prod-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    margin-bottom: 15px;
 }
 
-.tpl-pop-item:nth-child(1) {
-    grid-column: span 2;
-    grid-row: span 2;
+.tpl-ultra .ul-prod-name {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #333;
 }
 
-.tpl-pop-item:nth-child(4) {
-    grid-column: span 2;
-}
-
-.tpl-pop-label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #000;
-    color: #fff;
-    padding: 5px 10px;
+.tpl-ultra .ul-prod-price {
+    font-size: 0.9rem;
+    color: #d45d5d;
     font-weight: 700;
 }
 
+/* Collection Banner (Full Width Parallax-like) */
+.tpl-ultra .ul-collection {
+    position: relative;
+    height: 600px;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 80px;
+}
+
+.tpl-ultra .ul-col-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+}
+
+.tpl-ultra .ul-col-bg-img {
+    flex: 1;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tpl-ultra .ul-col-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tpl-ultra .ul-col-title {
+    font-family: 'Oswald', sans-serif;
+    /* Tall sans font */
+    font-size: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.tpl-ultra .ul-btn-outline {
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    padding: 10px 40px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-ultra .ul-btn-outline:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Feature Section (Twice as Cozy) */
+.tpl-ultra .ul-feature {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    gap: 50px;
+    padding: 0 20px;
+}
+
+.tpl-ultra .ul-feat-imgs {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+}
+
+.tpl-ultra .ul-feat-img {
+    width: 50%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.tpl-ultra .ul-feat-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tpl-ultra .ul-feat-head {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.tpl-ultra .ul-feat-desc {
+    color: #666;
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Footer (Simple Columns) */
+.tpl-ultra .ul-footer {
+    border-top: 1px solid #eee;
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #333;
+}
+
+.tpl-ultra .ul-foot-col h4 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.tpl-ultra .ul-foot-col div {
+    margin-bottom: 8px;
+    color: #666;
+}
+
 
 /* =========================================
-   Template 7: Nature (The "Organic" Wave)
-   Structure: Organic shapes, clean images
+   Template 4: Mixtas (Clean / Modern Block)
+   Structure: Full Hero -> Tabbed New Arrivals -> Bento Grid Footer
    ========================================= */
-.tpl-nature {
-    background: #fdfbf7;
-    color: #5d5d5d;
+.tpl-mixtas {
+    background: #fff;
+    font-family: 'DM Sans', sans-serif;
+    /* or Inter/Poppins */
+    color: #111;
 }
 
-.tpl-nature .nat-hero {
-    text-align: center;
-    padding: 80px 20px;
-}
-
-.tpl-nature .nat-img-blob {
-    width: 300px;
-    height: 300px;
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    /* Blob shape */
-    object-fit: cover;
-    margin: 30px auto;
-    display: block;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.tpl-nature .nat-grid {
+/* Navbar (Integrated) */
+.tpl-mixtas .mix-nav {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #6c9bc5;
+    /* Matching blue from hero image if integrated, else specific */
+    color: #fff;
+}
+
+.tpl-mixtas .mix-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.tpl-mixtas .mix-nav-links {
+    display: flex;
+    gap: 30px;
+    font-size: 0.9rem;
+}
+
+/* Hero */
+.tpl-mixtas .mix-hero {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+    background: #6c9bc5;
+    /* Fallback color */
+}
+
+.tpl-mixtas .mix-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    /* Focus on faces/top */
+}
+
+.tpl-mixtas .mix-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: #fff;
+    max-width: 500px;
+    text-align: left;
+}
+
+.tpl-mixtas .mix-sub {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.tpl-mixtas .mix-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.tpl-mixtas .mix-btn {
+    background: #fff;
+    color: #333;
+    padding: 15px 40px;
+    border: none;
+    font-weight: 700;
+    border-radius: 4px;
+    /* Slight round */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-mixtas .mix-btn:hover {
+    background: #f0f0f0;
+}
+
+/* New Arrivals */
+.tpl-mixtas .mix-scd-sec {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.tpl-mixtas .mix-sec-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.tpl-mixtas .mix-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.tpl-mixtas .mix-tab {
+    color: #999;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.tpl-mixtas .mix-tab.active {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+/* Product Grid */
+.tpl-mixtas .mix-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.tpl-mixtas .mix-card {
+    text-align: left;
+    text-decoration: none;
+    color: inherit;
+}
+
+.tpl-mixtas .mix-card-img-wrap {
+    background: #f5f5f5;
+    /* Light grey bg for product cutout feel */
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tpl-mixtas .mix-card-img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    /* Contain to show full product on grey bg */
+}
+
+.tpl-mixtas .mix-card-meta {
+    font-size: 0.7rem;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.tpl-mixtas .mix-card-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    height: 40px;
+    /* Two lines max */
+    overflow: hidden;
+}
+
+.tpl-mixtas .mix-card-price {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* Bento Grid Categories (Bottom) */
+.tpl-mixtas .mix-bento {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: 300px 300px;
+    gap: 20px;
+    padding: 0 40px 80px;
+}
+
+.tpl-mixtas .mix-bento-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.tpl-mixtas .mix-bento-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tpl-mixtas .mix-bento-content {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: #111;
+    /* Mostly dark text on light backgrounds */
+    max-width: 70%;
+}
+
+.tpl-mixtas .mix-bento-content.light {
+    color: #fff;
+}
+
+.tpl-mixtas .mix-bento-sub {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.tpl-mixtas .mix-bento-head {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.tpl-mixtas .mix-bento-btn {
+    background: #fff;
+    color: #111;
+    padding: 10px 25px;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Specific Grid Placements */
+.tpl-mixtas .item-tall-left {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.tpl-mixtas .item-top-mid {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+}
+
+.tpl-mixtas .item-bot-left {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.tpl-mixtas .item-bot-right {
+    grid-column: 3;
+    grid-row: 2;
+    background: #6c9bc5;
+    /* Solid color block fallback or overlay */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+/* =========================================
+   Template 5: Artic (Winter / Technical)
+   Structure: Glassy Hero -> Technical Grid -> Mountain Footer
+   ========================================= */
+.tpl-artic {
+    background: #5b6e7f;
+    /* Muted blue-grey */
+    font-family: 'Rajdhani', sans-serif;
+    /* Or generic sans */
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Nav (Transparent) */
+.tpl-artic .art-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 50px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+/* Hero Section */
+.tpl-artic .art-hero {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(135deg, #4a5d6e 0%, #2b3a47 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.tpl-artic .art-hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25vw;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.tpl-artic .art-hero-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 50px;
+}
+
+.tpl-artic .art-hero-left {
+    flex: 1;
+}
+
+.tpl-artic .art-hero-title {
+    font-size: 5rem;
+    line-height: 0.9;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.tpl-artic .art-hero-price-box {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    margin-top: 40px;
+}
+
+.tpl-artic .art-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.tpl-artic .art-hero-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.tpl-artic .art-hero-model {
+    width: 120%;
+    /* Large overlap */
+    max-width: 600px;
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.5));
+}
+
+.tpl-artic .art-hero-right {
+    flex: 0.5;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.tpl-artic .art-hero-thumb {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+}
+
+/* New Collection Grid */
+.tpl-artic .art-collection {
+    padding: 80px 50px;
+    background: #6a7f91;
+    /* Slightly lighter/different tone */
+}
+
+.tpl-artic .art-sec-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 20px;
+}
+
+.tpl-artic .art-sec-title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.tpl-artic .art-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.tpl-artic .art-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.tpl-artic .art-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.tpl-artic .art-card-img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    margin-bottom: 20px;
+}
+
+.tpl-artic .art-card-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.tpl-artic .art-card-price {
+    color: #a0c0d0;
+    font-size: 0.8rem;
+}
+
+/* Footer (Mountain) */
+.tpl-artic .art-footer {
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 50px;
+}
+
+.tpl-artic .art-footer-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.8) contrast(1.2) blue-hue(1.5);
+}
+
+.tpl-artic .art-footer-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #6a7f91 0%, transparent 50%);
+    z-index: 1;
+}
+
+.tpl-artic .art-footer-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.tpl-artic .art-big-text {
+    font-size: 15vw;
+    font-weight: 900;
+    line-height: 0.8;
+    background: -webkit-linear-gradient(#fff, rgba(255, 255, 255, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+    position: absolute;
+    top: -20vh;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.tpl-artic .art-footer-info {
+    max-width: 500px;
+}
+
+.tpl-artic .art-footer-slogan {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.tpl-artic .art-footer-bar {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+    font-size: 0.7rem;
+}
+
+
+/* =========================================
+   Template 6: Massimo (Tailored / Elegant)
+   Structure: Hero -> Mosaic Grid -> Tabbed Products -> Daily Deals
+   ========================================= */
+.tpl-massimo {
+    background: #fff;
+    font-family: 'Lato', sans-serif;
+    color: #333;
+}
+
+/* Nav (Clean White with Gold accent) */
+.tpl-massimo .mass-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    border-bottom: 3px solid #f4f4f4;
+}
+
+.tpl-massimo .mass-logo {
+    font-family: 'Playfair Display', serif;
+    /* Elegant serif */
+    font-size: 1.8rem;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.tpl-massimo .mass-links {
+    display: flex;
+    gap: 30px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #555;
+}
+
+.tpl-massimo .mass-links span:hover {
+    color: #c5a059;
+    /* Gold hover */
+    cursor: pointer;
+}
+
+/* Hero */
+.tpl-massimo .mass-hero {
+    position: relative;
+    height: 600px;
+    background: #e0e0e0;
+    /* Fallback */
+    overflow: hidden;
+}
+
+.tpl-massimo .mass-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.tpl-massimo .mass-hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.tpl-massimo .mass-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.tpl-massimo .mass-hero-sub {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.tpl-massimo .mass-hero-btn {
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-massimo .mass-hero-btn:hover {
+    background: #fff;
+    color: #333;
+}
+
+/* Service Strip */
+.tpl-massimo .mass-strip {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.tpl-massimo .mass-strip div strong {
+    display: block;
+    color: #333;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* Mosaic Grid */
+.tpl-massimo .mass-mosaic {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.tpl-massimo .mass-mosaic-item {
+    position: relative;
+    height: 400px;
+    background: #f9f9f9;
+}
+
+.tpl-massimo .mass-mosaic-item.wide {
+    grid-column: span 2;
+}
+
+.tpl-massimo .mass-mosaic-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tpl-massimo .mass-mosaic-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 20px;
+    min-width: 180px;
+}
+
+.tpl-massimo .mass-mosaic-title {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.tpl-massimo .mass-mosaic-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #e0c080;
+    /* Gold */
+}
+
+/* Tabbed Section */
+.tpl-massimo .mass-tabs-sec {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.tpl-massimo .mass-sec-head {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.tpl-massimo .mass-tabs {
+    display: flex;
     justify-content: center;
     gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto 80px;
+    margin-bottom: 40px;
 }
 
-.tpl-nature .nat-item {
+.tpl-massimo .mass-tab {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #999;
+    cursor: pointer;
+    padding-bottom: 5px;
+}
+
+.tpl-massimo .mass-tab.active {
+    color: #333;
+    border-bottom: 2px solid #333;
+}
+
+.tpl-massimo .mass-prod-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.tpl-massimo .mass-prod-card {
     text-align: center;
-    width: 200px;
+    text-decoration: none;
+    color: inherit;
 }
 
-.tpl-nature .nat-item img {
-    border-radius: 20px;
+.tpl-massimo .mass-prod-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.tpl-massimo .mass-prod-title {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.tpl-massimo .mass-prod-price {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* Footer (Daily Deals) */
+.tpl-massimo .mass-footer {
+    border-top: 1px solid #eee;
+    margin-top: 80px;
+    padding: 60px 0;
+}
+
+.tpl-massimo .mass-deals-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.tpl-massimo .mass-deal-main {
+    background: #f4f4f4;
+    padding: 2px;
+    /* Border like effect */
+}
+
+.tpl-massimo .mass-deal-content {
+    background: #fff;
+    padding: 30px;
+    text-align: center;
+}
+
+.tpl-massimo .mass-countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.tpl-massimo .mass-time-box {
+    background: #f4f4f4;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.tpl-massimo .mass-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tpl-massimo .mass-blog-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.tpl-massimo .mass-blog-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.tpl-massimo .mass-blog-date {
+    font-size: 0.7rem;
+    color: #999;
+    font-style: italic;
+}
+
+
+/* =========================================
+   Template 7: Inspira (Modern Split Layout)
+   Structure: Hero -> Split Promo/Grid -> Best Sellers -> Split Banner/Top Rated -> Blog -> Footer
+   ========================================= */
+.tpl-inspira {
+    background: #fff;
+    font-family: 'Open Sans', sans-serif;
+    color: #444;
+}
+
+/* Nav (Dark Translucent or Integrated) */
+.tpl-inspira .ins-nav {
+    background: #222;
+    color: #fff;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.tpl-inspira .ins-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.tpl-inspira .ins-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* Hero */
+.tpl-inspira .ins-hero {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+.tpl-inspira .ins-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tpl-inspira .ins-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tpl-inspira .ins-hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.tpl-inspira .ins-hero-btn {
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    padding: 10px 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-inspira .ins-hero-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Section Header */
+.tpl-inspira .ins-sec-head {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #222;
+}
+
+.tpl-inspira .ins-sec-head::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+}
+
+/* Split Section 1: Featured (Left List) + Promo (Right Img) */
+.tpl-inspira .ins-split-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.tpl-inspira .ins-feat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tpl-inspira .ins-feat-item {
+    text-align: center;
+}
+
+.tpl-inspira .ins-feat-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.tpl-inspira .ins-feat-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.tpl-inspira .ins-feat-price {
+    font-size: 0.8rem;
+    color: #e74c3c;
+    /* Red accent */
+}
+
+.tpl-inspira .ins-promo-box {
+    position: relative;
+    height: 100%;
+    min-height: 400px;
+}
+
+.tpl-inspira .ins-promo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tpl-inspira .ins-promo-overlay {
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    color: #fff;
+    text-align: right;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Best Sellers */
+.tpl-inspira .ins-best-sec {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.tpl-inspira .ins-best-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* Split Section 2: Banner (Left) + Top Rated (Right List) */
+.tpl-inspira .ins-split-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.tpl-inspira .ins-banner-box {
+    position: relative;
+    height: 500px;
+}
+
+.tpl-inspira .ins-banner-content {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: #fff;
+    text-align: left;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Blog */
+.tpl-inspira .ins-blog-sec {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.tpl-inspira .ins-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.tpl-inspira .ins-blog-item {
+    text-align: left;
+}
+
+.tpl-inspira .ins-blog-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.tpl-inspira .ins-blog-meta {
+    font-size: 0.7rem;
+    color: #999;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.tpl-inspira .ins-blog-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.tpl-inspira .ins-blog-read {
+    font-size: 0.7rem;
+    color: #e74c3c;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Footer (Dark Multi-col) */
+.tpl-inspira .ins-footer {
+    background: #2a2a2a;
+    color: #aaa;
+    padding: 60px 20px;
+    font-size: 0.8rem;
+}
+
+.tpl-inspira .ins-foot-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tpl-inspira .ins-foot-col h4 {
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+}
+
+.tpl-inspira .ins-foot-col div {
     margin-bottom: 10px;
 }
 
