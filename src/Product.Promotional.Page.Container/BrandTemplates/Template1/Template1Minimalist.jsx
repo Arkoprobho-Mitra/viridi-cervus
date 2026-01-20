@@ -64,6 +64,8 @@ export const Template1Minimalist = ({ brandName, products }) => {
         }, 800);
     };
 
+    const currentYear = new Date().getFullYear();
+
     return (
         <div className="bt-container tpl-minimalist">
             {/* Header / Hero */}
@@ -101,10 +103,21 @@ export const Template1Minimalist = ({ brandName, products }) => {
             </div>
 
             {/* Ticker */}
+            {/* Ticker */}
             <div className="min-ticker-wrap">
-                <div className="min-ticker">
-                    THE BEST {brandName} CLOTHING 2024 &nbsp;&bull;&nbsp; THE BEST {brandName} CLOTHING 2024 &nbsp;&bull;&nbsp; THE BEST {brandName} CLOTHING 2024 &nbsp;&bull;&nbsp;
-                    THE BEST {brandName} CLOTHING 2024 &nbsp;&bull;&nbsp; THE BEST {brandName} CLOTHING 2024 &nbsp;&bull;&nbsp; THE BEST {brandName} CLOTHING 2024 &nbsp;&bull;&nbsp;
+                <div className="min-ticker-track">
+                    <div className="min-ticker-item">
+                        THE BEST {brandName} CLOTHING {currentYear} &nbsp;&bull;&nbsp; THE BEST {brandName} CLOTHING {currentYear} &nbsp;&bull;&nbsp; THE BEST {brandName} CLOTHING {currentYear} &nbsp;&bull;&nbsp;
+                        THE BEST {brandName} CLOTHING {currentYear} &nbsp;&bull;&nbsp;
+                    </div>
+                    <div className="min-ticker-item">
+                        THE BEST {brandName} CLOTHING {currentYear} &nbsp;&bull;&nbsp; THE BEST {brandName} CLOTHING {currentYear} &nbsp;&bull;&nbsp; THE BEST {brandName} CLOTHING {currentYear} &nbsp;&bull;&nbsp;
+                        THE BEST {brandName} CLOTHING {currentYear} &nbsp;&bull;&nbsp;
+                    </div>
+                    <div className="min-ticker-item">
+                        THE BEST {brandName} CLOTHING {currentYear} &nbsp;&bull;&nbsp; THE BEST {brandName} CLOTHING {currentYear} &nbsp;&bull;&nbsp; THE BEST {brandName} CLOTHING {currentYear} &nbsp;&bull;&nbsp;
+                        THE BEST {brandName} CLOTHING {currentYear} &nbsp;&bull;&nbsp;
+                    </div>
                 </div>
             </div>
 

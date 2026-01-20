@@ -15,14 +15,7 @@ export const Template3Pastel = ({ brandName, products }) => {
         <div className="bt-container tpl-ultra">
             {/* Nav */}
             <div className="ul-nav">
-                <div className="ul-logo">ULTRA</div> {/* Assuming brandName replaced or specific */}
-                <div className="ul-menu">
-                    <Link to="#" className="bt-link-reset">Home</Link>
-                    <Link to="#" className="bt-link-reset">New Arrival</Link>
-                    <Link to="#" className="bt-link-reset">Clothes</Link>
-                    <Link to="#" className="bt-link-reset">Jacket</Link>
-                    <Link to="#" className="bt-link-reset">Sale</Link>
-                </div>
+                <div className="ul-logo">{brandName.toUpperCase()}</div>
             </div>
 
             {/* Hero */}
