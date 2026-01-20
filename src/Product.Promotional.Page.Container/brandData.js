@@ -62,11 +62,15 @@ export const brandDetails = {
     "Spykar": {
         motto: "Young & Restless",
         description: "Denim and casual wear for the spirited youth.",
+        featureTagline: "Born for the Bold",
+        featureDescription: "Spykar is India's leading youth fashion denim brand. From the very beginning, we have been committed to creating jeans that are not just a garment, but a lifestyle choice for the young and restless.",
+        featureImage: "https://placehold.co/400x500/e9e9ed/282c3f?text=Spykar%20Feature",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 2,
         heroImages: [
             "https://placehold.co/600x500/e9e9ed/282c3f?text=Spykar%20Hero%201",
-            "https://placehold.co/600x500/d9d9dd/282c3f?text=Spykar%20Hero%202"
+            "https://placehold.co/600x500/d9d9dd/282c3f?text=Spykar%20Hero%202",
+            "https://placehold.co/600x500/c9c9cd/282c3f?text=Spykar%20Hero%203"
         ]
     },
     "Wildcraft": {
@@ -181,10 +185,15 @@ export const brandDetails = {
     "Mast & Harbour": {
         motto: "Set Sail with Style",
         description: "Nautical inspired casual wear.",
+        featureTagline: "Urban Nautical",
+        featureDescription: "Set sail on a journey of style with Mast & Harbour. Our collection brings the breezy, sophisticated vibe of the marina to your everyday wardrobe, blending classic cuts with modern comfort.",
+        featureImage: "https://placehold.co/400x500/d9d9dd/282c3f?text=Mast%20%26%20Harbour%20Feature",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 2,
         heroImages: [
-            "https://placehold.co/600x500/e9e9ed/282c3f?text=Mast%20%26%20Harbour%20Hero%201"
+            "https://placehold.co/600x500/e9e9ed/282c3f?text=Mast%20%26%20Harbour%20Hero%201",
+            "https://placehold.co/600x500/d9d9dd/282c3f?text=Mast%20%26%20Harbour%20Hero%202",
+            "https://placehold.co/600x500/c9c9cd/282c3f?text=Mast%20%26%20Harbour%20Hero%203"
         ]
     },
     "Jack & Jones": {
@@ -297,10 +306,15 @@ export const brandDetails = {
     "glitchez": {
         motto: "Style with a Glitch",
         description: "Trendy and unique fashion statements.",
+        featureTagline: "Digital Expression",
+        featureDescription: "Welcome to the future of fashion. glitchez isn't just about clothes; it's about glitching the system, breaking norms, and wearing your digital identity on your sleeve. Embrace the chaos.",
+        featureImage: "https://placehold.co/400x500/c9c9cd/282c3f?text=glitchez%20Feature",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 2,
         heroImages: [
-            "https://placehold.co/600x500/e9e9ed/282c3f?text=glitchez%20Hero%201"
+            "https://placehold.co/600x500/e9e9ed/282c3f?text=glitchez%20Hero%201",
+            "https://placehold.co/600x500/d9d9dd/282c3f?text=glitchez%20Hero%202",
+            "https://placehold.co/600x500/c9c9cd/282c3f?text=glitchez%20Hero%203"
         ]
     },
     "Bata": {

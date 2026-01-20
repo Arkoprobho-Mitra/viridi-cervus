@@ -17,13 +17,14 @@ const ProductListing = () => {
     const search = queryParams.get('search');
     const subCategory = queryParams.get('subCategory');
     const gender = queryParams.get('gender') || (category || search ? null : 'Men');
+    const brandParam = queryParams.get('brand');
 
     // Capitalize helper
     const capitalize = (s) => s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
 
     // Filter State
     const [selectedFilters, setSelectedFilters] = React.useState({
-        brands: [],
+        brands: brandParam ? [brandParam] : [],
         categories: [],
         prices: [],
         priceRange: [0, 5000],
