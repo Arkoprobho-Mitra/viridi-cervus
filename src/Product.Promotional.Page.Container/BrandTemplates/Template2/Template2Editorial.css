@@ -1,0 +1,288 @@
+/* =========================================
+   Template 2: Editorial (Novaelle Style)
+   Structure: Split Grid Hero -> Filter Strip -> Product Grid -> Editorial Block
+   ========================================= */
+.tpl-editorial {
+    background: #fff;
+    color: #4a4a4a;
+}
+
+/* Header (Brand Specific) */
+.tpl-editorial .ed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tpl-editorial .ed-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: #b08d74;
+    /* Gold/Beige tone */
+}
+
+/* Hero Section */
+.tpl-editorial .ed-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    /* 3 Columns: 1:1:2 ratio approx */
+    height: 85vh;
+    border-bottom: 1px solid #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.tpl-editorial .ed-hero-img-col {
+    position: relative;
+    height: 100%;
+}
+
+.tpl-editorial .ed-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hero Overlay Text */
+.tpl-editorial .ed-hero-overlay {
+    position: absolute;
+    bottom: 10%;
+    left: 40px;
+    color: #fff;
+    z-index: 10;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tpl-editorial .ed-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    line-height: 0.9;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.tpl-editorial .ed-hero-sub {
+    font-size: 0.8rem;
+    max-width: 300px;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.tpl-editorial .ed-hero-btn {
+    background: #fff;
+    color: #000;
+    padding: 15px 30px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-editorial .ed-hero-btn:hover {
+    background: #f0f0f0;
+}
+
+/* Catalog / Filter Strip */
+.tpl-editorial .ed-catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    margin-top: 20px;
+}
+
+.tpl-editorial .ed-cat-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #b08d74;
+}
+
+.tpl-editorial .ed-filters {
+    display: flex;
+    gap: 10px;
+}
+
+.tpl-editorial .ed-filter-btn {
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #999;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-editorial .ed-filter-btn.active,
+.tpl-editorial .ed-filter-btn:hover {
+    border-color: #000;
+    color: #000;
+}
+
+/* Product Grid */
+.tpl-editorial .ed-prod-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    /* Space between items */
+    padding: 0 40px 60px;
+}
+
+.tpl-editorial .ed-prod-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.tpl-editorial .ed-prod-img-wrap {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.tpl-editorial .ed-prod-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.tpl-editorial .ed-prod-card:hover .ed-prod-img {
+    transform: scale(1.05);
+}
+
+.tpl-editorial .ed-prod-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.tpl-editorial .ed-prod-price {
+    font-weight: 700;
+    color: #b08d74;
+}
+
+.tpl-editorial .ed-icon-btn {
+    border: 1px solid #333;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    /* Slightly rounded */
+    background: #333;
+    color: #fff;
+}
+
+/* Editorial Feature Section (Split Beige/White) */
+.tpl-editorial .ed-feature-sec {
+    display: flex;
+    height: 600px;
+    border-top: 1px solid #eee;
+}
+
+.tpl-editorial .ed-feat-img-side {
+    flex: 1;
+    background: #f5e6d3;
+    /* Light beige/pinkish */
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    padding-left: 40px;
+}
+
+.tpl-editorial .ed-feat-model-img {
+    height: 90%;
+    object-fit: contain;
+}
+
+.tpl-editorial .ed-feat-text-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    text-align: left;
+}
+
+.tpl-editorial .ed-feat-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: #b08d74;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.tpl-editorial .ed-feat-desc {
+    max-width: 400px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Newsletter & Footer */
+.tpl-editorial .ed-footer-signup {
+    text-align: center;
+    padding: 80px 20px;
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+.tpl-editorial .ed-signup-text {
+    max-width: 500px;
+    margin: 0 auto 30px;
+    color: #888;
+    line-height: 1.5;
+}
+
+.tpl-editorial .ed-email-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.tpl-editorial .ed-email-input {
+    flex: 1;
+    padding: 15px;
+    background: #f4f4f4;
+    border: none;
+    outline: none;
+}
+
+.tpl-editorial .ed-sub-btn {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 0 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+/* Responsive Editorial */
+@media (max-width: 768px) {
+    .tpl-editorial .ed-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .tpl-editorial .ed-visual {
+        height: 300px;
+        order: -1;
+    }
+}

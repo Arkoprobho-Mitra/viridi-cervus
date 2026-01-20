@@ -1,0 +1,259 @@
+/* =========================================
+   Template 4: Mixtas (Clean / Modern Block)
+   Structure: Full Hero -> Tabbed New Arrivals -> Bento Grid Footer
+   ========================================= */
+.tpl-mixtas {
+    background: #fff;
+    font-family: 'DM Sans', sans-serif;
+    /* or Inter/Poppins */
+    color: #111;
+}
+
+/* Navbar (Integrated) */
+.tpl-mixtas .mix-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #6c9bc5;
+    /* Matching blue from hero image if integrated, else specific */
+    color: #fff;
+}
+
+.tpl-mixtas .mix-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.tpl-mixtas .mix-nav-links {
+    display: flex;
+    gap: 30px;
+    font-size: 0.9rem;
+}
+
+/* Hero */
+.tpl-mixtas .mix-hero {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+    background: #6c9bc5;
+    /* Fallback color */
+}
+
+.tpl-mixtas .mix-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    /* Focus on faces/top */
+}
+
+.tpl-mixtas .mix-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: #fff;
+    max-width: 500px;
+    text-align: left;
+}
+
+.tpl-mixtas .mix-sub {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.tpl-mixtas .mix-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.tpl-mixtas .mix-btn {
+    background: #fff;
+    color: #333;
+    padding: 15px 40px;
+    border: none;
+    font-weight: 700;
+    border-radius: 4px;
+    /* Slight round */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-mixtas .mix-btn:hover {
+    background: #f0f0f0;
+}
+
+/* New Arrivals */
+.tpl-mixtas .mix-scd-sec {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.tpl-mixtas .mix-sec-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.tpl-mixtas .mix-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.tpl-mixtas .mix-tab {
+    color: #999;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.tpl-mixtas .mix-tab.active {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+/* Product Grid */
+.tpl-mixtas .mix-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.tpl-mixtas .mix-card {
+    text-align: left;
+    text-decoration: none;
+    color: inherit;
+}
+
+.tpl-mixtas .mix-card-img-wrap {
+    background: #f5f5f5;
+    /* Light grey bg for product cutout feel */
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tpl-mixtas .mix-card-img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    /* Contain to show full product on grey bg */
+}
+
+.tpl-mixtas .mix-card-meta {
+    font-size: 0.7rem;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.tpl-mixtas .mix-card-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    height: 40px;
+    /* Two lines max */
+    overflow: hidden;
+}
+
+.tpl-mixtas .mix-card-price {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* Bento Grid Categories (Bottom) */
+.tpl-mixtas .mix-bento {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: 300px 300px;
+    gap: 20px;
+    padding: 0 40px 80px;
+}
+
+.tpl-mixtas .mix-bento-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.tpl-mixtas .mix-bento-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tpl-mixtas .mix-bento-content {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: #111;
+    /* Mostly dark text on light backgrounds */
+    max-width: 70%;
+}
+
+.tpl-mixtas .mix-bento-content.light {
+    color: #fff;
+}
+
+.tpl-mixtas .mix-bento-sub {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.tpl-mixtas .mix-bento-head {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.tpl-mixtas .mix-bento-btn {
+    background: #fff;
+    color: #111;
+    padding: 10px 25px;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Specific Grid Placements */
+.tpl-mixtas .item-tall-left {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.tpl-mixtas .item-top-mid {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+}
+
+.tpl-mixtas .item-bot-left {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.tpl-mixtas .item-bot-right {
+    grid-column: 3;
+    grid-row: 2;
+    background: #6c9bc5;
+    /* Solid color block fallback or overlay */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

@@ -1,0 +1,265 @@
+/* =========================================
+   Template 7: Inspira (Modern Split Layout)
+   Structure: Hero -> Split Promo/Grid -> Best Sellers -> Split Banner/Top Rated -> Blog -> Footer
+   ========================================= */
+.tpl-inspira {
+    background: #fff;
+    font-family: 'Open Sans', sans-serif;
+    color: #444;
+}
+
+/* Nav (Dark Translucent or Integrated) */
+.tpl-inspira .ins-nav {
+    background: #222;
+    color: #fff;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.tpl-inspira .ins-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.tpl-inspira .ins-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* Hero */
+.tpl-inspira .ins-hero {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+.tpl-inspira .ins-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tpl-inspira .ins-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tpl-inspira .ins-hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.tpl-inspira .ins-hero-btn {
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    padding: 10px 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-inspira .ins-hero-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Section Header */
+.tpl-inspira .ins-sec-head {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #222;
+}
+
+.tpl-inspira .ins-sec-head::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+}
+
+/* Split Section 1: Featured (Left List) + Promo (Right Img) */
+.tpl-inspira .ins-split-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.tpl-inspira .ins-feat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tpl-inspira .ins-feat-item {
+    text-align: center;
+}
+
+.tpl-inspira .ins-feat-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.tpl-inspira .ins-feat-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.tpl-inspira .ins-feat-price {
+    font-size: 0.8rem;
+    color: #e74c3c;
+    /* Red accent */
+}
+
+.tpl-inspira .ins-promo-box {
+    position: relative;
+    height: 100%;
+    min-height: 400px;
+}
+
+.tpl-inspira .ins-promo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tpl-inspira .ins-promo-overlay {
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    color: #fff;
+    text-align: right;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Best Sellers */
+.tpl-inspira .ins-best-sec {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.tpl-inspira .ins-best-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* Split Section 2: Banner (Left) + Top Rated (Right List) */
+.tpl-inspira .ins-split-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.tpl-inspira .ins-banner-box {
+    position: relative;
+    height: 500px;
+}
+
+.tpl-inspira .ins-banner-content {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: #fff;
+    text-align: left;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Blog */
+.tpl-inspira .ins-blog-sec {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.tpl-inspira .ins-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.tpl-inspira .ins-blog-item {
+    text-align: left;
+}
+
+.tpl-inspira .ins-blog-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.tpl-inspira .ins-blog-meta {
+    font-size: 0.7rem;
+    color: #999;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.tpl-inspira .ins-blog-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.tpl-inspira .ins-blog-read {
+    font-size: 0.7rem;
+    color: #e74c3c;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Footer (Dark Multi-col) */
+.tpl-inspira .ins-footer {
+    background: #2a2a2a;
+    color: #aaa;
+    padding: 60px 20px;
+    font-size: 0.8rem;
+}
+
+.tpl-inspira .ins-foot-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tpl-inspira .ins-foot-col h4 {
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+}
+
+.tpl-inspira .ins-foot-col div {
+    margin-bottom: 10px;
+}

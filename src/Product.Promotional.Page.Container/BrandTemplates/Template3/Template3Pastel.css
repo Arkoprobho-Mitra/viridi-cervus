@@ -1,0 +1,227 @@
+/* =========================================
+   Template 3: Ultra (High Fashion / Serif)
+   Structure: Full Hero -> New Arrivals Grid -> Collection Banner -> Text/Img Feature
+   ========================================= */
+.tpl-ultra {
+    background: #fff;
+    font-family: 'Times New Roman', serif;
+    /* Or a Google Font like Playfair Display/Merriweather if avail */
+    color: #111;
+}
+
+/* Nav (Transparent Overlay or clean white) */
+.tpl-ultra .ul-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    background: #f4f4f4;
+    /* Subtle header bg from image */
+}
+
+.tpl-ultra .ul-logo {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-family: 'Bodoni MT', serif;
+    /* Fallback to serif */
+    margin-bottom: 15px;
+}
+
+.tpl-ultra .ul-menu {
+    display: flex;
+    gap: 40px;
+    font-family: 'Inter', sans-serif;
+    /* Mix sans for menu */
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #444;
+}
+
+/* Hero Section */
+.tpl-ultra .ul-hero {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+}
+
+.tpl-ultra .ul-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* Section Titles */
+.tpl-ultra .ul-sect-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 60px 0 10px;
+    font-weight: 400;
+}
+
+.tpl-ultra .ul-sect-line {
+    width: 40px;
+    height: 3px;
+    background: #d45d5d;
+    /* Reddish accent */
+    margin: 10px auto 60px;
+}
+
+/* New Arrivals Grid */
+.tpl-ultra .ul-prod-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
+
+.tpl-ultra .ul-prod-card {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.tpl-ultra .ul-prod-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.tpl-ultra .ul-prod-name {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.tpl-ultra .ul-prod-price {
+    font-size: 0.9rem;
+    color: #d45d5d;
+    font-weight: 700;
+}
+
+/* Collection Banner (Full Width Parallax-like) */
+.tpl-ultra .ul-collection {
+    position: relative;
+    height: 600px;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 80px;
+}
+
+.tpl-ultra .ul-col-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+}
+
+.tpl-ultra .ul-col-bg-img {
+    flex: 1;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tpl-ultra .ul-col-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tpl-ultra .ul-col-title {
+    font-family: 'Oswald', sans-serif;
+    /* Tall sans font */
+    font-size: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.tpl-ultra .ul-btn-outline {
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    padding: 10px 40px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-ultra .ul-btn-outline:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Feature Section (Twice as Cozy) */
+.tpl-ultra .ul-feature {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    gap: 50px;
+    padding: 0 20px;
+}
+
+.tpl-ultra .ul-feat-imgs {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+}
+
+.tpl-ultra .ul-feat-img {
+    width: 50%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.tpl-ultra .ul-feat-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tpl-ultra .ul-feat-head {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.tpl-ultra .ul-feat-desc {
+    color: #666;
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Footer (Simple Columns) */
+.tpl-ultra .ul-footer {
+    border-top: 1px solid #eee;
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #333;
+}
+
+.tpl-ultra .ul-foot-col h4 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.tpl-ultra .ul-foot-col div {
+    margin-bottom: 8px;
+    color: #666;
+}

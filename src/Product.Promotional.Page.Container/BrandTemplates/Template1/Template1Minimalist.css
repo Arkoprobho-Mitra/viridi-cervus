@@ -1,0 +1,482 @@
+/* =========================================
+   Template 1: Minimalist (Revised "Hoodie" Style)
+   ========================================= */
+.tpl-minimalist {
+    background: #fff;
+    padding: 0;
+    max-width: 100%;
+}
+
+/* Header / Hero */
+.tpl-minimalist .min-header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.tpl-minimalist .min-hero {
+    position: relative;
+    background: #fdf5f0;
+    /* Beige background */
+    padding: 60px 20px 100px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.tpl-minimalist .min-hero-top-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.tpl-minimalist .min-hero-title-wrapper {
+    position: relative;
+}
+
+.tpl-minimalist .min-hero-title {
+    font-size: 8rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 0.8;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.tpl-minimalist .min-hero-title-fill {
+    color: black;
+    position: relative;
+    z-index: 5;
+}
+
+.tpl-minimalist .min-hero-title-outline {
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.tpl-minimalist .min-hero-imgs {
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+}
+
+.tpl-minimalist .min-hero-main-img {
+    width: 600px;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Swipe Card */
+.tpl-minimalist .min-swipe-card {
+    position: absolute;
+    bottom: 80px;
+    left: 20%;
+    background: #fff;
+    padding: 20px;
+    width: 200px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+}
+
+.tpl-minimalist .min-swipe-line {
+    height: 2px;
+    background: #000;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+}
+
+.tpl-minimalist .min-swipe-line::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid black;
+}
+
+@keyframes cardSwipe {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(60vw);
+        opacity: 0;
+    }
+}
+
+.tpl-minimalist .min-swipe-card.swiping {
+    animation: cardSwipe 0.8s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+}
+
+/* Socials */
+.tpl-minimalist .min-socials {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ticker */
+.tpl-minimalist .min-ticker-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #fff;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.tpl-minimalist .min-ticker {
+    display: inline-block;
+    animation: min-ticker 20s linear infinite;
+    font-size: 0.7rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@keyframes min-ticker {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* 3-Col Highlight Grid */
+.tpl-minimalist .min-tri-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px;
+    background: #fdf5f0;
+}
+
+.tpl-minimalist .min-tri-item {
+    position: relative;
+    height: 500px;
+}
+
+.tpl-minimalist .min-tri-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9);
+}
+
+.tpl-minimalist .min-tri-overlay {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: #fff;
+    text-align: left;
+}
+
+.tpl-minimalist .btn-explore {
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.tpl-minimalist .btn-explore:hover {
+    background: #fff;
+    color: #000;
+    transform: scale(1.05);
+}
+
+.tpl-minimalist .btn-explore:active {
+    transform: scale(0.95);
+}
+
+/* Collection */
+.tpl-minimalist .min-collection {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.tpl-minimalist .min-col-title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-family: 'Impact', sans-serif;
+    /* Fallback for the blocky font */
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.tpl-minimalist .min-col-desc {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.tpl-minimalist .min-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.tpl-minimalist .min-filter-btn {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-minimalist .min-filter-btn.active,
+.tpl-minimalist .min-filter-btn:hover {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+    transform: scale(1.05);
+}
+
+.tpl-minimalist .min-filter-btn:active {
+    transform: scale(0.95);
+}
+
+/* Product Grid (Horizontal Scroll or Grid) */
+.tpl-minimalist .min-prod-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 40px 60px;
+}
+
+.tpl-minimalist .min-prod-card {
+    background: #f9f9f9;
+    padding: 10px;
+    text-align: left;
+    position: relative;
+}
+
+.tpl-minimalist .min-prod-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.tpl-minimalist .min-price-tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #fff;
+    padding: 5px 10px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+/* Feature Rows (01, 02) */
+.tpl-minimalist .min-feature-row {
+    display: flex;
+    padding: 80px 0;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tpl-minimalist .min-feature-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.tpl-minimalist .min-feat-img-box {
+    flex: 0 0 400px;
+    max-width: 400px;
+}
+
+.tpl-minimalist .min-feat-content {
+    flex: 0 0 400px;
+    text-align: left;
+}
+
+.tpl-minimalist .min-feat-num {
+    font-size: 5rem;
+    font-weight: 700;
+    margin-right: 20px;
+    line-height: 1;
+}
+
+.tpl-minimalist .min-feat-title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.tpl-minimalist .min-feat-desc {
+    margin-top: 20px;
+    color: #666;
+    line-height: 1.6;
+    max-width: 400px;
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+/* Full Winters / Promo */
+.tpl-minimalist .min-promo-sec {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.tpl-minimalist .min-promo-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.tpl-minimalist .min-promo-btn {
+    margin-top: 40px;
+    border: 1px solid #000;
+    background: transparent;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-minimalist .min-promo-btn:hover {
+    background: #000;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.tpl-minimalist .min-promo-btn:active {
+    transform: scale(0.95);
+}
+
+/* Newsletter */
+.tpl-minimalist .min-newsletter {
+    background: #fdf5f0;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.tpl-minimalist .min-news-title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 40px;
+    line-height: 1;
+}
+
+.tpl-minimalist .min-news-input-wrap {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.tpl-minimalist .min-news-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #000;
+    border-radius: 30px;
+    outline: none;
+}
+
+.tpl-minimalist .min-news-submit {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    height: 38px;
+    /* input height - padding/border */
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.tpl-minimalist .min-news-submit:hover {
+    transform: scale(1.2);
+    color: #000;
+}
+
+.tpl-minimalist .min-news-submit:active {
+    transform: scale(0.9);
+}
+
+/* Footer (Brand Specific) */
+.tpl-minimalist .min-footer {
+    background: #000;
+    color: #fff;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.tpl-minimalist .min-footer-logo {
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.tpl-minimalist .min-footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.tpl-minimalist .min-footer-link-btn {
+    border: 1px solid #555;
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: #aaa;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.tpl-minimalist .min-footer-link-btn:hover {
+    border-color: #fff;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.tpl-minimalist .min-footer-link-btn:active {
+    transform: scale(0.95);
+}
