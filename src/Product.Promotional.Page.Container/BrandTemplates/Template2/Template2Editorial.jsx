@@ -36,7 +36,7 @@ export const Template2Editorial = ({ brandName, products }) => {
         <div className="bt-container tpl-editorial">
             {/* Header / Nav Strip */}
             <div className="ed-header">
-                <div className="ed-logo">{brandName}</div>
+                <img src={brandDetails.logo} alt={brandName} className="ed-logo" style={{ maxHeight: '60px', objectFit: 'contain' }} />
             </div>
 
             {/* Hero Grid */}

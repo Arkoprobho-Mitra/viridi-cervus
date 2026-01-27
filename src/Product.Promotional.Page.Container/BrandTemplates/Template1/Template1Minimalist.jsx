@@ -6,7 +6,7 @@ import '../BrandTemplatesShared.css';
 import { getBrandDetails } from '../../brandData';
 
 export const Template1Minimalist = ({ brandName, products }) => {
-    const [activeTab, setActiveTab] = React.useState('HOODIE');
+    const [activeTab, setActiveTab] = React.useState('ALL');
     const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
 
     const details = getBrandDetails(brandName);
@@ -34,11 +34,11 @@ export const Template1Minimalist = ({ brandName, products }) => {
 
 
     // Extract categories for tabs (limit to 5)
-    // We'll hardcode some for the "Hoodie" look or derive them
-    const allCategories = ['HOODIE', ...new Set(products.map(p => (p.subCategory || p.category || 'POPULAR').toUpperCase()))].slice(0, 5);
+    // Use categories from brand details if available, otherwise derive them dynamically
+    const allCategories = details.categories || ['ALL', ...new Set(products.map(p => (p.subCategory || p.category || 'POPULAR').toUpperCase()))].slice(0, 5);
 
     // Filter products for the active tab
-    const filteredProducts = activeTab === 'HOODIE'
+    const filteredProducts = activeTab === 'ALL'
         ? products
         : products.filter(p => (p.subCategory || p.category || '').toUpperCase() === activeTab);
 
@@ -70,7 +70,7 @@ export const Template1Minimalist = ({ brandName, products }) => {
         <div className="bt-container tpl-minimalist">
             {/* Header / Hero */}
             <div className="min-header">
-                <div style={{ fontWeight: 900, textTransform: 'uppercase' }}>{brandName}</div>
+                <img src={details.logo} alt={brandName} style={{ maxHeight: '100px', objectFit: 'contain' }} />
             </div>
 
             <div className="min-hero">

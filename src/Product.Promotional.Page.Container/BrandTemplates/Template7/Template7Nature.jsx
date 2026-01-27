@@ -1,13 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { getBrandDetails } from '../../brandData';
 import './Template7Nature.css';
 import '../BrandTemplatesShared.css';
 
 export const Template7Nature = ({ brandName, products }) => {
+    const details = getBrandDetails(brandName);
+    const navigate = useNavigate();
+
     // Images
-    const heroImg = products.find(p => p.category === 'Men')?.image || products[0]?.image;
-    const promoImg = products.find(p => p.category === 'Topwear')?.image || products[1]?.image;
-    const bannerImg = products[3]?.image || products[2]?.image;
+    const heroImg = details.heroImages?.[0] || products.find(p => p.category === 'Men')?.image || products[0]?.image;
+    const promoImg = details.promoSection?.image || products.find(p => p.category === 'Topwear')?.image || products[1]?.image;
+    const bannerImg = details.bannerSection?.image || products[3]?.image || products[2]?.image;
 
     // Featured (Slice 0-3)
     const featured = products.slice(0, 3);
@@ -19,27 +23,15 @@ export const Template7Nature = ({ brandName, products }) => {
     return (
         <div className="bt-container tpl-inspira">
             <div className="ins-nav">
-                <div className="ins-links">
-                    <span>Home</span>
-                    <span>Shop</span>
-                    <span>Blog</span>
-                    <span>Pages</span>
-                    <span>Portfolio</span>
-                    <span>Contact Us</span>
-                </div>
-                <div style={{ display: 'flex', gap: 20 }}>
-                    <span>Search</span>
-                    <span>Cart (2)</span>
-                    <span>Wishlist (0)</span>
-                </div>
+                <img src={details.logo} alt={brandName} style={{ maxHeight: '50px', objectFit: 'contain', justifyContent: 'center', alignItems: 'center', margin: '0 20px' }} />
             </div>
 
             {/* Hero */}
             <div className="ins-hero">
                 <img src={heroImg} className="ins-hero-img" alt="Hero" />
                 <div className="ins-hero-content">
-                    <div className="ins-hero-title">Lucky Day 50 Outfits<br />Under $30</div>
-                    <button className="ins-hero-btn">Shop Now</button>
+                    <div className="ins-hero-title">{brandName.toUpperCase()}<br /><span style={{ fontSize: '2.5rem', fontWeight: 300 }}>{details.motto}</span></div>
+                    <button className="ins-hero-btn" onClick={() => navigate(`/products?search=${brandName}`)}>Shop Now</button>
                 </div>
             </div>
 
@@ -52,7 +44,7 @@ export const Template7Nature = ({ brandName, products }) => {
                             <Link to={`/product/${p.id}`} key={p.id} className="bt-link-reset ins-feat-item">
                                 <img src={p.image} className="ins-feat-img" alt={p.title} />
                                 <div className="ins-feat-title">{p.title}</div>
-                                <div className="ins-feat-price">${p.price}</div>
+                                <div className="ins-feat-price">Rs. {p.price}</div>
                             </Link>
                         ))}
                     </div>
@@ -60,9 +52,9 @@ export const Template7Nature = ({ brandName, products }) => {
                 <div className="ins-promo-box">
                     <img src={promoImg} className="ins-promo-img" alt="Promo" />
                     <div className="ins-promo-overlay">
-                        <div style={{ fontSize: '2.5rem', fontWeight: 700, lineHeight: 1 }}>Men and<br />Young Men</div>
+                        <div style={{ fontSize: '2.5rem', fontWeight: 700, lineHeight: 1 }}>{details.promoSection?.title || <React.Fragment>Men and<br />Young Men</React.Fragment>}</div>
                         <div style={{ margin: '20px 0', fontSize: '0.9rem', maxWidth: 300, marginLeft: 'auto' }}>
-                            Whatever you need from casual tees, polos and jeans to smart dress shirts and slacks, we've got you covered for less.
+                            {details.promoSection?.description || "Whatever you need from casual tees, polos and jeans to smart dress shirts and slacks, we've got you covered for less."}
                         </div>
                     </div>
                 </div>
@@ -76,7 +68,7 @@ export const Template7Nature = ({ brandName, products }) => {
                         <Link to={`/product/${p.id}`} key={p.id} className="bt-link-reset ins-feat-item">
                             <img src={p.image} className="ins-feat-img" alt={p.title} />
                             <div className="ins-feat-title">{p.title}</div>
-                            <div className="ins-feat-price">${p.price}</div>
+                            <div className="ins-feat-price">Rs. {p.price}</div>
                         </Link>
                     ))}
                 </div>
@@ -87,8 +79,8 @@ export const Template7Nature = ({ brandName, products }) => {
                 <div className="ins-banner-box">
                     <img src={bannerImg} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Banner" />
                     <div className="ins-banner-content">
-                        <div style={{ fontSize: '2.5rem', fontWeight: 700 }}>Classic Style</div>
-                        <div style={{ fontSize: '0.9rem', marginTop: 10 }}>Keep it casual or dress to impress with our classic,<br />comfortable separates.</div>
+                        <div style={{ fontSize: '2.5rem', fontWeight: 700 }}>{details.bannerSection?.title || "Classic Style"}</div>
+                        <div style={{ fontSize: '0.9rem', marginTop: 10 }}>{details.bannerSection?.description || "Keep it casual or dress to impress with our classic, comfortable separates."}</div>
                     </div>
                 </div>
                 <div>
@@ -98,27 +90,24 @@ export const Template7Nature = ({ brandName, products }) => {
                             <Link to={`/product/${p.id}`} key={p.id} className="bt-link-reset ins-feat-item">
                                 <img src={p.image} className="ins-feat-img" alt={p.title} />
                                 <div className="ins-feat-title">{p.title}</div>
-                                <div className="ins-feat-price">${p.price}</div>
+                                <div className="ins-feat-price">Rs. {p.price}</div>
                             </Link>
                         ))}
                     </div>
                 </div>
             </div>
 
-            {/* Blog */}
+            {/* Brand Features (Replaced Blog) */}
             <div className="ins-blog-sec">
-                <div className="ins-sec-head">BLOG POSTS</div>
+                <div className="ins-sec-head">WHY CHOOSE {brandName.toUpperCase()}?</div>
                 <div className="ins-blog-grid">
-                    {/* Fake blog data based on products to avoid errors */}
-                    {[1, 2, 3].map((i) => (
+                    {(details.features || []).map((feature, i) => (
                         <div key={i} className="ins-blog-item">
-                            <img src={products[i]?.image} className="ins-blog-img" alt="Blog" />
-                            <div className="ins-blog-meta">MAY 25, 2016 / 3 COMMENTS</div>
-                            <div className="ins-blog-title">BLOG POST IMAGE TITLE EXAMPLE</div>
+                            <img src={feature.image} className="ins-blog-img" alt={feature.title} />
+                            <div className="ins-blog-title">{feature.title}</div>
                             <div style={{ fontSize: '0.8rem', color: '#777', marginBottom: 15 }}>
-                                Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex.
+                                {feature.description}
                             </div>
-                            <div className="ins-blog-read">Read More</div>
                         </div>
                     ))}
                 </div>
@@ -131,19 +120,6 @@ export const Template7Nature = ({ brandName, products }) => {
                         <h4>ABOUT US</h4>
                         <div>We are a team of designers and developers that create high quality Magento, Prestashop, Opencart themes.</div>
                         <div style={{ marginTop: 20 }}>Address: No 40 Baria Sreet 133/2 NewYork City, NY, United States.</div>
-                    </div>
-                    <div className="ins-foot-col">
-                        <h4>INFORMATION</h4>
-                        <div>My Account</div>
-                        <div>Order History</div>
-                        <div>Returns</div>
-                        <div>Specials</div>
-                    </div>
-                    <div className="ins-foot-col">
-                        <h4>SERVICE</h4>
-                        <div>Contact Us</div>
-                        <div>Returns</div>
-                        <div>Site Map</div>
                     </div>
                     <div className="ins-foot-col">
                         <h4>NEWSLETTER</h4>

@@ -54,6 +54,37 @@
     object-position: center top;
 }
 
+.tpl-ultra .ul-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    width: 70%;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tpl-ultra .ul-hero-brand {
+    font-size: 12vw;
+    /* Responsive size to prevent overflow */
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-family: 'Bodoni MT', serif;
+    /* Matching logo font */
+    color: transparent;
+    -webkit-text-stroke: 3px #fff;
+}
+
+.tpl-ultra .ul-hero-motto {
+    font-size: 3rem;
+    margin-top: 15px;
+    font-style: italic;
+    font-family: 'Times New Roman', serif;
+}
+
 /* Section Titles */
 .tpl-ultra .ul-sect-title {
     text-align: center;
@@ -65,7 +96,7 @@
 .tpl-ultra .ul-sect-line {
     width: 40px;
     height: 3px;
-    background: #d45d5d;
+    background: forestgreen;
     /* Reddish accent */
     margin: 10px auto 60px;
 }
@@ -101,15 +132,16 @@
 
 .tpl-ultra .ul-prod-price {
     font-size: 0.9rem;
-    color: #d45d5d;
+    color: forestgreen;
     font-weight: 700;
 }
 
-/* Collection Banner (Full Width Parallax-like) */
+/* Collection Banner (Full Width with Ribbon) */
 .tpl-ultra .ul-collection {
     position: relative;
-    height: 600px;
-    background: #ccc;
+    height: 400px;
+    /* Adjusted height for ribbon banner feel */
+    background: #000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,16 +149,41 @@
     margin-bottom: 80px;
 }
 
-.tpl-ultra .ul-col-bg {
+.tpl-ultra .ul-ribbon-wrapper {
     position: absolute;
     inset: 0;
     display: flex;
+    align-items: center;
+    opacity: 0.8;
+    /* Dim it slightly so text pops */
 }
 
-.tpl-ultra .ul-col-bg-img {
-    flex: 1;
-    height: 100%;
+.tpl-ultra .ul-ribbon-track {
+    display: flex;
+    gap: 0;
+    /* Continuous strip */
+    animation: ul-scroll 120s linear infinite;
+    width: max-content;
+}
+
+.tpl-ultra .ul-ribbon-img {
+    height: 400px;
+    width: 33.333vw;
+    /* 3 items per screen width */
     object-fit: cover;
+    display: block;
+}
+
+@keyframes ul-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.33%);
+    }
+
+    /* Loop 1/3 since we tripled content */
 }
 
 .tpl-ultra .ul-col-content {
@@ -134,12 +191,11 @@
     z-index: 10;
     text-align: center;
     color: #fff;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .tpl-ultra .ul-col-title {
     font-family: 'Oswald', sans-serif;
-    /* Tall sans font */
     font-size: 5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -178,10 +234,21 @@
     gap: 20px;
 }
 
-.tpl-ultra .ul-feat-img {
+.tpl-ultra .ul-feat-link {
     width: 50%;
+    display: block;
+    text-decoration: none;
+}
+
+.tpl-ultra .ul-feat-img {
+    width: 100%;
     height: 400px;
     object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.tpl-ultra .ul-feat-img:hover {
+    transform: scale(1.02);
 }
 
 .tpl-ultra .ul-feat-text {

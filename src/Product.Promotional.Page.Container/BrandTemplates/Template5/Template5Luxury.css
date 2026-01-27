@@ -65,8 +65,17 @@
     font-size: 5rem;
     line-height: 0.9;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-transform: uppercase;
+}
+
+.tpl-artic .art-hero-motto {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .tpl-artic .art-hero-price-box {
@@ -79,6 +88,39 @@
     backdrop-filter: blur(5px);
     border-radius: 50px;
     margin-top: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tpl-artic .art-hero-price-box:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tpl-artic .art-hero-price-box.clicked .art-arrow-btn {
+    animation: shoot-out 0.6s cubic-bezier(0.75, 0, 0.25, 1) forwards;
+}
+
+@keyframes shoot-out {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(15px, -15px);
+        opacity: 0;
+    }
+
+    51% {
+        transform: translate(-15px, 15px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
 }
 
 .tpl-artic .art-price {
@@ -87,32 +129,35 @@
 }
 
 .tpl-artic .art-hero-center {
-    flex: 1;
+    flex: 2;
     display: flex;
     justify-content: center;
     position: relative;
+    padding-left: 50px;
 }
 
-.tpl-artic .art-hero-model {
-    width: 120%;
-    /* Large overlap */
-    max-width: 600px;
-    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.5));
-}
-
-.tpl-artic .art-hero-right {
-    flex: 0.5;
+.tpl-artic .art-hero-gallery {
     display: flex;
-    justify-content: flex-end;
-    gap: 20px;
+    gap: 10px;
+    height: 60vh;
+    width: 100%;
+    justify-content: center;
+    /* Center the strips */
 }
 
-.tpl-artic .art-hero-thumb {
-    width: 80px;
-    height: 120px;
+.tpl-artic .art-gallery-img {
+    width: 100px;
+    height: 100%;
     object-fit: cover;
-    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 4px;
+    transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease;
+    filter: brightness(0.8) grayscale(50%);
+    cursor: pointer;
+}
+
+.tpl-artic .art-gallery-img.active {
+    width: 500px;
+    filter: brightness(1) grayscale(0%);
 }
 
 /* New Collection Grid */
@@ -219,6 +264,7 @@
     line-height: 0.8;
     background: -webkit-linear-gradient(#fff, rgba(255, 255, 255, 0));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
     opacity: 0.5;

@@ -251,9 +251,10 @@ const ProductListing = () => {
     }, [selectedFilters]);
 
     // Reset filters on navigation (context change)
+    // Reset filters on navigation (context change)
     React.useEffect(() => {
         setSelectedFilters({
-            brands: [],
+            brands: brandParam ? [brandParam] : [],
             categories: [],
             prices: [],
             priceRange: [0, 5000],
@@ -262,7 +263,7 @@ const ProductListing = () => {
             kidsGender: []
         });
         setCurrentPage(1);
-    }, [gender, category, subCategory, search]);
+    }, [gender, category, subCategory, search, brandParam]);
 
     // 4. Sorting
     const sortedProducts = React.useMemo(() => {

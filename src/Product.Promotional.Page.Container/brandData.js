@@ -1,6 +1,7 @@
 export const brandDetails = {
     "t-base": {
         motto: "Base of Style",
+        logo: "https://placehold.co/100x100?text=t-base",
         description: "Essential wear for the modern individual.",
         collectionDescription: "Discover the t-base collection, where comfort meets contemporary style. From essential solids to relaxed fits, every piece is crafted to be your go-to daily wear.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
@@ -50,6 +51,7 @@ export const brandDetails = {
                 description: "Made with sustainable practices, because looking good shouldn't cost the earth."
             }
         ],
+        categories: ["ALL", "MEN WATCHES", "SNEAKERS", "HAIR GEL", "WOMEN WATCHES"],
         limitedOffer: {
             heading: "Essential Combo",
             images: [
@@ -61,6 +63,7 @@ export const brandDetails = {
     },
     "Spykar": {
         motto: "Young & Restless",
+        logo: "https://placehold.co/100x100?text=Spykar",
         description: "Denim and casual wear for the spirited youth.",
         featureTagline: "Born for the Bold",
         featureDescription: "Spykar is India's leading youth fashion denim brand. From the very beginning, we have been committed to creating jeans that are not just a garment, but a lifestyle choice for the young and restless.",
@@ -75,6 +78,7 @@ export const brandDetails = {
     },
     "Wildcraft": {
         motto: "Come Alive",
+        logo: "https://placehold.co/100x100?text=Wildcraft",
         description: "Gear for the great outdoors.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 3,
@@ -84,44 +88,117 @@ export const brandDetails = {
     },
     "Reebok": {
         motto: "Sport the Unexpected",
+        logo: "https://placehold.co/100x100?text=Reebok",
         description: "Fitness apparel and footwear for every athlete.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 4,
         heroImages: [
             "https://placehold.co/600x500/e9e9ed/282c3f?text=Reebok%20Hero%201",
             "https://placehold.co/600x500/d9d9dd/282c3f?text=Reebok%20Hero%202"
+        ],
+        bentoGrid: [
+            {
+                image: "https://placehold.co/400x600/e9e9ed/282c3f?text=Reebok%20Tall",
+                subTitle: "ETHEREAL ELEGANCE",
+                heading: "Where Dreams Meet Couture",
+                link: "/products?search=Reebok%20Couture"
+            },
+            {
+                image: "https://placehold.co/600x300/d9d9dd/282c3f?text=Reebok%20Wide",
+                subTitle: "RADIANT REVERIE",
+                heading: "Enchanting Styles for Every Woman",
+                link: "/products?search=Reebok%20Women"
+            },
+            {
+                image: "https://placehold.co/300x300/c9c9cd/282c3f?text=Reebok%20Small",
+                subTitle: "URBAN STRIDES",
+                heading: "Chic Footwear for City Living",
+                link: "/products?search=Reebok%20Footwear"
+            },
+            {
+                // Last item acts as text/promo block or image
+                image: "https://placehold.co/300x300/b9b9bd/282c3f?text=Reebok%20Promo",
+                subTitle: "Trendsetting Bags",
+                heading: "30% to 50% Off",
+                isTextOnly: true, // Optional flag if we want to keep specific style
+                link: "/products?search=Reebok%20Bags"
+            }
         ]
     },
     "Levis": {
         motto: "Quality Never Goes Out of Style",
+        logo: "https://placehold.co/100x100?text=Levis",
         description: "Authentic denim since 1853.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 5,
         heroImages: [
-            "https://placehold.co/600x500/e9e9ed/282c3f?text=Levis%20Hero%201"
-        ]
+            "https://placehold.co/600x500/e9e9ed/282c3f?text=Levis%20Hero%201",
+            "https://placehold.co/600x500/d9d9dd/282c3f?text=Levis%20Hero%202",
+            "https://placehold.co/600x500/c9c9cd/282c3f?text=Levis%20Hero%203"
+        ],
+        footerImage: "https://placehold.co/1400x800/282c3f/777?text=Levis%20Footer"
     },
     "H&M": {
         motto: "Fashion and Quality at the Best Price",
+        logo: "https://placehold.co/100x100?text=H%26M",
         description: "Sustainable fashion for everyone.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 6,
         heroImages: [
             "https://placehold.co/600x500/e9e9ed/282c3f?text=H%26M%20Hero%201"
+        ],
+        features: [
+            { title: "PREMIUM FABRICS", description: "Sourced for softness and durability." },
+            { title: "SUSTAINABLE COTTON", description: "100% organic and recycled blends." },
+            { title: "BREATHABLE WEAVE", description: "Comfort that lasts all day." }
+        ],
+        mosaicSection: [
+            { title: "Dresses", subTitle: "New Season", image: "https://placehold.co/400x600/e9e9ed/282c3f?text=H%26M%20Dresses" },
+            { title: "Tops", subTitle: "Essentials", image: "https://placehold.co/800x600/d9d9dd/282c3f?text=H%26M%20Tops" },
+            { title: "Pants", subTitle: "Comfort Fit", image: "https://placehold.co/400x600/c9c9cd/282c3f?text=H%26M%20Pants" }
         ]
     },
     "Roadster": {
         motto: "The Road is Waiting",
+        logo: "https://placehold.co/100x100?text=Roadster",
         description: "Rugged style for the adventurous soul.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 7,
         heroImages: [
             "https://placehold.co/600x500/e9e9ed/282c3f?text=Roadster%20Hero%201",
             "https://placehold.co/600x500/d9d9dd/282c3f?text=Roadster%20Hero%202"
+        ],
+        promoSection: {
+            image: "https://placehold.co/600x800/282c3f/fff?text=Roadster%20Promo",
+            title: "Hit the Road",
+            description: "Gear up for your next journey with our durable and stylish outdoor collection."
+        },
+        bannerSection: {
+            image: "https://placehold.co/800x500/553333/fff?text=Roadster%20Banner",
+            title: "Rugged Denim",
+            description: "Built to last. Designed to impress. Experience the true spirit of the road."
+        },
+        features: [
+            {
+                image: "https://placehold.co/400x500/e9e9ed/282c3f?text=Roadster%20Adv",
+                title: "Adventure Ready",
+                description: "Gear designed to withstand the elements."
+            },
+            {
+                image: "https://placehold.co/400x500/d9d9dd/282c3f?text=Roadster%20Eco",
+                title: "Sustainable Denim",
+                description: "Crafted with care for the planet."
+            },
+            {
+                image: "https://placehold.co/400x500/c9c9cd/282c3f?text=Roadster%20Comfort",
+                title: "Premium Comfort",
+                description: "Soft fabrics for all-day wear."
+            }
         ]
     },
     "Puma": {
         motto: "Forever Faster",
+        logo: "https://placehold.co/100x100?text=Puma",
         description: "Performance gear for the fastest athletes.",
         collectionDescription: "Explore the Puma collection designed for those who play fast. Featuring advanced athletic technology and iconic streetwear styles that keep you ahead of the game.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
@@ -184,6 +261,7 @@ export const brandDetails = {
     },
     "Mast & Harbour": {
         motto: "Set Sail with Style",
+        logo: "https://placehold.co/100x100?text=Mast%20%26%20Harbour",
         description: "Nautical inspired casual wear.",
         featureTagline: "Urban Nautical",
         featureDescription: "Set sail on a journey of style with Mast & Harbour. Our collection brings the breezy, sophisticated vibe of the marina to your everyday wardrobe, blending classic cuts with modern comfort.",
@@ -198,6 +276,7 @@ export const brandDetails = {
     },
     "Jack & Jones": {
         motto: "One World, One Philosophy",
+        logo: "https://placehold.co/100x100?text=Jack%20%26%20Jones",
         description: "Cool, easy-going menswear.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 3,
@@ -208,6 +287,7 @@ export const brandDetails = {
     },
     "U.S. Polo Assn.": {
         motto: "Live Authentically",
+        logo: "https://placehold.co/100x100?text=U.S.%20Polo%20Assn.",
         description: "Classic American style.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 4,
@@ -217,6 +297,7 @@ export const brandDetails = {
     },
     "Nike": {
         motto: "Just Do It",
+        logo: "https://placehold.co/100x100?text=Nike",
         description: "Innovation and inspiration for every athlete.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 5,
@@ -228,24 +309,64 @@ export const brandDetails = {
     },
     "Crocs": {
         motto: "Come As You Are",
+        logo: "https://placehold.co/100x100?text=Crocs",
         description: "Comfortable casual footwear.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 6,
         heroImages: [
             "https://placehold.co/600x500/e9e9ed/282c3f?text=Crocs%20Hero%201"
+        ],
+        features: [
+            { title: "CROSLITE™ MATERIAL", description: "Proprietary resin for impact absorption." },
+            { title: "ODOR RESISTANT", description: "Easy to clean, quick to dry." },
+            { title: "NON-MARKING SOLES", description: "Safe for all floor surfaces." }
+        ],
+        mosaicSection: [
+            { title: "Clogs", subTitle: "Classic", image: "https://placehold.co/400x600/e9e9ed/282c3f?text=Crocs%20Clogs" },
+            { title: "Sandals", subTitle: "Summer Vibes", image: "https://placehold.co/800x600/d9d9dd/282c3f?text=Crocs%20Sandals" },
+            { title: "Jibbitz", subTitle: "Personalize", image: "https://placehold.co/400x600/c9c9cd/282c3f?text=Crocs%20Jibbitz" }
         ]
     },
     "V-Mart": {
         motto: "Price Less Fashion",
+        logo: "https://placehold.co/100x100?text=V-Mart",
         description: "Affordable fashion for the family.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 7,
         heroImages: [
             "https://placehold.co/600x500/e9e9ed/282c3f?text=V-Mart%20Hero%201"
+        ],
+        promoSection: {
+            image: "https://placehold.co/600x800/ff9900/fff?text=V-Mart%20Promo",
+            title: "Family Fashion",
+            description: "Trendy styles for everyone in the family at prices you'll love."
+        },
+        bannerSection: {
+            image: "https://placehold.co/800x500/00aa00/fff?text=V-Mart%20Banner",
+            title: "Festive Sale",
+            description: "Celebrate with our exclusive festive collection. Up to 50% off!"
+        },
+        features: [
+            {
+                image: "https://placehold.co/400x500/e9e9ed/282c3f?text=V-Mart%20Price",
+                title: "Best Prices",
+                description: "Unbeatable value on all items."
+            },
+            {
+                image: "https://placehold.co/400x500/d9d9dd/282c3f?text=V-Mart%20Trend",
+                title: "Latest Trends",
+                description: "Fresh styles added every week."
+            },
+            {
+                image: "https://placehold.co/400x500/c9c9cd/282c3f?text=V-Mart%20Family",
+                title: "Family Packs",
+                description: "Bundles for the whole family."
+            }
         ]
     },
     "Highlander": {
         motto: "Choose Your Attitude",
+        logo: "https://placehold.co/100x100?text=Highlander",
         description: "Bold fashion for men.",
         collectionDescription: "Highlander brings you a rugged yet refined collection. Defined by strong cuts, premium fabrics, and a bold attitude that fits perfectly with your adventurous lifestyle.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
@@ -305,6 +426,7 @@ export const brandDetails = {
     },
     "glitchez": {
         motto: "Style with a Glitch",
+        logo: "https://placehold.co/100x100?text=glitchez",
         description: "Trendy and unique fashion statements.",
         featureTagline: "Digital Expression",
         featureDescription: "Welcome to the future of fashion. glitchez isn't just about clothes; it's about glitching the system, breaking norms, and wearing your digital identity on your sleeve. Embrace the chaos.",
@@ -319,6 +441,7 @@ export const brandDetails = {
     },
     "Bata": {
         motto: "Surprisingly Bata",
+        logo: "https://placehold.co/100x100?text=Bata",
         description: "Comfortable and stylish footwear for all.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 3,
@@ -328,6 +451,7 @@ export const brandDetails = {
     },
     "Adidas": {
         motto: "Impossible is Nothing",
+        logo: "https://placehold.co/100x100?text=Adidas",
         description: "Sportswear designed for performance.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 4,
@@ -338,33 +462,77 @@ export const brandDetails = {
     },
     "Flying Machine": {
         motto: "The New Cool",
+        logo: "https://placehold.co/100x100?text=Flying%20Machine",
         description: "India's first home-grown denim brand.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 5,
         heroImages: [
-            "https://placehold.co/600x500/e9e9ed/282c3f?text=Flying%20Machine%20Hero%201"
-        ]
+            "https://placehold.co/600x500/e9e9ed/282c3f?text=Flying%20Machine%20Hero%201",
+            "https://placehold.co/600x500/d9d9dd/282c3f?text=Flying%20Machine%20Hero%202",
+            "https://placehold.co/600x500/c9c9cd/282c3f?text=Flying%20Machine%20Hero%203"
+        ],
+        footerImage: "https://placehold.co/1400x800/282c3f/777?text=Flying%20Machine%20Footer"
     },
     "Monte Carlo": {
         motto: "It's the Way You Make Me Feel",
+        logo: "https://placehold.co/100x100?text=Monte%20Carlo",
         description: "Premium quality fashion wear.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 6,
         heroImages: [
             "https://placehold.co/600x500/e9e9ed/282c3f?text=Monte%20Carlo%20Hero%201"
+        ],
+        features: [
+            { title: "PURE WOOL", description: "Woolmark certified authentic quality." },
+            { title: "ANTI-PILLING", description: "High-grade yarn resists wear." },
+            { title: "SOFT TOUCH", description: "Luxuriously smooth against skin." }
+        ],
+        mosaicSection: [
+            { title: "Jackets", subTitle: "Winter Wear", image: "https://placehold.co/400x600/e9e9ed/282c3f?text=MC%20Jackets" },
+            { title: "Sweaters", subTitle: "Cozy Knits", image: "https://placehold.co/800x600/d9d9dd/282c3f?text=MC%20Sweaters" },
+            { title: "Shirts", subTitle: "Formal Look", image: "https://placehold.co/400x600/c9c9cd/282c3f?text=MC%20Shirts" }
         ]
     },
     "Peter England": {
         motto: "Beginning of Good Things",
+        logo: "https://placehold.co/100x100?text=Peter%20England",
         description: "Finest affordable menswear.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 7,
         heroImages: [
             "https://placehold.co/600x500/e9e9ed/282c3f?text=Peter%20England%20Hero%201"
+        ],
+        promoSection: {
+            image: "https://placehold.co/600x800/333399/fff?text=Peter%20England%20Promo",
+            title: "Corporate Class",
+            description: "Redefine your workwear with our sharp and sophisticated formal range."
+        },
+        bannerSection: {
+            image: "https://placehold.co/800x500/660000/fff?text=Peter%20England%20Banner",
+            title: "Casual Fridays",
+            description: "Relaxed yet refined. Perfect for the weekend or a casual day at the office."
+        },
+        features: [
+            {
+                image: "https://placehold.co/400x500/e9e9ed/282c3f?text=PE%20Fabric",
+                title: "Finest Fabrics",
+                description: " sourced from top global mills."
+            },
+            {
+                image: "https://placehold.co/400x500/d9d9dd/282c3f?text=PE%20Fit",
+                title: "Perfect Fit",
+                description: "Tailored to perfection for every body type."
+            },
+            {
+                image: "https://placehold.co/400x500/c9c9cd/282c3f?text=PE%20Style",
+                title: "Global Style",
+                description: "International designs for the modern man."
+            }
         ]
     },
     "Woodland": {
         motto: "Explore More",
+        logo: "https://placehold.co/100x100?text=Woodland",
         description: "Tough and durable outdoor gear.",
         collectionDescription: "The Woodland collection is built for the explorers. Durable, reliable, and stylishly rugged gear that stands up to the elements while looking great.",
         socials: { instagram: "#", twitter: "#", facebook: "#" },
@@ -427,6 +595,7 @@ export const brandDetails = {
 export const getBrandDetails = (brandName) => {
     return brandDetails[brandName] || {
         motto: "Quality You Can Trust",
+        logo: "https://placehold.co/100x100?text=Brand",
         description: `Experience the best of ${brandName}.`,
         socials: { instagram: "#", twitter: "#", facebook: "#" },
         templateId: 1,

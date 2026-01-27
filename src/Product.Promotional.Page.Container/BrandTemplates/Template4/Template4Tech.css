@@ -12,10 +12,10 @@
 /* Navbar (Integrated) */
 .tpl-mixtas .mix-nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 20px 40px;
-    background: #6c9bc5;
+    background: rgb(1, 1, 44);
     /* Matching blue from hero image if integrated, else specific */
     color: #fff;
 }
@@ -36,7 +36,7 @@
     position: relative;
     height: 80vh;
     overflow: hidden;
-    background: #6c9bc5;
+    background: rgb(1, 1, 44);
     /* Fallback color */
 }
 
@@ -45,7 +45,6 @@
     height: 100%;
     object-fit: cover;
     object-position: center 20%;
-    /* Focus on faces/top */
 }
 
 .tpl-mixtas .mix-hero-content {
@@ -79,7 +78,6 @@
     border: none;
     font-weight: 700;
     border-radius: 4px;
-    /* Slight round */
     cursor: pointer;
     transition: 0.3s;
 }
@@ -141,30 +139,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
+    /* Reduced from 20px to compact the card */
 }
 
 .tpl-mixtas .mix-card-img {
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;
-    /* Contain to show full product on grey bg */
 }
 
 .tpl-mixtas .mix-card-meta {
     font-size: 0.7rem;
     color: #999;
     text-transform: uppercase;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
 }
 
 .tpl-mixtas .mix-card-title {
     font-size: 0.9rem;
     font-weight: 600;
-    margin-bottom: 5px;
-    height: 40px;
-    /* Two lines max */
-    overflow: hidden;
+    margin-bottom: 2px;
+    line-height: 1.2;
+    min-height: auto;
 }
 
 .tpl-mixtas .mix-card-price {
@@ -197,7 +194,6 @@
     top: 30px;
     left: 30px;
     color: #111;
-    /* Mostly dark text on light backgrounds */
     max-width: 70%;
 }
 
@@ -249,7 +245,7 @@
 .tpl-mixtas .item-bot-right {
     grid-column: 3;
     grid-row: 2;
-    background: #6c9bc5;
+    background: rgb(1, 1, 44);
     /* Solid color block fallback or overlay */
     color: #fff;
     display: flex;

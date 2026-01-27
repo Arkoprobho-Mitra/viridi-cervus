@@ -11,7 +11,7 @@
 /* Nav (Clean White with Gold accent) */
 .tpl-massimo .mass-nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 15px 40px;
     border-bottom: 3px solid #f4f4f4;
@@ -53,8 +53,8 @@
 .tpl-massimo .mass-hero-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top;
+    object-fit: contain;
+    object-position: center;
 }
 
 .tpl-massimo .mass-hero-overlay {
@@ -65,6 +65,18 @@
     text-align: center;
     color: #fff;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.tpl-massimo .mass-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
 }
 
 .tpl-massimo .mass-hero-title {
@@ -149,7 +161,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.8);
     color: #fff;
     padding: 20px;
     min-width: 180px;
@@ -182,6 +194,7 @@
     font-weight: 700;
     margin-bottom: 30px;
     color: #333;
+    font-size: 2.5rem;
 }
 
 .tpl-massimo .mass-tabs {
@@ -240,74 +253,133 @@
     color: #777;
 }
 
-/* Footer (Daily Deals) */
+/* Footer (About & Newsletter) */
 .tpl-massimo .mass-footer {
     border-top: 1px solid #eee;
     margin-top: 80px;
     padding: 60px 0;
-}
-
-.tpl-massimo .mass-deals-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 50px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.tpl-massimo .mass-deal-main {
-    background: #f4f4f4;
-    padding: 2px;
-    /* Border like effect */
-}
-
-.tpl-massimo .mass-deal-content {
-    background: #fff;
-    padding: 30px;
     text-align: center;
 }
 
-.tpl-massimo .mass-countdown {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 20px 0;
-}
-
-.tpl-massimo .mass-time-box {
-    background: #f4f4f4;
-    width: 50px;
-    height: 50px;
+.tpl-massimo .mass-footer-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 0.9rem;
-    font-weight: 700;
+    align-items: center;
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
 }
 
-.tpl-massimo .mass-blog-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.tpl-massimo .mass-blog-item img {
+.tpl-massimo .mass-foot-col {
     width: 100%;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 10px;
+    max-width: 600px;
 }
 
-.tpl-massimo .mass-blog-title {
-    font-size: 0.8rem;
-    font-weight: 700;
+.tpl-massimo .mass-foot-col h4 {
     text-transform: uppercase;
+    font-size: 1.5rem;
+    /* Increased size */
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+    letter-spacing: 1px;
 }
 
-.tpl-massimo .mass-blog-date {
-    font-size: 0.7rem;
-    color: #999;
-    font-style: italic;
+.tpl-massimo .mass-foot-col p {
+    font-size: 1.1rem;
+    /* Increased size */
+    color: #777;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.tpl-massimo .mass-newsletter {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tpl-massimo .mass-newsletter input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-family: inherit;
+    font-size: 0.8rem;
+    flex: 1;
+}
+
+.tpl-massimo .mass-newsletter button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tpl-massimo .mass-newsletter button:hover {
+    background: #c5a059;
+}
+
+/* Infinite Ribbon */
+.tpl-massimo .mass-ribbon-sec {
+    background: #000;
+    color: #fff;
+    padding: 100px 0;
+    margin-top: 60px;
+    text-align: center;
+    overflow: hidden;
+    /* Hide scrollbar */
+}
+
+.tpl-massimo .mass-ribbon-track {
+    display: flex;
+    gap: 0;
+    /* No gap between images directly, or handle with padding */
+    width: max-content;
+    /* Fit content */
+    animation: mass-scroll 60s linear infinite;
+    margin-top: 50px;
+}
+
+.tpl-massimo .mass-ribbon-track:hover {
+    animation-play-state: paused;
+}
+
+.tpl-massimo .mass-ribbon-item {
+    width: 300px;
+    /* Fixed width for better calculation, or relative */
+    height: 400px;
+    flex-shrink: 0;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.tpl-massimo .mass-ribbon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.tpl-massimo .mass-ribbon-img:hover {
+    opacity: 1;
+}
+
+@keyframes mass-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Move by half which is one full set */
 }
