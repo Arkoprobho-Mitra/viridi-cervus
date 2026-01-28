@@ -70,6 +70,9 @@ const ProductListing = () => {
     const [currentPage, setCurrentPage] = React.useState(1);
     const itemsPerPage = 50; // Updated to 50 items per page
 
+    // Filter Visibility State
+    const [isFilterOpen, setIsFilterOpen] = React.useState(true);
+
     // Sorting State
     const [sortBy, setSortBy] = React.useState('recommended');
     const [isSortOpen, setSortOpen] = React.useState(false);
@@ -143,15 +146,76 @@ const ProductListing = () => {
         return true;
     });
 
-    // 2. Derive Dynamic Filter Options
-    const availableBrands = React.useMemo(() => [...new Set(contextProducts.map(p => p.brand))].sort(), [contextProducts]);
-    const availableCategories = React.useMemo(() => [...new Set(contextProducts.map(p => p.subCategory))].sort(), [contextProducts]);
-
-    const availableColors = React.useMemo(() => {
-        const counts = {};
-        contextProducts.forEach(p => {
-            counts[p.color] = (counts[p.color] || 0) + 1;
+    // 2. Faceted Filtering Helper
+    const filterProducts = (prods, filters) => {
+        return prods.filter(product => {
+            // Brand Filter
+            if (filters.brands?.length > 0 && !filters.brands.includes(product.brand)) return false;
+            // Category Filter
+            if (filters.categories?.length > 0 && !filters.categories.includes(product.subCategory)) return false;
+            // Color Filter
+            if (filters.colors?.length > 0 && !filters.colors.includes(product.color)) return false;
+            // Kids Gender
+            if (filters.kidsGender?.length > 0) {
+                if (product.kidsCategory && !filters.kidsGender.includes(product.kidsCategory)) return false;
+                if (!product.kidsCategory) return false;
+            }
+            // Price Range
+            const minPrice = filters.priceRange[0] === '' ? 0 : filters.priceRange[0];
+            const maxPrice = filters.priceRange[1] === '' ? 5000 : filters.priceRange[1];
+            if (product.price < minPrice || product.price > maxPrice) return false;
+            // Price Checkboxes
+            if (filters.prices?.length > 0) {
+                const matchesPrice = filters.prices.some(range => {
+                    const parts = range.match(/Rs\.\s*(\d+)\s*to\s*Rs\.\s*(\d+)/);
+                    if (parts) {
+                        const min = parseInt(parts[1]);
+                        const max = parseInt(parts[2]);
+                        return product.price >= min && product.price <= max;
+                    }
+                    return false;
+                });
+                if (!matchesPrice) return false;
+            }
+            // Discount
+            if (filters.discount) {
+                const minDiscount = parseInt(filters.discount);
+                if (product.discount < minDiscount) return false;
+            }
+            return true;
         });
+    };
+
+    // 3. Derive Dynamic Filter Options (Faceted)
+
+    // Brands: Filter by everything EXCEPT Brand
+    const availableBrands = React.useMemo(() => {
+        const criteria = { ...selectedFilters, brands: [] };
+        const subset = filterProducts(contextProducts, criteria);
+
+        const counts = {};
+        subset.forEach(p => { counts[p.brand] = (counts[p.brand] || 0) + 1; });
+
+        return Object.keys(counts).sort().map(brand => ({
+            name: brand,
+            count: counts[brand]
+        }));
+    }, [contextProducts, selectedFilters]);
+
+    // Categories: Filter by everything EXCEPT Category
+    const availableCategories = React.useMemo(() => {
+        const criteria = { ...selectedFilters, categories: [] };
+        const subset = filterProducts(contextProducts, criteria);
+        return [...new Set(subset.map(p => p.subCategory))].sort();
+    }, [contextProducts, selectedFilters]);
+
+    // Colors: Filter by everything EXCEPT Color
+    const availableColors = React.useMemo(() => {
+        const criteria = { ...selectedFilters, colors: [] };
+        const subset = filterProducts(contextProducts, criteria);
+
+        const counts = {};
+        subset.forEach(p => { counts[p.color] = (counts[p.color] || 0) + 1; });
 
         const standardColors = {
             'Black': '#000000', 'Grey': '#808080', 'Blue': '#0000FF', 'Navy Blue': '#000080',
@@ -166,7 +230,7 @@ const ProductListing = () => {
             count: counts[name],
             hex: standardColors[name] || '#cccccc'
         }));
-    }, [contextProducts]);
+    }, [contextProducts, selectedFilters]);
 
     const dynamicOptions = {
         brands: availableBrands,
@@ -180,70 +244,10 @@ const ProductListing = () => {
         kidsGender: (gender && gender.toLowerCase() === 'kids' && !category && !subCategory) ? ['Boys', 'Girls', 'Unisex'] : []
     };
 
-    // 3. Final Filtering (Sidebar Filters)
-    const filteredProducts = contextProducts.filter(product => {
-        // Brand Filter
-        if (selectedFilters.brands.length > 0 && !selectedFilters.brands.includes(product.brand)) {
-            return false;
-        }
-
-        // Category Filter (Sidebar)
-        if (selectedFilters.categories.length > 0 && !selectedFilters.categories.includes(product.subCategory)) {
-            return false;
-        }
-
-        // Color Filter
-        if (selectedFilters.colors.length > 0 && !selectedFilters.colors.includes(product.color)) {
-            return false;
-        }
-
-        // Kids Gender Filter (using new kidsCategory field)
-        if (selectedFilters.kidsGender.length > 0) {
-            // Check if product has the field (for safety) and matches
-            if (product.kidsCategory && !selectedFilters.kidsGender.includes(product.kidsCategory)) {
-                return false;
-            }
-            // If product doesn't have kidsCategory (e.g. not a Kids item or script missed it), 
-            // deciding whether to hide or show. 
-            // If it's a "Kids" item it *should* have it.
-            // If it doesn't, let's look at the robust check to be safe?
-            // "Levis Flats" -> script set "Girls".
-            // So plain strict check is good.
-            if (!product.kidsCategory) return false;
-        }
-
-        // Price Filter (Slider Range)
-        const minPrice = selectedFilters.priceRange[0] === '' ? 0 : selectedFilters.priceRange[0];
-        const maxPrice = selectedFilters.priceRange[1] === '' ? 5000 : selectedFilters.priceRange[1];
-
-        if (product.price < minPrice || product.price > maxPrice) {
-            return false;
-        }
-
-        // Price Filter (Simple logic: checks if price falls into any selected range)
-        if (selectedFilters.prices.length > 0) {
-            const matchesPrice = selectedFilters.prices.some(range => {
-                const parts = range.match(/Rs\.\s*(\d+)\s*to\s*Rs\.\s*(\d+)/);
-                if (parts) {
-                    const min = parseInt(parts[1]);
-                    const max = parseInt(parts[2]);
-                    return product.price >= min && product.price <= max;
-                }
-                return false;
-            });
-            if (!matchesPrice) return false;
-        }
-
-        // Discount Filter
-        if (selectedFilters.discount) {
-            const minDiscount = parseInt(selectedFilters.discount);
-            if (product.discount < minDiscount) {
-                return false;
-            }
-        }
-
-        return true;
-    });
+    // 4. Final Filtering (Sidebar Filters)
+    const filteredProducts = React.useMemo(() => {
+        return filterProducts(contextProducts, selectedFilters);
+    }, [contextProducts, selectedFilters]);
 
     // Reset page on filter change
     React.useEffect(() => {
@@ -263,7 +267,8 @@ const ProductListing = () => {
             kidsGender: []
         });
         setCurrentPage(1);
-    }, [gender, category, subCategory, search, brandParam]);
+        setSortBy(queryParams.get('sort') || 'recommended');
+    }, [gender, category, subCategory, search, brandParam, queryParams.get('sort')]);
 
     // 4. Sorting
     const sortedProducts = React.useMemo(() => {
@@ -288,47 +293,64 @@ const ProductListing = () => {
 
     return (
         <div className="product-listing-container">
-            {/* Sidebar */}
-            <Filters
-                selectedFilters={selectedFilters}
-                onFilterChange={handleFilterChange}
-                onClearFilters={clearFilters}
-                availableOptions={dynamicOptions}
-            />
+            {/* Sidebar Wrapper */}
+            <div className={`filter-sidebar-wrapper ${isFilterOpen ? 'open' : 'closed'}`}>
+                <Filters
+                    selectedFilters={selectedFilters}
+                    onFilterChange={handleFilterChange}
+                    onClearFilters={clearFilters}
+                    availableOptions={dynamicOptions}
+                />
+            </div>
 
             {/* Main Content */}
             <div className="product-grid-section">
 
                 {/* Header Section */}
                 <div className="listing-header">
-                    <div className="breadcrumbs">
-                        <Link to="/" className="breadcrumb-link">Home</Link>
-                        {gender && (
-                            <>
-                                {' / '}
-                                {(category && category !== 'Clothing') || (subCategory && subCategory !== 'All') ? (
-                                    <Link to={`/products?gender=${gender}`} className="breadcrumb-link">{capitalize(gender)}</Link>
-                                ) : (
-                                    <strong>{capitalize(gender)}</strong>
-                                )}
-                            </>
-                        )}
-                        {category && category !== 'Clothing' && (
-                            <>
-                                {' / '}
-                                {(subCategory && subCategory !== 'All') ? (
-                                    <Link to={`/products?${gender ? `gender=${gender}&` : ''}category=${encodeURIComponent(category)}`} className="breadcrumb-link">{category}</Link>
-                                ) : (
-                                    <strong>{category}</strong>
-                                )}
-                            </>
-                        )}
-                        {subCategory && subCategory !== 'All' && (
-                            <>
-                                {' / '}
-                                <strong>{subCategory}</strong>
-                            </>
-                        )}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '10px' }}>
+                        {/* Sandwhich Menu Button */}
+                        <button
+                            className={`sandwich-btn ${isFilterOpen ? 'open' : ''}`}
+                            onClick={() => setIsFilterOpen(!isFilterOpen)}
+                            title={isFilterOpen ? "Close Filters" : "Open Filters"}
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                        </button>
+
+                        <div className="breadcrumbs" style={{ margin: 0 }}>
+                            <Link to="/" className="breadcrumb-link">Home</Link>
+                            {gender && (
+                                <>
+                                    {' / '}
+                                    {(category && category !== 'Clothing') || (subCategory && subCategory !== 'All') ? (
+                                        <Link to={`/products?gender=${gender}`} className="breadcrumb-link">{capitalize(gender)}</Link>
+                                    ) : (
+                                        <strong>{capitalize(gender)}</strong>
+                                    )}
+                                </>
+                            )}
+                            {category && category !== 'Clothing' && (
+                                <>
+                                    {' / '}
+                                    {(subCategory && subCategory !== 'All') ? (
+                                        <Link to={`/products?${gender ? `gender=${gender}&` : ''}category=${encodeURIComponent(category)}`} className="breadcrumb-link">{category}</Link>
+                                    ) : (
+                                        <strong>{category}</strong>
+                                    )}
+                                </>
+                            )}
+                            {subCategory && subCategory !== 'All' && (
+                                <>
+                                    {' / '}
+                                    <strong>{subCategory}</strong>
+                                </>
+                            )}
+                        </div>
                     </div>
 
                     <div className="listing-header-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginTop: '10px' }}>

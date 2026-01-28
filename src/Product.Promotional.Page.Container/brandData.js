@@ -101,19 +101,19 @@ export const brandDetails = {
                 image: "https://placehold.co/400x600/e9e9ed/282c3f?text=Reebok%20Tall",
                 subTitle: "ETHEREAL ELEGANCE",
                 heading: "Where Dreams Meet Couture",
-                link: "/products?search=Reebok%20Couture"
+                productName: "Couture"
             },
             {
                 image: "https://placehold.co/600x300/d9d9dd/282c3f?text=Reebok%20Wide",
                 subTitle: "RADIANT REVERIE",
                 heading: "Enchanting Styles for Every Woman",
-                link: "/products?search=Reebok%20Women"
+                productName: "Women"
             },
             {
                 image: "https://placehold.co/300x300/c9c9cd/282c3f?text=Reebok%20Small",
                 subTitle: "URBAN STRIDES",
                 heading: "Chic Footwear for City Living",
-                link: "/products?search=Reebok%20Footwear"
+                productName: "Footwear"
             },
             {
                 // Last item acts as text/promo block or image
@@ -121,7 +121,7 @@ export const brandDetails = {
                 subTitle: "Trendsetting Bags",
                 heading: "30% to 50% Off",
                 isTextOnly: true, // Optional flag if we want to keep specific style
-                link: "/products?search=Reebok%20Bags"
+                productName: "Bags"
             }
         ]
     },
@@ -293,6 +293,33 @@ export const brandDetails = {
         templateId: 4,
         heroImages: [
             "https://placehold.co/600x500/e9e9ed/282c3f?text=U.S.%20Polo%20Assn.%20Hero%201"
+        ],
+        bentoGrid: [
+            {
+                image: "https://placehold.co/400x600/112233/fff?text=USPA%20Polos",
+                subTitle: "CLASSIC AMERICAN",
+                heading: "The Iconic Polo Shirt",
+                productName: "Polos"
+            },
+            {
+                image: "https://placehold.co/600x300/334455/fff?text=USPA%20Denim",
+                subTitle: "DENIM COLLECTION",
+                heading: "Authentic & Durable Jeans",
+                productName: "Jeans"
+            },
+            {
+                image: "https://placehold.co/300x300/556677/fff?text=USPA%20Shoes",
+                subTitle: "STEP OUT",
+                heading: "Casual Footwear",
+                productName: "T-Shirts"
+            },
+            {
+                image: "https://placehold.co/300x300/778899/fff?text=USPA%20New",
+                subTitle: "NEW ARRIVALS",
+                heading: "Fresh Season Styles",
+                isTextOnly: false,
+                productName: "New"
+            }
         ]
     },
     "Nike": {
@@ -458,6 +485,33 @@ export const brandDetails = {
         heroImages: [
             "https://placehold.co/600x500/e9e9ed/282c3f?text=Adidas%20Hero%201",
             "https://placehold.co/600x500/d9d9dd/282c3f?text=Adidas%20Hero%202"
+        ],
+        bentoGrid: [
+            {
+                image: "https://placehold.co/400x600/000000/fff?text=Adidas%20Boost",
+                subTitle: "ENDLESS ENERGY",
+                heading: "Ultraboost 22",
+                productName: "Ultraboost"
+            },
+            {
+                image: "https://placehold.co/600x300/333333/fff?text=Adidas%20Originals",
+                subTitle: "ALWAYS ORIGINAL",
+                heading: "Streetwear Icons",
+                productName: "Originals"
+            },
+            {
+                image: "https://placehold.co/300x300/666666/fff?text=Adidas%20Football",
+                subTitle: "PITCH PERFECT",
+                heading: "Pro Football Gear",
+                productName: "Football"
+            },
+            {
+                image: "https://placehold.co/300x300/999999/fff?text=Adidas%20Sale",
+                subTitle: "LIMITED TIME",
+                heading: "Up to 50% Off",
+                isTextOnly: true,
+                productName: "Sale"
+            }
         ]
     },
     "Flying Machine": {

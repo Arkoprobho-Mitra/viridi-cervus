@@ -9,6 +9,7 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
     const [maxInput, setMaxInput] = React.useState(selectedFilters.priceRange[1]);
     const [showBrandModal, setShowBrandModal] = React.useState(false);
     const [showCategoryModal, setShowCategoryModal] = React.useState(false);
+    const [showColorModal, setShowColorModal] = React.useState(false);
 
     React.useEffect(() => {
         setMinInput(selectedFilters.priceRange[0]);
@@ -189,15 +190,15 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
                 <div className="filter-title">
                     Brand
                 </div>
-                {availableOptions.brands.slice(0, 10).map((brand, index) => (
+                {availableOptions.brands.slice(0, 10).map((brandObj, index) => (
                     <label key={index} className="filter-option">
                         <input
                             type="checkbox"
-                            checked={isSelected('brands', brand)}
-                            onChange={() => onFilterChange('brands', brand)}
+                            checked={isSelected('brands', brandObj.name)}
+                            onChange={() => onFilterChange('brands', brandObj.name)}
                         />
-                        {brand}
-                        <span className="filter-count">({Math.floor(Math.random() * 1000) + 100})</span>
+                        {brandObj.name}
+                        <span className="filter-count">({brandObj.count})</span>
                     </label>
                 ))}
                 {availableOptions.brands.length > 10 && (
@@ -298,7 +299,7 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
 
             <div className="filter-section">
                 <div className="filter-title">Color</div>
-                {availableOptions.colors.map((color, index) => (
+                {availableOptions.colors.slice(0, 10).map((color, index) => (
                     <label key={index} className="filter-option">
                         <input
                             type="checkbox"
@@ -311,7 +312,28 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
                         <span className="filter-count">({color.count})</span>
                     </label>
                 ))}
+                {availableOptions.colors.length > 10 && (
+                    <div
+                        className="more-brands-btn"
+                        onClick={() => setShowColorModal(true)}
+                        style={{ color: 'forestgreen', fontSize: '14px', fontWeight: '600', cursor: 'pointer', marginTop: '10px', paddingLeft: '5px' }}
+                    >
+                        + {availableOptions.colors.length - 10} more
+                    </div>
+                )}
             </div>
+
+            {showColorModal && (
+                <FilterModal
+                    title="Select Colors"
+                    options={availableOptions.colors}
+                    selectedOptions={selectedFilters.colors}
+                    onApply={(newSelection) => {
+                        onFilterChange('colors', newSelection);
+                    }}
+                    onClose={() => setShowColorModal(false)}
+                />
+            )}
 
             <div className="filter-section">
                 <div className="filter-title">Discount Range</div>

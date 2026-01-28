@@ -27,8 +27,11 @@ const FilterModal = ({ title, options, selectedOptions, onApply, onClose }) => {
         onClose();
     };
 
+    const getOptionLabel = (opt) => typeof opt === 'object' ? opt.name : opt;
+    const getOptionCount = (opt) => typeof opt === 'object' ? opt.count : null;
+
     const filteredOptions = options.filter(option =>
-        option.toLowerCase().includes(searchTerm)
+        getOptionLabel(option).toLowerCase().includes(searchTerm)
     );
 
     return (
@@ -43,7 +46,7 @@ const FilterModal = ({ title, options, selectedOptions, onApply, onClose }) => {
                 <div className="filter-search-container">
                     <input
                         type="text"
-                        placeholder="Search Categories"
+                        placeholder="Search..."
                         value={searchTerm}
                         onChange={handleSearch}
                         className="filter-search-input"
@@ -53,18 +56,22 @@ const FilterModal = ({ title, options, selectedOptions, onApply, onClose }) => {
                 <div className="filter-modal-body">
                     <div className="filter-options-grid">
                         {filteredOptions.length > 0 ? (
-                            filteredOptions.map((option, index) => (
-                                <label key={index} className="modal-option-item">
-                                    <input
-                                        type="checkbox"
-                                        checked={tempSelected.includes(option)}
-                                        onChange={() => toggleOption(option)}
-                                        className="modal-checkbox"
-                                    />
-                                    <span className="modal-option-text">{option}</span>
-                                    <span className="modal-option-count">({Math.floor(Math.random() * 500) + 10})</span>
-                                </label>
-                            ))
+                            filteredOptions.map((option, index) => {
+                                const label = getOptionLabel(option);
+                                const count = getOptionCount(option);
+                                return (
+                                    <label key={index} className="modal-option-item">
+                                        <input
+                                            type="checkbox"
+                                            checked={tempSelected.includes(label)}
+                                            onChange={() => toggleOption(label)}
+                                            className="modal-checkbox"
+                                        />
+                                        <span className="modal-option-text">{label}</span>
+                                        {count !== null && <span className="modal-option-count">({count})</span>}
+                                    </label>
+                                );
+                            })
                         ) : (
                             <div className="no-results">No matches found</div>
                         )}

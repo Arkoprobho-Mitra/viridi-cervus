@@ -82,7 +82,7 @@ export const Template4Tech = ({ brandName, products }) => {
                     <div className="mix-bento-content">
                         <div className="mix-bento-sub">{bentoItems[0].subTitle}</div>
                         <div className="mix-bento-head">{bentoItems[0].heading}</div>
-                        <Link to={bentoItems[0].link}>
+                        <Link to={`/products?search=${encodeURIComponent(bentoItems[0].productName || ' ')}&brand=${encodeURIComponent(brandName)}`}>
                             <button className="mix-bento-btn">Shop Now</button>
                         </Link>
                     </div>
@@ -94,7 +94,7 @@ export const Template4Tech = ({ brandName, products }) => {
                     <div className="mix-bento-content">
                         <div className="mix-bento-sub">{bentoItems[1].subTitle}</div>
                         <div className="mix-bento-head">{bentoItems[1].heading}</div>
-                        <Link to={bentoItems[1].link}>
+                        <Link to={`/products?search=${encodeURIComponent(bentoItems[1].productName || ' ')}&brand=${encodeURIComponent(brandName)}`}>
                             <button className="mix-bento-btn">Shop Now</button>
                         </Link>
                     </div>
@@ -106,7 +106,7 @@ export const Template4Tech = ({ brandName, products }) => {
                     <div className="mix-bento-content">
                         <div className="mix-bento-sub">{bentoItems[2].subTitle}</div>
                         <div className="mix-bento-head" style={{ fontSize: '1.5rem' }}>{bentoItems[2].heading}</div>
-                        <Link to={bentoItems[2].link}>
+                        <Link to={`/products?search=${encodeURIComponent(bentoItems[2].productName || ' ')}&brand=${encodeURIComponent(brandName)}`}>
                             <button className="mix-bento-btn">Shop Now</button>
                         </Link>
                     </div>
@@ -125,7 +125,7 @@ export const Template4Tech = ({ brandName, products }) => {
                     <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
                         <div style={{ fontSize: '1rem', marginBottom: 10 }}>{bentoItems[3].subTitle}</div>
                         <div style={{ fontSize: '2.5rem', fontWeight: 700, lineHeight: 1, marginBottom: 20 }}>{bentoItems[3].heading}</div>
-                        <Link to={bentoItems[3].link}>
+                        <Link to={`/products?brand=${encodeURIComponent(brandName)}&sort=discount`}>
                             <button className="mix-bento-btn">Shop Now</button>
                         </Link>
                     </div>
