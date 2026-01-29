@@ -4,7 +4,7 @@ export const usersData = [
         name: "Rahul Sharma",
         phone: "9876543210",
         email: "rahul@example.com",
-        password: "password123",
+        password: "password12345",
         viridiCredit: 500,
         addresses: [
             "123, MG Road, Bangalore, Karnataka - 560001",
@@ -23,7 +23,7 @@ export const usersData = [
         name: "Priya Patel",
         phone: "9876543211",
         email: "priya@example.com",
-        password: "password123",
+        password: "password12345",
         viridiCredit: 1250,
         addresses: [
             "789, Satellite Road, Ahmedabad, Gujarat - 380015",
@@ -41,7 +41,7 @@ export const usersData = [
         name: "Amit Singh",
         phone: "9876543212",
         email: "amit@example.com",
-        password: "password123",
+        password: "password12345",
         viridiCredit: 0,
         addresses: [
             "202, Connaught Place, New Delhi, Delhi - 110001",
@@ -60,7 +60,7 @@ export const usersData = [
         name: "Sneha Reddy",
         phone: "9876543213",
         email: "sneha@example.com",
-        password: "password123",
+        password: "password12345",
         viridiCredit: 2400,
         addresses: [
             "404, Banjara Hills, Hyderabad, Telangana - 500034",
@@ -81,7 +81,7 @@ export const usersData = [
         name: "Vikram Malhotra",
         phone: "9876543214",
         email: "vikram@example.com",
-        password: "password123",
+        password: "password12345",
         viridiCredit: 750,
         addresses: [
             "606, Marine Drive, Mumbai, Maharashtra - 400020",

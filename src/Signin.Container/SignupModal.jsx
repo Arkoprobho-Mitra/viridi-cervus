@@ -3,6 +3,8 @@ import './SignupModal.css';
 
 const SignupModal = ({ isOpen, onClose }) => {
     const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+    const [passwordError, setPasswordError] = useState('');
 
     const handleNameChange = (e) => {
         const value = e.target.value;
@@ -11,10 +13,24 @@ const SignupModal = ({ isOpen, onClose }) => {
         }
     };
 
+    const handlePasswordChange = (e) => {
+        const val = e.target.value;
+        setPassword(val);
+        if (val.length > 0 && (val.length < 12 || val.length > 20)) {
+            setPasswordError('Password must be between 12 and 20 characters');
+        } else {
+            setPasswordError('');
+        }
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (password.length < 12 || password.length > 20) {
+            setPasswordError('Password must be between 12 and 20 characters');
+            return;
+        }
         // Handle signup logic here
-        console.log("Signup submitted", { name });
+        console.log("Signup submitted", { name, password });
     };
 
     if (!isOpen) return null;
@@ -49,7 +65,15 @@ const SignupModal = ({ isOpen, onClose }) => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="modal-password">Password</label>
-                        <input type="password" id="modal-password" placeholder="Create a password" required />
+                        <input
+                            type="password"
+                            id="modal-password"
+                            placeholder="Create a password"
+                            value={password}
+                            onChange={handlePasswordChange}
+                            required
+                        />
+                        {passwordError && <span className="error-message" style={{ color: 'red', fontSize: '12px', marginTop: '5px', display: 'block' }}>{passwordError}</span>}
                     </div>
 
                     <div className="checkbox-group">

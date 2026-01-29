@@ -110,6 +110,12 @@ const Login = () => {
 
     const handleManualSubmit = (e) => {
         e.preventDefault();
+
+        if (loginData.password.length < 12 || loginData.password.length > 20) {
+            setError('Password must be between 12 and 20 characters');
+            return;
+        }
+
         const user = usersData.find(u =>
             (u.email === loginData.email || u.phone === loginData.email) &&
             u.password === loginData.password
