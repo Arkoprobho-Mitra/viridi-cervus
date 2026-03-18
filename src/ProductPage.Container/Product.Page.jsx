@@ -1,11 +1,15 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { products } from '../ProductListing.Container/productsData';
+import { useCart } from '../contexts/CartContext';
+import { useWishlist } from '../contexts/WishlistContext';
 import './Product.Page.css';
 import ProductCard from '../ProductListing.Container/ProductCard';
 
 const ProductPage = () => {
     const { id } = useParams();
+    const { addToCart } = useCart();
+    const { isInWishlist, toggleWishlist } = useWishlist();
     const [product, setProduct] = useState(null);
     const [images, setImages] = useState([]);
     const [thumbnailStartIndex, setThumbnailStartIndex] = useState(0);
@@ -13,7 +17,8 @@ const ProductPage = () => {
     const [selectedSize, setSelectedSize] = useState('M');
     const [quantity, setQuantity] = useState(1);
     const [activeAccordion, setActiveAccordion] = useState('desc');
-    const [isWishlisted, setIsWishlisted] = useState(false);
+
+    const isWishlisted = isInWishlist(product?.id);
 
     // Check wishlist status on mount/update
     useEffect(() => {
@@ -48,43 +53,8 @@ const ProductPage = () => {
 
     }, [product]);
 
-    useEffect(() => {
-        const checkWishlistStatus = () => {
-            const auth = localStorage.getItem('isAuthenticated');
-            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-            const key = auth && currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
-            const storedIds = JSON.parse(localStorage.getItem(key)) || [];
-
-            if (product) {
-                setIsWishlisted(storedIds.includes(product.id));
-            }
-        };
-
-        checkWishlistStatus();
-        window.addEventListener('wishlistUpdated', checkWishlistStatus);
-
-        return () => {
-            window.removeEventListener('wishlistUpdated', checkWishlistStatus);
-        };
-    }, [product]);
-
     const handleWishlistToggle = () => {
-        const auth = localStorage.getItem('isAuthenticated');
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        const key = auth && currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
-
-        const storedIds = JSON.parse(localStorage.getItem(key)) || [];
-        let newIds;
-
-        if (isWishlisted) {
-            newIds = storedIds.filter(id => id !== product.id);
-        } else {
-            newIds = [...storedIds, product.id];
-        }
-
-        localStorage.setItem(key, JSON.stringify(newIds));
-        setIsWishlisted(!isWishlisted); // Optimistic UI update
-        window.dispatchEvent(new Event('wishlistUpdated'));
+        if (product) toggleWishlist(product.id);
     };
 
     // Delivery Check State
@@ -343,23 +313,7 @@ const ProductPage = () => {
                     <button
                         className="add-to-cart-btn"
                         onClick={() => {
-                            const auth = localStorage.getItem('isAuthenticated');
-                            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-                            const key = auth && currentUser ? `cart_${currentUser.email}` : 'cart_guest';
-
-                            const storedItems = JSON.parse(localStorage.getItem(key)) || [];
-                            const existingItemIndex = storedItems.findIndex(item => item.id === product.id && item.size === selectedSize);
-
-                            let newItems;
-                            if (existingItemIndex > -1) {
-                                newItems = [...storedItems];
-                                newItems[existingItemIndex].qty += parseInt(quantity);
-                            } else {
-                                newItems = [...storedItems, { id: product.id, qty: parseInt(quantity), size: selectedSize }];
-                            }
-
-                            localStorage.setItem(key, JSON.stringify(newItems));
-                            window.dispatchEvent(new Event('cartUpdated'));
+                            addToCart(product.id, selectedSize, parseInt(quantity));
                             alert(`${product.title} (${selectedSize}) added to bag!`);
                         }}
                     >

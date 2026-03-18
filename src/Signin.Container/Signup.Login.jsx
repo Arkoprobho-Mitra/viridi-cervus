@@ -9,9 +9,11 @@ import SignupModal from './SignupModal';
 import MergeWishlistModal from './MergeWishlistModal';
 import MockUserList from './MockUserList';
 import { usersData } from './usersData';
+import { useAuth } from '../contexts/AuthContext';
 
 const Login = () => {
     const navigate = useNavigate();
+    const { login } = useAuth();
     const [isSignupOpen, setIsSignupOpen] = useState(false);
     const [loginData, setLoginData] = useState({ email: '', password: '' });
     const [error, setError] = useState('');
@@ -46,26 +48,10 @@ const Login = () => {
         localStorage.setItem(userSearchKey, JSON.stringify(uniqueSearch));
         localStorage.removeItem('search_history_guest');
 
-        localStorage.setItem('isAuthenticated', 'true');
-        localStorage.setItem('currentUser', JSON.stringify(user));
+        login(user);
 
-        // Restore last used address or set default
-        const lastUsedAddress = localStorage.getItem(`last_selected_address_${user.email}`);
-        if (lastUsedAddress) {
-            localStorage.setItem('selectedDeliveryAddress', lastUsedAddress);
-        } else if (user.addresses && user.addresses.length > 0) {
-            // Default to first address if no history
-            localStorage.setItem('selectedDeliveryAddress', JSON.stringify(user.addresses[0]));
-        } else {
-            // Clear if no addresses available
-            localStorage.removeItem('selectedDeliveryAddress');
-        }
-
-        // Notify other components (Navbar) of login
-        window.dispatchEvent(new Event('userUpdated'));
         window.dispatchEvent(new Event('wishlistUpdated')); // Also update wishlist counts immediately
         window.dispatchEvent(new Event('cartUpdated')); // Also update cart counts immediately
-        window.dispatchEvent(new Event('deliveryAddressUpdated')); // Force update of address label
 
         navigate('/'); // Redirect to Home
     };

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { products } from '../ProductListing.Container/productsData';
+import { useCart } from '../contexts/CartContext';
 import './CartPage.css';
 
 const CartPage = () => {
-    const [cartItems, setCartItems] = useState([]);
+    const { cartItems, cartTotal: subtotal, addToCart, removeFromCart, updateQuantity } = useCart();
     const [savedItems, setSavedItems] = useState([]);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [subtotal, setSubtotal] = useState(0);
 
     // Size Picker State
     const [showSizePicker, setShowSizePicker] = useState(false);
@@ -17,17 +17,14 @@ const CartPage = () => {
 
     const [secondaryView, setSecondaryView] = useState('saved'); // 'saved' | 'buy_again'
 
-    // Mock Buy Again Items (converted to state for interactivity)
+    // Mock Buy Again Items
     const [buyAgainItems, setBuyAgainItems] = useState([]);
 
-    // Initialize mock data on mount
     useEffect(() => {
-        // Initial mock data - defaulting to size M and qty 1
         const initialBuyAgain = products.slice(0, 2).map(p => ({ ...p, size: 'M', qty: 1 }));
         setBuyAgainItems(initialBuyAgain);
     }, []);
 
-    // Initial load and listen for updates
     useEffect(() => {
         const checkAuth = () => {
             const authStatus = localStorage.getItem('isAuthenticated');
@@ -35,18 +32,13 @@ const CartPage = () => {
         };
 
         checkAuth();
-        updateCart();
         updateSavedItems();
 
-        window.addEventListener('cartUpdated', updateCart);
-        window.addEventListener('storage', updateCart);
-        window.addEventListener('storage', updateSavedItems); // Listen for saved items too
+        window.addEventListener('storage', updateSavedItems);
         window.addEventListener('storage', checkAuth);
-        window.addEventListener('wishlistUpdated', updateSavedItems); // Listen for wishlist updates too
+        window.addEventListener('wishlistUpdated', updateSavedItems);
 
         return () => {
-            window.removeEventListener('cartUpdated', updateCart);
-            window.removeEventListener('storage', updateCart);
             window.removeEventListener('storage', updateSavedItems);
             window.removeEventListener('storage', checkAuth);
             window.removeEventListener('wishlistUpdated', updateSavedItems);
@@ -57,7 +49,6 @@ const CartPage = () => {
         const isAuth = localStorage.getItem('isAuthenticated');
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         const cartKey = isAuth && currentUser ? `cart_${currentUser.email}` : 'cart_guest';
-        // Note: Saved Key for Guest is effectively handled separately now, but keeping this for Auth
         const savedKey = isAuth && currentUser ? `saved_for_later_${currentUser.email}` : 'saved_for_later_guest';
         return { cartKey, savedKey, isAuth };
     };
@@ -66,40 +57,23 @@ const CartPage = () => {
         return storedItems.map(item => {
             const product = products.find(p => p.id === item.id);
             if (product) {
-                return {
-                    ...product,
-                    ...item,
-                };
+                return { ...product, ...item };
             }
             return null;
         }).filter(Boolean);
-    };
-
-    const updateCart = () => {
-        const { cartKey } = getKeys();
-        const storedItems = JSON.parse(localStorage.getItem(cartKey)) || [];
-        const enrichedItems = enrichItems(storedItems);
-
-        setCartItems(enrichedItems);
-
-        const newSubtotal = enrichedItems.reduce((acc, item) => acc + (item.price * item.qty), 0);
-        setSubtotal(newSubtotal);
     };
 
     const updateSavedItems = () => {
         const { savedKey, isAuth } = getKeys();
 
         if (!isAuth) {
-            // Guest: Read from wishlist_guest (Array of IDs)
             const wishlistIds = JSON.parse(localStorage.getItem('wishlist_guest')) || [];
-            // Manually enrich since schema is different (just IDs)
             const wishlistItems = wishlistIds.map(id => {
                 const product = products.find(p => p.id === id);
-                return product ? { ...product, size: 'M', qty: 1 } : null; // Default size 'M', qty 1
+                return product ? { ...product, size: 'M', qty: 1 } : null;
             }).filter(Boolean);
             setSavedItems(wishlistItems);
         } else {
-            // Auth: Read from saved_for_later_{email} (Array of Objects)
             const storedItems = JSON.parse(localStorage.getItem(savedKey)) || [];
             setSavedItems(enrichItems(storedItems));
         }
@@ -118,10 +92,13 @@ const CartPage = () => {
             return;
         }
 
-        const { cartKey, savedKey } = getKeys();
-        const key = context === 'saved' ? savedKey : cartKey;
-        const storedItems = JSON.parse(localStorage.getItem(key)) || [];
+        if (context === 'cart') {
+            updateQuantity(id, size, (prev) => prev + change);
+            return;
+        }
 
+        const { savedKey } = getKeys();
+        const storedItems = JSON.parse(localStorage.getItem(savedKey)) || [];
         const newItems = storedItems.map(item => {
             if (item.id === id && item.size === size) {
                 const newQty = item.qty + change;
@@ -131,13 +108,11 @@ const CartPage = () => {
             return item;
         });
 
-        localStorage.setItem(key, JSON.stringify(newItems));
+        localStorage.setItem(savedKey, JSON.stringify(newItems));
         if (context === 'saved') {
             const { isAuth } = getKeys();
-            if (!isAuth) return; // Disable qty update for guest stored wishlist items (since we only store IDs)
+            if (!isAuth) return;
             updateSavedItems();
-        } else {
-            window.dispatchEvent(new Event('cartUpdated'));
         }
     };
 
@@ -158,14 +133,18 @@ const CartPage = () => {
             return;
         }
 
-        if (context === 'saved') {
-            const { isAuth } = getKeys();
-            if (!isAuth) return; // Disable qty update for guest stored wishlist items
+        if (context === 'cart') {
+            updateQuantity(id, size, newQty);
+            return;
         }
 
-        const { cartKey, savedKey } = getKeys();
-        const key = context === 'saved' ? savedKey : cartKey;
-        const storedItems = JSON.parse(localStorage.getItem(key)) || [];
+        if (context === 'saved') {
+            const { isAuth } = getKeys();
+            if (!isAuth) return;
+        }
+
+        const { savedKey } = getKeys();
+        const storedItems = JSON.parse(localStorage.getItem(savedKey)) || [];
 
         const newItems = storedItems.map(item => {
             if (item.id === id && item.size === size) {
@@ -174,20 +153,14 @@ const CartPage = () => {
             return item;
         });
 
-        localStorage.setItem(key, JSON.stringify(newItems));
+        localStorage.setItem(savedKey, JSON.stringify(newItems));
         if (context === 'saved') {
             updateSavedItems();
-        } else {
-            window.dispatchEvent(new Event('cartUpdated'));
         }
     };
 
     const handleRemove = (id, size) => {
-        const { cartKey } = getKeys();
-        const storedItems = JSON.parse(localStorage.getItem(cartKey)) || [];
-        const newItems = storedItems.filter(item => !(item.id === id && item.size === size));
-        localStorage.setItem(cartKey, JSON.stringify(newItems));
-        window.dispatchEvent(new Event('cartUpdated'));
+        removeFromCart(id, size);
     };
 
     // Size Picker Logic
@@ -211,14 +184,11 @@ const CartPage = () => {
 
         if (pickerContext === 'buy_again') {
             setBuyAgainItems(prev => {
-                // Check if target size already exists in list (merge)
                 const existingIndex = prev.findIndex(i => i.id === editingItem.id && i.size === newSize);
                 if (existingIndex > -1) {
                     const newList = prev.filter(i => !(i.id === editingItem.id && i.size === editingItem.size));
-                    // The index in newList of the item we want to merge into:
-                    // Since we removed one item, indices might shift, need to find it again in newList
                     const targetIndex = newList.findIndex(i => i.id === editingItem.id && i.size === newSize);
-                    newList[targetIndex].qty += editingItem.qty;
+                    newList[targetIndex].qty += (editingItem.qty || editingItem.quantity || 1);
                     return newList;
                 } else {
                     return prev.map(i => {
@@ -233,23 +203,26 @@ const CartPage = () => {
             return;
         }
 
-        const { cartKey, savedKey } = getKeys();
-        const key = pickerContext === 'saved' ? savedKey : cartKey;
-        const storedItems = JSON.parse(localStorage.getItem(key)) || [];
+        if (pickerContext === 'cart') {
+            // Transfer quantity to new size
+            const qtyStr = editingItem.qty || editingItem.quantity || 1;
+            const itemQty = parseInt(qtyStr, 10) || 1;
+            removeFromCart(editingItem.id, editingItem.size);
+            addToCart(editingItem.id, newSize, itemQty);
+            closeSizePicker();
+            return;
+        }
 
-        // Check if item with new size already exists
-        const existingItemIndex = storedItems.findIndex(
-            i => i.id === editingItem.id && i.size === newSize
-        );
+        const { savedKey } = getKeys();
+        const storedItems = JSON.parse(localStorage.getItem(savedKey)) || [];
+        const existingItemIndex = storedItems.findIndex(i => i.id === editingItem.id && i.size === newSize);
 
         let newItems;
         if (existingItemIndex > -1) {
-            // Item exists, remove old item and add quantity to new item
             newItems = storedItems.filter(i => !(i.id === editingItem.id && i.size === editingItem.size));
             const targetIndex = newItems.findIndex(i => i.id === editingItem.id && i.size === newSize);
-            newItems[targetIndex].qty += editingItem.qty;
+            newItems[targetIndex].qty += (editingItem.qty || 1);
         } else {
-            // Item doesn't exist, just update size of current item
             newItems = storedItems.map(i => {
                 if (i.id === editingItem.id && i.size === editingItem.size) {
                     return { ...i, size: newSize };
@@ -258,22 +231,18 @@ const CartPage = () => {
             });
         }
 
-        localStorage.setItem(key, JSON.stringify(newItems));
-
+        localStorage.setItem(savedKey, JSON.stringify(newItems));
         if (pickerContext === 'saved') {
             updateSavedItems();
-        } else {
-            window.dispatchEvent(new Event('cartUpdated'));
         }
         closeSizePicker();
     };
 
-
     const handleSaveForLater = (item) => {
-        const { cartKey, savedKey, isAuth } = getKeys();
+        const { savedKey, isAuth } = getKeys();
+        const itemQty = parseInt(item.qty || item.quantity || 1, 10) || 1;
 
         if (!isAuth) {
-            // Guest: Move to Wishlist
             const wishlistIds = JSON.parse(localStorage.getItem('wishlist_guest')) || [];
             if (!wishlistIds.includes(item.id)) {
                 wishlistIds.push(item.id);
@@ -281,59 +250,36 @@ const CartPage = () => {
                 window.dispatchEvent(new Event('wishlistUpdated'));
             }
         } else {
-            // Auth: Save for later with size/qty
-            const savedItems = JSON.parse(localStorage.getItem(savedKey)) || [];
-            // Check if exists
-            const existingIndex = savedItems.findIndex(i => i.id === item.id && i.size === item.size);
+            const storedSavedItems = JSON.parse(localStorage.getItem(savedKey)) || [];
+            const existingIndex = storedSavedItems.findIndex(i => i.id === item.id && i.size === item.size);
             if (existingIndex > -1) {
-                savedItems[existingIndex].qty += item.qty;
+                storedSavedItems[existingIndex].qty += itemQty;
             } else {
-                savedItems.push({ id: item.id, size: item.size, qty: item.qty });
+                storedSavedItems.push({ id: item.id, size: item.size, qty: itemQty });
             }
-            localStorage.setItem(savedKey, JSON.stringify(savedItems));
+            localStorage.setItem(savedKey, JSON.stringify(storedSavedItems));
             updateSavedItems();
         }
 
         // Remove from cart
-        const cartItems = JSON.parse(localStorage.getItem(cartKey)) || [];
-        const newCartItems = cartItems.filter(i => !(i.id === item.id && i.size === item.size));
-        localStorage.setItem(cartKey, JSON.stringify(newCartItems));
-        window.dispatchEvent(new Event('cartUpdated'));
+        removeFromCart(item.id, item.size);
     };
 
     const handleMoveToBag = (item) => {
-        const { cartKey, savedKey, isAuth } = getKeys();
+        const { savedKey, isAuth } = getKeys();
+        const itemQty = parseInt(item.qty || item.quantity || 1, 10) || 1;
 
-        // 1. Add to Cart (Common for both)
-        const storedCartItems = JSON.parse(localStorage.getItem(cartKey)) || [];
-        // Check if item exists in cart (match ID and Size)
-        const existingItemIndex = storedCartItems.findIndex(i => i.id === item.id && i.size === item.size);
+        // 1. Add to Cart
+        addToCart(item.id, item.size, itemQty);
 
-        let newCartItems;
-        if (existingItemIndex > -1) {
-            // If exists, increment qty. 
-            // Note: If coming from Wishlist(Guest), item.qty is 1 (default). 
-            // If coming from SaveForLater(Auth), item.qty is whatever was saved. 
-            // Logic: Add the quantity being moved.
-            newCartItems = [...storedCartItems];
-            newCartItems[existingItemIndex].qty += (item.qty || 1);
-        } else {
-            // If new, add it.
-            newCartItems = [...storedCartItems, { id: item.id, size: item.size, qty: (item.qty || 1) }];
-        }
-        localStorage.setItem(cartKey, JSON.stringify(newCartItems));
-        window.dispatchEvent(new Event('cartUpdated'));
-
-        // 2. Remove from Source (Saved List or Wishlist)
+        // 2. Remove from Source
         if (!isAuth) {
-            // Guest: Remove from Wishlist (IDs)
             const wishlistIds = JSON.parse(localStorage.getItem('wishlist_guest')) || [];
             const newWishlistIds = wishlistIds.filter(id => id !== item.id);
             localStorage.setItem('wishlist_guest', JSON.stringify(newWishlistIds));
             window.dispatchEvent(new Event('wishlistUpdated'));
             updateSavedItems();
         } else {
-            // Auth: Remove from Saved For Later
             const storedSavedItems = JSON.parse(localStorage.getItem(savedKey)) || [];
             const newSavedItems = storedSavedItems.filter(i => !(i.id === item.id && i.size === item.size));
             localStorage.setItem(savedKey, JSON.stringify(newSavedItems));

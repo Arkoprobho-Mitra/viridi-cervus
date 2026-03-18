@@ -6,13 +6,12 @@ import { products } from '../ProductListing.Container/productsData';
 import ProductCard from '../ProductListing.Container/ProductCard';
 import Pagination from '../ProductListing.Container/Pagination';
 import WishlistGuest from './WishlistGuest';
-
 import MoveToBagModal from './MoveToBagModal';
+import { useWishlist } from '../contexts/WishlistContext';
 
 const Wishlist = () => {
     const navigate = useNavigate();
-    // Initialize with some mock data (first 8 items)
-    const [wishlistItems, setWishlistItems] = useState([]);
+    const { wishlistItems: rawWishlistItems, removeFromWishlist, moveToBag } = useWishlist();
     const [currentPage, setCurrentPage] = useState(1);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const itemsPerPage = 50;
@@ -56,64 +55,23 @@ const Wishlist = () => {
         return sorted;
     };
 
-    useEffect(() => {
-        if (wishlistItems.length > 0) {
-            const sorted = sortItems(wishlistItems, sortBy);
-            // Only update if order effectively changes (simple check or force update)
-            // Ideally we re-sort when sorting state changes
-            setWishlistItems(sorted);
-        }
-    }, [sortBy]);
+    const wishlistItems = React.useMemo(() => sortItems(rawWishlistItems, sortBy), [rawWishlistItems, sortBy]);
 
     useEffect(() => {
         const auth = localStorage.getItem('isAuthenticated');
         setIsAuthenticated(!!auth);
-
-        if (auth) {
-            const loadWishlist = () => {
-                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-                const key = currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
-                const storedIds = JSON.parse(localStorage.getItem(key)) || [];
-                let items = products.filter(p => storedIds.includes(p.id));
-
-                // Initial Sort
-                items = sortItems(items, sortBy);
-
-                setWishlistItems(items);
-            };
-
-            loadWishlist();
-            window.addEventListener('wishlistUpdated', loadWishlist);
-
-            return () => {
-                window.removeEventListener('wishlistUpdated', loadWishlist);
-            };
-        }
-    }, [sortBy]); // Re-load/Re-sort if dependencies change
+    }, []);
 
     if (!isAuthenticated) {
         return <WishlistGuest />;
     }
 
-    const removeFromWishlist = (e, id) => {
-        // e might be null if called from internal handler
+    const handleRemove = (e, id) => {
         if (e) {
             e.preventDefault();
             e.stopPropagation();
         }
-
-        // Update Local State
-        setWishlistItems(prev => prev.filter(item => item.id !== id));
-
-        // Update Storage
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        const key = currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
-        const currentIds = JSON.parse(localStorage.getItem(key)) || [];
-        const newIds = currentIds.filter(itemId => itemId !== id);
-        localStorage.setItem(key, JSON.stringify(newIds));
-
-        // Dispatch Event (for Navbar)
-        window.dispatchEvent(new Event('wishlistUpdated'));
+        removeFromWishlist(id);
     };
 
     const handleMoveToBag = (product) => {
@@ -121,12 +79,7 @@ const Wishlist = () => {
     };
 
     const handleConfirmMoveToBag = (product, size, qty) => {
-        console.log(`Moving to bag: ${product.title}, Size: ${size}, Qty: ${qty}`);
-
-        // Logically Add to Cart (Mock - in real app would verify stock/add to cart API)
-        // Here we just remove from wishlist as per standard flow
-
-        removeFromWishlist(null, product.id);
+        moveToBag(product.id, size, qty);
         setSelectedProductForBag(null);
         alert(`${product.title} (Size: ${size}, Qty: ${qty}) moved to bag!`);
     };
@@ -203,7 +156,7 @@ const Wishlist = () => {
                                 key={product.id}
                                 product={product}
                                 actionType="remove"
-                                onAction={(e) => removeFromWishlist(e, product.id)}
+                                onAction={(e) => handleRemove(e, product.id)}
                                 onMoveToBag={() => handleMoveToBag(product)}
                             />
                         ))}

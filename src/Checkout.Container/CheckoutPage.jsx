@@ -3,196 +3,26 @@ import './Checkout.css';
 import AddressModal from '../Account.Container/AddressModal';
 import { useNavigate } from 'react-router-dom';
 import { products } from '../ProductListing.Container/productsData';
-
-const generateUniqueId = () => {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let result = '';
-    for (let i = 0; i < 16; i++) {
-        result += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return result;
-};
+import { useAddress } from '../contexts/AddressContext';
+import { useCart } from '../contexts/CartContext';
 
 const CheckoutPage = () => {
     const navigate = useNavigate();
-    const [cartItems, setCartItems] = useState([]);
-    const [savedAddresses, setSavedAddresses] = useState([]);
-    const [selectedAddressId, setSelectedAddressId] = useState(null);
     const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
-    const [currentUser, setCurrentUser] = useState(null);
+    
+    const { currentUser, addresses: savedAddresses, selectedAddress, selectAddress, addAddress } = useAddress();
+    const { cartItems } = useCart();
+    const selectedAddressId = selectedAddress?.id || null;
 
-    // Load initial data
-    useEffect(() => {
-        const loadIds = () => {
-            const storedUser = JSON.parse(localStorage.getItem('currentUser'));
-            if (storedUser) {
-                setCurrentUser(storedUser);
 
-                let rawAddresses = storedUser.addresses || [
-                    {
-                        name: storedUser.name,
-                        mobile: '9876543210',
-                        pincode: '560001',
-                        address: '123, Green Street, Eco City',
-                        locality: 'Central',
-                        city: 'Bangalore',
-                        state: 'Karnataka',
-                        addressType: 'HOME'
-                    }
-                ];
-
-                // ENFORCE UNIQUE 16-CHAR ALPHANUMERIC IDS & NORMALIZE STRINGS
-                let dataChanged = false;
-                const uniqueAddresses = rawAddresses.map((addr) => {
-                    // 1. Handle String Addresses (Legacy)
-                    if (typeof addr === 'string') {
-                        dataChanged = true;
-                        const newId = generateUniqueId();
-                        console.log("Converting string address to object with ID:", { addr, newId });
-                        return {
-                            name: storedUser.name,
-                            mobile: storedUser.phone || storedUser.mobile || '9876543210',
-                            pincode: '000000', // Default if missing
-                            address: addr,
-                            locality: '',
-                            city: '',
-                            state: '',
-                            addressType: 'HOME',
-                            id: newId
-                        };
-                    }
-
-                    // 2. Handle Object Addresses (Check/Fix ID)
-                    if (typeof addr === 'object' && addr !== null) {
-                        // Check if ID exists and is 16-char alphanumeric
-                        const isValidId = typeof addr.id === 'string' && addr.id.length === 16 && /^[a-zA-Z0-9]+$/.test(addr.id);
-
-                        if (!isValidId) {
-                            dataChanged = true;
-                            const newId = generateUniqueId();
-                            console.log("Generating new ID for address object:", { oldId: addr.id, newId });
-                            return { ...addr, id: newId };
-                        }
-                        return addr;
-                    }
-
-                    return addr; // Should not happen
-                });
-
-                console.log("Address Load Debug:", {
-                    dataChanged,
-                    uniqueIds: uniqueAddresses.map(a => a.id),
-                    rawCount: rawAddresses.length,
-                    finalCount: uniqueAddresses.length
-                });
-
-                // Persist migration if we changed any IDs or converted strings
-                if (dataChanged) {
-                    const updatedUser = { ...storedUser, addresses: uniqueAddresses };
-                    localStorage.setItem('currentUser', JSON.stringify(updatedUser));
-                    setCurrentUser(updatedUser);
-                }
-
-                setSavedAddresses(uniqueAddresses);
-
-                // Auto-select logic
-                const lastSelected = localStorage.getItem('selectedDeliveryAddress');
-                if (lastSelected) {
-                    try {
-                        const parsed = JSON.parse(lastSelected);
-                        console.log("Attempting to match selection:", parsed);
-
-                        // Strict ID Match first
-                        let match = uniqueAddresses.find(a => a.id === parsed.id);
-
-                        // Fallback: detailed content match (for just-migrated items)
-                        if (!match) {
-                            console.warn("Strict ID match failed, trying content fallback");
-                            match = uniqueAddresses.find(a =>
-                                a.name === parsed.name &&
-                                a.pincode === parsed.pincode &&
-                                a.address === parsed.address &&
-                                (a.mobile === parsed.mobile || !parsed.mobile) // Loose match for mobile if missing
-                            );
-                        }
-
-                        if (match) {
-                            console.log("Match found:", match.id);
-                            setSelectedAddressId(match.id);
-                        } else {
-                            console.warn("No match found, defaulting to first");
-                            setSelectedAddressId(uniqueAddresses[0]?.id);
-                        }
-                    } catch (e) {
-                        console.error("Error matching address:", e);
-                        setSelectedAddressId(uniqueAddresses[0]?.id);
-                    }
-                } else {
-                    setSelectedAddressId(uniqueAddresses[0]?.id);
-                }
-            }
-
-            // Load Cart & Enrich
-            const storedCart = JSON.parse(localStorage.getItem(`cart_${storedUser?.email}`)) || [];
-            const enrichedItems = storedCart.map(item => {
-                const product = products.find(p => p.id === item.id);
-                // Ensure numeric values and normalize quantity (Cart uses 'qty')
-                const qty = Number(item.qty || item.quantity || 1);
-                return product ? {
-                    ...product,
-                    ...item,
-                    quantity: qty,
-                    originalPrice: Number(product.originalPrice || product.price),
-                    price: Number(product.price)
-                } : null;
-            }).filter(Boolean);
-
-            setCartItems(enrichedItems);
-        };
-
-        loadIds();
-
-        window.addEventListener('deliveryAddressUpdated', loadIds);
-        window.addEventListener('userUpdated', loadIds);
-        window.addEventListener('storage', loadIds);
-
-        return () => {
-            window.removeEventListener('deliveryAddressUpdated', loadIds);
-            window.removeEventListener('userUpdated', loadIds);
-            window.removeEventListener('storage', loadIds);
-        };
-    }, [navigate]);
 
     const handleAddAddress = (newAddress) => {
-        const addressWithId = { ...newAddress, id: generateUniqueId() };
-        const updatedAddresses = [...savedAddresses, addressWithId];
-        setSavedAddresses(updatedAddresses);
-
-        // Update user in local storage
-        if (currentUser) {
-            const updatedUser = { ...currentUser, addresses: updatedAddresses };
-            localStorage.setItem('currentUser', JSON.stringify(updatedUser));
-            setCurrentUser(updatedUser);
-        }
-
-        setSelectedAddressId(addressWithId.id);
-
-        // Auto-select globally
-        localStorage.setItem('selectedDeliveryAddress', JSON.stringify(addressWithId));
-        window.dispatchEvent(new Event('deliveryAddressUpdated'));
-
+        addAddress(newAddress);
         setIsAddressModalOpen(false);
     };
 
     const handleAddressSelect = (addr) => {
-        if (!addr.id) {
-            // Should not happen with new logic, but safe fallback
-            console.error("Selected address has no ID:", addr);
-            return;
-        }
-        setSelectedAddressId(addr.id);
-        localStorage.setItem('selectedDeliveryAddress', JSON.stringify(addr));
-        window.dispatchEvent(new Event('deliveryAddressUpdated'));
+        selectAddress(addr);
     };
 
     // Calculations

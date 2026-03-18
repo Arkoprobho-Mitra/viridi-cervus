@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.styles.css';
 import MegaMenu from './MegaMenu';
 import { AccountDropdown, WishlistDropdown, CartDropdown, AddressDropdown } from './NavbarDropdowns';
+import { useAddress } from '../contexts/AddressContext';
+import { useCart } from '../contexts/CartContext';
+import { useWishlist } from '../contexts/WishlistContext';
 
 import { products } from '../ProductListing.Container/productsData';
 
@@ -15,10 +18,21 @@ const Navbar = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
 
-  const [cartCount, setCartCount] = useState(0);
-  const [wishlistCount, setWishlistCount] = useState(0);
   const [userName, setUserName] = useState('Profile');
-  const [deliveryAddressLabel, setDeliveryAddressLabel] = useState('Delivery Address');
+
+  const { selectedAddress, isAuthenticated } = useAddress();
+  const { cartCount } = useCart();
+  const { wishlistCount } = useWishlist();
+
+  let deliveryAddressLabel = 'Delivery Address';
+  if (isAuthenticated && selectedAddress) {
+    if (typeof selectedAddress === 'string') {
+      deliveryAddressLabel = `Deliver to ${selectedAddress.substring(0, 15)}...`;
+    } else {
+      const location = selectedAddress.city || selectedAddress.locality || selectedAddress.address || 'Location';
+      deliveryAddressLabel = `Deliver to ${location} - ${selectedAddress.pincode}`;
+    }
+  }
 
   useEffect(() => {
     const updateCounts = () => {
@@ -31,89 +45,15 @@ const Navbar = () => {
       } else {
         setUserName('Profile');
       }
-
-      // Cart Count
-      const cartKey = isAuth && currentUser ? `cart_${currentUser.email}` : 'cart_guest';
-      const cartItems = JSON.parse(localStorage.getItem(cartKey)) || [];
-      const cCount = cartItems.reduce((acc, item) => acc + (item.qty || 1), 0);
-      setCartCount(cCount);
-
-      // Wishlist Count
-      const wishlistKey = isAuth && currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
-      const wishlistItems = JSON.parse(localStorage.getItem(wishlistKey)) || [];
-      setWishlistCount(wishlistItems.length);
-
-      // Delivery Address Label
-      // Delivery Address Label
-      if (isAuth) {
-        let selected = localStorage.getItem('selectedDeliveryAddress');
-
-        // Validation: Ensure selected address actually exists in user's list
-        if (currentUser && currentUser.addresses) {
-          let isValid = false;
-          let currentAddresses = currentUser.addresses;
-
-          if (selected) {
-            try {
-              const selectedObj = JSON.parse(selected);
-              isValid = currentAddresses.some(addr => {
-                if (addr.id && selectedObj.id) return addr.id === selectedObj.id;
-                // Fallback: check if the object roughly matches (e.g. stringified equality)
-                return JSON.stringify(addr) === JSON.stringify(selectedObj);
-              });
-            } catch (e) {
-              isValid = false;
-            }
-          }
-
-          if (!isValid) {
-            // If invalid or not found, revert to first address if available
-            if (currentAddresses.length > 0) {
-              const firstAddr = currentAddresses[0];
-              selected = JSON.stringify(firstAddr);
-              localStorage.setItem('selectedDeliveryAddress', selected);
-            } else {
-              // No addresses at all
-              localStorage.removeItem('selectedDeliveryAddress');
-              selected = null;
-            }
-          }
-        }
-
-        if (selected) {
-          try {
-            const addr = JSON.parse(selected);
-            if (typeof addr === 'string') {
-              setDeliveryAddressLabel(`Deliver to ${addr.substring(0, 15)}...`);
-            } else {
-              // Show City and Pincode, or just Pincode if City missing
-              const location = addr.city || addr.locality || addr.address || 'Location';
-              setDeliveryAddressLabel(`Deliver to ${location} - ${addr.pincode}`);
-            }
-          } catch (e) {
-            setDeliveryAddressLabel('Delivery Address');
-          }
-        } else {
-          setDeliveryAddressLabel('Delivery Address');
-        }
-      } else {
-        setDeliveryAddressLabel('Delivery Address');
-      }
     };
 
     updateCounts();
     // Listen for events that change data
-    window.addEventListener('cartUpdated', updateCounts);
-    window.addEventListener('wishlistUpdated', updateCounts);
     window.addEventListener('userUpdated', updateCounts);
-    window.addEventListener('deliveryAddressUpdated', updateCounts);
     window.addEventListener('storage', updateCounts);
 
     return () => {
-      window.removeEventListener('cartUpdated', updateCounts);
-      window.removeEventListener('wishlistUpdated', updateCounts);
       window.removeEventListener('userUpdated', updateCounts);
-      window.removeEventListener('deliveryAddressUpdated', updateCounts);
       window.removeEventListener('storage', updateCounts);
     };
   }, []);

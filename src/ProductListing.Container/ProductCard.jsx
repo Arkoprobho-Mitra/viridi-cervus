@@ -1,49 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useWishlist } from '../contexts/WishlistContext';
+import { useCart } from '../contexts/CartContext';
 import './ProductListing.css';
 
 const ProductCard = ({ product, actionType = 'wishlist', onAction, onMoveToBag }) => {
-    const [isWishlisted, setIsWishlisted] = React.useState(false);
-
+    const { isInWishlist, toggleWishlist } = useWishlist();
+    const { addToCart } = useCart();
+    
     // Stable random for "Only Few Left" badge
     const showFewLeft = React.useMemo(() => Math.random() > 0.8, []);
 
-    const getWishlistKey = () => {
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        return currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
-    };
+    const isWishlisted = isInWishlist(product.id);
 
-    React.useEffect(() => {
-        const key = getWishlistKey();
-        const wishlist = JSON.parse(localStorage.getItem(key)) || [];
-        setIsWishlisted(wishlist.includes(product.id));
-    }, [product.id]);
-
-    const toggleWishlist = (e) => {
+    const handleToggleWishlist = (e) => {
         e.preventDefault();
         e.stopPropagation();
-
-        const key = getWishlistKey();
-        const currentWishlist = JSON.parse(localStorage.getItem(key)) || [];
-        let newWishlist;
-
-        if (isWishlisted) {
-            newWishlist = currentWishlist.filter(id => id !== product.id);
-            console.log("Removed from wishlist:", product.title);
-        } else {
-            if (!currentWishlist.includes(product.id)) {
-                newWishlist = [...currentWishlist, product.id];
-            } else {
-                newWishlist = currentWishlist;
-            }
-            console.log("Added to wishlist:", product.title);
-        }
-
-        localStorage.setItem(key, JSON.stringify(newWishlist));
-        setIsWishlisted(!isWishlisted);
-
-        // Dispatch event for other components to update
-        window.dispatchEvent(new Event('wishlistUpdated'));
+        toggleWishlist(product.id);
     };
 
     return (
@@ -72,7 +45,7 @@ const ProductCard = ({ product, actionType = 'wishlist', onAction, onMoveToBag }
                     ) : (
                         <div
                             className={`wishlist-btn-overlay ${isWishlisted ? 'wishlisted' : ''}`}
-                            onClick={toggleWishlist}
+                            onClick={handleToggleWishlist}
                         >
                             {isWishlisted ? '♥ WISHLISTED' : '♡ WISHLIST'}
                         </div>
@@ -103,27 +76,7 @@ const ProductCard = ({ product, actionType = 'wishlist', onAction, onMoveToBag }
                             if (actionType === 'remove' && onMoveToBag) {
                                 onMoveToBag();
                             } else {
-                                // Default "Add to Bag" logic
-                                const auth = localStorage.getItem('isAuthenticated');
-                                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-                                const key = auth && currentUser ? `cart_${currentUser.email}` : 'cart_guest';
-
-                                const storedItems = JSON.parse(localStorage.getItem(key)) || [];
-                                // Default size 'M' if not specified, or just generic add
-                                const defaultSize = 'M';
-                                const existingItemIndex = storedItems.findIndex(item => item.id === product.id && item.size === defaultSize);
-
-                                let newItems;
-                                if (existingItemIndex > -1) {
-                                    newItems = [...storedItems];
-                                    newItems[existingItemIndex].qty += 1;
-                                } else {
-                                    newItems = [...storedItems, { id: product.id, qty: 1, size: defaultSize }];
-                                }
-
-                                localStorage.setItem(key, JSON.stringify(newItems));
-                                window.dispatchEvent(new Event('cartUpdated'));
-                                // console.log("Added to bag:", product.title);
+                                addToCart(product.id, 'M', 1);
                                 alert(`${product.title} added to bag!`);
                             }
                         }}
