@@ -14,7 +14,7 @@ const SavedCards = () => {
         const provider = getCardProvider(value);
         value = value.replace(/(.{4})/g, '$1 ').trim();
         if (value.length <= 19) {
-            setNewCard({...newCard, number: value, type: provider});
+            setNewCard({ ...newCard, number: value, type: provider });
         }
     };
 
@@ -27,17 +27,17 @@ const SavedCards = () => {
             let monthStr = month.toString().padStart(2, '0');
             value = monthStr + '/' + value.substring(2, 4);
         }
-        if (value.length <= 5) setNewCard({...newCard, expiry: value});
+        if (value.length <= 5) setNewCard({ ...newCard, expiry: value });
     };
 
     const handleNameChange = (e) => {
         let value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
-        setNewCard({...newCard, holder: value.toUpperCase()});
+        setNewCard({ ...newCard, holder: value.toUpperCase() });
     };
 
     const handleBankChange = (e) => {
         let value = e.target.value.replace(/[^a-zA-Z\s\-]/g, '');
-        setNewCard({...newCard, bank: value});
+        setNewCard({ ...newCard, bank: value });
     };
 
     const handleAddCard = (e) => {
@@ -51,16 +51,16 @@ const SavedCards = () => {
             alert("Please enter a valid expiry date (MM/YY).");
             return;
         }
-        
+
         const [month, year] = newCard.expiry.split('/');
         const currentYear = new Date().getFullYear() % 100;
         const currentMonth = new Date().getMonth() + 1;
-        
+
         if (Number(month) < 1 || Number(month) > 12) {
             alert("Please enter a valid month (01-12).");
             return;
         }
-        
+
         if (Number(year) < currentYear || (Number(year) === currentYear && Number(month) < currentMonth)) {
             alert("Card has expired. Please check your Valid Thru date.");
             return;
@@ -152,9 +152,13 @@ const SavedCards = () => {
                                 <option value="Unknown">Unknown</option>
                             </select>
                         </div>
-                        <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
-                            <button type="submit" className="primary-btn" style={{ flex: 1 }}>Save Card</button>
-                            <button type="button" onClick={() => setIsAdding(false)} style={{ flex: 1, padding: '12px', background: 'transparent', border: '1px solid #ddd', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', color: '#333' }}>Cancel</button>
+                        <div style={{ display: 'flex', gap: '12px', marginTop: '15px' }}>
+                            <button type="submit" style={{ flex: 1, backgroundColor: '#1db036', color: '#fff', border: 'none', padding: '14px 24px', borderRadius: '6px', fontSize: '14px', fontWeight: 'bold', cursor: 'pointer', boxShadow: '0 4px 6px rgba(29, 176, 54, 0.2)', letterSpacing: '0.5px' }}>
+                                SAVE CARD
+                            </button>
+                            <button type="button" onClick={() => setIsAdding(false)} style={{ flex: 1, backgroundColor: '#f5f5f6', color: '#535766', border: '1px solid #d4d5d9', padding: '14px 24px', borderRadius: '6px', fontSize: '14px', fontWeight: 'bold', cursor: 'pointer', letterSpacing: '0.5px' }}>
+                                CANCEL
+                            </button>
                         </div>
                     </form>
                 </div>
