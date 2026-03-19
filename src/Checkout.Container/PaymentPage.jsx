@@ -2,14 +2,18 @@ import React, { useState, useEffect } from 'react';
 import './Payment.css';
 import { useNavigate } from 'react-router-dom';
 import { products } from '../ProductListing.Container/productsData';
+import { useCards } from '../contexts/CardContext';
+import { getCardProvider, validateCardNumber } from '../utils/cardUtils';
 
 const PaymentPage = () => {
     const navigate = useNavigate();
+    const { cards: savedCards } = useCards();
     const [selectedMethod, setSelectedMethod] = useState('cod'); // Default to COD or first option
     const [subSelect, setSubSelect] = useState(null); // For sub-options like specific card
     const [cartItems, setCartItems] = useState([]);
     const [totalAmount, setTotalAmount] = useState(0);
     const [bankSearchTerm, setBankSearchTerm] = useState('');
+    const [newCard, setNewCard] = useState({ number: '', holder: '', expiry: '', cvv: '', type: 'Visa' });
     const [userData, setUserData] = useState(null);
     const [useCredits, setUseCredits] = useState(false);
     const [showSuccessPopup, setShowSuccessPopup] = useState(false);
@@ -48,7 +52,65 @@ const PaymentPage = () => {
 
     }, [navigate]);
 
+    const handleNumberChange = (e) => {
+        let value = e.target.value.replace(/\D/g, '');
+        const provider = getCardProvider(value);
+        value = value.replace(/(.{4})/g, '$1 ').trim();
+        if (value.length <= 19) setNewCard({...newCard, number: value, type: provider});
+    };
+
+    const handleExpiryChange = (e) => {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length >= 2) {
+            let month = parseInt(value.substring(0, 2), 10);
+            if (month > 12) month = 12;
+            if (month === 0) month = 1;
+            let monthStr = month.toString().padStart(2, '0');
+            value = monthStr + '/' + value.substring(2, 4);
+        }
+        if (value.length <= 5) setNewCard({...newCard, expiry: value});
+    };
+
+    const handleNameChange = (e) => {
+        let value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+        setNewCard({...newCard, holder: value.toUpperCase()});
+    };
+
     const handlePayNow = () => {
+        if (selectedMethod === 'card' && (subSelect === 'new_card' || savedCards.length === 0)) {
+            if (newCard.number.length < 15 || !validateCardNumber(newCard.number)) {
+                alert("Please enter a valid card number (failed algorithmic check).");
+                return;
+            }
+            if (newCard.expiry.length < 5) {
+                alert("Please enter a valid expiry date (MM/YY).");
+                return;
+            }
+            const [month, year] = newCard.expiry.split('/');
+            const currentYear = new Date().getFullYear() % 100;
+            const currentMonth = new Date().getMonth() + 1;
+            
+            if (Number(month) < 1 || Number(month) > 12) {
+                alert("Please enter a valid month (01-12).");
+                return;
+            }
+            if (Number(year) < currentYear || (Number(year) === currentYear && Number(month) < currentMonth)) {
+                alert("Card has expired. Please check your Valid Thru date.");
+                return;
+            }
+            if (Number(year) > currentYear + 25) {
+                alert("Expiry year is too far in the future.");
+                return;
+            }
+            if (!newCard.cvv || newCard.cvv.length < 3) {
+                alert("Please enter a valid CVV.");
+                return;
+            }
+        } else if (selectedMethod === 'card' && (!subSelect || subSelect === '')) {
+            alert("Please select a saved card or enter new card details.");
+            return;
+        }
+
         const storedUser = JSON.parse(localStorage.getItem('currentUser'));
         if (storedUser) {
             // Deduct Credits if used
@@ -205,7 +267,6 @@ const PaymentPage = () => {
                     </div>
                 );
             case 'card': {
-                const savedCards = userData?.savedCards || [];
                 return (
                     <div className="card-input-form">
                         <div className="method-title">Credit / Debit Card</div>
@@ -239,16 +300,21 @@ const PaymentPage = () => {
                             </div>
                         )}
                         {(subSelect === 'new_card' || savedCards.length === 0) && (
-                            <div className="new-card-form">
-                                <div className="form-group">
-                                    <input type="text" placeholder="Card Number" />
+                            <div className="new-card-form" style={{ marginTop: '15px' }}>
+                                <div className="form-group" style={{ marginBottom: '10px', position: 'relative' }}>
+                                    <input type="text" placeholder="Card Number" value={newCard.number} onChange={handleNumberChange} style={{ padding: '10px', width: '100%', boxSizing: 'border-box', border: '1px solid #ddd', borderRadius: '4px' }} />
+                                    {newCard.number.length > 0 && (
+                                        <span style={{ position: 'absolute', right: '10px', top: '10px', fontSize: '12px', fontWeight: 'bold', color: '#535766', backgroundColor: '#eef0f3', padding: '2px 6px', borderRadius: '4px' }}>
+                                            {newCard.type.toUpperCase()}
+                                        </span>
+                                    )}
                                 </div>
-                                <div className="form-group">
-                                    <input type="text" placeholder="Name on Card" />
+                                <div className="form-group" style={{ marginBottom: '10px' }}>
+                                    <input type="text" placeholder="Name on Card" value={newCard.holder} onChange={handleNameChange} style={{ padding: '10px', width: '100%', boxSizing: 'border-box', border: '1px solid #ddd', borderRadius: '4px' }} />
                                 </div>
                                 <div className="form-group" style={{ display: 'flex', gap: '10px' }}>
-                                    <input type="text" placeholder="Valid Thru (MM/YY)" />
-                                    <input type="text" placeholder="CVV" />
+                                    <input type="text" placeholder="Valid Thru (MM/YY)" value={newCard.expiry} onChange={handleExpiryChange} style={{ padding: '10px', flex: 1, border: '1px solid #ddd', borderRadius: '4px' }} />
+                                    <input type="text" placeholder="CVV" value={newCard.cvv} onChange={e => setNewCard({...newCard, cvv: e.target.value.replace(/\D/g, '').substring(0, 4)})} style={{ padding: '10px', flex: 1, border: '1px solid #ddd', borderRadius: '4px' }} />
                                 </div>
                             </div>
                         )}
@@ -355,9 +421,15 @@ const PaymentPage = () => {
                         {renderPaymentContent()}
                     </div>
                 </div>
-                <button className="pay-now-btn" onClick={handlePayNow}>
-                    {selectedMethod === 'cod' ? 'PROCEED WITH ORDER' : 'PAY NOW'}
-                </button>
+                {userData ? (
+                    <button className="pay-now-btn" onClick={handlePayNow}>
+                        {selectedMethod === 'cod' ? 'PROCEED WITH ORDER' : 'PAY NOW'}
+                    </button>
+                ) : (
+                    <button className="pay-now-btn" onClick={() => navigate('/login')}>
+                        LOGIN TO CONTINUE
+                    </button>
+                )}
             </div>
 
             <div className="payment-right">

@@ -175,9 +175,15 @@ const CheckoutPage = () => {
                         <span>Rs. {totalAmount}</span>
                     </div>
 
-                    <button className="place-order-btn" onClick={handlePlaceOrder}>
-                        Make Payment
-                    </button>
+                    {currentUser ? (
+                        <button className="place-order-btn" onClick={handlePlaceOrder}>
+                            Make Payment
+                        </button>
+                    ) : (
+                        <button className="place-order-btn" onClick={() => navigate('/login')} style={{ backgroundColor: '#ff3f6c', color: 'white' }}>
+                            LOGIN TO CONTINUE
+                        </button>
+                    )}
                     <div style={{ marginTop: '10px', fontSize: '10px', color: '#777', textAlign: 'center' }}>
                         By placing the order, you agree to Viridi's Terms of Use and Privacy Policy.
                     </div>

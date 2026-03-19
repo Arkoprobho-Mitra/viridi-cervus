@@ -7,6 +7,7 @@ import xIcon from './login.image.container/twitter.png';
 import loginVideo from './login.image.container/loginscreenvideo.mp4';
 import SignupModal from './SignupModal';
 import MergeWishlistModal from './MergeWishlistModal';
+import MergeCartModal from './MergeCartModal';
 import MockUserList from './MockUserList';
 import { usersData } from './usersData';
 import { useAuth } from '../contexts/AuthContext';
@@ -22,6 +23,51 @@ const Login = () => {
     const [showMergeModal, setShowMergeModal] = useState(false);
     const [pendingUser, setPendingUser] = useState(null);
     const [guestIds, setGuestIds] = useState([]);
+
+    // Merge Cart State
+    const [showMergeCartModal, setShowMergeCartModal] = useState(false);
+    const [guestCartItems, setGuestCartItems] = useState([]);
+
+    const checkGuestCart = (user) => {
+        const guestCart = JSON.parse(localStorage.getItem('cart_guest')) || [];
+        if (guestCart.length > 0) {
+            setPendingUser(user);
+            setGuestCartItems(guestCart);
+            setShowMergeCartModal(true);
+        } else {
+            finalizeLogin(user);
+        }
+    };
+
+    const handleMergeCart = () => {
+        const userCartKey = `cart_${pendingUser.email}`;
+        const userCart = JSON.parse(localStorage.getItem(userCartKey)) || [];
+
+        const mergedCart = [...userCart];
+        guestCartItems.forEach(guestItem => {
+            const existingIndex = mergedCart.findIndex(item => item.id === guestItem.id && item.size === guestItem.size);
+            if (existingIndex > -1) {
+                const existingQty = Number(mergedCart[existingIndex].qty || mergedCart[existingIndex].quantity || 1);
+                const incomingQty = Number(guestItem.qty || guestItem.quantity || 1);
+                mergedCart[existingIndex].qty = existingQty + incomingQty;
+                mergedCart[existingIndex].quantity = existingQty + incomingQty;
+            } else {
+                mergedCart.push(guestItem);
+            }
+        });
+
+        localStorage.setItem(userCartKey, JSON.stringify(mergedCart));
+        localStorage.removeItem('cart_guest');
+
+        setShowMergeCartModal(false);
+        finalizeLogin(pendingUser);
+    };
+
+    const handleDiscardCart = () => {
+        localStorage.removeItem('cart_guest');
+        setShowMergeCartModal(false);
+        finalizeLogin(pendingUser);
+    };
 
     const finalizeLogin = (user) => {
         // Merge Guest History (Visited Products)
@@ -65,7 +111,7 @@ const Login = () => {
             setGuestIds(guestItems);
             setShowMergeModal(true);
         } else {
-            finalizeLogin(user);
+            checkGuestCart(user);
         }
     };
 
@@ -81,13 +127,13 @@ const Login = () => {
         localStorage.removeItem('wishlist_guest'); // Clear guest data
 
         setShowMergeModal(false);
-        finalizeLogin(pendingUser);
+        checkGuestCart(pendingUser);
     };
 
     const handleDiscardWishlist = () => {
         localStorage.removeItem('wishlist_guest'); // Clear guest data
         setShowMergeModal(false);
-        finalizeLogin(pendingUser);
+        checkGuestCart(pendingUser);
     };
 
     const handleDirectLogin = (user) => {
@@ -218,6 +264,13 @@ const Login = () => {
                 guestItemIds={guestIds}
                 onMerge={handleMergeWishlist}
                 onDiscard={handleDiscardWishlist}
+            />
+
+            <MergeCartModal
+                isOpen={showMergeCartModal}
+                guestCartItems={guestCartItems}
+                onMerge={handleMergeCart}
+                onDiscard={handleDiscardCart}
             />
         </div>
     );
