@@ -16,7 +16,10 @@
       "Bash(pip install:*)",
       "Bash(python -W error -c ':*)",
       "Bash(mvn test:*)",
-      "Bash(mvn package:*)"
+      "Bash(mvn package:*)",
+      "Read(//e/Shopping website/website/viridi-cervus-backend/**)",
+      "Bash(mvn spring-boot:run)",
+      "Bash(PGPASSWORD=12345 \"C:/Program Files/PostgreSQL/18/bin/psql.exe\" -U postgres -c \"CREATE DATABASE viridi_cervus;\")"
     ]
   }
 }

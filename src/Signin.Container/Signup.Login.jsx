@@ -11,6 +11,7 @@ import MergeCartModal from './MergeCartModal';
 import MockUserList from './MockUserList';
 import { usersData } from './usersData';
 import { useAuth } from '../contexts/AuthContext';
+import { authApi } from '../api';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -140,23 +141,40 @@ const Login = () => {
         handleLogin(user);
     };
 
-    const handleManualSubmit = (e) => {
+    const handleManualSubmit = async (e) => {
         e.preventDefault();
 
-        if (loginData.password.length < 12 || loginData.password.length > 20) {
-            setError('Password must be between 12 and 20 characters');
+        if (loginData.password.length < 6) {
+            setError('Password must be at least 6 characters');
             return;
         }
 
-        const user = usersData.find(u =>
-            (u.email === loginData.email || u.phone === loginData.email) &&
-            u.password === loginData.password
-        );
-
-        if (user) {
+        try {
+            const data = await authApi.login(loginData.email, loginData.password);
+            localStorage.setItem('authToken', data.token);
+            const user = {
+                id: data.id,
+                name: data.name,
+                email: data.email,
+                phone: data.phone,
+                viridiCredit: data.viridiCredit ?? 0,
+                addresses: [],
+                savedCards: [],
+                giftCards: [],
+                orders: [],
+            };
             handleLogin(user);
-        } else {
-            setError('Invalid credentials. Try using the mock users below.');
+        } catch (err) {
+            // Fall back to mock users for local dev
+            const user = usersData.find(u =>
+                (u.email === loginData.email || u.phone === loginData.email) &&
+                u.password === loginData.password
+            );
+            if (user) {
+                handleLogin(user);
+            } else {
+                setError(err.message || 'Invalid credentials.');
+            }
         }
     };
 

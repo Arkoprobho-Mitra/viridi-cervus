@@ -3,7 +3,7 @@
  * Spring Boot runs on :8080, FastAPI on :8000.
  */
 
-const SPRING_BASE = process.env.REACT_APP_SPRING_BASE_URL || "http://localhost:8080";
+const SPRING_BASE = process.env.REACT_APP_SPRING_BASE_URL || "http://localhost:8081";
 const FASTAPI_BASE = process.env.REACT_APP_FASTAPI_BASE_URL || "http://localhost:8000";
 
 function getAuthHeaders() {
