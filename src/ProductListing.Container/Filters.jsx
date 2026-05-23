@@ -260,23 +260,29 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
                         type="range"
                         min="0"
                         max="5000"
-                        value={selectedFilters.priceRange[0] === '' ? 0 : selectedFilters.priceRange[0]}
+                        value={minInput === '' ? 0 : minInput}
                         onChange={(e) => {
-                            const val = Math.min(Number(e.target.value), selectedFilters.priceRange[1] === '' ? 5000 : selectedFilters.priceRange[1]);
-                            onFilterChange('priceRange', [val, selectedFilters.priceRange[1]]);
+                            const val = Math.min(Number(e.target.value), maxInput === '' ? 5000 : Number(maxInput));
+                            setMinInput(val);
                         }}
+                        onMouseUp={() => onFilterChange('priceRange', [minInput, maxInput === '' ? 5000 : maxInput])}
+                        onTouchEnd={() => onFilterChange('priceRange', [minInput, maxInput === '' ? 5000 : maxInput])}
+                        onKeyUp={() => onFilterChange('priceRange', [minInput, maxInput === '' ? 5000 : maxInput])}
                         className="thumb thumb-left"
-                        style={{ zIndex: (selectedFilters.priceRange[0] === '' ? 0 : selectedFilters.priceRange[0]) > 4000 && '5' }}
+                        style={{ zIndex: (minInput === '' ? 0 : minInput) > 4000 && '5' }}
                     />
                     <input
                         type="range"
                         min="0"
                         max="5000"
-                        value={selectedFilters.priceRange[1] === '' ? 5000 : selectedFilters.priceRange[1]}
+                        value={maxInput === '' ? 5000 : maxInput}
                         onChange={(e) => {
-                            const val = Math.max(Number(e.target.value), selectedFilters.priceRange[0] === '' ? 0 : selectedFilters.priceRange[0]);
-                            onFilterChange('priceRange', [selectedFilters.priceRange[0], val]);
+                            const val = Math.max(Number(e.target.value), minInput === '' ? 0 : Number(minInput));
+                            setMaxInput(val);
                         }}
+                        onMouseUp={() => onFilterChange('priceRange', [minInput === '' ? 0 : minInput, maxInput])}
+                        onTouchEnd={() => onFilterChange('priceRange', [minInput === '' ? 0 : minInput, maxInput])}
+                        onKeyUp={() => onFilterChange('priceRange', [minInput === '' ? 0 : minInput, maxInput])}
                         className="thumb thumb-right"
                     />
                     <div
@@ -289,8 +295,8 @@ const Filters = ({ selectedFilters = { brands: [], priceRange: [0, 5000], colors
                         <div
                             className="slider__range"
                             style={{
-                                left: `${((selectedFilters.priceRange[0] === '' ? 0 : selectedFilters.priceRange[0]) / 5000) * 100}%`,
-                                width: `${(((selectedFilters.priceRange[1] === '' ? 5000 : selectedFilters.priceRange[1]) - (selectedFilters.priceRange[0] === '' ? 0 : selectedFilters.priceRange[0])) / 5000) * 100}%`
+                                left: `${((minInput === '' ? 0 : minInput) / 5000) * 100}%`,
+                                width: `${(((maxInput === '' ? 5000 : maxInput) - (minInput === '' ? 0 : minInput)) / 5000) * 100}%`
                             }}
                         />
                     </div>
