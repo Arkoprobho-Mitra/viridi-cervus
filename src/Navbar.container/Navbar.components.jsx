@@ -93,7 +93,26 @@ const Navbar = () => {
           .then(r => r.json())
           .then(json => {
             const results = json?.data?.content ?? json?.content ?? [];
-            setSuggestions(results.slice(0, 8));
+            const unique = [];
+            
+            const qLower = val.trim().toLowerCase();
+            const seenBrands = new Set();
+            for (const item of results) {
+                if (item.brand && item.brand.toLowerCase().includes(qLower) && !seenBrands.has(item.brand)) {
+                    seenBrands.add(item.brand);
+                    unique.push({ id: `brand-${item.brand}`, title: item.brand, isBrand: true });
+                }
+            }
+            
+            const seenTitles = new Set();
+            for (const item of results) {
+                const title = item.title?.toLowerCase() || '';
+                if (!seenTitles.has(title)) {
+                    seenTitles.add(title);
+                    unique.push(item);
+                }
+            }
+            setSuggestions(unique.slice(0, 8));
             setShowSuggestions(true);
           })
           .catch(() => {});
@@ -104,9 +123,13 @@ const Navbar = () => {
     }
   };
 
-  const handleSuggestionClick = (productId) => {
+  const handleSuggestionClick = (item) => {
     setShowSuggestions(false);
-    navigate(`/product/${productId}`);
+    if (item.isBrand) {
+        navigate(`/products?q=${encodeURIComponent(item.title)}`);
+    } else {
+        navigate(`/product/${item.id}`);
+    }
   };
 
   const handleMouseEnter = (category) => {
@@ -178,9 +201,9 @@ const Navbar = () => {
                   <li
                     key={product.id}
                     className='suggestion-item'
-                    onClick={() => handleSuggestionClick(product.id)}
+                    onClick={() => handleSuggestionClick(product)}
                   >
-                    <span className="suggestion-title">{product.title}</span>
+                    <span className="suggestion-title">{product.isBrand ? <strong>{product.title}</strong> : product.title}</span>
                   </li>
                 ))}
               </ul>

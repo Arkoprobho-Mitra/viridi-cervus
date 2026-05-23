@@ -123,16 +123,10 @@ const ProductListing = () => {
                 const json = await res.json();
                 
                 if (!cancelled) {
-                    if (q) {
-                        setApiProducts(json || []);
-                        setTotalServerPages(1);
-                        setApiFacets(null);
-                    } else {
-                        const data = json.data || json;
-                        setApiProducts(data.content || []);
-                        setTotalServerPages(data.totalPages || 1);
-                        setApiFacets(data.facets || null);
-                    }
+                    const data = json.data || json;
+                    setApiProducts(data.content || (Array.isArray(data) ? data : []));
+                    setTotalServerPages(data.totalPages || 1);
+                    setApiFacets(data.facets || null);
                 }
             } catch (err) {
                 if (!cancelled) setApiError(err.message);
