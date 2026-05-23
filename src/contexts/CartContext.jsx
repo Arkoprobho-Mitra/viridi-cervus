@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { useAuth } from './AuthContext';
-import { products } from '../ProductListing.Container/productsData';
+import { prefetchProductsByIds, getCachedProduct } from '../utils/productCache';
 
 export const CartContext = createContext();
 
@@ -12,17 +12,20 @@ export const CartProvider = ({ children }) => {
 
     const getCartKey = () => isAuthenticated && currentUser ? `cart_${currentUser.email}` : 'cart_guest';
 
-    const loadCart = () => {
+    const loadCart = async () => {
         const key = getCartKey();
         const storedItems = JSON.parse(localStorage.getItem(key)) || [];
-        
-        // Enrich items with product data
+
+        // Prefetch all product details in one parallel batch
+        const ids = storedItems.map(item => item.id).filter(Boolean);
+        await prefetchProductsByIds(ids);
+
         const enrichedItems = storedItems.map(item => {
-            const product = products.find(p => p.id === item.id);
+            const product = getCachedProduct(item.id);
             const qty = Number(item.qty || item.quantity || 1);
             return product ? {
                 ...product,
-                ...item, // size, id, raw properties
+                ...item,
                 quantity: qty,
                 originalPrice: Number(product.originalPrice || product.price),
                 price: Number(product.price)
@@ -33,12 +36,11 @@ export const CartProvider = ({ children }) => {
     };
 
     // Load initial and sync across tabs
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         loadCart();
         window.addEventListener('storage', loadCart);
-
-        // Required because sometimes old components dispatch this via window event
-        window.addEventListener('cartUpdated', loadCart); 
+        window.addEventListener('cartUpdated', loadCart);
 
         return () => {
             window.removeEventListener('storage', loadCart);

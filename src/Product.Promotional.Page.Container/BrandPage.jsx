@@ -1,18 +1,29 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { products } from '../ProductListing.Container/productsData';
 import { BrandTemplates } from './BrandTemplates';
 import './BrandPage.css';
+
+const API_BASE = process.env.REACT_APP_SPRING_BASE_URL || 'http://localhost:8081';
 
 const BrandPage = () => {
     const { brandName } = useParams();
     const decodedBrandName = decodeURIComponent(brandName);
+    const [brandProducts, setBrandProducts] = useState(null); // null = loading
 
-    // Filter products for this brand
-    const brandProducts = products.filter(
-        p => p.brand.toLowerCase() === decodedBrandName.toLowerCase()
-    );
+    useEffect(() => {
+        fetch(`${API_BASE}/api/products?size=100&page=0&search=${encodeURIComponent(decodedBrandName)}`)
+            .then(r => r.json())
+            .then(json => {
+                const items = json?.data?.content ?? json?.content ?? [];
+                setBrandProducts(items);
+            })
+            .catch(() => setBrandProducts([]));
+    }, [decodedBrandName]);
+
+    if (brandProducts === null) {
+        return <div className="brand-page-container" style={{ padding: '40px', textAlign: 'center' }}>Loading...</div>;
+    }
 
     if (brandProducts.length === 0) {
         return (
@@ -25,11 +36,7 @@ const BrandPage = () => {
         );
     }
 
-    // Get Template ID from the first product (assuming all products of a brand share the template)
-    // Default to 1 if undefined
     const templateId = brandProducts[0].brandTemplateId || 1;
-
-    // Select the component
     const TemplateComponent = BrandTemplates[templateId] || BrandTemplates[1];
 
     return (

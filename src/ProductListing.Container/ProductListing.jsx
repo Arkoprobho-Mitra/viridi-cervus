@@ -5,44 +5,50 @@ import './ProductListing.css';
 import Filters from './Filters';
 import ProductCard from './ProductCard';
 import Pagination from './Pagination';
-import { products } from './productsData';
+import { resolveCategory, resolveSubCategory, resolveKeyword } from '../utils/categoryMap';
+
+const API_BASE    = process.env.REACT_APP_SPRING_BASE_URL  || 'http://localhost:8081';
+const SEARCH_BASE = process.env.REACT_APP_SEARCH_BASE_URL  || 'http://localhost:8082';
 
 const ProductListing = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
 
-    // Get params with defaults
-    // Default to 'Men' ONLY if no gender, no category, and no search is provided (Landing on /products directly)
-    const category = queryParams.get('category');
-    const search = queryParams.get('search');
+    // URL params
+    const category    = queryParams.get('category');
+    const search      = queryParams.get('search');        // legacy Navbar text search
     const subCategory = queryParams.get('subCategory');
-    const gender = queryParams.get('gender') || (category || search ? null : 'Men');
-    const brandParam = queryParams.get('brand');
+    const gender      = queryParams.get('gender') || (category || search ? null : 'Men');
+    const brandParam  = queryParams.get('brand');
+    const q           = queryParams.get('q');             // semantic search query
 
-    // Capitalize helper
-    const capitalize = (s) => s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+    // ── Pagination state ──────────────────────────────────────────────────────
+    const [currentPage, setCurrentPage] = React.useState(1);
+    const itemsPerPage = 50;
 
-    // Filter State
+    // ── Sort state ────────────────────────────────────────────────────────────
+    const sortParam = queryParams.get('sort') || 'recommended';
+    const [sortBy, setSortBy]       = React.useState(sortParam);
+    const [isSortOpen, setSortOpen] = React.useState(false);
+    const sortTimeoutRef = React.useRef(null);
+
+    // ── Filter state ──────────────────────────────────────────────────────────
     const [selectedFilters, setSelectedFilters] = React.useState({
-        brands: brandParam ? [brandParam] : [],
+        brands:     brandParam ? [brandParam] : [],
         categories: [],
-        prices: [],
+        prices:     [],
         priceRange: [0, 5000],
-        colors: [],
-        discount: null,
+        colors:     [],
+        discount:   null,
         kidsGender: []
     });
 
     const handleFilterChange = (section, value) => {
         if (section === 'discount') {
-            setSelectedFilters(prev => ({
-                ...prev,
-                discount: prev.discount === value ? null : value
-            }));
+            setSelectedFilters(prev => ({ ...prev, discount: prev.discount === value ? null : value }));
         } else if (section === 'priceRange') {
             setSelectedFilters(prev => ({ ...prev, priceRange: value }));
         } else if (Array.isArray(value)) {
-            // Handle bulk update (e.g. from Modal)
             setSelectedFilters(prev => ({ ...prev, [section]: value }));
         } else {
             setSelectedFilters(prev => {
@@ -55,245 +61,202 @@ const ProductListing = () => {
     };
 
     const clearFilters = () => {
-        setSelectedFilters({
-            brands: [],
-            categories: [],
-            prices: [],
-            priceRange: [0, 5000],
-            colors: [],
-            discount: null,
-            kidsGender: []
-        });
+        setSelectedFilters({ brands: [], categories: [], prices: [], priceRange: [0, 5000], colors: [], discount: null, kidsGender: [] });
     };
 
-    // Pagination State
-    const [currentPage, setCurrentPage] = React.useState(1);
-    const itemsPerPage = 50; // Updated to 50 items per page
+    // ── API product state ─────────────────────────────────────────────────────
+    const [apiProducts, setApiProducts] = React.useState([]);
+    const [apiFacets, setApiFacets]     = React.useState(null);
+    const [totalServerPages, setTotalServerPages] = React.useState(1);
+    const [apiLoading, setApiLoading]   = React.useState(false);
+    const [apiError, setApiError]       = React.useState(null);
 
-    // Filter Visibility State
-    const [isFilterOpen, setIsFilterOpen] = React.useState(true);
-
-    // Sorting State
-    const [sortBy, setSortBy] = React.useState('recommended');
-    const [isSortOpen, setSortOpen] = React.useState(false);
-    const sortTimeoutRef = React.useRef(null);
-
-    const handleSortLeave = () => {
-        sortTimeoutRef.current = setTimeout(() => {
-            setSortOpen(false);
-        }, 200);
-    };
-
-    const handleSortEnter = () => {
-        if (sortTimeoutRef.current) {
-            clearTimeout(sortTimeoutRef.current);
-        }
-    };
-
+    // ── Fetch: API (Spring Boot for browsing, Semantic Search for ?q) ─────────
     React.useEffect(() => {
-        return () => {
-            if (sortTimeoutRef.current) {
-                clearTimeout(sortTimeoutRef.current);
+        let cancelled = false;
+
+        const fetchProducts = async () => {
+            setApiLoading(true);
+            setApiError(null);
+            try {
+                const params = new URLSearchParams();
+                const implicitKeyword = resolveKeyword(subCategory);
+                const queryTerm = q || search || implicitKeyword;
+                if (queryTerm)   params.set(q ? 'q' : 'search', queryTerm);
+                if (gender)      params.set('gender', gender);
+                
+                // --- Category mapping ---
+                const resolvedCat = resolveCategory(category && category !== 'Clothing' ? category : null);
+                const resolvedSub = resolveSubCategory(subCategory && subCategory !== 'All' ? subCategory : null);
+                const activeCategories = [...(selectedFilters.categories || [])];
+
+                if (activeCategories.length === 0) {
+                    if (resolvedSub) activeCategories.push(...Array.from(resolvedSub));
+                    else if (resolvedCat) activeCategories.push(...Array.from(resolvedCat));
+                }
+
+                if (activeCategories.length > 0) {
+                    params.set('categories', activeCategories.join(','));
+                }
+                // ------------------------
+
+                if (selectedFilters.brands?.length) params.set('brands', selectedFilters.brands.join(','));
+                if (selectedFilters.colors?.length) params.set('colors', selectedFilters.colors.join(','));
+                if (selectedFilters.priceRange[0] !== '' && selectedFilters.priceRange[0] !== 0) params.set('minPrice', selectedFilters.priceRange[0]);
+                if (selectedFilters.priceRange[1] !== '' && selectedFilters.priceRange[1] !== 5000) params.set('maxPrice', selectedFilters.priceRange[1]);
+                if (selectedFilters.discount) params.set('minDiscount', selectedFilters.discount);
+
+                params.set('page', currentPage - 1);
+                params.set('size', itemsPerPage);
+                let sortDir = 'asc';
+                if (sortBy === 'priceHigh') { params.set('sortBy', 'price'); sortDir = 'desc'; }
+                else if (sortBy === 'priceLow') { params.set('sortBy', 'price'); sortDir = 'asc'; }
+                else if (sortBy === 'discount') { params.set('sortBy', 'discount'); sortDir = 'desc'; }
+                params.set('direction', sortDir);
+
+                const url = q 
+                    ? `${SEARCH_BASE}/api/products/search?${params}`
+                    : `${API_BASE}/api/products?${params}`;
+
+                const res = await fetch(url);
+                if (!res.ok) throw new Error(`API returned HTTP ${res.status}`);
+                const json = await res.json();
+                
+                if (!cancelled) {
+                    if (q) {
+                        setApiProducts(json || []);
+                        setTotalServerPages(1);
+                        setApiFacets(null);
+                    } else {
+                        const data = json.data || json;
+                        setApiProducts(data.content || []);
+                        setTotalServerPages(data.totalPages || 1);
+                        setApiFacets(data.facets || null);
+                    }
+                }
+            } catch (err) {
+                if (!cancelled) setApiError(err.message);
+            } finally {
+                if (!cancelled) setApiLoading(false);
             }
         };
-    }, []);
 
-    // Sorting Logic
+        fetchProducts();
+        return () => { cancelled = true; };
+    }, [q, search, gender, category, subCategory, selectedFilters, currentPage, sortBy]);
+
+    // ── Capitalize helper ─────────────────────────────────────────────────────
+    const capitalize = (s) => s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+
+    // ── Filter sidebar ────────────────────────────────────────────────────────
+    const [isFilterOpen, setIsFilterOpen] = React.useState(() => window.innerWidth > 900);
+
+    const handleSortLeave = () => { sortTimeoutRef.current = setTimeout(() => setSortOpen(false), 200); };
+    const handleSortEnter = () => { if (sortTimeoutRef.current) clearTimeout(sortTimeoutRef.current); };
+
+    React.useEffect(() => () => { if (sortTimeoutRef.current) clearTimeout(sortTimeoutRef.current); }, []);
+
     const sortItems = (items, sortType) => {
         const sorted = [...items];
-        if (sortType === 'discount') {
-            sorted.sort((a, b) => b.discount - a.discount);
-        } else if (sortType === 'priceLow') {
-            sorted.sort((a, b) => a.price - b.price);
-        } else if (sortType === 'priceHigh') {
-            sorted.sort((a, b) => b.price - a.price);
-        }
-        // 'recommended' is default order
+        if (sortType === 'discount')   sorted.sort((a, b) => b.discount - a.discount);
+        if (sortType === 'priceLow')   sorted.sort((a, b) => a.price - b.price);
+        if (sortType === 'priceHigh')  sorted.sort((a, b) => b.price - a.price);
         return sorted;
     };
 
-    const handlePageChange = (page) => {
-        setCurrentPage(page);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    const handlePageChange = (page) => { setCurrentPage(page); window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
-    // 1. Context Filtering (Base products based on URL params - Gender, Category, SubCategory, Search)
-    const contextProducts = products.filter(product => {
-        if (gender && product.group.toLowerCase() !== gender.toLowerCase()) return false;
-        if (category && category !== 'Clothing' && product.category !== category) return false;
-        if (subCategory && subCategory !== 'All' && product.subCategory !== subCategory) return false;
+    // Reset page on filter change
+    React.useEffect(() => { setCurrentPage(1); }, [selectedFilters]);
 
-        if (search) {
-            const query = search.toLowerCase().trim();
-            const searchTerms = query.split(/\s+/);
+    // Reset filters & sort on navigation
+    React.useEffect(() => {
+        setSelectedFilters({ brands: brandParam ? [brandParam] : [], categories: [], prices: [], priceRange: [0, 5000], colors: [], discount: null, kidsGender: [] });
+        setCurrentPage(1);
+        setSortBy(sortParam);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [gender, category, subCategory, search, brandParam, sortParam]);
 
-            const productText = `${product.title} ${product.brand} ${product.category} ${product.subCategory} ${product.group}`.toLowerCase();
+    // ── 1. Context products ───────────────────────────────────────────────────
+    const contextProducts = apiProducts;
 
-            // Check if ALL search terms are present as word beginnings
-            const matches = searchTerms.every(term => {
-                try {
-                    // \b matches word boundary, preventing 'men' from matching 'women'
-                    const regex = new RegExp(`\\b${term}`, 'i');
-                    return regex.test(productText);
-                } catch (e) {
-                    // Fallback to simple includes if regex creation fails (e.g., invalid regex pattern)
-                    return productText.includes(term);
-                }
-            });
-            if (!matches) return false;
-        }
-
-        return true;
-    });
-
-    // 2. Faceted Filtering Helper
+    // ── 2. Faceted filtering helper ───────────────────────────────────────────
     const filterProducts = (prods, filters) => {
+        if (!q) return prods; // Backend already filtered for non-search
         return prods.filter(product => {
-            // Brand Filter
             if (filters.brands?.length > 0 && !filters.brands.includes(product.brand)) return false;
-            // Category Filter
             if (filters.categories?.length > 0 && !filters.categories.includes(product.subCategory)) return false;
-            // Color Filter
             if (filters.colors?.length > 0 && !filters.colors.includes(product.color)) return false;
-            // Kids Gender
             if (filters.kidsGender?.length > 0) {
                 if (product.kidsCategory && !filters.kidsGender.includes(product.kidsCategory)) return false;
                 if (!product.kidsCategory) return false;
             }
-            // Price Range
-            const minPrice = filters.priceRange[0] === '' ? 0 : filters.priceRange[0];
+            const minPrice = filters.priceRange[0] === '' ? 0    : filters.priceRange[0];
             const maxPrice = filters.priceRange[1] === '' ? 5000 : filters.priceRange[1];
             if (product.price < minPrice || product.price > maxPrice) return false;
-            // Price Checkboxes
             if (filters.prices?.length > 0) {
                 const matchesPrice = filters.prices.some(range => {
                     const parts = range.match(/Rs\.\s*(\d+)\s*to\s*Rs\.\s*(\d+)/);
-                    if (parts) {
-                        const min = parseInt(parts[1]);
-                        const max = parseInt(parts[2]);
-                        return product.price >= min && product.price <= max;
-                    }
+                    if (parts) { const min = parseInt(parts[1]); const max = parseInt(parts[2]); return product.price >= min && product.price <= max; }
                     return false;
                 });
                 if (!matchesPrice) return false;
             }
-            // Discount
-            if (filters.discount) {
-                const minDiscount = parseInt(filters.discount);
-                if (product.discount < minDiscount) return false;
-            }
+            if (filters.discount) { if (product.discount < parseInt(filters.discount)) return false; }
             return true;
         });
     };
 
-    // 3. Derive Dynamic Filter Options (Faceted)
-
-    // Brands: Filter by everything EXCEPT Brand
+    // ── 3. Dynamic filter options (faceted) ───────────────────────────────────
     const availableBrands = React.useMemo(() => {
-        const criteria = { ...selectedFilters, brands: [] };
-        const subset = filterProducts(contextProducts, criteria);
-
+        if (apiFacets?.brands) return apiFacets.brands;
+        const subset = filterProducts(contextProducts, { ...selectedFilters, brands: [] });
         const counts = {};
         subset.forEach(p => { counts[p.brand] = (counts[p.brand] || 0) + 1; });
+        return Object.keys(counts).sort().map(brand => ({ name: brand, count: counts[brand] }));
+    }, [apiFacets, contextProducts, selectedFilters]);
 
-        return Object.keys(counts).sort().map(brand => ({
-            name: brand,
-            count: counts[brand]
-        }));
-    }, [contextProducts, selectedFilters]);
-
-    // Categories: Filter by everything EXCEPT Category
     const availableCategories = React.useMemo(() => {
-        const criteria = { ...selectedFilters, categories: [] };
-        const subset = filterProducts(contextProducts, criteria);
+        if (apiFacets?.categories) {
+            // We just return string array
+            if (Array.isArray(apiFacets.categories)) return apiFacets.categories;
+        }
+        const subset = filterProducts(contextProducts, { ...selectedFilters, categories: [] });
         return [...new Set(subset.map(p => p.subCategory))].sort();
-    }, [contextProducts, selectedFilters]);
+    }, [apiFacets, contextProducts, selectedFilters]);
 
-    // Colors: Filter by everything EXCEPT Color
     const availableColors = React.useMemo(() => {
-        const criteria = { ...selectedFilters, colors: [] };
-        const subset = filterProducts(contextProducts, criteria);
-
+        const standardColors = { 'Black': '#000000', 'Grey': '#808080', 'Blue': '#0000FF', 'Navy Blue': '#000080', 'Green': '#008000', 'Brown': '#A52A2A', 'Beige': '#F5F5DC', 'White': '#FFFFFF', 'Red': '#FF0000', 'Olive': '#808000', 'Yellow': '#FFFF00', 'Pink': '#FFC0CB', 'Purple': '#800080', 'Maroon': '#800000', 'Biege': '#F5F5DC', 'Teal': '#008080', 'Rust': '#B7410E', 'Orange': '#FFA500' };
+        if (apiFacets?.colors) {
+            return apiFacets.colors.map(c => ({ name: c.name, count: c.count, hex: standardColors[c.name] || '#cccccc' }));
+        }
+        const subset = filterProducts(contextProducts, { ...selectedFilters, colors: [] });
         const counts = {};
         subset.forEach(p => { counts[p.color] = (counts[p.color] || 0) + 1; });
-
-        const standardColors = {
-            'Black': '#000000', 'Grey': '#808080', 'Blue': '#0000FF', 'Navy Blue': '#000080',
-            'Green': '#008000', 'Brown': '#A52A2A', 'Beige': '#F5F5DC', 'White': '#FFFFFF',
-            'Red': '#FF0000', 'Olive': '#808000', 'Yellow': '#FFFF00', 'Pink': '#FFC0CB',
-            'Purple': '#800080', 'Maroon': '#800000', 'Biege': '#F5F5DC',
-            'Teal': '#008080', 'Rust': '#B7410E', 'Orange': '#FFA500'
-        };
-
-        return Object.keys(counts).map(name => ({
-            name,
-            count: counts[name],
-            hex: standardColors[name] || '#cccccc'
-        }));
-    }, [contextProducts, selectedFilters]);
+        return Object.keys(counts).map(name => ({ name, count: counts[name], hex: standardColors[name] || '#cccccc' }));
+    }, [apiFacets, contextProducts, selectedFilters]);
 
     const dynamicOptions = {
-        brands: availableBrands,
-        categories: (subCategory && subCategory !== 'All') ? [] : availableCategories,
-        colors: availableColors,
-        prices: ['Rs. 300 to Rs. 5000'],
-        discountRange: [
-            '10% and above', '20% and above', '30% and above', '40% and above',
-            '50% and above', '60% and above', '70% and above', '80% and above'
-        ],
-        kidsGender: (gender && gender.toLowerCase() === 'kids' && !category && !subCategory) ? ['Boys', 'Girls', 'Unisex'] : []
+        brands:       availableBrands,
+        categories:   (subCategory && subCategory !== 'All') ? [] : availableCategories,
+        colors:       availableColors,
+        prices:       ['Rs. 300 to Rs. 5000'],
+        discountRange: ['10% and above', '20% and above', '30% and above', '40% and above', '50% and above', '60% and above', '70% and above', '80% and above'],
+        kidsGender:   (gender && gender.toLowerCase() === 'kids' && !category && !subCategory) ? ['Boys', 'Girls', 'Unisex'] : []
     };
 
-    // 4. Final Filtering (Sidebar Filters)
-    const filteredProducts = React.useMemo(() => {
-        return filterProducts(contextProducts, selectedFilters);
-    }, [contextProducts, selectedFilters]);
+    // ── 4. Final filtered + sorted + paginated results ────────────────────────
+    const filteredProducts  = React.useMemo(() => filterProducts(contextProducts, selectedFilters), [contextProducts, selectedFilters]);
+    const sortedProducts    = React.useMemo(() => q ? sortItems(filteredProducts, sortBy) : filteredProducts, [filteredProducts, sortBy, q]);
+    const totalPages        = q ? Math.ceil(sortedProducts.length / itemsPerPage) : totalServerPages;
+    const displayedProducts = q ? sortedProducts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : sortedProducts;
 
-    // Reset page on filter change
-    React.useEffect(() => {
-        setCurrentPage(1);
-    }, [selectedFilters]);
+    const getSortLabel = (type) => ({ discount: 'Better Discount', priceLow: 'Price: Low to High', priceHigh: 'Price: High to Low' }[type] || 'Recommended');
 
-    // Reset filters on navigation (context change)
-    // Reset filters on navigation (context change)
-    React.useEffect(() => {
-        setSelectedFilters({
-            brands: brandParam ? [brandParam] : [],
-            categories: [],
-            prices: [],
-            priceRange: [0, 5000],
-            colors: [],
-            discount: null,
-            kidsGender: []
-        });
-        setCurrentPage(1);
-        setSortBy(queryParams.get('sort') || 'recommended');
-    }, [gender, category, subCategory, search, brandParam, queryParams.get('sort')]);
-
-    // 4. Sorting
-    const sortedProducts = React.useMemo(() => {
-        return sortItems(filteredProducts, sortBy);
-    }, [filteredProducts, sortBy]);
-
-    // Calculate Pagination
-    const totalPages = Math.ceil(sortedProducts.length / itemsPerPage);
-    const displayedProducts = sortedProducts.slice(
-        (currentPage - 1) * itemsPerPage,
-        currentPage * itemsPerPage
-    );
-
-    const getSortLabel = (type) => {
-        switch (type) {
-            case 'discount': return 'Better Discount';
-            case 'priceLow': return 'Price: Low to High';
-            case 'priceHigh': return 'Price: High to Low';
-            default: return 'Recommended';
-        }
-    };
-
+    // ── Render ─────────────────────────────────────────────────────────────────
     return (
         <div className="product-listing-container">
-            {/* Sidebar Wrapper */}
+            {/* Sidebar */}
             <div className={`filter-sidebar-wrapper ${isFilterOpen ? 'open' : 'closed'}`}>
                 <Filters
                     selectedFilters={selectedFilters}
@@ -303,17 +266,16 @@ const ProductListing = () => {
                 />
             </div>
 
-            {/* Main Content */}
+            {/* Main content */}
             <div className="product-grid-section">
 
-                {/* Header Section */}
+                {/* Header */}
                 <div className="listing-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '10px' }}>
-                        {/* Sandwhich Menu Button */}
                         <button
                             className={`sandwich-btn ${isFilterOpen ? 'open' : ''}`}
                             onClick={() => setIsFilterOpen(!isFilterOpen)}
-                            title={isFilterOpen ? "Close Filters" : "Open Filters"}
+                            title={isFilterOpen ? 'Close Filters' : 'Open Filters'}
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -353,12 +315,21 @@ const ProductListing = () => {
                         </div>
                     </div>
 
+                    {/* "Searching for" label */}
+                    {q && (
+                        <div className="semantic-search-label">
+                            Searching for: <strong>{q}</strong>
+                            <span className="semantic-search-count"> — {sortedProducts.length} results</span>
+                        </div>
+                    )}
+
                     <div className="listing-header-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginTop: '10px' }}>
                         <div className="page-title">
-                            {gender ? `${capitalize(gender)} ` : ''}{category || ''} {subCategory ? subCategory : ''} Collections <span className="item-count"> - {sortedProducts.length} items</span>
+                            {gender ? `${capitalize(gender)} ` : ''}{category || ''} {subCategory || ''} Collections
+                            <span className="item-count"> - {sortedProducts.length} items</span>
                         </div>
 
-                        {/* Custom Sort Dropdown */}
+                        {/* Sort dropdown */}
                         <div className="sort-container">
                             <span className="sort-label">Sort by : </span>
                             <div
@@ -369,57 +340,41 @@ const ProductListing = () => {
                             >
                                 <span className="selected-sort">{getSortLabel(sortBy)}</span>
                                 <span className="sort-chevron"></span>
-
                                 <ul className="sort-options-list">
-                                    <li
-                                        className={sortBy === 'recommended' ? 'active' : ''}
-                                        onClick={(e) => { e.stopPropagation(); setSortBy('recommended'); handleSortLeave(); }}
-                                    >
-                                        Recommended
-                                    </li>
-                                    <li
-                                        className={sortBy === 'discount' ? 'active' : ''}
-                                        onClick={(e) => { e.stopPropagation(); setSortBy('discount'); handleSortLeave(); }}
-                                    >
-                                        Better Discount
-                                    </li>
-                                    <li
-                                        className={sortBy === 'priceLow' ? 'active' : ''}
-                                        onClick={(e) => { e.stopPropagation(); setSortBy('priceLow'); handleSortLeave(); }}
-                                    >
-                                        Price: Low to High
-                                    </li>
-                                    <li
-                                        className={sortBy === 'priceHigh' ? 'active' : ''}
-                                        onClick={(e) => { e.stopPropagation(); setSortBy('priceHigh'); handleSortLeave(); }}
-                                    >
-                                        Price: High to Low
-                                    </li>
+                                    {[['recommended', 'Recommended'], ['discount', 'Better Discount'], ['priceLow', 'Price: Low to High'], ['priceHigh', 'Price: High to Low']].map(([val, label]) => (
+                                        <li key={val} className={sortBy === val ? 'active' : ''} onClick={(e) => { e.stopPropagation(); setSortBy(val); handleSortLeave(); }}>
+                                            {label}
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Product Grid */}
+                {/* Product grid */}
                 <div className="product-grid">
-                    {displayedProducts.map(product => (
+                    {apiLoading && (
+                        <div style={{ gridColumn: '1 / -1', padding: '40px', textAlign: 'center', color: '#666' }}>
+                            {q ? `Searching for "${q}"…` : 'Loading products...'}
+                        </div>
+                    )}
+                    {!apiLoading && apiError && (
+                        <div style={{ gridColumn: '1 / -1', padding: '40px', textAlign: 'center', color: '#c00' }}>
+                            Failed to load products: {apiError}
+                        </div>
+                    )}
+                    {!apiLoading && !apiError && displayedProducts.map(product => (
                         <ProductCard key={product.id} product={product} />
                     ))}
-                    {sortedProducts.length === 0 && (
+                    {!apiLoading && !apiError && sortedProducts.length === 0 && (
                         <div style={{ gridColumn: '1 / -1', padding: '20px', textAlign: 'center' }}>
-                            No products found with the selected filters.
+                            {q ? `No results for "${q}". Try a different search term.` : 'No products found with the selected filters.'}
                         </div>
                     )}
                 </div>
 
-                {/* Pagination */}
-                <Pagination
-                    currentPage={currentPage}
-                    totalPages={totalPages}
-                    onPageChange={handlePageChange}
-                />
-
+                <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             </div>
         </div>
     );

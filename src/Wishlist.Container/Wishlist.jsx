@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Wishlist.css';
 import '../ProductListing.Container/ProductListing.css'; // Reuse product card styles
-import { products } from '../ProductListing.Container/productsData';
 import ProductCard from '../ProductListing.Container/ProductCard';
 import Pagination from '../ProductListing.Container/Pagination';
 import WishlistGuest from './WishlistGuest';

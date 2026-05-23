@@ -1,64 +1,148 @@
-import React, { useEffect, useState, useRef, useMemo } from 'react';
+import React, { useEffect, useState, useRef, useMemo, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { products } from '../ProductListing.Container/productsData';
+import { fetchProductById } from '../utils/productCache';
 import { useCart } from '../contexts/CartContext';
 import { useWishlist } from '../contexts/WishlistContext';
+import { useAuth } from '../contexts/AuthContext';
 import './Product.Page.css';
 import ProductCard from '../ProductListing.Container/ProductCard';
+import RecommendedCarousel from './RecommendedCarousel';
+import { productApi } from '../api/productApi';
+
+/* ─── Normalize FastAPI snake_case → camelCase ── */
+const normalizeApiProduct = (p) => ({
+    id:            p.id,
+    brand:         p.brand,
+    title:         p.title,
+    price:         p.price,
+    originalPrice: p.original_price,
+    discount:      p.discount,
+    rating:        p.rating,
+    ratingCount:   p.rating_count,
+    image:         p.image,
+    category:      p.category,
+    subCategory:   p.sub_category,
+    group:         p.product_group,
+    isAd:          p.is_ad,
+});
 
 const ProductPage = () => {
     const { id } = useParams();
     const { addToCart } = useCart();
     const { isInWishlist, toggleWishlist } = useWishlist();
-    const [product, setProduct] = useState(null);
-    const [images, setImages] = useState([]);
+    const { isAuthenticated, currentUser } = useAuth();
+
+    const [product, setProduct]         = useState(null);
+    const [images, setImages]           = useState([]);
     const [thumbnailStartIndex, setThumbnailStartIndex] = useState(0);
     const [animatingId, setAnimatingId] = useState(null);
     const [selectedSize, setSelectedSize] = useState('M');
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity]       = useState(1);
     const [activeAccordion, setActiveAccordion] = useState('desc');
+
+    // Recommendations state
+    const [historyRecs, setHistoryRecs]   = useState([]);
+    const [trendingRecs, setTrendingRecs] = useState([]);
+    const [recsLoading, setRecsLoading]   = useState(false);
+    const [trendLoading, setTrendLoading] = useState(false);
+
+    // Try-On modal removed
 
     const isWishlisted = isInWishlist(product?.id);
 
-    // Check wishlist status on mount/update
+    /* ── Load product & reset state ─────────── */
     useEffect(() => {
         window.scrollTo(0, 0);
-        const found = products.find(p => p.id === parseInt(id));
-        setProduct(found);
-        if (found) {
-            const imgs = Array(8).fill(found.image).map((src, i) => ({ src, id: i }));
-            setImages(imgs);
-            setThumbnailStartIndex(0);
-        }
+        setProduct(null);
+        fetchProductById(parseInt(id)).then(found => {
+            setProduct(found);
+            if (found) {
+                const imgs = Array(8).fill(found.image).map((src, i) => ({ src, id: i }));
+                setImages(imgs);
+                setThumbnailStartIndex(0);
+            }
+        });
     }, [id]);
 
-    // Track Visited Products
+    /* ── Track visited products ──────────────── */
     useEffect(() => {
         if (!product) return;
 
-        const auth = localStorage.getItem('isAuthenticated');
+        const auth       = localStorage.getItem('isAuthenticated');
         const currentUser = auth ? JSON.parse(localStorage.getItem('currentUser')) : null;
-        const historyKey = auth && currentUser ? `visited_products_${currentUser.email}` : 'visited_products_guest';
+        const historyKey = auth && currentUser
+            ? `visited_products_${currentUser.email}`
+            : 'visited_products_guest';
 
-        const history = JSON.parse(localStorage.getItem(historyKey)) || [];
-
-        // Remove current if exists (to move to top)
-        const filteredHistory = history.filter(itemId => itemId !== product.id);
-
-        // Add to front
-        const newHistory = [product.id, ...filteredHistory].slice(0, 15);
+        const history       = JSON.parse(localStorage.getItem(historyKey)) || [];
+        const filtered      = history.filter(itemId => itemId !== product.id);
+        const newHistory    = [product.id, ...filtered].slice(0, 15);
 
         localStorage.setItem(historyKey, JSON.stringify(newHistory));
         window.dispatchEvent(new Event('historyUpdated'));
-
     }, [product]);
+
+    /* ── Fetch history-based recommendations ── */
+    useEffect(() => {
+        if (!product || !isAuthenticated) return;
+
+        setRecsLoading(true);
+        const historyKey = currentUser?.email
+            ? `visited_products_${currentUser.email}`
+            : 'visited_products_guest';
+        const history = JSON.parse(localStorage.getItem(historyKey)) || [];
+
+        const fetchRecs = async () => {
+            try {
+                let data;
+                if (history.length >= 3) {
+                    data = await productApi.getRecommendationsByHistory(history.slice(0, 10), 15);
+                } else {
+                    data = await productApi.getRecommendationsByProduct(product.id, 15);
+                }
+                const normalized = data
+                    .map(normalizeApiProduct)
+                    .filter(p => p.id !== product.id && p.image);
+                setHistoryRecs(normalized);
+            } catch {
+                setHistoryRecs([]);
+            } finally {
+                setRecsLoading(false);
+            }
+        };
+
+        fetchRecs();
+    }, [product, isAuthenticated, currentUser]);
+
+    /* ── Fetch trending products ─────────────── */
+    useEffect(() => {
+        if (!product || !isAuthenticated) return;
+
+        setTrendLoading(true);
+
+        const fetchTrending = async () => {
+            try {
+                const data       = await productApi.getTrending(15);
+                const normalized = data
+                    .map(normalizeApiProduct)
+                    .filter(p => p.id !== product.id && p.image);
+                setTrendingRecs(normalized);
+            } catch {
+                setTrendingRecs([]);
+            } finally {
+                setTrendLoading(false);
+            }
+        };
+
+        fetchTrending();
+    }, [product, isAuthenticated]);
 
     const handleWishlistToggle = () => {
         if (product) toggleWishlist(product.id);
     };
 
-    // Delivery Check State
-    const [pincode, setPincode] = useState('');
+    /* ── Delivery check ──────────────────────── */
+    const [pincode, setPincode]           = useState('');
     const [deliveryResult, setDeliveryResult] = useState(null);
 
     const checkPincode = () => {
@@ -66,112 +150,83 @@ const ProductPage = () => {
             alert('Please enter a valid 6-digit pincode.');
             return;
         }
-        // Mock API simulation
-        const today = new Date();
-        const deliveryDate = new Date(today);
-        deliveryDate.setDate(today.getDate() + 4); // Date + 4 days
-
+        const deliveryDate = new Date(Date.now() + 4 * 86400000);
         setDeliveryResult({
             date: deliveryDate.toLocaleDateString('en-US', { day: 'numeric', month: 'short', weekday: 'short' }),
             fee: 'FREE',
-            message: 'Delivery available'
         });
     };
 
-    // Reviews State & logic
-    const [reviewSort, setReviewSort] = useState('newest');
-    const [isReviewSortOpen, setReviewSortOpen] = useState(false);
+    /* ── Reviews ─────────────────────────────── */
+    const [reviewSort, setReviewSort]             = useState('newest');
+    const [isReviewSortOpen, setReviewSortOpen]   = useState(false);
     const [visibleReviewsCount, setVisibleReviewsCount] = useState(3);
     const reviewSortTimeoutRef = useRef(null);
+    const sortRef              = useRef(null);
 
     const handleReviewSortLeave = () => {
-        reviewSortTimeoutRef.current = setTimeout(() => {
-            setReviewSortOpen(false);
-        }, 200);
+        reviewSortTimeoutRef.current = setTimeout(() => setReviewSortOpen(false), 200);
     };
-
     const handleReviewSortEnter = () => {
-        if (reviewSortTimeoutRef.current) {
-            clearTimeout(reviewSortTimeoutRef.current);
-        }
+        if (reviewSortTimeoutRef.current) clearTimeout(reviewSortTimeoutRef.current);
     };
 
     useEffect(() => {
-        return () => {
-            if (reviewSortTimeoutRef.current) {
-                clearTimeout(reviewSortTimeoutRef.current);
-            }
-        };
+        return () => { if (reviewSortTimeoutRef.current) clearTimeout(reviewSortTimeoutRef.current); };
     }, []);
 
-    const reviewsData = useMemo(() => [
-        { id: 1, user: 'Arjun K.', rating: 5, date: '2 days ago', dateObj: new Date(Date.now() - 2 * 86400000), text: 'Absolutely love the fit! The fabric feels premium and breathable.' },
-        { id: 2, user: 'Sneha P.', rating: 4, date: '1 week ago', dateObj: new Date(Date.now() - 7 * 86400000), text: 'Great quality but the size runs slightly large. Recommend sizing down.' },
-        { id: 3, user: 'Rahul M.', rating: 5, date: '2 weeks ago', dateObj: new Date(Date.now() - 14 * 86400000), text: 'Best purchase I made this season. Worth every rupee.' },
-        { id: 4, user: 'Vikram S.', rating: 2, date: '1 month ago', dateObj: new Date(Date.now() - 30 * 86400000), text: 'Color faded after one wash. Disappointed.' },
-        { id: 5, user: 'Priya D.', rating: 1, date: '2 months ago', dateObj: new Date(Date.now() - 60 * 86400000), text: 'Stitching came off immediately. Poor quality.' },
-        { id: 6, user: 'Amit B.', rating: 5, date: '2 months ago', dateObj: new Date(Date.now() - 65 * 86400000), text: 'Perfect for office wear. Very comfortable.' },
-        { id: 7, user: 'Kavita R.', rating: 4, date: '3 months ago', dateObj: new Date(Date.now() - 90 * 86400000), text: 'Good material, but delivery was delayed.' },
-        { id: 8, user: 'Rohan J.', rating: 3, date: '4 months ago', dateObj: new Date(Date.now() - 120 * 86400000), text: 'Average quality. Expected better for the price.' },
-        { id: 9, user: 'Meera S.', rating: 5, date: '5 months ago', dateObj: new Date(Date.now() - 150 * 86400000), text: 'Loved it! Will buy again.' },
-        { id: 10, user: 'Suresh T.', rating: 4, date: '6 months ago', dateObj: new Date(Date.now() - 180 * 86400000), text: 'Fits well, true to size.' }
-    ], []);
-
-    const sortedReviews = useMemo(() => {
-        const sorted = [...reviewsData];
-        switch (reviewSort) {
-            case 'newest': return sorted.sort((a, b) => b.dateObj - a.dateObj);
-            case 'oldest': return sorted.sort((a, b) => a.dateObj - b.dateObj);
-            case 'ratingHigh': return sorted.sort((a, b) => b.rating - a.rating);
-            case 'ratingLow': return sorted.sort((a, b) => a.rating - b.rating);
-            default: return sorted;
-        }
-    }, [reviewsData, reviewSort]);
-
-    const getReviewSortLabel = (type) => {
-        switch (type) {
-            case 'newest': return 'Newest First';
-            case 'oldest': return 'Oldest First';
-            case 'ratingHigh': return 'Positive First';
-            case 'ratingLow': return 'Negative First';
-            default: return 'Newest First';
-        }
-    };
-
-    // Click outside handler for sort dropdown
-    const sortRef = useRef(null);
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (sortRef.current && !sortRef.current.contains(event.target)) {
-                setReviewSortOpen(false);
-            }
+            if (sortRef.current && !sortRef.current.contains(event.target)) setReviewSortOpen(false);
         };
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
+    const reviewsData = useMemo(() => [
+        { id: 1,  user: 'Arjun K.',   rating: 5, date: '2 days ago',   dateObj: new Date(Date.now() - 2 * 86400000),   text: 'Absolutely love the fit! The fabric feels premium and breathable.' },
+        { id: 2,  user: 'Sneha P.',   rating: 4, date: '1 week ago',   dateObj: new Date(Date.now() - 7 * 86400000),   text: 'Great quality but the size runs slightly large. Recommend sizing down.' },
+        { id: 3,  user: 'Rahul M.',   rating: 5, date: '2 weeks ago',  dateObj: new Date(Date.now() - 14 * 86400000),  text: 'Best purchase I made this season. Worth every rupee.' },
+        { id: 4,  user: 'Vikram S.',  rating: 2, date: '1 month ago',  dateObj: new Date(Date.now() - 30 * 86400000),  text: 'Color faded after one wash. Disappointed.' },
+        { id: 5,  user: 'Priya D.',   rating: 1, date: '2 months ago', dateObj: new Date(Date.now() - 60 * 86400000),  text: 'Stitching came off immediately. Poor quality.' },
+        { id: 6,  user: 'Amit B.',    rating: 5, date: '2 months ago', dateObj: new Date(Date.now() - 65 * 86400000),  text: 'Perfect for office wear. Very comfortable.' },
+        { id: 7,  user: 'Kavita R.',  rating: 4, date: '3 months ago', dateObj: new Date(Date.now() - 90 * 86400000),  text: 'Good material, but delivery was delayed.' },
+        { id: 8,  user: 'Rohan J.',   rating: 3, date: '4 months ago', dateObj: new Date(Date.now() - 120 * 86400000), text: 'Average quality. Expected better for the price.' },
+        { id: 9,  user: 'Meera S.',   rating: 5, date: '5 months ago', dateObj: new Date(Date.now() - 150 * 86400000), text: 'Loved it! Will buy again.' },
+        { id: 10, user: 'Suresh T.',  rating: 4, date: '6 months ago', dateObj: new Date(Date.now() - 180 * 86400000), text: 'Fits well, true to size.' },
+    ], []);
+
+    const sortedReviews = useMemo(() => {
+        const sorted = [...reviewsData];
+        switch (reviewSort) {
+            case 'newest':     return sorted.sort((a, b) => b.dateObj - a.dateObj);
+            case 'oldest':     return sorted.sort((a, b) => a.dateObj - b.dateObj);
+            case 'ratingHigh': return sorted.sort((a, b) => b.rating - a.rating);
+            case 'ratingLow':  return sorted.sort((a, b) => a.rating - b.rating);
+            default:           return sorted;
+        }
+    }, [reviewsData, reviewSort]);
+
+    const getReviewSortLabel = (type) => {
+        switch (type) {
+            case 'newest':     return 'Newest First';
+            case 'oldest':     return 'Oldest First';
+            case 'ratingHigh': return 'Positive First';
+            case 'ratingLow':  return 'Negative First';
+            default:           return 'Newest First';
+        }
+    };
+
+    /* ── Gallery navigation ──────────────────── */
     const handleMainNext = () => {
-        setImages(prev => {
-            const next = [...prev];
-            const first = next.shift();
-            next.push(first);
-            return next;
-        });
+        setImages(prev => { const next = [...prev]; const first = next.shift(); next.push(first); return next; });
     };
-
     const handleMainPrev = () => {
-        setImages(prev => {
-            const next = [...prev];
-            const last = next.pop();
-            next.unshift(last);
-            return next;
-        });
+        setImages(prev => { const next = [...prev]; const last = next.pop(); next.unshift(last); return next; });
     };
-
     const handleThumbnailClick = (clickedId) => {
         if (animatingId !== null) return;
         setAnimatingId(clickedId);
-
         setTimeout(() => {
             setImages(prev => {
                 const index = prev.findIndex(img => img.id === clickedId);
@@ -186,21 +241,18 @@ const ProductPage = () => {
 
     const similarRef = useRef(null);
 
-    // Similar Products (Priority: SubCategory > Brand > Ads)
-    const similarProducts = useMemo(() => {
-        if (!product) return [];
-        return products
-            .filter(p => p.id !== product.id)
-            .map(p => {
-                let score = 0;
-                if (p.subCategory === product.subCategory) score += 1000;
-                if (p.brand === product.brand) score += 100;
-                if (p.isAd) score += 10;
-                return { ...p, score };
+    /* ── Similar products ────────────────────── */
+    const [similarProducts, setSimilarProducts] = React.useState([]);
+    React.useEffect(() => {
+        if (!product) { setSimilarProducts([]); return; }
+        const API_BASE = process.env.REACT_APP_SPRING_BASE_URL || 'http://localhost:8081';
+        fetch(`${API_BASE}/api/products?size=20&page=0&search=${encodeURIComponent(product.brand || product.subCategory || '')}`)
+            .then(r => r.json())
+            .then(json => {
+                const pool = json?.data?.content ?? json?.content ?? [];
+                setSimilarProducts(pool.filter(p => p.id !== product.id).slice(0, 15));
             })
-            .filter(p => p.score > 0)
-            .sort((a, b) => b.score - a.score)
-            .slice(0, 15);
+            .catch(() => setSimilarProducts([]));
     }, [product]);
 
     if (!product) return <div style={{ padding: '100px', textAlign: 'center' }}>Loading...</div>;
@@ -215,11 +267,8 @@ const ProductPage = () => {
             }
         }
     };
-
     const handleSimilarPrev = () => {
-        if (similarRef.current) {
-            similarRef.current.scrollBy({ left: -300, behavior: 'smooth' });
-        }
+        if (similarRef.current) similarRef.current.scrollBy({ left: -300, behavior: 'smooth' });
     };
 
     return (
@@ -233,7 +282,7 @@ const ProductPage = () => {
             </div>
 
             <div className="product-main-layout">
-                {/* Left: Gallery */}
+                {/* ── Left: Gallery ─────────── */}
                 <div className="product-gallery">
                     <div className="main-image-wrapper">
                         <button className="gallery-nav-btn prev" onClick={handleMainPrev}>&lt;</button>
@@ -260,7 +309,7 @@ const ProductPage = () => {
                     </div>
                 </div>
 
-                {/* Right: Details */}
+                {/* ── Right: Details ────────── */}
                 <div className="product-details-panel">
                     <div className="detail-brand">{product.brand}</div>
                     <h1 className="detail-title">{product.title}</h1>
@@ -297,9 +346,7 @@ const ProductPage = () => {
                             value={quantity}
                             onChange={(e) => {
                                 const val = e.target.value;
-                                if (val === '' || /^\d+$/.test(val)) {
-                                    setQuantity(val);
-                                }
+                                if (val === '' || /^\d+$/.test(val)) setQuantity(val);
                             }}
                             onBlur={() => {
                                 let val = parseInt(quantity);
@@ -328,7 +375,7 @@ const ProductPage = () => {
                         {isWishlisted ? '♥ Wishlisted' : '♡ Add to Wishlist'}
                     </button>
 
-                    {/* Delivery Check Section */}
+                    {/* Delivery Check */}
                     <div className="delivery-check-section">
                         <div className="delivery-header-title">
                             DELIVERY OPTIONS <span style={{ fontSize: '16px' }}>🚚</span>
@@ -363,7 +410,7 @@ const ProductPage = () => {
                                     </div>
                                     <p style={{ marginTop: '10px', marginBottom: '5px' }}>
                                         Get it by <strong>{deliveryResult.date}</strong> |
-                                        {deliveryResult.fee === 'FREE' ? <span style={{ color: 'forestgreen', fontWeight: 'bold', marginLeft: '5px' }}>FREE</span> : `Rs. ${deliveryResult.fee}`}
+                                        <span style={{ color: 'forestgreen', fontWeight: 'bold', marginLeft: '5px' }}>FREE</span>
                                     </p>
                                 </div>
                             )
@@ -373,6 +420,7 @@ const ProductPage = () => {
                         </p>
                     </div>
 
+                    {/* Accordion info */}
                     <div className="product-info-accordion">
                         {[
                             {
@@ -408,8 +456,6 @@ const ProductPage = () => {
                                                 <span className="summary-score">{product.rating} <span style={{ color: '#03a685' }}>★</span></span>
                                                 <span className="summary-text">Overall Rating</span>
                                             </div>
-
-                                            {/* Review Sort Dropdown */}
                                             <div className="review-sort-container" ref={sortRef}>
                                                 <div
                                                     className={`review-sort-dropdown ${isReviewSortOpen ? 'open' : ''}`}
@@ -419,17 +465,15 @@ const ProductPage = () => {
                                                 >
                                                     <span>{getReviewSortLabel(reviewSort)}</span>
                                                     <span className="sort-chevron"></span>
-
                                                     <ul className="review-sort-options">
-                                                        <li onClick={() => { setReviewSort('newest'); handleReviewSortLeave(); }}>Newest First</li>
-                                                        <li onClick={() => { setReviewSort('oldest'); handleReviewSortLeave(); }}>Oldest First</li>
+                                                        <li onClick={() => { setReviewSort('newest');     handleReviewSortLeave(); }}>Newest First</li>
+                                                        <li onClick={() => { setReviewSort('oldest');     handleReviewSortLeave(); }}>Oldest First</li>
                                                         <li onClick={() => { setReviewSort('ratingHigh'); handleReviewSortLeave(); }}>Positive First</li>
-                                                        <li onClick={() => { setReviewSort('ratingLow'); handleReviewSortLeave(); }}>Negative First</li>
+                                                        <li onClick={() => { setReviewSort('ratingLow');  handleReviewSortLeave(); }}>Negative First</li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div className="review-list">
                                             {sortedReviews.slice(0, visibleReviewsCount).map(review => (
                                                 <div key={review.id} className="review-item">
@@ -461,9 +505,7 @@ const ProductPage = () => {
                                 </div>
                                 <div className={`info-content-wrapper ${activeAccordion === section.id ? 'open' : ''}`}>
                                     <div className="info-content-inner">
-                                        <div className="info-content">
-                                            {section.content}
-                                        </div>
+                                        <div className="info-content">{section.content}</div>
                                     </div>
                                 </div>
                             </div>
@@ -500,6 +542,26 @@ const ProductPage = () => {
                     ))}
                 </div>
             </div>
+
+            {/* ── AI Recommendation Carousels (logged-in users only) ── */}
+            {isAuthenticated && (
+                <>
+                    <RecommendedCarousel
+                        title="You May Also Like"
+                        subtitle="Picked based on your browsing history"
+                        badge="Personalised"
+                        products={historyRecs}
+                        loading={recsLoading}
+                    />
+                    <RecommendedCarousel
+                        title="Trending Right Now"
+                        subtitle="Top picks from the Viridi Cervus community"
+                        badge="Trending"
+                        products={trendingRecs}
+                        loading={trendLoading}
+                    />
+                </>
+            )}
 
             <div className="view-all-container">
                 <Link

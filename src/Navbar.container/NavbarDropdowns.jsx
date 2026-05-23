@@ -3,7 +3,6 @@ import './Navbar.styles.css';
 
 import { Link } from 'react-router-dom';
 import AddressModal from '../Account.Container/AddressModal';
-import { products } from '../ProductListing.Container/productsData';
 import { useAddress } from '../contexts/AddressContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useCart } from '../contexts/CartContext';

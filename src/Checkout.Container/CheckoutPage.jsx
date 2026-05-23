@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Checkout.css';
 import AddressModal from '../Account.Container/AddressModal';
 import { useNavigate } from 'react-router-dom';
-import { products } from '../ProductListing.Container/productsData';
 import { useAddress } from '../contexts/AddressContext';
 import { useCart } from '../contexts/CartContext';
 

@@ -1,19 +1,27 @@
-import React from 'react';
-import './MergeWishlistModal.css'; // Reusing wishlist modal styles
-import { products } from '../ProductListing.Container/productsData';
+import React, { useState, useEffect } from 'react';
+import './MergeWishlistModal.css';
+import { prefetchProductsByIds, getCachedProduct } from '../utils/productCache';
 
 const MergeCartModal = ({ isOpen, guestCartItems, onMerge, onDiscard }) => {
-    if (!isOpen) return null;
+    const [cartPreviewItems, setCartPreviewItems] = useState([]);
 
-    // Filter products to show preview
-    const cartPreviewItems = guestCartItems.map(item => {
-        const product = products.find(p => p.id === item.id);
-        return {
-            ...product,
-            cartQty: item.quantity || item.qty || 1,
-            cartSize: item.size
-        };
-    }).filter(p => p.id); // Filter out any undefined matches
+    useEffect(() => {
+        if (!isOpen || !guestCartItems?.length) return;
+        const ids = guestCartItems.map(item => item.id).filter(Boolean);
+        prefetchProductsByIds(ids).then(() => {
+            const enriched = guestCartItems.map(item => {
+                const product = getCachedProduct(item.id);
+                return product ? {
+                    ...product,
+                    cartQty: item.quantity || item.qty || 1,
+                    cartSize: item.size
+                } : null;
+            }).filter(Boolean);
+            setCartPreviewItems(enriched);
+        });
+    }, [isOpen, guestCartItems]);
+
+    if (!isOpen) return null;
 
     return (
         <div className="merge-modal-overlay" onClick={onDiscard}>

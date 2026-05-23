@@ -747,3 +747,40 @@
 .change-pincode-btn:hover {
     text-decoration: underline;
 }
+
+/* ─────────────────────────────────────────────
+   Virtual Try-On Button
+───────────────────────────────────────────── */
+.try-on-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #1a4a2e 0%, #2d7a4f 100%);
+    color: #fff;
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.try-on-btn:hover {
+    background: linear-gradient(135deg, #2d7a4f 0%, #1a4a2e 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(45, 122, 79, 0.35);
+}
+
+.try-on-btn:active {
+    transform: translateY(0);
+}
+
+.try-on-icon {
+    font-size: 16px;
+}

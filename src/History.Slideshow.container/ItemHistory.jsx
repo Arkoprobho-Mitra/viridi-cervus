@@ -1,93 +1,75 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import HistorySlidingWindow from './History.Slideshow.jsx';
-import { products } from '../ProductListing.Container/productsData';
 import HistoryBanner from './History.Banner.jsx';
 import { Link } from 'react-router-dom';
+import { prefetchProductsByIds, getCachedProduct } from '../utils/productCache';
+
+const API_BASE = process.env.REACT_APP_SPRING_BASE_URL || 'http://localhost:8081';
 
 const ItemHistory = () => {
     const [historyItems, setHistoryItems] = useState([]);
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('isAuthenticated'));
 
-    const checkAuth = () => {
-        const auth = !!localStorage.getItem('isAuthenticated');
-        setIsAuthenticated(auth);
-        if (!auth) {
-            setHistoryItems([]);
-        } else {
-            updateHistory();
-        }
-    };
+    const formatForSlider = (products) => products.map(product => ({
+        image: (
+            <Link to={`/product/${product.id}`} draggable="false">
+                <img src={product.image} alt={product.title} draggable="false" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </Link>
+        ),
+        description: (
+            <div style={{ textAlign: 'center' }}>
+                <div style={{ fontWeight: 'bold', fontSize: '20px', marginTop: '5px', color: '#333' }}>{product.brand}</div>
+                <div style={{ fontSize: '12px', color: '#666', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{product.title}</div>
+                <div style={{ fontSize: '13px', fontWeight: 'bold', color: '#282c3f' }}>Rs. {product.price}</div>
+            </div>
+        )
+    }));
 
-    const updateHistory = () => {
+    const updateHistory = useCallback(async () => {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (!currentUser) return;
 
         const visitKey = `visited_products_${currentUser.email}`;
         const visitedIds = JSON.parse(localStorage.getItem(visitKey)) || [];
 
-        // 1. Visited Products
-        let items = visitedIds.map(id => products.find(p => p.id === id)).filter(Boolean);
+        await prefetchProductsByIds(visitedIds);
+        let items = visitedIds.map(id => getCachedProduct(id)).filter(Boolean);
         const existingIds = new Set(items.map(p => p.id));
 
-        const fill = (candidates) => {
-            for (const p of candidates) {
-                if (items.length >= 15) return;
-                if (!existingIds.has(p.id)) {
-                    items.push(p);
-                    existingIds.add(p.id);
+        if (items.length < 15) {
+            try {
+                const res = await fetch(`${API_BASE}/api/products?size=50&page=0&sortBy=rating`);
+                const json = await res.json();
+                const pool = json?.data?.content ?? json?.content ?? [];
+                for (const p of pool) {
+                    if (items.length >= 15) break;
+                    if (!existingIds.has(p.id)) {
+                        items.push(p);
+                        existingIds.add(p.id);
+                    }
                 }
-            }
-        };
-
-        // 2. Similar Products (Matches SubCategory of visited items)
-        if (items.length < 15) {
-            const visitedSubCats = new Set(items.map(p => p.subCategory).filter(Boolean));
-            // Prioritize by finding all matching params, but simple filter is okay for now
-            const similarItems = products.filter(p => visitedSubCats.has(p.subCategory));
-            fill(similarItems);
+            } catch { /* graceful empty */ }
         }
 
-        // 3. Same Brand (Matches Brand of visited items)
-        if (items.length < 15) {
-            const visitedBrands = new Set(items.map(p => p.brand).filter(Boolean));
-            const brandItems = products.filter(p => visitedBrands.has(p.brand));
-            fill(brandItems);
-        }
+        setHistoryItems(formatForSlider(items));
+    }, []);
 
-        // 4. Promotional Ads
-        if (items.length < 15) {
-            const ads = products.filter(p => p.isAd);
-            fill(ads);
-        }
-
-        // Format for Slider
-        const formattedItems = items.map(product => ({
-            image: (
-                <Link to={`/product/${product.id}`} draggable="false">
-                    <img src={product.image} alt={product.title} draggable="false" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                </Link>
-            ),
-            description: (
-                <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontWeight: 'bold', fontSize: '20px', marginTop: '5px', color: '#333' }}>{product.brand}</div>
-                    <div style={{ fontSize: '12px', color: '#666', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{product.title}</div>
-                    <div style={{ fontSize: '13px', fontWeight: 'bold', color: '#282c3f' }}>Rs. {product.price}</div>
-                </div>
-            )
-        }));
-
-        setHistoryItems(formattedItems);
-    };
+    const checkAuth = useCallback(() => {
+        const auth = !!localStorage.getItem('isAuthenticated');
+        setIsAuthenticated(auth);
+        if (auth) updateHistory();
+        else setHistoryItems([]);
+    }, [updateHistory]);
 
     useEffect(() => {
         checkAuth();
         window.addEventListener('historyUpdated', updateHistory);
-        window.addEventListener('storage', checkAuth); // Listen for cross-tab updates or manual storage changes if fired
+        window.addEventListener('storage', checkAuth);
         return () => {
             window.removeEventListener('historyUpdated', updateHistory);
             window.removeEventListener('storage', checkAuth);
         };
-    }, []);
+    }, [checkAuth, updateHistory]);
 
     if (!isAuthenticated || historyItems.length === 0) return null;
 

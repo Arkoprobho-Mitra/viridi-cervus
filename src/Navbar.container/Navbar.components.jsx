@@ -7,7 +7,9 @@ import { useAddress } from '../contexts/AddressContext';
 import { useCart } from '../contexts/CartContext';
 import { useWishlist } from '../contexts/WishlistContext';
 
-import { products } from '../ProductListing.Container/productsData';
+// eslint-disable-next-line no-unused-vars
+const API_BASE    = process.env.REACT_APP_SPRING_BASE_URL  || 'http://localhost:8081';
+const SEARCH_BASE = process.env.REACT_APP_SEARCH_BASE_URL  || 'http://localhost:8082';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -17,6 +19,7 @@ const Navbar = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
+  const searchTimeoutRef = React.useRef(null);
 
   const [userName, setUserName] = useState('Profile');
 
@@ -73,15 +76,7 @@ const Navbar = () => {
       localStorage.setItem(searchKey, JSON.stringify(newHistory));
       window.dispatchEvent(new Event('historyUpdated'));
 
-      // Check if the query is a Brand
-      const uniqueBrands = [...new Set(products.map(p => p.brand.toLowerCase()))];
-      if (uniqueBrands.includes(query.toLowerCase())) {
-        // Find the exact casing from products for better display in URL, though matching is lowercase
-        const brandMatch = products.find(p => p.brand.toLowerCase() === query.toLowerCase()).brand;
-        navigate(`/promotions/${encodeURIComponent(brandMatch)}`);
-      } else {
-        navigate(`/products?search=${encodeURIComponent(query)}`);
-      }
+      navigate(`/products?q=${encodeURIComponent(query)}`);
     }
   };
 
@@ -90,28 +85,19 @@ const Navbar = () => {
     const val = e.target.value;
     setSearchQuery(val);
 
+    if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
+
     if (val.trim()) {
-      const searchTerms = val.toLowerCase().trim().split(/\s+/);
-
-      const filtered = products.filter(product => {
-        // combine searchable fields
-        const productText = `${product.title} ${product.brand} ${product.category} ${product.group || ''}`.toLowerCase();
-
-        // Check if ALL search terms are present as word stats (prevent 'men' matching 'women')
-        return searchTerms.every(term => {
-          try {
-            // \b matches word boundary, so 'men' matches 'men' or 'men-s' but not 'women'
-            const regex = new RegExp(`\\b${term}`, 'i');
-            return regex.test(productText);
-          } catch (err) {
-            // Fallback for special regex characters if needed, or simple include
-            return productText.includes(term);
-          }
-        });
-      }).slice(0, 8);
-
-      setSuggestions(filtered);
-      setShowSuggestions(true);
+      searchTimeoutRef.current = setTimeout(() => {
+        fetch(`${SEARCH_BASE}/api/products/search?q=${encodeURIComponent(val.trim())}&size=8`)
+          .then(r => r.json())
+          .then(json => {
+            const results = json?.data?.content ?? json?.content ?? [];
+            setSuggestions(results.slice(0, 8));
+            setShowSuggestions(true);
+          })
+          .catch(() => {});
+      }, 250);
     } else {
       setSuggestions([]);
       setShowSuggestions(false);
@@ -140,6 +126,7 @@ const Navbar = () => {
     setActiveCategory(null); // Close mega menu when hovering items
   };
 
+  // eslint-disable-next-line no-unused-vars
   const handleItemLeave = () => {
     // Only close if modal is NOT open
     if (!isAddressModalOpen) {

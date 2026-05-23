@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Payment.css';
 import { useNavigate } from 'react-router-dom';
-import { products } from '../ProductListing.Container/productsData';
+import { prefetchProductsByIds, getCachedProduct } from '../utils/productCache';
 import { useCards } from '../contexts/CardContext';
 import { getCardProvider, validateCardNumber } from '../utils/cardUtils';
 
@@ -22,34 +22,37 @@ const PaymentPage = () => {
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem('currentUser'));
         setUserData(storedUser);
-        const cartKey = storedUser ? `cart_${storedUser.email}` : 'cart_guest'; // Fallback though likely guarded
+        const cartKey = storedUser ? `cart_${storedUser.email}` : 'cart_guest';
         const storedCart = JSON.parse(localStorage.getItem(cartKey)) || [];
 
-        // Calculate Totals Reuse Logic
-        const enrichedItems = storedCart.map(item => {
-            const product = products.find(p => p.id === item.id);
-            const qty = Number(item.qty || item.quantity || 1);
-            return product ? {
-                ...product,
-                ...item,
-                quantity: qty,
-                originalPrice: Number(product.originalPrice || product.price),
-                price: Number(product.price)
-            } : null;
-        }).filter(Boolean);
+        const loadItems = async () => {
+            const ids = storedCart.map(item => item.id).filter(Boolean);
+            await prefetchProductsByIds(ids);
 
-        setCartItems(enrichedItems);
+            const enrichedItems = storedCart.map(item => {
+                const product = getCachedProduct(item.id);
+                const qty = Number(item.qty || item.quantity || 1);
+                return product ? {
+                    ...product,
+                    ...item,
+                    quantity: qty,
+                    originalPrice: Number(product.originalPrice || product.price),
+                    price: Number(product.price)
+                } : null;
+            }).filter(Boolean);
 
-        const totalMRP = enrichedItems.reduce((acc, item) => acc + (item.originalPrice * item.quantity), 0);
-        const totalDiscount = enrichedItems.reduce((acc, item) => acc + ((item.originalPrice - item.price) * item.quantity), 0);
-        const sub = totalMRP - totalDiscount;
-        const fee = sub > 500 ? 0 : 99;
-        setTotalAmount(sub + fee);
+            setCartItems(enrichedItems);
 
-        if (enrichedItems.length === 0) {
-            navigate('/cart');
-        }
+            const totalMRP = enrichedItems.reduce((acc, item) => acc + (item.originalPrice * item.quantity), 0);
+            const totalDiscount = enrichedItems.reduce((acc, item) => acc + ((item.originalPrice - item.price) * item.quantity), 0);
+            const sub = totalMRP - totalDiscount;
+            const fee = sub > 500 ? 0 : 99;
+            setTotalAmount(sub + fee);
 
+            if (enrichedItems.length === 0) navigate('/cart');
+        };
+
+        loadItems();
     }, [navigate]);
 
     const handleNumberChange = (e) => {

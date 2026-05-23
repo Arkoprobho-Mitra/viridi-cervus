@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './MergeWishlistModal.css';
-import { products } from '../ProductListing.Container/productsData';
+import { prefetchProductsByIds, getCachedProduct } from '../utils/productCache';
 
 const MergeWishlistModal = ({ isOpen, guestItemIds, onMerge, onDiscard }) => {
-    if (!isOpen) return null;
+    const [guestItems, setGuestItems] = useState([]);
 
-    // Filter products to show preview
-    const guestItems = products.filter(p => guestItemIds.includes(p.id));
+    useEffect(() => {
+        if (!isOpen || !guestItemIds?.length) return;
+        prefetchProductsByIds(guestItemIds).then(() => {
+            setGuestItems(guestItemIds.map(id => getCachedProduct(id)).filter(Boolean));
+        });
+    }, [isOpen, guestItemIds]);
+
+    if (!isOpen) return null;
 
     return (
         <div className="merge-modal-overlay" onClick={onDiscard}>

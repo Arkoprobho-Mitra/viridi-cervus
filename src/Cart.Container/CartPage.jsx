@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { products } from '../ProductListing.Container/productsData';
+import { prefetchProductsByIds, getCachedProduct } from '../utils/productCache';
 import { useCart } from '../contexts/CartContext';
 import './CartPage.css';
+
+const API_BASE = process.env.REACT_APP_SPRING_BASE_URL || 'http://localhost:8081';
 
 const CartPage = () => {
     const { cartItems, cartTotal: subtotal, addToCart, removeFromCart, updateQuantity } = useCart();
@@ -21,8 +23,13 @@ const CartPage = () => {
     const [buyAgainItems, setBuyAgainItems] = useState([]);
 
     useEffect(() => {
-        const initialBuyAgain = products.slice(0, 2).map(p => ({ ...p, size: 'M', qty: 1 }));
-        setBuyAgainItems(initialBuyAgain);
+        fetch(`${API_BASE}/api/products?size=2&page=0`)
+            .then(r => r.json())
+            .then(json => {
+                const items = (json?.data?.content ?? json?.content ?? []).slice(0, 2);
+                setBuyAgainItems(items.map(p => ({ ...p, size: 'M', qty: 1 })));
+            })
+            .catch(() => {});
     }, []);
 
     useEffect(() => {
@@ -53,29 +60,30 @@ const CartPage = () => {
         return { cartKey, savedKey, isAuth };
     };
 
-    const enrichItems = (storedItems) => {
+    const enrichItems = async (storedItems) => {
+        const ids = storedItems.map(item => item.id).filter(Boolean);
+        await prefetchProductsByIds(ids);
         return storedItems.map(item => {
-            const product = products.find(p => p.id === item.id);
-            if (product) {
-                return { ...product, ...item };
-            }
-            return null;
+            const product = getCachedProduct(item.id);
+            return product ? { ...product, ...item } : null;
         }).filter(Boolean);
     };
 
-    const updateSavedItems = () => {
+    const updateSavedItems = async () => {
         const { savedKey, isAuth } = getKeys();
 
         if (!isAuth) {
             const wishlistIds = JSON.parse(localStorage.getItem('wishlist_guest')) || [];
+            await prefetchProductsByIds(wishlistIds);
             const wishlistItems = wishlistIds.map(id => {
-                const product = products.find(p => p.id === id);
+                const product = getCachedProduct(id);
                 return product ? { ...product, size: 'M', qty: 1 } : null;
             }).filter(Boolean);
             setSavedItems(wishlistItems);
         } else {
             const storedItems = JSON.parse(localStorage.getItem(savedKey)) || [];
-            setSavedItems(enrichItems(storedItems));
+            const enriched = await enrichItems(storedItems);
+            setSavedItems(enriched);
         }
     };
 

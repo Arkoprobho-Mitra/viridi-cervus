@@ -1,0 +1,139 @@
+/* ─────────────────────────────────────────────
+   Recommended Carousel Section
+───────────────────────────────────────────── */
+
+.rec-carousel-section {
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+
+.rec-carousel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+}
+
+.rec-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rec-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    width: fit-content;
+}
+
+.rec-carousel-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.rec-carousel-subtitle {
+    font-size: 13px;
+    color: #999;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+/* Navigation Buttons */
+.rec-nav-buttons {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+    margin-bottom: 4px;
+}
+
+.rec-nav-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    color: #555;
+    line-height: 1;
+    padding: 0;
+    font-family: Georgia, serif;
+}
+
+.rec-nav-btn:hover {
+    background: #1a1a1a;
+    border-color: #1a1a1a;
+    color: #fff;
+}
+
+/* Carousel Track */
+.rec-carousel-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 12px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.rec-carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.rec-card-wrapper {
+    flex: 0 0 240px;
+    min-width: 0;
+}
+
+/* ─────────────────────────────────────────────
+   Skeleton Loading
+───────────────────────────────────────────── */
+
+.rec-skeleton-card {
+    flex: 0 0 240px;
+    display: flex;
+    flex-direction: column;
+}
+
+.rec-skeleton-img {
+    width: 240px;
+    height: 320px;
+    border-radius: 2px;
+}
+
+.rec-skeleton-line {
+    height: 13px;
+    border-radius: 4px;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+    0%   { background-position: -800px 0; }
+    100% { background-position: 800px 0; }
+}
+
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        #f4f4f4 25%,
+        #eaeaea 37%,
+        #f4f4f4 63%
+    );
+    background-size: 1600px 100%;
+    animation: shimmer 1.5s infinite linear;
+}

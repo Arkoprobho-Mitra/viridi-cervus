@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { useAuth } from './AuthContext';
 import { useCart } from './CartContext';
-import { products } from '../ProductListing.Container/productsData';
+import { prefetchProductsByIds, getCachedProduct } from '../utils/productCache';
 
 export const WishlistContext = createContext();
 
@@ -15,18 +15,21 @@ export const WishlistProvider = ({ children }) => {
 
     const getWishlistKey = () => isAuthenticated && currentUser ? `wishlist_${currentUser.email}` : 'wishlist_guest';
 
-    const loadWishlist = () => {
+    const loadWishlist = async () => {
         const key = getWishlistKey();
         const storedIds = JSON.parse(localStorage.getItem(key)) || [];
         setWishlistIds(storedIds);
 
-        const enrichedItems = storedIds.map(id => {
-            return products.find(p => p.id === id);
-        }).filter(Boolean);
+        await prefetchProductsByIds(storedIds);
+
+        const enrichedItems = storedIds
+            .map(id => getCachedProduct(id))
+            .filter(Boolean);
 
         setWishlistItems(enrichedItems);
     };
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         loadWishlist();
         window.addEventListener('storage', loadWishlist);
